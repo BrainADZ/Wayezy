@@ -1,0 +1,74 @@
+.retail-detection {
+  padding: 24px;
+  background: #f5f5f5;
+  min-height: 100vh;
+  color: #202020;
+}
+.retail-detection h1 {
+  font-size: 24px;
+  margin: 0 0 12px;
+}
+.retail-detection p {
+  margin: 12px 0;
+}
+.retail-detection label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.retail-review {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 20px;
+  align-items: start;
+}
+.retail-original {
+  background: white;
+  border: 1px solid #ccc;
+  overflow: auto;
+}
+.retail-original > svg {
+  width: 100%;
+  height: auto;
+}
+.retail-review aside {
+  background: white;
+  padding: 16px;
+  max-height: 85vh;
+  overflow: auto;
+}
+.retail-review table {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.retail-review th,
+.retail-review td {
+  text-align: left;
+  padding: 8px 4px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
+}
+.retail-review small {
+  display: block;
+  margin-top: 6px;
+}
+.retail-review td:first-child {
+  white-space: nowrap;
+}
+.retail-review [data-status='uncertain'],
+.retail-review [data-status='unmatched'] {
+  color: #813b00;
+}
+.retail-review button {
+  padding: 8px 12px;
+}
+@media (max-width: 800px) {
+  .retail-review {
+    grid-template-columns: 1fr;
+  }
+  .retail-detection {
+    padding: 12px;
+  }
+}

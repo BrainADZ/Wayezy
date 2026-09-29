@@ -1,0 +1,35 @@
+{
+  "notes": "Circulation centre-lines read from the master. Destinations end outside the store frontage, not at a guessed point inside the shop. No step-free certification or real-world distance calibration is supplied.",
+  "aisles": [
+    [[195,493.49],[345,493.49],[440,493.49],[620,493.49]],
+    [[195,493.49],[195,610]],
+    [[164,610],[164,1180]],
+    [[345,493.49],[345,1343]],
+    [[440,165],[440,1343]],
+    [[620,493.49],[620,1020]],
+    [[620,1020],[740,1020]],
+    [[105,610],[752,610]],
+    [[105,775],[752,775]],
+    [[150,974],[630,974]],
+    [[150,1180],[443,1180]],
+    [[105,1343],[740,1343]]
+  ],
+  "frontages": {
+    "starbucks": [125,610], "parisian": [240,610],
+    "love-birds": [147,670], "good-earth": [337,661],
+    "suvasa": [147,823], "forest-essentials": [180,823],
+    "pure-home": [337,824], "da-milano": [337,895],
+    "masaba": [147,1060], "shantanu-nikhil": [147,1135],
+    "sundays": [183,1040], "nykaa-luxe": [337,1108],
+    "nappa-dori": [337,1228], "cafe-dori": [147,1230],
+    "jj-vallaya": [337,1294], "ensemble": [185,1343],
+    "ott": [300,1343], "nicobar": [530,610],
+    "sobe-decor": [634,568], "hatsu": [725,610],
+    "eka": [699,661], "pinklay": [447,824],
+    "fat-lulus": [606,824], "kama-ayurveda": [447,897],
+    "ruh": [606,901], "spin": [634,889],
+    "veg-non-veg": [447,1080], "perona": [700,1020],
+    "coyu": [447,405]
+  },
+  "unresolved": [{"tenant":"soulfoods","reason":"Internal access through the southern core needs a confirmed doorway connection."}]
+}

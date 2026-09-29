@@ -1,0 +1,306 @@
+{
+  "source": "ground-floor-master.svg",
+  "notes": "Overrides reference original elements or surveyed-in-drawing symbol positions, never replacement shop geometry. Unlabelled modules remain unbound until occupancy is supplied.",
+  "labels": [
+    {
+      "id": "module-20",
+      "sourceTextId": "text31673",
+      "reason": "The module number is separated from RETAIL MODULE in a different text element."
+    }
+  ],
+  "areas": [
+    {
+      "id": "office",
+      "kind": "office",
+      "name": "Offices",
+      "sourceTextId": "text26897"
+    },
+    {
+      "id": "special-store",
+      "kind": "special-store",
+      "name": "Special store",
+      "sourceTextId": "text31674"
+    },
+    {
+      "id": "washroom-east",
+      "kind": "washroom",
+      "name": "Men's toilet",
+      "sourceTextId": "text4895"
+    }
+  ],
+  "spaces": [
+    {
+      "id": "lift-lobby-b",
+      "kind": "lobby",
+      "name": "LOBBY B",
+      "sourceTextId": "tspan26667"
+    },
+    {
+      "id": "lift-lobby-c",
+      "kind": "lobby",
+      "name": "LOBBY C",
+      "sourceTextId": "tspan26701"
+    },
+    {
+      "id": "lift-lobby-d",
+      "kind": "lobby",
+      "name": "LOBBY D",
+      "sourceTextId": "tspan26714"
+    },
+    {
+      "id": "lift-lobby-e",
+      "kind": "lobby",
+      "name": "LOBBY E",
+      "sourceTextId": "tspan26716"
+    },
+    {
+      "id": "goods-lift-lobby",
+      "kind": "lobby",
+      "name": "GOODS LIFT",
+      "sourceTextId": "tspan27924"
+    }
+  ],
+  "amenities": [
+    {
+      "id": "ground-entry-starbucks",
+      "kind": "entrance",
+      "name": "Entry 1",
+      "point": [
+        97.59,
+        493.49
+      ],
+      "youAreHere": true,
+      "evidence": "Entry One annotation and existing gate structure"
+    },
+    {
+      "id": "ground-entry-masaba",
+      "kind": "entrance",
+      "name": "Entry 2",
+      "point": [
+        98.93,
+        980.16
+      ],
+      "evidence": "Entry Two annotation and existing gate structure"
+    },
+    {
+      "id": "lift-b",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        292.26,
+        577.49
+      ],
+      "evidence": "Core B lift drawing"
+    },
+    {
+      "id": "lift-c",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        234.93,
+        872.16
+      ],
+      "evidence": "Core C lift drawing"
+    },
+    {
+      "id": "lift-d",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        548.26,
+        872.16
+      ],
+      "evidence": "Core D lift drawing"
+    },
+    {
+      "id": "lift-e",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        237.59,
+        1085.49
+      ],
+      "evidence": "Core E lift drawing"
+    },
+    {
+      "id": "goods-lift",
+      "kind": "lift",
+      "name": "Goods lift",
+      "point": [
+        553.59,
+        1080.16
+      ],
+      "evidence": "Goods lift lobby drawing"
+    },
+    {
+      "id": "stairs-c",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        234.93,
+        813.49
+      ],
+      "evidence": "Core C staircase drawing"
+    },
+    {
+      "id": "stairs-d",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        548.26,
+        813.49
+      ],
+      "evidence": "Core D staircase drawing"
+    },
+    {
+      "id": "stairs-e",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        236.26,
+        1134.83
+      ],
+      "evidence": "Core E staircase drawing"
+    },
+    {
+      "id": "stairs-f",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        533.59,
+        1130.83
+      ],
+      "evidence": "Fire staircase drawing"
+    },
+    {
+      "id": "stairs-north",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        620.26,
+        118.83
+      ],
+      "evidence": "Northern retail core staircase"
+    },
+    {
+      "id": "stairs-central",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        620.26,
+        362.83
+      ],
+      "evidence": "Central retail core staircase"
+    },
+    {
+      "id": "stairs-service",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        745.59,
+        266.83
+      ],
+      "evidence": "ST-01 / ST-02 source staircase label"
+    },
+    {
+      "id": "women-toilet-north",
+      "kind": "washroom",
+      "gender": "female",
+      "name": "Women's toilet",
+      "point": [
+        744,
+        319
+      ],
+      "sourceFillId": "path183",
+      "evidence": "FEMALE TOILET vector outlines in the northern service core"
+    },
+    {
+      "id": "men-toilet-north",
+      "kind": "washroom",
+      "gender": "male",
+      "name": "Men's toilet",
+      "point": [
+        746,
+        372
+      ],
+      "sourceFillId": "path186",
+      "evidence": "MALE TOILET vector outlines in the northern service core"
+    },
+    {
+      "id": "washrooms",
+      "kind": "washroom",
+      "gender": "male",
+      "name": "Men's toilet",
+      "point": [
+        744,
+        818
+      ],
+      "sourceFillId": "path26920",
+      "evidence": "Male toilet source label beside Spin"
+    },
+    {
+      "id": "escalator-west",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        269.3,
+        937.12
+      ],
+      "symbolBounds": {
+        "x": 209.06,
+        "y": 924.8,
+        "width": 120.48,
+        "height": 24.64
+      },
+      "evidence": "Source escalator outside Lobby C"
+    },
+    {
+      "id": "escalator-west-south",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        269.3,
+        1016.48
+      ],
+      "symbolBounds": {
+        "x": 209.06,
+        "y": 1004.16,
+        "width": 120.48,
+        "height": 24.64
+      },
+      "evidence": "Source escalator outside Lobby E"
+    },
+    {
+      "id": "escalator-east",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        518.1,
+        935.6
+      ],
+      "symbolBounds": {
+        "x": 465.86,
+        "y": 928.32,
+        "width": 104.48,
+        "height": 14.56
+      },
+      "evidence": "Source escalator outside Lobby D"
+    },
+    {
+      "id": "escalator-east-south",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        519.7,
+        1017.76
+      ],
+      "symbolBounds": {
+        "x": 462.5,
+        "y": 1011.52,
+        "width": 114.4,
+        "height": 12.48
+      },
+      "evidence": "Source escalator outside goods lift core"
+    }
+  ]
+}

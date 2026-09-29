@@ -1,0 +1,822 @@
+{
+  "nodes": [
+    {
+      "id": "ground-tenant-starbucks",
+      "x": 125,
+      "y": 610
+    },
+    {
+      "id": "ground-tenant-parisian",
+      "x": 240,
+      "y": 610
+    },
+    {
+      "id": "ground-tenant-love-birds",
+      "x": 147,
+      "y": 670
+    },
+    {
+      "id": "ground-walk-3",
+      "x": 164,
+      "y": 670
+    },
+    {
+      "id": "ground-tenant-good-earth",
+      "x": 337,
+      "y": 661
+    },
+    {
+      "id": "ground-walk-5",
+      "x": 345,
+      "y": 661
+    },
+    {
+      "id": "ground-tenant-suvasa",
+      "x": 147,
+      "y": 823
+    },
+    {
+      "id": "ground-walk-7",
+      "x": 164,
+      "y": 823
+    },
+    {
+      "id": "ground-tenant-forest-essentials",
+      "x": 180,
+      "y": 823
+    },
+    {
+      "id": "ground-tenant-pure-home",
+      "x": 337,
+      "y": 824
+    },
+    {
+      "id": "ground-walk-10",
+      "x": 345,
+      "y": 824
+    },
+    {
+      "id": "ground-tenant-da-milano",
+      "x": 337,
+      "y": 895
+    },
+    {
+      "id": "ground-walk-12",
+      "x": 345,
+      "y": 895
+    },
+    {
+      "id": "ground-tenant-masaba",
+      "x": 147,
+      "y": 1060
+    },
+    {
+      "id": "ground-walk-14",
+      "x": 164,
+      "y": 1060
+    },
+    {
+      "id": "ground-tenant-shantanu-nikhil",
+      "x": 147,
+      "y": 1135
+    },
+    {
+      "id": "ground-walk-16",
+      "x": 164,
+      "y": 1135
+    },
+    {
+      "id": "ground-tenant-sundays",
+      "x": 183,
+      "y": 1040
+    },
+    {
+      "id": "ground-walk-18",
+      "x": 164,
+      "y": 1040
+    },
+    {
+      "id": "ground-tenant-nykaa-luxe",
+      "x": 337,
+      "y": 1108
+    },
+    {
+      "id": "ground-walk-20",
+      "x": 345,
+      "y": 1108
+    },
+    {
+      "id": "ground-tenant-nappa-dori",
+      "x": 337,
+      "y": 1228
+    },
+    {
+      "id": "ground-walk-22",
+      "x": 345,
+      "y": 1228
+    },
+    {
+      "id": "ground-tenant-cafe-dori",
+      "x": 147,
+      "y": 1230
+    },
+    {
+      "id": "ground-walk-24",
+      "x": 150,
+      "y": 1180
+    },
+    {
+      "id": "ground-tenant-jj-vallaya",
+      "x": 337,
+      "y": 1294
+    },
+    {
+      "id": "ground-walk-26",
+      "x": 345,
+      "y": 1294
+    },
+    {
+      "id": "ground-tenant-ensemble",
+      "x": 185,
+      "y": 1343
+    },
+    {
+      "id": "ground-tenant-ott",
+      "x": 300,
+      "y": 1343
+    },
+    {
+      "id": "ground-tenant-nicobar",
+      "x": 530,
+      "y": 610
+    },
+    {
+      "id": "ground-tenant-sobe-decor",
+      "x": 634,
+      "y": 568
+    },
+    {
+      "id": "ground-walk-31",
+      "x": 620,
+      "y": 568
+    },
+    {
+      "id": "ground-tenant-hatsu",
+      "x": 725,
+      "y": 610
+    },
+    {
+      "id": "ground-tenant-eka",
+      "x": 699,
+      "y": 661
+    },
+    {
+      "id": "ground-walk-34",
+      "x": 699,
+      "y": 610
+    },
+    {
+      "id": "ground-tenant-pinklay",
+      "x": 447,
+      "y": 824
+    },
+    {
+      "id": "ground-walk-36",
+      "x": 440,
+      "y": 824
+    },
+    {
+      "id": "ground-tenant-fat-lulus",
+      "x": 606,
+      "y": 824
+    },
+    {
+      "id": "ground-walk-38",
+      "x": 620,
+      "y": 824
+    },
+    {
+      "id": "ground-tenant-kama-ayurveda",
+      "x": 447,
+      "y": 897
+    },
+    {
+      "id": "ground-walk-40",
+      "x": 440,
+      "y": 897
+    },
+    {
+      "id": "ground-tenant-ruh",
+      "x": 606,
+      "y": 901
+    },
+    {
+      "id": "ground-walk-42",
+      "x": 620,
+      "y": 901
+    },
+    {
+      "id": "ground-tenant-spin",
+      "x": 634,
+      "y": 889
+    },
+    {
+      "id": "ground-walk-44",
+      "x": 620,
+      "y": 889
+    },
+    {
+      "id": "ground-tenant-veg-non-veg",
+      "x": 447,
+      "y": 1080
+    },
+    {
+      "id": "ground-walk-46",
+      "x": 440,
+      "y": 1080
+    },
+    {
+      "id": "ground-tenant-perona",
+      "x": 700,
+      "y": 1020
+    },
+    {
+      "id": "ground-tenant-coyu",
+      "x": 447,
+      "y": 405
+    },
+    {
+      "id": "ground-walk-49",
+      "x": 440,
+      "y": 405
+    },
+    {
+      "id": "ground-walk-50",
+      "x": 195,
+      "y": 493.49
+    },
+    {
+      "id": "ground-walk-51",
+      "x": 345,
+      "y": 493.49
+    },
+    {
+      "id": "ground-walk-52",
+      "x": 440,
+      "y": 493.49
+    },
+    {
+      "id": "ground-walk-53",
+      "x": 620,
+      "y": 493.49
+    },
+    {
+      "id": "ground-walk-54",
+      "x": 195,
+      "y": 610
+    },
+    {
+      "id": "ground-walk-55",
+      "x": 164,
+      "y": 610
+    },
+    {
+      "id": "ground-walk-56",
+      "x": 164,
+      "y": 775
+    },
+    {
+      "id": "ground-walk-57",
+      "x": 164,
+      "y": 974
+    },
+    {
+      "id": "ground-walk-58",
+      "x": 164,
+      "y": 1180
+    },
+    {
+      "id": "ground-walk-59",
+      "x": 345,
+      "y": 610
+    },
+    {
+      "id": "ground-walk-60",
+      "x": 345,
+      "y": 775
+    },
+    {
+      "id": "ground-walk-61",
+      "x": 345,
+      "y": 974
+    },
+    {
+      "id": "ground-walk-62",
+      "x": 345,
+      "y": 1180
+    },
+    {
+      "id": "ground-walk-63",
+      "x": 345,
+      "y": 1343
+    },
+    {
+      "id": "ground-walk-64",
+      "x": 440,
+      "y": 165
+    },
+    {
+      "id": "ground-walk-65",
+      "x": 440,
+      "y": 610
+    },
+    {
+      "id": "ground-walk-66",
+      "x": 440,
+      "y": 775
+    },
+    {
+      "id": "ground-walk-67",
+      "x": 440,
+      "y": 974
+    },
+    {
+      "id": "ground-walk-68",
+      "x": 440,
+      "y": 1180
+    },
+    {
+      "id": "ground-walk-69",
+      "x": 440,
+      "y": 1343
+    },
+    {
+      "id": "ground-walk-70",
+      "x": 620,
+      "y": 610
+    },
+    {
+      "id": "ground-walk-71",
+      "x": 620,
+      "y": 775
+    },
+    {
+      "id": "ground-walk-72",
+      "x": 620,
+      "y": 974
+    },
+    {
+      "id": "ground-walk-73",
+      "x": 620,
+      "y": 1020
+    },
+    {
+      "id": "ground-walk-74",
+      "x": 740,
+      "y": 1020
+    },
+    {
+      "id": "ground-walk-75",
+      "x": 105,
+      "y": 610
+    },
+    {
+      "id": "ground-walk-76",
+      "x": 752,
+      "y": 610
+    },
+    {
+      "id": "ground-walk-77",
+      "x": 105,
+      "y": 775
+    },
+    {
+      "id": "ground-walk-78",
+      "x": 752,
+      "y": 775
+    },
+    {
+      "id": "ground-walk-79",
+      "x": 150,
+      "y": 974
+    },
+    {
+      "id": "ground-walk-80",
+      "x": 630,
+      "y": 974
+    },
+    {
+      "id": "ground-walk-81",
+      "x": 443,
+      "y": 1180
+    },
+    {
+      "id": "ground-walk-82",
+      "x": 105,
+      "y": 1343
+    },
+    {
+      "id": "ground-walk-83",
+      "x": 740,
+      "y": 1343
+    },
+    {
+      "id": "ground-entry-starbucks",
+      "x": 97.59,
+      "y": 493.49
+    }
+  ],
+  "edges": [
+    {
+      "from": "ground-tenant-love-birds",
+      "to": "ground-walk-3"
+    },
+    {
+      "from": "ground-tenant-good-earth",
+      "to": "ground-walk-5"
+    },
+    {
+      "from": "ground-tenant-suvasa",
+      "to": "ground-walk-7"
+    },
+    {
+      "from": "ground-tenant-forest-essentials",
+      "to": "ground-walk-7"
+    },
+    {
+      "from": "ground-tenant-pure-home",
+      "to": "ground-walk-10"
+    },
+    {
+      "from": "ground-tenant-da-milano",
+      "to": "ground-walk-12"
+    },
+    {
+      "from": "ground-tenant-masaba",
+      "to": "ground-walk-14"
+    },
+    {
+      "from": "ground-tenant-shantanu-nikhil",
+      "to": "ground-walk-16"
+    },
+    {
+      "from": "ground-tenant-sundays",
+      "to": "ground-walk-18"
+    },
+    {
+      "from": "ground-tenant-nykaa-luxe",
+      "to": "ground-walk-20"
+    },
+    {
+      "from": "ground-tenant-nappa-dori",
+      "to": "ground-walk-22"
+    },
+    {
+      "from": "ground-tenant-cafe-dori",
+      "to": "ground-walk-24"
+    },
+    {
+      "from": "ground-tenant-jj-vallaya",
+      "to": "ground-walk-26"
+    },
+    {
+      "from": "ground-tenant-sobe-decor",
+      "to": "ground-walk-31"
+    },
+    {
+      "from": "ground-tenant-eka",
+      "to": "ground-walk-34"
+    },
+    {
+      "from": "ground-tenant-pinklay",
+      "to": "ground-walk-36"
+    },
+    {
+      "from": "ground-tenant-fat-lulus",
+      "to": "ground-walk-38"
+    },
+    {
+      "from": "ground-tenant-kama-ayurveda",
+      "to": "ground-walk-40"
+    },
+    {
+      "from": "ground-tenant-ruh",
+      "to": "ground-walk-42"
+    },
+    {
+      "from": "ground-tenant-spin",
+      "to": "ground-walk-44"
+    },
+    {
+      "from": "ground-tenant-veg-non-veg",
+      "to": "ground-walk-46"
+    },
+    {
+      "from": "ground-tenant-coyu",
+      "to": "ground-walk-49"
+    },
+    {
+      "from": "ground-walk-50",
+      "to": "ground-walk-51"
+    },
+    {
+      "from": "ground-walk-51",
+      "to": "ground-walk-52"
+    },
+    {
+      "from": "ground-walk-52",
+      "to": "ground-walk-53"
+    },
+    {
+      "from": "ground-walk-50",
+      "to": "ground-walk-54"
+    },
+    {
+      "from": "ground-walk-55",
+      "to": "ground-walk-3"
+    },
+    {
+      "from": "ground-walk-3",
+      "to": "ground-walk-56"
+    },
+    {
+      "from": "ground-walk-56",
+      "to": "ground-walk-7"
+    },
+    {
+      "from": "ground-walk-7",
+      "to": "ground-walk-57"
+    },
+    {
+      "from": "ground-walk-57",
+      "to": "ground-walk-18"
+    },
+    {
+      "from": "ground-walk-18",
+      "to": "ground-walk-14"
+    },
+    {
+      "from": "ground-walk-14",
+      "to": "ground-walk-16"
+    },
+    {
+      "from": "ground-walk-16",
+      "to": "ground-walk-58"
+    },
+    {
+      "from": "ground-walk-51",
+      "to": "ground-walk-59"
+    },
+    {
+      "from": "ground-walk-59",
+      "to": "ground-walk-5"
+    },
+    {
+      "from": "ground-walk-5",
+      "to": "ground-walk-60"
+    },
+    {
+      "from": "ground-walk-60",
+      "to": "ground-walk-10"
+    },
+    {
+      "from": "ground-walk-10",
+      "to": "ground-walk-12"
+    },
+    {
+      "from": "ground-walk-12",
+      "to": "ground-walk-61"
+    },
+    {
+      "from": "ground-walk-61",
+      "to": "ground-walk-20"
+    },
+    {
+      "from": "ground-walk-20",
+      "to": "ground-walk-62"
+    },
+    {
+      "from": "ground-walk-62",
+      "to": "ground-walk-22"
+    },
+    {
+      "from": "ground-walk-22",
+      "to": "ground-walk-26"
+    },
+    {
+      "from": "ground-walk-26",
+      "to": "ground-walk-63"
+    },
+    {
+      "from": "ground-walk-64",
+      "to": "ground-walk-49"
+    },
+    {
+      "from": "ground-walk-49",
+      "to": "ground-walk-52"
+    },
+    {
+      "from": "ground-walk-52",
+      "to": "ground-walk-65"
+    },
+    {
+      "from": "ground-walk-65",
+      "to": "ground-walk-66"
+    },
+    {
+      "from": "ground-walk-66",
+      "to": "ground-walk-36"
+    },
+    {
+      "from": "ground-walk-36",
+      "to": "ground-walk-40"
+    },
+    {
+      "from": "ground-walk-40",
+      "to": "ground-walk-67"
+    },
+    {
+      "from": "ground-walk-67",
+      "to": "ground-walk-46"
+    },
+    {
+      "from": "ground-walk-46",
+      "to": "ground-walk-68"
+    },
+    {
+      "from": "ground-walk-68",
+      "to": "ground-walk-69"
+    },
+    {
+      "from": "ground-walk-53",
+      "to": "ground-walk-31"
+    },
+    {
+      "from": "ground-walk-31",
+      "to": "ground-walk-70"
+    },
+    {
+      "from": "ground-walk-70",
+      "to": "ground-walk-71"
+    },
+    {
+      "from": "ground-walk-71",
+      "to": "ground-walk-38"
+    },
+    {
+      "from": "ground-walk-38",
+      "to": "ground-walk-44"
+    },
+    {
+      "from": "ground-walk-44",
+      "to": "ground-walk-42"
+    },
+    {
+      "from": "ground-walk-42",
+      "to": "ground-walk-72"
+    },
+    {
+      "from": "ground-walk-72",
+      "to": "ground-walk-73"
+    },
+    {
+      "from": "ground-walk-73",
+      "to": "ground-tenant-perona"
+    },
+    {
+      "from": "ground-tenant-perona",
+      "to": "ground-walk-74"
+    },
+    {
+      "from": "ground-walk-75",
+      "to": "ground-tenant-starbucks"
+    },
+    {
+      "from": "ground-tenant-starbucks",
+      "to": "ground-walk-55"
+    },
+    {
+      "from": "ground-walk-55",
+      "to": "ground-walk-54"
+    },
+    {
+      "from": "ground-walk-54",
+      "to": "ground-tenant-parisian"
+    },
+    {
+      "from": "ground-tenant-parisian",
+      "to": "ground-walk-59"
+    },
+    {
+      "from": "ground-walk-59",
+      "to": "ground-walk-65"
+    },
+    {
+      "from": "ground-walk-65",
+      "to": "ground-tenant-nicobar"
+    },
+    {
+      "from": "ground-tenant-nicobar",
+      "to": "ground-walk-70"
+    },
+    {
+      "from": "ground-walk-70",
+      "to": "ground-walk-34"
+    },
+    {
+      "from": "ground-walk-34",
+      "to": "ground-tenant-hatsu"
+    },
+    {
+      "from": "ground-tenant-hatsu",
+      "to": "ground-walk-76"
+    },
+    {
+      "from": "ground-walk-77",
+      "to": "ground-walk-56"
+    },
+    {
+      "from": "ground-walk-56",
+      "to": "ground-walk-60"
+    },
+    {
+      "from": "ground-walk-60",
+      "to": "ground-walk-66"
+    },
+    {
+      "from": "ground-walk-66",
+      "to": "ground-walk-71"
+    },
+    {
+      "from": "ground-walk-71",
+      "to": "ground-walk-78"
+    },
+    {
+      "from": "ground-walk-79",
+      "to": "ground-walk-57"
+    },
+    {
+      "from": "ground-walk-57",
+      "to": "ground-walk-61"
+    },
+    {
+      "from": "ground-walk-61",
+      "to": "ground-walk-67"
+    },
+    {
+      "from": "ground-walk-67",
+      "to": "ground-walk-72"
+    },
+    {
+      "from": "ground-walk-72",
+      "to": "ground-walk-80"
+    },
+    {
+      "from": "ground-walk-24",
+      "to": "ground-walk-58"
+    },
+    {
+      "from": "ground-walk-58",
+      "to": "ground-walk-62"
+    },
+    {
+      "from": "ground-walk-62",
+      "to": "ground-walk-68"
+    },
+    {
+      "from": "ground-walk-68",
+      "to": "ground-walk-81"
+    },
+    {
+      "from": "ground-walk-82",
+      "to": "ground-tenant-ensemble"
+    },
+    {
+      "from": "ground-tenant-ensemble",
+      "to": "ground-tenant-ott"
+    },
+    {
+      "from": "ground-tenant-ott",
+      "to": "ground-walk-63"
+    },
+    {
+      "from": "ground-walk-63",
+      "to": "ground-walk-69"
+    },
+    {
+      "from": "ground-walk-69",
+      "to": "ground-walk-83"
+    },
+    {
+      "from": "ground-entry-starbucks",
+      "to": "ground-walk-50"
+    }
+  ],
+  "warnings": [],
+  "unresolved": [
+    {
+      "tenant": "soulfoods",
+      "reason": "Internal access through the southern core needs a confirmed doorway connection."
+    }
+  ]
+}

@@ -1,0 +1,4208 @@
+{
+  "source": "/maps/ground-floor-master.svg",
+  "bounds": {
+    "x": 46.81990864872935,
+    "y": -11.680113464593884,
+    "width": 753.4400430023671,
+    "height": 1452.160025268793
+  },
+  "modules": [
+    {
+      "id": "module-1",
+      "anchor": {
+        "x": 196.48343838949071,
+        "y": 1392.1615822441347
+      },
+      "sourceIds": [
+        "path43",
+        "path45",
+        "path47",
+        "path48",
+        "path49",
+        "path54",
+        "path55",
+        "path56",
+        "path57",
+        "path62",
+        "path63"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 1357.2799021601677,
+        "width": 216.0000001192093,
+        "height": 71.20000964403152
+      },
+      "labelBox": {
+        "x": 73.07707423610347,
+        "y": 1375.0799045711756,
+        "width": 203.19999942609243,
+        "height": 50.857149745736805
+      },
+      "tenantId": "ground-tenant-ensemble",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-1a",
+      "anchor": {
+        "x": 303.2936654623108,
+        "y": 1398.5427848498048
+      },
+      "sourceIds": [
+        "path46",
+        "path50",
+        "path51",
+        "path52",
+        "path53",
+        "path64",
+        "path65",
+        "path66",
+        "path67",
+        "path68",
+        "path69",
+        "path70",
+        "path71"
+      ],
+      "bounds": {
+        "x": 256.25994873046875,
+        "y": 1357.2799021601677,
+        "width": 73.2799964249134,
+        "height": 71.20000964403152
+      },
+      "labelBox": {
+        "x": 282.3570907829063,
+        "y": 1375.0799045711756,
+        "width": 39.4057114262666,
+        "height": 50.857149745736805
+      },
+      "tenantId": "ground-tenant-ott",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-2a",
+      "anchor": {
+        "x": 101.24550439046524,
+        "y": 1292.3096187947342
+      },
+      "sourceIds": [
+        "path58",
+        "path59",
+        "path60",
+        "path4378",
+        "path4379",
+        "path4380",
+        "path4381",
+        "path4382",
+        "path4383",
+        "path4384",
+        "path4412",
+        "path4413"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 1259.8398727774622,
+        "width": 76.63999938964847,
+        "height": 111.04006344079949
+      },
+      "labelBox": {
+        "x": 68.29421670096261,
+        "y": 1262.577015612807,
+        "width": 68.42857088361471,
+        "height": 50.045746049710566
+      },
+      "tenantId": "ground-tenant-cafe-dori",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-2b",
+      "anchor": {
+        "x": 101.08552616920642,
+        "y": 1227.1815302287544
+      },
+      "sourceIds": [
+        "path4403",
+        "path4404",
+        "path4406",
+        "path4407",
+        "path4408",
+        "path4409",
+        "path4410",
+        "path4411"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 1192.9599558711054,
+        "width": 76.63999828696251,
+        "height": 66.87994128465652
+      },
+      "labelBox": {
+        "x": 67.94564315783127,
+        "y": 1195.3485252027003,
+        "width": 69.12571682780981,
+        "height": 57.32566395827702
+      },
+      "tenantId": "ground-tenant-cafe-dori",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-3a",
+      "anchor": {
+        "x": 288.94855716733457,
+        "y": 1292.7896806150786
+      },
+      "sourceIds": [
+        "path4397",
+        "path4398",
+        "path4399",
+        "path4400",
+        "path4533",
+        "path4535",
+        "path4536",
+        "path4537"
+      ],
+      "bounds": {
+        "x": 252.89990234375009,
+        "y": 1259.8399656116962,
+        "width": 76.64001464843741,
+        "height": 70.08000966906548
+      },
+      "labelBox": {
+        "x": 255.402759831931,
+        "y": 1262.3428230998773,
+        "width": 68.89715629177427,
+        "height": 65.07429469270366
+      },
+      "tenantId": "ground-tenant-jj-vallaya",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-3b",
+      "anchor": {
+        "x": 289.42854460108674,
+        "y": 1227.50155787895
+      },
+      "sourceIds": [
+        "path4387",
+        "path4388",
+        "path4390",
+        "path4391",
+        "path4392",
+        "path4393",
+        "path4394",
+        "path4395",
+        "path4522",
+        "path4524",
+        "path4526",
+        "path4527",
+        "path4528",
+        "path4529",
+        "path4530",
+        "path4531"
+      ],
+      "bounds": {
+        "x": 252.89990234375009,
+        "y": 1192.9599558711054,
+        "width": 76.64000833034507,
+        "height": 66.87994128465652
+      },
+      "labelBox": {
+        "x": 255.28847167534497,
+        "y": 1195.3485252027003,
+        "width": 69.12572651250015,
+        "height": 57.32566395827702
+      },
+      "tenantId": "ground-tenant-nappa-dori",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-6a",
+      "anchor": {
+        "x": 100.60553555654005,
+        "y": 1127.4895602594008
+      },
+      "sourceIds": [
+        "path4513",
+        "path4514",
+        "path4515",
+        "path4516",
+        "path4517",
+        "path4518",
+        "path4519"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 1095.679931432009,
+        "width": 76.63999938964847,
+        "height": 69.9200435876844
+      },
+      "labelBox": {
+        "x": 68.0542182794639,
+        "y": 1098.177075845855,
+        "width": 68.90856772661213,
+        "height": 52.4400326907633
+      },
+      "tenantId": "ground-tenant-shantanu-nikhil",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-6b",
+      "anchor": {
+        "x": 100.2855231651325,
+        "y": 1063.1618866847748
+      },
+      "sourceIds": [
+        "path4503",
+        "path4504",
+        "path4506",
+        "path4507",
+        "path4508",
+        "path4509",
+        "path4510",
+        "path4511"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 1028.7999216914177,
+        "width": 76.63999828696251,
+        "height": 66.87994128465652
+      },
+      "labelBox": {
+        "x": 67.94564315783127,
+        "y": 1031.1884910230126,
+        "width": 69.12571682780981,
+        "height": 57.32566395827702
+      },
+      "tenantId": "ground-tenant-masaba",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-7a",
+      "anchor": {
+        "x": 201.45187179931366,
+        "y": 1109.5121388900916
+      },
+      "sourceIds": [
+        "path4298",
+        "path4299",
+        "path4300",
+        "path4301",
+        "path4302",
+        "path4303"
+      ],
+      "bounds": {
+        "x": 187.13991886377337,
+        "y": 1075.5199264883997,
+        "width": 29.12000358104703,
+        "height": 90.07998043298721
+      },
+      "labelBox": {
+        "x": 188.1799189916679,
+        "y": 1076.5599266162942,
+        "width": 23.920002941574346,
+        "height": 87.99998017719814
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-7b",
+      "anchor": {
+        "x": 292.80663761059185,
+        "y": 1127.9129353193603
+      },
+      "sourceIds": [
+        "path4251",
+        "path4252",
+        "path4253",
+        "path4254",
+        "path4255",
+        "path4256",
+        "path4257",
+        "path4258",
+        "path4259",
+        "path4260",
+        "path4261",
+        "path4262",
+        "path4263",
+        "path4264",
+        "path4265",
+        "path4266",
+        "path4267",
+        "path4268",
+        "path4269",
+        "path4270",
+        "path4271",
+        "path4272",
+        "path4273",
+        "path4274",
+        "path4294",
+        "path4296",
+        "path4297"
+      ],
+      "bounds": {
+        "x": 260.89990234375,
+        "y": 1094.3998630046844,
+        "width": 68.6400146484375,
+        "height": 71.20010238885902
+      },
+      "labelBox": {
+        "x": 263.35133143833707,
+        "y": 1099.3941528988735,
+        "width": 58.834298270089285,
+        "height": 51.040079402072266
+      },
+      "tenantId": "ground-tenant-nykaa-luxe",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-7c",
+      "anchor": {
+        "x": 301.73487547030356,
+        "y": 1059.4302326955185
+      },
+      "sourceIds": [
+        "path4277",
+        "path4279",
+        "path4280",
+        "path4281",
+        "path4282",
+        "path4283",
+        "path4284",
+        "path4285",
+        "path4286",
+        "path4287",
+        "path4288",
+        "path4289",
+        "path4290",
+        "path4291",
+        "path4292",
+        "path4293",
+        "path4295"
+      ],
+      "bounds": {
+        "x": 260.89990234375,
+        "y": 1028.7999216914177,
+        "width": 68.63999846577644,
+        "height": 66.87994128465652
+      },
+      "labelBox": {
+        "x": 280.44847129178896,
+        "y": 1031.1884910230126,
+        "width": 41.80000315287283,
+        "height": 59.71423328987189
+      },
+      "tenantId": "ground-tenant-nykaa-luxe",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-7d",
+      "anchor": {
+        "x": 225.091210603714,
+        "y": 1042.3800029754639
+      },
+      "sourceIds": [
+        "path30"
+      ],
+      "bounds": {
+        "x": 187.13992309570312,
+        "y": 1028.7999758422375,
+        "width": 73.75999835133553,
+        "height": 25.119999438524246
+      },
+      "labelBox": {
+        "x": 188.03706593279327,
+        "y": 1029.6971186793276,
+        "width": 71.96571267715522,
+        "height": 23.32571376434394
+      },
+      "tenantId": "ground-tenant-sundays",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-8a",
+      "anchor": {
+        "x": 582.2772938733867,
+        "y": 1113.839936938288
+      },
+      "sourceIds": [
+        "path27024"
+      ],
+      "bounds": {
+        "x": 567.1398620605469,
+        "y": 1078.5599376559258,
+        "width": 28.639999359846115,
+        "height": 64.31999856233597
+      },
+      "labelBox": {
+        "x": 568.1627191805413,
+        "y": 1079.5827947759203,
+        "width": 26.594285119857105,
+        "height": 62.27428432234696
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-8c",
+      "anchor": {
+        "x": 487.56845111200204,
+        "y": 1081.419768191588
+      },
+      "sourceIds": [
+        "path27001",
+        "path27002",
+        "path27003",
+        "path27004",
+        "path27005",
+        "path27007",
+        "path27009",
+        "path27010",
+        "path27011",
+        "path27012"
+      ],
+      "bounds": {
+        "x": 455.4598693847656,
+        "y": 1028.7999216914177,
+        "width": 142.40000176429749,
+        "height": 136.80001932382606
+      },
+      "labelBox": {
+        "x": 463.54558373349056,
+        "y": 1031.7999216914177,
+        "width": 44.857143487249104,
+        "height": 125.91430434797513
+      },
+      "tenantId": "ground-tenant-veg-non-veg",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-9a1",
+      "anchor": {
+        "x": 704.3547829412494,
+        "y": 1087.7398235142305
+      },
+      "sourceIds": [
+        "path27014",
+        "path27015",
+        "path27016",
+        "path27018",
+        "path27019",
+        "path27020",
+        "path27021",
+        "path27022"
+      ],
+      "bounds": {
+        "x": 641.8598937988281,
+        "y": 1034.2399561107159,
+        "width": 142.40001395344734,
+        "height": 65.75997522473358
+      },
+      "labelBox": {
+        "x": 649.2941791266203,
+        "y": 1036.5885266544562,
+        "width": 127.53144329786299,
+        "height": 58.71426359351213
+      },
+      "tenantId": "ground-tenant-perona",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-9a2",
+      "anchor": {
+        "x": 699.3722780188514,
+        "y": 1129.1585281292619
+      },
+      "sourceIds": [
+        "path26965",
+        "path26967",
+        "path27023"
+      ],
+      "bounds": {
+        "x": 572.5798645019531,
+        "y": 1097.9199425280096,
+        "width": 211.6799952685833,
+        "height": 100.6399253308773
+      },
+      "labelBox": {
+        "x": 651.1798628121614,
+        "y": 1100.9199425280096,
+        "width": 77.15999814122915,
+        "height": 55.10281180803265
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-9b",
+      "anchor": {
+        "x": 704.2385174287211,
+        "y": 1266.7072754899273
+      },
+      "sourceIds": [
+        "path26969",
+        "path26970",
+        "path26971"
+      ],
+      "bounds": {
+        "x": 572.5798569619656,
+        "y": 1198.5599033832552,
+        "width": 211.68000280857086,
+        "height": 101.60006213188171
+      },
+      "labelBox": {
+        "x": 575.5798569619656,
+        "y": 1201.5599033832552,
+        "width": 198.12000270826476,
+        "height": 95.60006213188171
+      },
+      "tenantId": "ground-tenant-soulfoods",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-9c",
+      "anchor": {
+        "x": 521.7643443577829,
+        "y": 1270.7799180249401
+      },
+      "sourceIds": [
+        "path26982",
+        "path26984",
+        "path26986",
+        "path26988",
+        "path26990"
+      ],
+      "bounds": {
+        "x": 455.4598693847656,
+        "y": 1192.9598923623564,
+        "width": 117.12000232934952,
+        "height": 107.20007315278053
+      },
+      "labelBox": {
+        "x": 462.64272661081384,
+        "y": 1199.788466403527,
+        "width": 106.93714510330133,
+        "height": 97.3714991116098
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-9d",
+      "anchor": {
+        "x": 521.7643673419952,
+        "y": 1317.4999370574951
+      },
+      "sourceIds": [
+        "path26959",
+        "path26960",
+        "path26961",
+        "path26962",
+        "path26991",
+        "path26993",
+        "path26994",
+        "path26995"
+      ],
+      "bounds": {
+        "x": 455.4598693847656,
+        "y": 1300.1598826646805,
+        "width": 142.40000706911087,
+        "height": 29.760092616081238
+      },
+      "labelBox": {
+        "x": 461.60844437352245,
+        "y": 1301.2227431152548,
+        "width": 109.75999893886703,
+        "height": 27.634371714932577
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-9e",
+      "anchor": {
+        "x": 703.3447322845459,
+        "y": 1317.4999370574951
+      },
+      "sourceIds": [
+        "path26972",
+        "path26977",
+        "path26979",
+        "path26980",
+        "path26996",
+        "path26997",
+        "path26998",
+        "path26999"
+      ],
+      "bounds": {
+        "x": 572.5798645019531,
+        "y": 1300.1598826646805,
+        "width": 211.68001660704613,
+        "height": 29.760092616081238
+      },
+      "labelBox": {
+        "x": 656.8027314767241,
+        "y": 1301.2227431152548,
+        "width": 118.83428858859199,
+        "height": 27.634371714932577
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-10a",
+      "anchor": {
+        "x": 101.17616337083527,
+        "y": 887.9403191665552
+      },
+      "sourceIds": [
+        "path4337",
+        "path4339",
+        "path4340",
+        "path4341"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 854.7199094593525,
+        "width": 76.63999938964847,
+        "height": 70.07997292280197
+      },
+      "labelBox": {
+        "x": 68.05993004143238,
+        "y": 857.2227656351669,
+        "width": 68.89714420267516,
+        "height": 65.07426057117326
+      },
+      "tenantId": "ground-tenant-suvasa",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-10b",
+      "anchor": {
+        "x": 99.8961748403577,
+        "y": 822.1721549551331
+      },
+      "sourceIds": [
+        "path4325",
+        "path4326",
+        "path4327",
+        "path4328",
+        "path4330",
+        "path4331",
+        "path4332",
+        "path4333",
+        "path4334",
+        "path4335"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 787.8399511277676,
+        "width": 76.6399944126606,
+        "height": 66.87995091080666
+      },
+      "labelBox": {
+        "x": 67.9456433632544,
+        "y": 802.1713691800833,
+        "width": 69.12571240429368,
+        "height": 45.38282383233309
+      },
+      "tenantId": "ground-tenant-suvasa",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-11a",
+      "anchor": {
+        "x": 200.6518779743545,
+        "y": 814.3001693085664
+      },
+      "sourceIds": [
+        "path4200",
+        "path4201"
+      ],
+      "bounds": {
+        "x": 187.13992309570312,
+        "y": 787.8399158120155,
+        "width": 29.11999934911728,
+        "height": 78.56003993749619
+      },
+      "labelBox": {
+        "x": 188.1799230724573,
+        "y": 788.8799157887697,
+        "width": 27.039999395608902,
+        "height": 68.0628928478275
+      },
+      "tenantId": "ground-tenant-forest-essentials",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-11b",
+      "anchor": {
+        "x": 292.3352453250497,
+        "y": 822.3004879947148
+      },
+      "sourceIds": [
+        "path4229",
+        "path4230",
+        "path4231",
+        "path4232",
+        "path4233",
+        "path4234",
+        "path4235",
+        "path4236",
+        "path4237",
+        "path4238",
+        "path4239",
+        "path4240",
+        "path4241",
+        "path4242",
+        "path4243",
+        "path4244",
+        "path4245",
+        "path4246",
+        "path4247",
+        "path4248"
+      ],
+      "bounds": {
+        "x": 260.89990234375,
+        "y": 787.8399607539177,
+        "width": 68.63998782634735,
+        "height": 65.75994616746902
+      },
+      "labelBox": {
+        "x": 263.24847184973106,
+        "y": 801.9313777898038,
+        "width": 59.03999254107475,
+        "height": 49.31995962560177
+      },
+      "tenantId": "ground-tenant-pure-home",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-11c",
+      "anchor": {
+        "x": 302.31961750469463,
+        "y": 884.0630429325607
+      },
+      "sourceIds": [
+        "path4205",
+        "path4206",
+        "path4207",
+        "path4208",
+        "path4209",
+        "path4210",
+        "path4211",
+        "path4212",
+        "path4213",
+        "path4214",
+        "path4215",
+        "path4216",
+        "path4217",
+        "path4218",
+        "path4219",
+        "path4220",
+        "path4221",
+        "path4222",
+        "path4224",
+        "path4225",
+        "path4226",
+        "path4249",
+        "path4250"
+      ],
+      "bounds": {
+        "x": 260.89990234375,
+        "y": 853.5999020636082,
+        "width": 68.6400146484375,
+        "height": 71.1999803185463
+      },
+      "labelBox": {
+        "x": 280.51133510044644,
+        "y": 856.0513311581952,
+        "width": 41.67429460797991,
+        "height": 66.29712212937218
+      },
+      "tenantId": "ground-tenant-da-milano",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-11d",
+      "anchor": {
+        "x": 225.0359582901001,
+        "y": 911.7399272918701
+      },
+      "sourceIds": [
+        "path31",
+        "path4202",
+        "path4203",
+        "path4204"
+      ],
+      "bounds": {
+        "x": 187.13992309570312,
+        "y": 866.399931371212,
+        "width": 73.75999835133553,
+        "height": 58.39992672204971
+      },
+      "labelBox": {
+        "x": 189.22563476434775,
+        "y": 901.8570297381708,
+        "width": 69.58857501404626,
+        "height": 20.85711668644632
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-12a",
+      "anchor": {
+        "x": 583.728004318789,
+        "y": 814.3310502792702
+      },
+      "sourceIds": [
+        "path4194",
+        "path4195"
+      ],
+      "bounds": {
+        "x": 568.7398986816406,
+        "y": 787.8399158120155,
+        "width": 29.11999934911728,
+        "height": 78.56003993749619
+      },
+      "labelBox": {
+        "x": 569.7798986583948,
+        "y": 788.8799157887697,
+        "width": 27.039999395608902,
+        "height": 68.0628928478275
+      },
+      "tenantId": "ground-tenant-fat-lulus",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-12b",
+      "anchor": {
+        "x": 490.3488288174731,
+        "y": 822.332006019824
+      },
+      "sourceIds": [
+        "path4438",
+        "path4439",
+        "path4440",
+        "path4441",
+        "path4442",
+        "path4443",
+        "path4444",
+        "path4445",
+        "path4446",
+        "path4447",
+        "path4448",
+        "path4449",
+        "path4450",
+        "path4451",
+        "path4452",
+        "path4453",
+        "path4454",
+        "path4455",
+        "path4456",
+        "path4457"
+      ],
+      "bounds": {
+        "x": 455.4598693847656,
+        "y": 787.8399607539177,
+        "width": 68.64001217484474,
+        "height": 65.75994616746902
+      },
+      "labelBox": {
+        "x": 462.7112969032356,
+        "y": 801.9313777898038,
+        "width": 59.040015150393764,
+        "height": 49.31995962560177
+      },
+      "tenantId": "ground-tenant-pinklay",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-12c",
+      "anchor": {
+        "x": 482.5672160903245,
+        "y": 884.0196956209458
+      },
+      "sourceIds": [
+        "path4414",
+        "path4415",
+        "path4416",
+        "path4417",
+        "path4418",
+        "path4419",
+        "path4420",
+        "path4421",
+        "path4422",
+        "path4423",
+        "path4424",
+        "path4425",
+        "path4426",
+        "path4427",
+        "path4428",
+        "path4429",
+        "path4430",
+        "path4431",
+        "path4433",
+        "path4434",
+        "path4435",
+        "path4458",
+        "path4459"
+      ],
+      "bounds": {
+        "x": 455.4598693847656,
+        "y": 853.5999020636082,
+        "width": 68.6400146484375,
+        "height": 71.1999803185463
+      },
+      "labelBox": {
+        "x": 462.8141566685268,
+        "y": 856.0513311581952,
+        "width": 41.67429460797991,
+        "height": 66.29712212937218
+      },
+      "tenantId": "ground-tenant-kama-ayurveda",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-12d",
+      "anchor": {
+        "x": 561.1047143936157,
+        "y": 912.5399150848389
+      },
+      "sourceIds": [
+        "path4196",
+        "path4197",
+        "path4198",
+        "path31996"
+      ],
+      "bounds": {
+        "x": 524.0998840332031,
+        "y": 866.399931371212,
+        "width": 73.76001399755478,
+        "height": 58.39992672204971
+      },
+      "labelBox": {
+        "x": 526.1855957018478,
+        "y": 901.8570297381708,
+        "width": 69.58859066026551,
+        "height": 20.85711668644632
+      },
+      "tenantId": "ground-tenant-ruh",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-13",
+      "anchor": {
+        "x": 712.4963681697845,
+        "y": 886.4598979949951
+      },
+      "sourceIds": [
+        "path26902",
+        "path26907",
+        "path26908",
+        "path26909",
+        "path26910",
+        "path26911",
+        "path26912",
+        "path26913",
+        "path26914",
+        "path26915",
+        "path26916"
+      ],
+      "bounds": {
+        "x": 641.8598603606225,
+        "y": 855.1999460160732,
+        "width": 142.40003025531757,
+        "height": 68.32000485062599
+      },
+      "labelBox": {
+        "x": 644.2998605338591,
+        "y": 864.9599467090197,
+        "width": 132.43431454258294,
+        "height": 56.12000398444278
+      },
+      "tenantId": "ground-tenant-spin",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-14a",
+      "anchor": {
+        "x": 100.77894135242781,
+        "y": 726.9606534687229
+      },
+      "sourceIds": [
+        "path4320",
+        "path4321",
+        "path4322"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 694.71991071105,
+        "width": 76.63999938964847,
+        "height": 65.76000109314919
+      },
+      "labelBox": {
+        "x": 67.9056453332305,
+        "y": 697.0684821786625,
+        "width": 69.20571361907894,
+        "height": 61.062858157924246
+      },
+      "tenantId": "ground-tenant-love-birds",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-14b",
+      "anchor": {
+        "x": 101.41897122150561,
+        "y": 658.4724983712478
+      },
+      "sourceIds": [
+        "path4306",
+        "path4307",
+        "path4308",
+        "path4309",
+        "path4311",
+        "path4312",
+        "path4313",
+        "path4314",
+        "path4315",
+        "path4316",
+        "path4318"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 623.6799265742302,
+        "width": 76.63999828696251,
+        "height": 71.04003649950027
+      },
+      "labelBox": {
+        "x": 68.09421798693283,
+        "y": 638.9027915384089,
+        "width": 68.82856716960669,
+        "height": 45.66859489253589
+      },
+      "tenantId": "ground-tenant-love-birds",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-15a",
+      "anchor": {
+        "x": 288.0020696380461,
+        "y": 727.1209622970583
+      },
+      "sourceIds": [
+        "path4551",
+        "path4552",
+        "path4553"
+      ],
+      "bounds": {
+        "x": 252.89990234375009,
+        "y": 694.71991071105,
+        "width": 76.64001464843741,
+        "height": 65.76000109314919
+      },
+      "labelBox": {
+        "x": 255.24847381136254,
+        "y": 697.0684821786625,
+        "width": 69.20572833291114,
+        "height": 61.062858157924246
+      },
+      "tenantId": "ground-tenant-good-earth",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-15b",
+      "anchor": {
+        "x": 287.84203165320037,
+        "y": 659.1128181573005
+      },
+      "sourceIds": [
+        "path4540",
+        "path4541",
+        "path4543",
+        "path4544",
+        "path4545",
+        "path4546",
+        "path4547",
+        "path4548",
+        "path4550"
+      ],
+      "bounds": {
+        "x": 252.89990234375009,
+        "y": 623.6799265742302,
+        "width": 76.64000833034507,
+        "height": 71.04003649950027
+      },
+      "labelBox": {
+        "x": 255.43704650444653,
+        "y": 626.2170707349267,
+        "width": 68.82857685429703,
+        "height": 58.354315696018084
+      },
+      "tenantId": "ground-tenant-good-earth",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-16a",
+      "anchor": {
+        "x": 494.184623832423,
+        "y": 726.3209745517726
+      },
+      "sourceIds": [
+        "path4497",
+        "path4498",
+        "path4499",
+        "path4500"
+      ],
+      "bounds": {
+        "x": 455.4598693847656,
+        "y": 693.5999630987644,
+        "width": 76.6400146484375,
+        "height": 66.8799487054348
+      },
+      "labelBox": {
+        "x": 460.58558236168966,
+        "y": 695.9885326953871,
+        "width": 69.12573207489082,
+        "height": 62.10280951218946
+      },
+      "tenantId": "ground-tenant-good-earth",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-16b",
+      "anchor": {
+        "x": 494.2674483755718,
+        "y": 658.6328173721087
+      },
+      "sourceIds": [
+        "path4484",
+        "path4485",
+        "path4487",
+        "path4488",
+        "path4489",
+        "path4490",
+        "path4491",
+        "path4492",
+        "path4493"
+      ],
+      "bounds": {
+        "x": 455.4598693847656,
+        "y": 623.6799265742302,
+        "width": 76.885986328125,
+        "height": 69.92004138231277
+      },
+      "labelBox": {
+        "x": 463.4488698861429,
+        "y": 626.1770709093128,
+        "width": 63.653913408517845,
+        "height": 57.43431970689978
+      },
+      "tenantId": "ground-tenant-good-earth",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-17a",
+      "anchor": {
+        "x": 743.1277707333662,
+        "y": 726.1305041213856
+      },
+      "sourceIds": [
+        "path4479",
+        "path4480",
+        "path4481"
+      ],
+      "bounds": {
+        "x": 707.6198539435863,
+        "y": 694.71991071105,
+        "width": 76.6400479078294,
+        "height": 65.76000109314919
+      },
+      "labelBox": {
+        "x": 709.9684254111988,
+        "y": 697.0684821786625,
+        "width": 69.20576040446768,
+        "height": 61.062858157924246
+      },
+      "tenantId": "ground-tenant-eka",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-17b",
+      "anchor": {
+        "x": 744.1805474758148,
+        "y": 660.8492412567139
+      },
+      "sourceIds": [
+        "path4464",
+        "path4465",
+        "path4466",
+        "path4467",
+        "path4469",
+        "path4470",
+        "path4471",
+        "path4472",
+        "path4473",
+        "path4474",
+        "path4476"
+      ],
+      "bounds": {
+        "x": 707.6199035644532,
+        "y": 623.6799265742302,
+        "width": 76.63999828696251,
+        "height": 71.04003649950027
+      },
+      "labelBox": {
+        "x": 710.1570477251497,
+        "y": 638.9027915384089,
+        "width": 68.82856716960669,
+        "height": 45.66859489253589
+      },
+      "tenantId": "ground-tenant-eka",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-18",
+      "anchor": {
+        "x": 101.27186569540237,
+        "y": 548.0590667911873
+      },
+      "sourceIds": [
+        "path4178",
+        "path4179",
+        "path4180",
+        "path4181",
+        "path4182",
+        "path4183",
+        "path4184",
+        "path4185",
+        "path4186",
+        "path4187",
+        "path4188",
+        "path4190",
+        "path4191",
+        "path4192"
+      ],
+      "bounds": {
+        "x": 62.81990864872935,
+        "y": 525.1199290156364,
+        "width": 118.24001973867414,
+        "height": 71.20003393292427
+      },
+      "labelBox": {
+        "x": 69.58562485128644,
+        "y": 527.6627873703837,
+        "width": 108.93144518136975,
+        "height": 50.85716709494591
+      },
+      "tenantId": "ground-tenant-starbucks",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-18a",
+      "anchor": {
+        "x": 233.37294149122638,
+        "y": 548.0599849919408
+      },
+      "sourceIds": [
+        "path33",
+        "path35",
+        "path36"
+      ],
+      "bounds": {
+        "x": 211.29992675781253,
+        "y": 525.1198679804802,
+        "width": 118.23999735713002,
+        "height": 71.20000964403152
+      },
+      "labelBox": {
+        "x": 213.84278424509938,
+        "y": 527.662725467767,
+        "width": 37.142855510115616,
+        "height": 66.11429466945785
+      },
+      "tenantId": "ground-tenant-parisian",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-19",
+      "anchor": {
+        "x": 530.4258276321624,
+        "y": 548.0597033401356
+      },
+      "sourceIds": [
+        "path4361",
+        "path4362",
+        "path4363",
+        "path4364",
+        "path4365",
+        "path4366",
+        "path4367",
+        "path4368",
+        "path4369",
+        "path4370",
+        "path4371",
+        "path4372",
+        "path4373",
+        "path4374",
+        "path4375",
+        "path114",
+        "path116"
+      ],
+      "bounds": {
+        "x": 455.4598693847656,
+        "y": 460.47991675138474,
+        "width": 142.4000803232193,
+        "height": 135.84004619717598
+      },
+      "labelBox": {
+        "x": 463.5455865391663,
+        "y": 531.3999398499727,
+        "width": 131.3143631688186,
+        "height": 47.365732434604844
+      },
+      "tenantId": "ground-tenant-nicobar",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-20",
+      "anchor": {
+        "x": 654.8969212009337,
+        "y": 555.8998522659168
+      },
+      "sourceIds": [
+        "path40",
+        "path91"
+      ],
+      "bounds": {
+        "x": 641.8599548339845,
+        "y": 460.47991675138474,
+        "width": 30.719999313354492,
+        "height": 135.83996087312698
+      },
+      "labelBox": {
+        "x": 642.9570976666043,
+        "y": 529.4970400205681,
+        "width": 28.525713648114888,
+        "height": 65.72569477132389
+      },
+      "tenantId": "ground-tenant-sobe-decor",
+      "method": "source-label-override"
+    },
+    {
+      "id": "module-20a",
+      "anchor": {
+        "x": 705.8790747024749,
+        "y": 552.3998253341541
+      },
+      "sourceIds": [
+        "path4344",
+        "path4345",
+        "path4346",
+        "path4347",
+        "path4348",
+        "path4349",
+        "path4350",
+        "path4351",
+        "path4352",
+        "path4353",
+        "path4354",
+        "path4355",
+        "path4356",
+        "path4357",
+        "path4358"
+      ],
+      "bounds": {
+        "x": 672.579859673977,
+        "y": 525.1199290156364,
+        "width": 111.68000233173359,
+        "height": 71.20003393292427
+      },
+      "labelBox": {
+        "x": 675.1227180287243,
+        "y": 527.6627873703837,
+        "width": 102.60571411039138,
+        "height": 50.85716709494591
+      },
+      "tenantId": "ground-tenant-hatsu",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-21a",
+      "anchor": {
+        "x": 524.5221920013428,
+        "y": 371.97987174987793
+      },
+      "sourceIds": [
+        "path73",
+        "path74",
+        "path75",
+        "path78",
+        "path94",
+        "path96",
+        "path97",
+        "path98",
+        "path99",
+        "path102",
+        "path103",
+        "path105",
+        "path107",
+        "path108",
+        "path109",
+        "path110",
+        "path113"
+      ],
+      "bounds": {
+        "x": 455.4599304199219,
+        "y": 304.7998898923397,
+        "width": 192.9600242674352,
+        "height": 158.560026794672
+      },
+      "labelBox": {
+        "x": 465.3513598580446,
+        "y": 336.1141803913883,
+        "width": 124.93715932433102,
+        "height": 118.58287819581373
+      },
+      "tenantId": "ground-tenant-coyu",
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-21b",
+      "anchor": {
+        "x": 524.682165145874,
+        "y": 42.93985939025879
+      },
+      "sourceIds": [
+        "path119",
+        "path120",
+        "path121",
+        "path122",
+        "path123",
+        "path125",
+        "path126",
+        "path127",
+        "path128",
+        "path129",
+        "path130",
+        "path134",
+        "path138",
+        "path139",
+        "path141",
+        "path142",
+        "path144",
+        "path148",
+        "path150",
+        "path151",
+        "path152",
+        "path156",
+        "path157",
+        "path158",
+        "path159",
+        "path160",
+        "path162",
+        "path164",
+        "path166"
+      ],
+      "bounds": {
+        "x": 455.4599304199219,
+        "y": 0.3198865354061162,
+        "width": 328.8000212311746,
+        "height": 197.59999719262126
+      },
+      "labelBox": {
+        "x": 646.345656837736,
+        "y": 10.377029292285446,
+        "width": 111.42857901113379,
+        "height": 163.37142616510394
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-21d",
+      "anchor": {
+        "x": 751.4219143390656,
+        "y": 446.0598735809326
+      },
+      "sourceIds": [
+        "path77",
+        "path79",
+        "path81",
+        "path82",
+        "path83",
+        "path85",
+        "path86",
+        "path87",
+        "path89",
+        "path90",
+        "path168",
+        "path4137",
+        "path4138",
+        "path4140",
+        "path4141",
+        "path4142",
+        "path4143",
+        "path4144",
+        "path32021"
+      ],
+      "bounds": {
+        "x": 599.2999557852746,
+        "y": 197.91988179087642,
+        "width": 184.95990711450577,
+        "height": 265.4400959312916
+      },
+      "labelBox": {
+        "x": 655.1456435322763,
+        "y": 314.6799229042871,
+        "width": 53.451398715376854,
+        "height": 136.20005139176337
+      },
+      "method": "source-fill-and-label"
+    }
+  ],
+  "areas": [
+    {
+      "id": "office",
+      "kind": "office",
+      "name": "Offices",
+      "sourceTextId": "text26897",
+      "sourceIds": [
+        "text26897"
+      ],
+      "bounds": {
+        "x": 137.2204037307529,
+        "y": 188.58414276330586,
+        "width": 105.42952352308475,
+        "height": 51.84591893302968
+      },
+      "anchor": {
+        "x": 189.93516549229528,
+        "y": 214.5071022298207
+      }
+    },
+    {
+      "id": "special-store",
+      "kind": "special-store",
+      "name": "Special store",
+      "sourceTextId": "text31674",
+      "sourceIds": [
+        "text31674",
+        "path1",
+        "path3",
+        "path5",
+        "path6",
+        "path7",
+        "path9",
+        "path10",
+        "path11",
+        "path12",
+        "path13",
+        "path14",
+        "path15",
+        "path16",
+        "path17",
+        "path18",
+        "path19",
+        "path20",
+        "path21",
+        "path22",
+        "path23",
+        "path24",
+        "path25",
+        "path29",
+        "path27013"
+      ],
+      "bounds": {
+        "x": 641.8598937988281,
+        "y": 923.5198976099491,
+        "width": 142.4000537097454,
+        "height": 110.7200239598751
+      },
+      "anchor": {
+        "x": 729.9591354597105,
+        "y": 977.8198351760731
+      }
+    },
+    {
+      "id": "washroom-east",
+      "kind": "washroom",
+      "name": "Men's toilet",
+      "sourceTextId": "text4895",
+      "sourceIds": [
+        "text4895",
+        "path26901",
+        "path26904",
+        "path26906"
+      ],
+      "bounds": {
+        "x": 641.8598937988281,
+        "y": 786.7199450731277,
+        "width": 142.3999703526498,
+        "height": 75.51997649669647
+      },
+      "anchor": {
+        "x": 729.9747924804688,
+        "y": 818.6998901367188
+      }
+    },
+    {
+      "id": "layer-MC0",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC0"
+      ],
+      "bounds": {
+        "x": 62.819915771484375,
+        "y": 525.1198654174805,
+        "width": 721.4400024414062,
+        "height": 903.3600463867188
+      },
+      "anchor": {
+        "x": 423.5399169921875,
+        "y": 976.7998886108398
+      }
+    },
+    {
+      "id": "layer-MC1",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC1"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 525.1198654174805,
+        "width": 721.5999755859375,
+        "height": 903.3600463867188
+      },
+      "anchor": {
+        "x": 423.6199188232422,
+        "y": 976.7998886108398
+      }
+    },
+    {
+      "id": "layer-MC2",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC2"
+      ],
+      "bounds": {
+        "x": 187.13992309570312,
+        "y": 550.2399215698242,
+        "width": 597.1199951171875,
+        "height": 615.3599853515625
+      },
+      "anchor": {
+        "x": 485.6999206542969,
+        "y": 857.9199142456055
+      }
+    },
+    {
+      "id": "layer-MC3",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC3"
+      ],
+      "bounds": {
+        "x": 455.4599304199219,
+        "y": 0.3198852539062358,
+        "width": 328.800048828125,
+        "height": 463.04010009765625
+      },
+      "anchor": {
+        "x": 619.8599548339844,
+        "y": 231.83993530273438
+      }
+    },
+    {
+      "id": "layer-MC4",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC4"
+      ],
+      "bounds": {
+        "x": 596.5799255371094,
+        "y": 88.79988861083983,
+        "width": 187.6800537109375,
+        "height": 340.9599914550781
+      },
+      "anchor": {
+        "x": 690.4199523925781,
+        "y": 259.2798843383789
+      }
+    },
+    {
+      "id": "layer-MC5",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC5"
+      ],
+      "bounds": {
+        "x": 458.8199157714844,
+        "y": 1.439888000488267,
+        "width": 322.08001708984375,
+        "height": 460.6400146484375
+      },
+      "anchor": {
+        "x": 619.8599243164062,
+        "y": 231.75989532470703
+      }
+    },
+    {
+      "id": "layer-MC6",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC6"
+      ],
+      "bounds": {
+        "x": 585.6998596191406,
+        "y": 4.6398849487304545,
+        "width": 192.00006103515625,
+        "height": 454.40008544921875
+      },
+      "anchor": {
+        "x": 681.6998901367188,
+        "y": 231.83992767333984
+      }
+    },
+    {
+      "id": "layer-MC7",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC7"
+      ],
+      "bounds": {
+        "x": 466.3399353027344,
+        "y": 0.3198852539062358,
+        "width": 317.91998291015625,
+        "height": 463.0400390625
+      },
+      "anchor": {
+        "x": 625.2999267578125,
+        "y": 231.83990478515625
+      }
+    },
+    {
+      "id": "layer-MC8",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC8"
+      ],
+      "bounds": {
+        "x": 588.2598571777344,
+        "y": 4.6398849487304545,
+        "width": 190.7200927734375,
+        "height": 454.40008544921875
+      },
+      "anchor": {
+        "x": 683.6199035644531,
+        "y": 231.83992767333984
+      }
+    },
+    {
+      "id": "layer-MC9",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC9"
+      ],
+      "bounds": {
+        "x": 590.4998474121094,
+        "y": 90.23989105224608,
+        "width": 185.76007080078125,
+        "height": 308.4800720214844
+      },
+      "anchor": {
+        "x": 683.3798828125,
+        "y": 244.47992706298828
+      }
+    },
+    {
+      "id": "layer-MC10",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC10"
+      ],
+      "bounds": {
+        "x": 588.2598571777344,
+        "y": 114.0798873901367,
+        "width": 189.28009033203125,
+        "height": 258.080078125
+      },
+      "anchor": {
+        "x": 682.89990234375,
+        "y": 243.11992645263672
+      }
+    },
+    {
+      "id": "layer-MC11",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC11"
+      ],
+      "bounds": {
+        "x": 589.0599060058594,
+        "y": 114.39989471435545,
+        "width": 179.36004638671875,
+        "height": 266.56005859375
+      },
+      "anchor": {
+        "x": 678.7399291992188,
+        "y": 247.67992401123047
+      }
+    },
+    {
+      "id": "layer-MC12",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC12"
+      ],
+      "bounds": {
+        "x": 674.4999084472656,
+        "y": 265.91988372802734,
+        "width": 19.84002685546875,
+        "height": 18.08001708984375
+      },
+      "anchor": {
+        "x": 684.419921875,
+        "y": 274.9598922729492
+      }
+    },
+    {
+      "id": "layer-MC13",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC13"
+      ],
+      "bounds": {
+        "x": 595.4198913574219,
+        "y": 118.87982940673827,
+        "width": 181.796875,
+        "height": 259.68017578125
+      },
+      "anchor": {
+        "x": 686.3183288574219,
+        "y": 248.71991729736328
+      }
+    },
+    {
+      "id": "layer-MC14",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC14"
+      ],
+      "bounds": {
+        "x": 718.8198547363281,
+        "y": 349.5998764038086,
+        "width": 0.64007568359375,
+        "height": 4.640106201171875
+      },
+      "anchor": {
+        "x": 719.139892578125,
+        "y": 351.91992950439453
+      }
+    },
+    {
+      "id": "layer-MC15",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC15"
+      ],
+      "bounds": {
+        "x": 718.6598815917969,
+        "y": 354.0798873901367,
+        "width": 0.48004150390625,
+        "height": 0.000091552734375
+      },
+      "anchor": {
+        "x": 718.89990234375,
+        "y": 354.0799331665039
+      }
+    },
+    {
+      "id": "layer-MC16",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC16"
+      ],
+      "bounds": {
+        "x": 750.4998474121094,
+        "y": 305.4398727416992,
+        "width": 7.840087890625,
+        "height": 54.080108642578125
+      },
+      "anchor": {
+        "x": 754.4198913574219,
+        "y": 332.4799270629883
+      }
+    },
+    {
+      "id": "layer-MC17",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC17"
+      ],
+      "bounds": {
+        "x": 599.2998962402344,
+        "y": 88.79988861083983,
+        "width": 43.6800537109375,
+        "height": 306.88006591796875
+      },
+      "anchor": {
+        "x": 621.1399230957031,
+        "y": 242.23992156982422
+      }
+    },
+    {
+      "id": "layer-MC18",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC18"
+      ],
+      "bounds": {
+        "x": 455.7798767089844,
+        "y": 0.47988128662107954,
+        "width": 328.1600341796875,
+        "height": 462.5600891113281
+      },
+      "anchor": {
+        "x": 619.8598937988281,
+        "y": 231.75992584228516
+      }
+    },
+    {
+      "id": "layer-MC19",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC19"
+      ],
+      "bounds": {
+        "x": 642.9798889160156,
+        "y": 350.0798873901367,
+        "width": 0.1600341796875,
+        "height": 89.4400634765625
+      },
+      "anchor": {
+        "x": 643.0599060058594,
+        "y": 394.79991912841797
+      }
+    },
+    {
+      "id": "layer-MC20",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC20"
+      ],
+      "bounds": {
+        "x": 642.1799011230469,
+        "y": 309.8961715698242,
+        "width": 129.9449462890625,
+        "height": 129.7838134765625
+      },
+      "anchor": {
+        "x": 707.1523742675781,
+        "y": 374.78807830810547
+      }
+    },
+    {
+      "id": "layer-MC21",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC21"
+      ],
+      "bounds": {
+        "x": 642.1799011230469,
+        "y": 350.0798873901367,
+        "width": 0.96002197265625,
+        "height": 89.60009765625
+      },
+      "anchor": {
+        "x": 642.659912109375,
+        "y": 394.8799362182617
+      }
+    },
+    {
+      "id": "layer-MC22",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC22"
+      ],
+      "bounds": {
+        "x": 764.2598571777344,
+        "y": 309.91988372802734,
+        "width": 12.9600830078125,
+        "height": 0.320098876953125
+      },
+      "anchor": {
+        "x": 770.7398986816406,
+        "y": 310.0799331665039
+      }
+    },
+    {
+      "id": "layer-MC23",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC23"
+      ],
+      "bounds": {
+        "x": 763.7798767089844,
+        "y": 309.5998764038086,
+        "width": 13.76007080078125,
+        "height": 7.200103759765625
+      },
+      "anchor": {
+        "x": 770.659912109375,
+        "y": 313.1999282836914
+      }
+    },
+    {
+      "id": "layer-MC24",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC24"
+      ],
+      "bounds": {
+        "x": 762.6598815917969,
+        "y": 307.9999008178711,
+        "width": 15.6800537109375,
+        "height": 8.320098876953125
+      },
+      "anchor": {
+        "x": 770.4999084472656,
+        "y": 312.15995025634766
+      }
+    },
+    {
+      "id": "layer-MC25",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC25"
+      ],
+      "bounds": {
+        "x": 764.0998840332031,
+        "y": 309.91988372802734,
+        "width": 13.280029296875,
+        "height": 6.880096435546875
+      },
+      "anchor": {
+        "x": 770.7398986816406,
+        "y": 313.3599319458008
+      }
+    },
+    {
+      "id": "layer-MC26",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC26"
+      ],
+      "bounds": {
+        "x": 763.6198425292969,
+        "y": 307.99987030029297,
+        "width": 15.2000732421875,
+        "height": 2.2401123046875
+      },
+      "anchor": {
+        "x": 771.2198791503906,
+        "y": 309.1199264526367
+      }
+    },
+    {
+      "id": "layer-MC27",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC27"
+      ],
+      "bounds": {
+        "x": 617.0599060058594,
+        "y": 88.79987335205077,
+        "width": 139.20001220703125,
+        "height": 306.72015380859375
+      },
+      "anchor": {
+        "x": 686.659912109375,
+        "y": 242.15995025634766
+      }
+    },
+    {
+      "id": "layer-MC28",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC28"
+      ],
+      "bounds": {
+        "x": 758.1798400878906,
+        "y": 384.15987396240234,
+        "width": 2.400146484375,
+        "height": 4.000091552734375
+      },
+      "anchor": {
+        "x": 759.3799133300781,
+        "y": 386.15991973876953
+      }
+    },
+    {
+      "id": "layer-MC29",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC29"
+      ],
+      "bounds": {
+        "x": 712.8998718261719,
+        "y": 215.3598861694336,
+        "width": 5.4400634765625,
+        "height": 3.52008056640625
+      },
+      "anchor": {
+        "x": 715.6199035644531,
+        "y": 217.11992645263672
+      }
+    },
+    {
+      "id": "layer-MC30",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC30"
+      ],
+      "bounds": {
+        "x": 707.9398498535156,
+        "y": 397.1198959350586,
+        "width": 0.9600830078125,
+        "height": 0.9600830078125
+      },
+      "anchor": {
+        "x": 708.4198913574219,
+        "y": 397.59993743896484
+      }
+    },
+    {
+      "id": "layer-MC31",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC31"
+      ],
+      "bounds": {
+        "x": 708.0998840332031,
+        "y": 397.27989959716797,
+        "width": 0.64007568359375,
+        "height": 0.64007568359375
+      },
+      "anchor": {
+        "x": 708.419921875,
+        "y": 397.59993743896484
+      }
+    },
+    {
+      "id": "layer-MC32",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC32"
+      ],
+      "bounds": {
+        "x": 772.7398376464844,
+        "y": 330.87987518310547,
+        "width": 3.360107421875,
+        "height": 20.000091552734375
+      },
+      "anchor": {
+        "x": 774.4198913574219,
+        "y": 340.87992095947266
+      }
+    },
+    {
+      "id": "layer-MC33",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC33"
+      ],
+      "bounds": {
+        "x": 455.4598693847656,
+        "y": 0.31998443603514204,
+        "width": 328.79998779296875,
+        "height": 463.03997802734375
+      },
+      "anchor": {
+        "x": 619.85986328125,
+        "y": 231.83997344970703
+      }
+    },
+    {
+      "id": "layer-MC34",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC34"
+      ],
+      "bounds": {
+        "x": 458.8199157714844,
+        "y": 1.4400024414062358,
+        "width": 322.0799560546875,
+        "height": 460.63995361328125
+      },
+      "anchor": {
+        "x": 619.8598937988281,
+        "y": 231.75997924804688
+      }
+    },
+    {
+      "id": "layer-MC35",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC35"
+      ],
+      "bounds": {
+        "x": 66.179931640625,
+        "y": 526.2399826049805,
+        "width": 714.719970703125,
+        "height": 900.9600219726562
+      },
+      "anchor": {
+        "x": 423.5399169921875,
+        "y": 976.7199935913086
+      }
+    },
+    {
+      "id": "layer-MC36",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC36"
+      ],
+      "bounds": {
+        "x": 209.05990600585938,
+        "y": 816.4799118041992,
+        "width": 361.27996826171875,
+        "height": 320.6400146484375
+      },
+      "anchor": {
+        "x": 389.69989013671875,
+        "y": 976.799919128418
+      }
+    },
+    {
+      "id": "layer-MC37",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC37"
+      ],
+      "bounds": {
+        "x": 66.179931640625,
+        "y": 526.2399826049805,
+        "width": 714.719970703125,
+        "height": 900.9600219726562
+      },
+      "anchor": {
+        "x": 423.5399169921875,
+        "y": 976.7199935913086
+      }
+    },
+    {
+      "id": "layer-MC38",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC38"
+      ],
+      "bounds": {
+        "x": 210.17990112304688,
+        "y": 571.6799850463867,
+        "width": 558.3999633789062,
+        "height": 855.52001953125
+      },
+      "anchor": {
+        "x": 489.3798828125,
+        "y": 999.4399948120117
+      }
+    },
+    {
+      "id": "layer-MC39",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC39"
+      ],
+      "bounds": {
+        "x": 67.75494384765625,
+        "y": 536.719596862793,
+        "width": 708.2418212890625,
+        "height": 858.9419555664062
+      },
+      "anchor": {
+        "x": 421.8758544921875,
+        "y": 966.1905746459961
+      }
+    },
+    {
+      "id": "layer-MC40",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC40"
+      ],
+      "bounds": {
+        "x": 218.97991943359375,
+        "y": 817.599967956543,
+        "width": 346.8799743652344,
+        "height": 318.23992919921875
+      },
+      "anchor": {
+        "x": 392.41990661621094,
+        "y": 976.7199325561523
+      }
+    },
+    {
+      "id": "layer-MC41",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC41"
+      ],
+      "bounds": {
+        "x": 217.5399169921875,
+        "y": 831.039909362793,
+        "width": 349.9199523925781,
+        "height": 291.36004638671875
+      },
+      "anchor": {
+        "x": 392.49989318847656,
+        "y": 976.7199325561523
+      }
+    },
+    {
+      "id": "layer-MC42",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC42"
+      ],
+      "bounds": {
+        "x": 218.97991943359375,
+        "y": 817.599967956543,
+        "width": 347.0399475097656,
+        "height": 318.23992919921875
+      },
+      "anchor": {
+        "x": 392.49989318847656,
+        "y": 976.7199325561523
+      }
+    },
+    {
+      "id": "layer-MC43",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC43"
+      ],
+      "bounds": {
+        "x": 220.57992553710938,
+        "y": 813.5999069213867,
+        "width": 343.679931640625,
+        "height": 326.239990234375
+      },
+      "anchor": {
+        "x": 392.4198913574219,
+        "y": 976.7199020385742
+      }
+    },
+    {
+      "id": "layer-MC44",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC44"
+      ],
+      "bounds": {
+        "x": 225.05990600585938,
+        "y": 928.3198776245117,
+        "width": 340.15997314453125,
+        "height": 96.800048828125
+      },
+      "anchor": {
+        "x": 395.139892578125,
+        "y": 976.7199020385742
+      }
+    },
+    {
+      "id": "layer-MC45",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC45"
+      ],
+      "bounds": {
+        "x": 219.61990356445312,
+        "y": 573.2799606323242,
+        "width": 345.760009765625,
+        "height": 523.3599853515625
+      },
+      "anchor": {
+        "x": 392.4999084472656,
+        "y": 834.9599533081055
+      }
+    },
+    {
+      "id": "layer-MC46",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC46"
+      ],
+      "bounds": {
+        "x": 84.73991394042969,
+        "y": 89.92000579833983,
+        "width": 340,
+        "height": 1148
+      },
+      "anchor": {
+        "x": 254.7399139404297,
+        "y": 663.9200057983398
+      }
+    },
+    {
+      "id": "layer-MC47",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC47"
+      ],
+      "bounds": {
+        "x": 164.89993286132812,
+        "y": 19.680000305175767,
+        "width": 259.83990478515625,
+        "height": 1305.919921875
+      },
+      "anchor": {
+        "x": 294.81988525390625,
+        "y": 672.6399612426758
+      }
+    },
+    {
+      "id": "layer-MC48",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC48"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 954.7199020385742,
+        "width": 83.19999694824219,
+        "height": 54.8800048828125
+      },
+      "anchor": {
+        "x": 104.41992950439453,
+        "y": 982.1599044799805
+      }
+    },
+    {
+      "id": "layer-MC49",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC49"
+      ],
+      "bounds": {
+        "x": 138.659912109375,
+        "y": 953.2799606323242,
+        "width": 7.360015869140625,
+        "height": 46.8800048828125
+      },
+      "anchor": {
+        "x": 142.3399200439453,
+        "y": 976.7199630737305
+      }
+    },
+    {
+      "id": "layer-MC50",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC50"
+      ],
+      "bounds": {
+        "x": 143.61990356445312,
+        "y": 953.2799606323242,
+        "width": 0,
+        "height": 46.8798828125
+      },
+      "anchor": {
+        "x": 143.61990356445312,
+        "y": 976.7199020385742
+      }
+    },
+    {
+      "id": "layer-MC51",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC51"
+      ],
+      "bounds": {
+        "x": 133.85992431640625,
+        "y": 975.5198287963867,
+        "width": 14.399993896484375,
+        "height": 2.400146484375
+      },
+      "anchor": {
+        "x": 141.05992126464844,
+        "y": 976.7199020385742
+      }
+    },
+    {
+      "id": "layer-MC52",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC52"
+      ],
+      "bounds": {
+        "x": 62.81993103027344,
+        "y": 1009.5999069213867,
+        "width": 83.19999694824219,
+        "height": 1.5999755859375
+      },
+      "anchor": {
+        "x": 104.41992950439453,
+        "y": 1010.3998947143555
+      }
+    },
+    {
+      "id": "layer-MC53",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC53"
+      ],
+      "bounds": {
+        "x": 420.0998840332031,
+        "y": 1076.7998580932617,
+        "width": 4.6400146484375,
+        "height": 40.6400146484375
+      },
+      "anchor": {
+        "x": 422.4198913574219,
+        "y": 1097.1198654174805
+      }
+    },
+    {
+      "id": "layer-MC54",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC54"
+      ],
+      "bounds": {
+        "x": 64.09992980957031,
+        "y": 396.7999801635742,
+        "width": 336.7999267578125,
+        "height": 928.3199462890625
+      },
+      "anchor": {
+        "x": 232.49989318847656,
+        "y": 860.9599533081055
+      }
+    },
+    {
+      "id": "layer-MC55",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC55"
+      ],
+      "bounds": {
+        "x": 0.321563720703125,
+        "y": 471.5199508666992,
+        "width": 139.13836669921875,
+        "height": 527.8399658203125
+      },
+      "anchor": {
+        "x": 69.8907470703125,
+        "y": 735.4399337768555
+      }
+    },
+    {
+      "id": "layer-MC56",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC56"
+      ],
+      "bounds": {
+        "x": 67.93992614746094,
+        "y": 476.6399459838867,
+        "width": 66.39997863769531,
+        "height": 517.5999755859375
+      },
+      "anchor": {
+        "x": 101.1399154663086,
+        "y": 735.4399337768555
+      }
+    },
+    {
+      "id": "layer-MC57",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC57"
+      ],
+      "bounds": {
+        "x": 62.97991943359375,
+        "y": 470.8799362182617,
+        "width": 76.32000732421875,
+        "height": 529.1199951171875
+      },
+      "anchor": {
+        "x": 101.13992309570312,
+        "y": 735.4399337768555
+      }
+    },
+    {
+      "id": "layer-MC58",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC58"
+      ],
+      "bounds": {
+        "x": 63.77992248535156,
+        "y": 471.0399703979492,
+        "width": 74.71998596191406,
+        "height": 528.7999267578125
+      },
+      "anchor": {
+        "x": 101.1399154663086,
+        "y": 735.4399337768555
+      }
+    },
+    {
+      "id": "layer-MC59",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC59"
+      ],
+      "bounds": {
+        "x": 63.139923095703125,
+        "y": 470.71996307373047,
+        "width": 76,
+        "height": 529.4398803710938
+      },
+      "anchor": {
+        "x": 101.13992309570312,
+        "y": 735.4399032592773
+      }
+    },
+    {
+      "id": "layer-MC60",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC60"
+      ],
+      "bounds": {
+        "x": 62.819915771484375,
+        "y": 470.5514450073242,
+        "width": 76.6939697265625,
+        "height": 529.6170654296875
+      },
+      "anchor": {
+        "x": 101.16690063476562,
+        "y": 735.359977722168
+      }
+    },
+    {
+      "id": "layer-MC61",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC61"
+      ],
+      "bounds": {
+        "x": 64.25991821289062,
+        "y": 471.1901168823242,
+        "width": 73.760009765625,
+        "height": 528.3397216796875
+      },
+      "anchor": {
+        "x": 101.13992309570312,
+        "y": 735.359977722168
+      }
+    },
+    {
+      "id": "layer-MC62",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC62"
+      ],
+      "bounds": {
+        "x": 63.77992248535156,
+        "y": 470.8799362182617,
+        "width": 74.87998962402344,
+        "height": 529.280029296875
+      },
+      "anchor": {
+        "x": 101.21991729736328,
+        "y": 735.5199508666992
+      }
+    },
+    {
+      "id": "layer-MC63",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC63"
+      ],
+      "bounds": {
+        "x": 62.819915771484375,
+        "y": 470.71996307373047,
+        "width": 76.6400146484375,
+        "height": 529.4400024414062
+      },
+      "anchor": {
+        "x": 101.13992309570312,
+        "y": 735.4399642944336
+      }
+    },
+    {
+      "id": "layer-MC64",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC64"
+      ],
+      "bounds": {
+        "x": 64.419921875,
+        "y": 471.5199508666992,
+        "width": 73.44000244140625,
+        "height": 527.8399658203125
+      },
+      "anchor": {
+        "x": 101.13992309570312,
+        "y": 735.4399337768555
+      }
+    },
+    {
+      "id": "layer-MC65",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC65"
+      ],
+      "bounds": {
+        "x": 84.89993286132812,
+        "y": 483.0399703979492,
+        "width": 32.47998046875,
+        "height": 504.9599609375
+      },
+      "anchor": {
+        "x": 101.13992309570312,
+        "y": 735.5199508666992
+      }
+    },
+    {
+      "id": "layer-MC66",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC66"
+      ],
+      "bounds": {
+        "x": 103.45991516113281,
+        "y": 484.31993865966797,
+        "width": 14.080001831054688,
+        "height": 502.24005126953125
+      },
+      "anchor": {
+        "x": 110.49991607666016,
+        "y": 735.4399642944336
+      }
+    },
+    {
+      "id": "layer-MC67",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC67"
+      ],
+      "bounds": {
+        "x": 64.419921875,
+        "y": 470.8799362182617,
+        "width": 73.59417724609375,
+        "height": 529.280029296875
+      },
+      "anchor": {
+        "x": 101.21701049804688,
+        "y": 735.5199508666992
+      }
+    },
+    {
+      "id": "layer-MC68",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC68"
+      ],
+      "bounds": {
+        "x": 63.77992248535156,
+        "y": 471.0399703979492,
+        "width": 74.71998596191406,
+        "height": 528.7999267578125
+      },
+      "anchor": {
+        "x": 101.1399154663086,
+        "y": 735.4399337768555
+      }
+    },
+    {
+      "id": "layer-MC69",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC69"
+      ],
+      "bounds": {
+        "x": 64.09992980957031,
+        "y": 471.35997772216797,
+        "width": 74.08000183105469,
+        "height": 528.3198852539062
+      },
+      "anchor": {
+        "x": 101.13993072509766,
+        "y": 735.5199203491211
+      }
+    },
+    {
+      "id": "layer-MC70",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC70"
+      ],
+      "bounds": {
+        "x": 75.2999267578125,
+        "y": 483.0399703979492,
+        "width": 51.67999267578125,
+        "height": 504.7999267578125
+      },
+      "anchor": {
+        "x": 101.13992309570312,
+        "y": 735.4399337768555
+      }
+    },
+    {
+      "id": "layer-MC71",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC71"
+      ],
+      "bounds": {
+        "x": 126.49990844726562,
+        "y": 471.83995819091797,
+        "width": 4.800018310546875,
+        "height": 527.2000122070312
+      },
+      "anchor": {
+        "x": 128.89991760253906,
+        "y": 735.4399642944336
+      }
+    },
+    {
+      "id": "layer-MC72",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC72"
+      ],
+      "bounds": {
+        "x": 64.419921875,
+        "y": 471.5199508666992,
+        "width": 73.60000610351562,
+        "height": 528.3199462890625
+      },
+      "anchor": {
+        "x": 101.21992492675781,
+        "y": 735.6799240112305
+      }
+    },
+    {
+      "id": "layer-MC73",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC73"
+      ],
+      "bounds": {
+        "x": 383.6199035644531,
+        "y": 19.680000305175767,
+        "width": 17.5999755859375,
+        "height": 134.0800018310547
+      },
+      "anchor": {
+        "x": 392.4198913574219,
+        "y": 86.72000122070311
+      }
+    },
+    {
+      "id": "layer-MC74",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC74"
+      ],
+      "bounds": {
+        "x": 384.2599182128906,
+        "y": 20.15999603271483,
+        "width": 16.47998046875,
+        "height": 133.1199951171875
+      },
+      "anchor": {
+        "x": 392.4999084472656,
+        "y": 86.71999359130858
+      }
+    },
+    {
+      "id": "layer-MC75",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC75"
+      ],
+      "bounds": {
+        "x": 384.2599182128906,
+        "y": 20.15999603271483,
+        "width": 16.47998046875,
+        "height": 133.1199951171875
+      },
+      "anchor": {
+        "x": 392.4999084472656,
+        "y": 86.71999359130858
+      }
+    },
+    {
+      "id": "layer-MC76",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC76"
+      ],
+      "bounds": {
+        "x": 384.2599182128906,
+        "y": 20.319984436035142,
+        "width": 16.47998046875,
+        "height": 132.8000030517578
+      },
+      "anchor": {
+        "x": 392.4999084472656,
+        "y": 86.71998596191405
+      }
+    },
+    {
+      "id": "layer-MC77",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC77"
+      ],
+      "bounds": {
+        "x": 63.619903564453125,
+        "y": 0.31999969482420454,
+        "width": 265.1199951171875,
+        "height": 381.7599792480469
+      },
+      "anchor": {
+        "x": 196.17990112304688,
+        "y": 191.19998931884766
+      }
+    },
+    {
+      "id": "layer-MC78",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC78"
+      ],
+      "bounds": {
+        "x": 254.01992797851562,
+        "y": 146.39998626708984,
+        "width": 74.719970703125,
+        "height": 216.95999145507812
+      },
+      "anchor": {
+        "x": 291.3799133300781,
+        "y": 254.8799819946289
+      }
+    },
+    {
+      "id": "layer-MC79",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC79"
+      ],
+      "bounds": {
+        "x": 63.61991882324219,
+        "y": 0.31996917724607954,
+        "width": 265.12005615234375,
+        "height": 381.6000061035156
+      },
+      "anchor": {
+        "x": 196.17994689941406,
+        "y": 191.1199722290039
+      }
+    },
+    {
+      "id": "layer-MC80",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC80"
+      ],
+      "bounds": {
+        "x": 455.4598693847656,
+        "y": 1028.7998580932617,
+        "width": 328.800048828125,
+        "height": 301.1201171875
+      },
+      "anchor": {
+        "x": 619.8598937988281,
+        "y": 1179.3599166870117
+      }
+    },
+    {
+      "id": "layer-MC81",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC81"
+      ],
+      "bounds": {
+        "x": 474.6598815917969,
+        "y": 1050.3998336791992,
+        "width": 309.5999755859375,
+        "height": 146.56005859375
+      },
+      "anchor": {
+        "x": 629.4598693847656,
+        "y": 1123.6798629760742
+      }
+    },
+    {
+      "id": "layer-MC82",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC82"
+      ],
+      "bounds": {
+        "x": 465.0598449707031,
+        "y": 1029.9198532104492,
+        "width": 312.6400146484375,
+        "height": 277.280029296875
+      },
+      "anchor": {
+        "x": 621.3798522949219,
+        "y": 1168.5598678588867
+      }
+    },
+    {
+      "id": "layer-MC83",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC83"
+      ],
+      "bounds": {
+        "x": 458.8199157714844,
+        "y": 1029.9199752807617,
+        "width": 322.0799560546875,
+        "height": 298.719970703125
+      },
+      "anchor": {
+        "x": 619.8598937988281,
+        "y": 1179.2799606323242
+      }
+    },
+    {
+      "id": "layer-MC84",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC84"
+      ],
+      "bounds": {
+        "x": 465.0599060058594,
+        "y": 1029.9199752807617,
+        "width": 312.63995361328125,
+        "height": 297.2799072265625
+      },
+      "anchor": {
+        "x": 621.3798828125,
+        "y": 1178.559928894043
+      }
+    },
+    {
+      "id": "layer-MC85",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC85"
+      ],
+      "bounds": {
+        "x": 458.8199157714844,
+        "y": 1029.9199752807617,
+        "width": 322.0799560546875,
+        "height": 298.719970703125
+      },
+      "anchor": {
+        "x": 619.8598937988281,
+        "y": 1179.2799606323242
+      }
+    },
+    {
+      "id": "layer-MC86",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC86"
+      ],
+      "bounds": {
+        "x": 465.0599060058594,
+        "y": 1054.5598678588867,
+        "width": 309.5999755859375,
+        "height": 271.0400390625
+      },
+      "anchor": {
+        "x": 619.8598937988281,
+        "y": 1190.0798873901367
+      }
+    },
+    {
+      "id": "layer-MC87",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC87"
+      ],
+      "bounds": {
+        "x": 540.8998718261719,
+        "y": 1074.0798873901367,
+        "width": 25.44000244140625,
+        "height": 2.7200927734375
+      },
+      "anchor": {
+        "x": 553.619873046875,
+        "y": 1075.4399337768555
+      }
+    },
+    {
+      "id": "layer-MC88",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC88"
+      ],
+      "bounds": {
+        "x": 469.5399475097656,
+        "y": 1011.5199508666992,
+        "width": 127.99993896484375,
+        "height": 148.159912109375
+      },
+      "anchor": {
+        "x": 533.5399169921875,
+        "y": 1085.5999069213867
+      }
+    },
+    {
+      "id": "layer-MC89",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC89"
+      ],
+      "bounds": {
+        "x": 482.9798889160156,
+        "y": 1013.9199752807617,
+        "width": 114.8800048828125,
+        "height": 60.159912109375
+      },
+      "anchor": {
+        "x": 540.4198913574219,
+        "y": 1043.9999313354492
+      }
+    },
+    {
+      "id": "layer-MC90",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC90"
+      ],
+      "bounds": {
+        "x": 761.3798522949219,
+        "y": 1097.9199752807617,
+        "width": 14.8800048828125,
+        "height": 0
+      },
+      "anchor": {
+        "x": 768.8198547363281,
+        "y": 1097.9199752807617
+      }
+    },
+    {
+      "id": "layer-MC91",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC91"
+      ],
+      "bounds": {
+        "x": 514.3398742675781,
+        "y": 1054.8799362182617,
+        "width": 24.1600341796875,
+        "height": 40.1600341796875
+      },
+      "anchor": {
+        "x": 526.4198913574219,
+        "y": 1074.9599533081055
+      }
+    },
+    {
+      "id": "layer-MC92",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC92"
+      ],
+      "bounds": {
+        "x": 466.9743347167969,
+        "y": 1073.9995651245117,
+        "width": 295.5255126953125,
+        "height": 255.92041015625
+      },
+      "anchor": {
+        "x": 614.7370910644531,
+        "y": 1201.9597702026367
+      }
+    },
+    {
+      "id": "layer-MC93",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC93"
+      ],
+      "bounds": {
+        "x": 485.5398864746094,
+        "y": 1013.9199752807617,
+        "width": 72.6400146484375,
+        "height": 121.919921875
+      },
+      "anchor": {
+        "x": 521.8598937988281,
+        "y": 1074.8799362182617
+      }
+    },
+    {
+      "id": "layer-MC94",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC94"
+      ],
+      "bounds": {
+        "x": 474.4999084472656,
+        "y": 1013.9199752807617,
+        "width": 274.87994384765625,
+        "height": 183.0399169921875
+      },
+      "anchor": {
+        "x": 611.9398803710938,
+        "y": 1105.4399337768555
+      }
+    },
+    {
+      "id": "layer-MC95",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC95"
+      ],
+      "bounds": {
+        "x": 531.4599304199219,
+        "y": 1114.2399215698242,
+        "width": 34.39996337890625,
+        "height": 22.239990234375
+      },
+      "anchor": {
+        "x": 548.659912109375,
+        "y": 1125.3599166870117
+      }
+    },
+    {
+      "id": "layer-MC96",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC96"
+      ],
+      "bounds": {
+        "x": 490.1799011230469,
+        "y": 1098.8799362182617,
+        "width": 259.199951171875,
+        "height": 81.760009765625
+      },
+      "anchor": {
+        "x": 619.7798767089844,
+        "y": 1139.7599411010742
+      }
+    },
+    {
+      "id": "layer-MC97",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC97"
+      ],
+      "bounds": {
+        "x": 533.6998596191406,
+        "y": 1059.5198287963867,
+        "width": 7.52001953125,
+        "height": 31.360107421875
+      },
+      "anchor": {
+        "x": 537.4598693847656,
+        "y": 1075.1998825073242
+      }
+    },
+    {
+      "id": "layer-MC98",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC98"
+      ],
+      "bounds": {
+        "x": 535.6199035644531,
+        "y": 1059.9999313354492,
+        "width": 5.5999755859375,
+        "height": 30.4000244140625
+      },
+      "anchor": {
+        "x": 538.4198913574219,
+        "y": 1075.1999435424805
+      }
+    },
+    {
+      "id": "layer-MC99",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC99"
+      ],
+      "bounds": {
+        "x": 462.4999084472656,
+        "y": 1011.5199508666992,
+        "width": 55.84002685546875,
+        "height": 12.47998046875
+      },
+      "anchor": {
+        "x": 490.419921875,
+        "y": 1017.7599411010742
+      }
+    },
+    {
+      "id": "layer-MC100",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC100"
+      ],
+      "bounds": {
+        "x": 472.0998840332031,
+        "y": 1011.8398971557617,
+        "width": 45.4400634765625,
+        "height": 12.0001220703125
+      },
+      "anchor": {
+        "x": 494.8199157714844,
+        "y": 1017.839958190918
+      }
+    },
+    {
+      "id": "layer-MC101",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC101"
+      ],
+      "bounds": {
+        "x": 469.5398864746094,
+        "y": 1012.6399459838867,
+        "width": 48.47998046875,
+        "height": 10.4000244140625
+      },
+      "anchor": {
+        "x": 493.7798767089844,
+        "y": 1017.839958190918
+      }
+    },
+    {
+      "id": "layer-MC102",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC102"
+      ],
+      "bounds": {
+        "x": 497.6999206542969,
+        "y": 1329.5999069213867,
+        "width": 11.52001953125,
+        "height": 3.3599853515625
+      },
+      "anchor": {
+        "x": 503.4599304199219,
+        "y": 1331.279899597168
+      }
+    },
+    {
+      "id": "layer-MC103",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC103"
+      ],
+      "bounds": {
+        "x": 556.7398986816406,
+        "y": 1065.4149703979492,
+        "width": 39.10260009765625,
+        "height": 9.4649658203125
+      },
+      "anchor": {
+        "x": 576.2911987304688,
+        "y": 1070.1474533081055
+      }
+    },
+    {
+      "id": "layer-MC104",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC104"
+      ],
+      "bounds": {
+        "x": 556.2598571777344,
+        "y": 1055.9999313354492,
+        "width": 40.6400146484375,
+        "height": 21.9200439453125
+      },
+      "anchor": {
+        "x": 576.5798645019531,
+        "y": 1066.9599533081055
+      }
+    },
+    {
+      "id": "layer-MC105",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC105"
+      ],
+      "bounds": {
+        "x": 556.0998840332031,
+        "y": 1057.1199264526367,
+        "width": 39.3599853515625,
+        "height": 19.8399658203125
+      },
+      "anchor": {
+        "x": 575.7798767089844,
+        "y": 1067.039909362793
+      }
+    },
+    {
+      "id": "layer-MC106",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC106"
+      ],
+      "bounds": {
+        "x": 555.9398498535156,
+        "y": 1074.0798873901367,
+        "width": 10.4000244140625,
+        "height": 1.1199951171875
+      },
+      "anchor": {
+        "x": 561.1398620605469,
+        "y": 1074.6398849487305
+      }
+    },
+    {
+      "id": "layer-MC107",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC107"
+      ],
+      "bounds": {
+        "x": 556.8998718261719,
+        "y": 1055.6798629760742,
+        "width": 38.24005126953125,
+        "height": 22.7200927734375
+      },
+      "anchor": {
+        "x": 576.0198974609375,
+        "y": 1067.039909362793
+      }
+    },
+    {
+      "id": "layer-MC108",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC108"
+      ],
+      "bounds": {
+        "x": 556.0998840332031,
+        "y": 1028.7998580932617,
+        "width": 41.760009765625,
+        "height": 45.280029296875
+      },
+      "anchor": {
+        "x": 576.9798889160156,
+        "y": 1051.4398727416992
+      }
+    },
+    {
+      "id": "layer-MC109",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC109"
+      ],
+      "bounds": {
+        "x": 563.9399108886719,
+        "y": 1074.2399215698242,
+        "width": 0.47998046875,
+        "height": 0.1600341796875
+      },
+      "anchor": {
+        "x": 564.1799011230469,
+        "y": 1074.319938659668
+      }
+    },
+    {
+      "id": "layer-MC110",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC110"
+      ],
+      "bounds": {
+        "x": 556.8998718261719,
+        "y": 1055.5198287963867,
+        "width": 38.8800048828125,
+        "height": 23.0401611328125
+      },
+      "anchor": {
+        "x": 576.3398742675781,
+        "y": 1067.039909362793
+      }
+    },
+    {
+      "id": "layer-MC111",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC111"
+      ],
+      "bounds": {
+        "x": 555.9399108886719,
+        "y": 1074.5598678588867,
+        "width": 0.15997314453125,
+        "height": 0.6400146484375
+      },
+      "anchor": {
+        "x": 556.0198974609375,
+        "y": 1074.8798751831055
+      }
+    },
+    {
+      "id": "layer-MC112",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC112"
+      ],
+      "bounds": {
+        "x": 586.8198547363281,
+        "y": 1029.6000289916992,
+        "width": 10.24005126953125,
+        "height": 8.9599609375
+      },
+      "anchor": {
+        "x": 591.9398803710938,
+        "y": 1034.0800094604492
+      }
+    },
+    {
+      "id": "layer-MC113",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC113"
+      ],
+      "bounds": {
+        "x": 566.3398742675781,
+        "y": 1056.7998580932617,
+        "width": 85.280029296875,
+        "height": 140.9600830078125
+      },
+      "anchor": {
+        "x": 608.9798889160156,
+        "y": 1127.279899597168
+      }
+    },
+    {
+      "id": "layer-MC114",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC114"
+      ],
+      "bounds": {
+        "x": 567.1398620605469,
+        "y": 1143.1998825073242,
+        "width": 83.919921875,
+        "height": 62.080078125
+      },
+      "anchor": {
+        "x": 609.0998229980469,
+        "y": 1174.2399215698242
+      }
+    },
+    {
+      "id": "layer-MC115",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC115"
+      ],
+      "bounds": {
+        "x": 522.4999084472656,
+        "y": 1098.3999557495117,
+        "width": 0,
+        "height": 21.1199951171875
+      },
+      "anchor": {
+        "x": 522.4999084472656,
+        "y": 1108.9599533081055
+      }
+    },
+    {
+      "id": "layer-MC116",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC116"
+      ],
+      "bounds": {
+        "x": 528.7398986816406,
+        "y": 1122.3999557495117,
+        "width": 2.39996337890625,
+        "height": 9.43994140625
+      },
+      "anchor": {
+        "x": 529.9398803710938,
+        "y": 1127.1199264526367
+      }
+    },
+    {
+      "id": "layer-MC117",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC117"
+      ],
+      "bounds": {
+        "x": 518.4999084472656,
+        "y": 1151.0399703979492,
+        "width": 4,
+        "height": 8.47998046875
+      },
+      "anchor": {
+        "x": 520.4999084472656,
+        "y": 1155.2799606323242
+      }
+    },
+    {
+      "id": "layer-MC118",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC118"
+      ],
+      "bounds": {
+        "x": 519.4598693847656,
+        "y": 1116.6399459838867,
+        "width": 3.03997802734375,
+        "height": 1.5999755859375
+      },
+      "anchor": {
+        "x": 520.9798583984375,
+        "y": 1117.4399337768555
+      }
+    },
+    {
+      "id": "layer-MC119",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC119"
+      ],
+      "bounds": {
+        "x": 595.7798767089844,
+        "y": 1076.7998580932617,
+        "width": 0,
+        "height": 64.6400146484375
+      },
+      "anchor": {
+        "x": 595.7798767089844,
+        "y": 1109.1198654174805
+      }
+    },
+    {
+      "id": "layer-MC120",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC120"
+      ],
+      "bounds": {
+        "x": 595.4598693847656,
+        "y": 1057.2799606323242,
+        "width": 0.1600341796875,
+        "height": 19.5198974609375
+      },
+      "anchor": {
+        "x": 595.5398864746094,
+        "y": 1067.039909362793
+      }
+    },
+    {
+      "id": "layer-MC121",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC121"
+      ],
+      "bounds": {
+        "x": 586.0199279785156,
+        "y": 1056.7998580932617,
+        "width": 10.0799560546875,
+        "height": 20.320068359375
+      },
+      "anchor": {
+        "x": 591.0599060058594,
+        "y": 1066.9598922729492
+      }
+    },
+    {
+      "id": "layer-MC122",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC122"
+      ],
+      "bounds": {
+        "x": 586.4998474121094,
+        "y": 1055.9999313354492,
+        "width": 9.26727294921875,
+        "height": 22.0799560546875
+      },
+      "anchor": {
+        "x": 591.1334838867188,
+        "y": 1067.039909362793
+      }
+    },
+    {
+      "id": "layer-MC123",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC123"
+      ],
+      "bounds": {
+        "x": 595.6199035644531,
+        "y": 1055.9999313354492,
+        "width": 0.15997314453125,
+        "height": 21.9200439453125
+      },
+      "anchor": {
+        "x": 595.6998901367188,
+        "y": 1066.9599533081055
+      }
+    },
+    {
+      "id": "layer-MC124",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC124"
+      ],
+      "bounds": {
+        "x": 595.4598693847656,
+        "y": 1055.5199508666992,
+        "width": 0.32000732421875,
+        "height": 21.919921875
+      },
+      "anchor": {
+        "x": 595.619873046875,
+        "y": 1066.4799118041992
+      }
+    },
+    {
+      "id": "layer-MC125",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC125"
+      ],
+      "bounds": {
+        "x": 465.0599060058594,
+        "y": 1256.7998580932617,
+        "width": 309.5999755859375,
+        "height": 9.2801513671875
+      },
+      "anchor": {
+        "x": 619.8598937988281,
+        "y": 1261.4399337768555
+      }
+    },
+    {
+      "id": "layer-MC126",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC126"
+      ],
+      "bounds": {
+        "x": 462.1799011230469,
+        "y": 1029.9199752807617,
+        "width": 0,
+        "height": 3.199951171875
+      },
+      "anchor": {
+        "x": 462.1799011230469,
+        "y": 1031.5199508666992
+      }
+    },
+    {
+      "id": "layer-MC127",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC127"
+      ],
+      "bounds": {
+        "x": 455.4598693847656,
+        "y": 1028.7998580932617,
+        "width": 328.800048828125,
+        "height": 301.1201171875
+      },
+      "anchor": {
+        "x": 619.8598937988281,
+        "y": 1179.3599166870117
+      }
+    },
+    {
+      "id": "layer-MC128",
+      "kind": "architecture",
+      "name": "Source architectural layer",
+      "sourceIds": [
+        "layer-MC128"
+      ],
+      "bounds": {
+        "x": 256.25994873046875,
+        "y": 550.239860534668,
+        "width": 0,
+        "height": 46.08001708984375
+      },
+      "anchor": {
+        "x": 256.25994873046875,
+        "y": 573.2798690795898
+      }
+    }
+  ],
+  "amenities": [
+    {
+      "id": "ground-entry-starbucks",
+      "kind": "entrance",
+      "name": "Entry 1",
+      "point": [
+        97.59,
+        493.49
+      ],
+      "youAreHere": true,
+      "evidence": "Entry One annotation and existing gate structure"
+    },
+    {
+      "id": "ground-entry-masaba",
+      "kind": "entrance",
+      "name": "Entry 2",
+      "point": [
+        98.93,
+        980.16
+      ],
+      "evidence": "Entry Two annotation and existing gate structure"
+    },
+    {
+      "id": "lift-b",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        292.26,
+        577.49
+      ],
+      "evidence": "Core B lift drawing"
+    },
+    {
+      "id": "lift-c",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        234.93,
+        872.16
+      ],
+      "evidence": "Core C lift drawing"
+    },
+    {
+      "id": "lift-d",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        548.26,
+        872.16
+      ],
+      "evidence": "Core D lift drawing"
+    },
+    {
+      "id": "lift-e",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        237.59,
+        1085.49
+      ],
+      "evidence": "Core E lift drawing"
+    },
+    {
+      "id": "goods-lift",
+      "kind": "lift",
+      "name": "Goods lift",
+      "point": [
+        553.59,
+        1080.16
+      ],
+      "evidence": "Goods lift lobby drawing"
+    },
+    {
+      "id": "stairs-c",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        234.93,
+        813.49
+      ],
+      "evidence": "Core C staircase drawing"
+    },
+    {
+      "id": "stairs-d",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        548.26,
+        813.49
+      ],
+      "evidence": "Core D staircase drawing"
+    },
+    {
+      "id": "stairs-e",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        236.26,
+        1134.83
+      ],
+      "evidence": "Core E staircase drawing"
+    },
+    {
+      "id": "stairs-f",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        533.59,
+        1130.83
+      ],
+      "evidence": "Fire staircase drawing"
+    },
+    {
+      "id": "stairs-north",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        620.26,
+        118.83
+      ],
+      "evidence": "Northern retail core staircase"
+    },
+    {
+      "id": "stairs-central",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        620.26,
+        362.83
+      ],
+      "evidence": "Central retail core staircase"
+    },
+    {
+      "id": "stairs-service",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        745.59,
+        266.83
+      ],
+      "evidence": "ST-01 / ST-02 source staircase label"
+    },
+    {
+      "id": "women-toilet-north",
+      "kind": "washroom",
+      "gender": "female",
+      "name": "Women's toilet",
+      "point": [
+        744,
+        319
+      ],
+      "sourceFillId": "path183",
+      "evidence": "FEMALE TOILET vector outlines in the northern service core"
+    },
+    {
+      "id": "men-toilet-north",
+      "kind": "washroom",
+      "gender": "male",
+      "name": "Men's toilet",
+      "point": [
+        746,
+        372
+      ],
+      "sourceFillId": "path186",
+      "evidence": "MALE TOILET vector outlines in the northern service core"
+    },
+    {
+      "id": "washrooms",
+      "kind": "washroom",
+      "gender": "male",
+      "name": "Men's toilet",
+      "point": [
+        744,
+        818
+      ],
+      "sourceFillId": "path26920",
+      "evidence": "Male toilet source label beside Spin"
+    },
+    {
+      "id": "escalator-west",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        269.3,
+        937.12
+      ],
+      "symbolBounds": {
+        "x": 209.06,
+        "y": 924.8,
+        "width": 120.48,
+        "height": 24.64
+      },
+      "evidence": "Source escalator outside Lobby C"
+    },
+    {
+      "id": "escalator-west-south",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        269.3,
+        1016.48
+      ],
+      "symbolBounds": {
+        "x": 209.06,
+        "y": 1004.16,
+        "width": 120.48,
+        "height": 24.64
+      },
+      "evidence": "Source escalator outside Lobby E"
+    },
+    {
+      "id": "escalator-east",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        518.1,
+        935.6
+      ],
+      "symbolBounds": {
+        "x": 465.86,
+        "y": 928.32,
+        "width": 104.48,
+        "height": 14.56
+      },
+      "evidence": "Source escalator outside Lobby D"
+    },
+    {
+      "id": "escalator-east-south",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        519.7,
+        1017.76
+      ],
+      "symbolBounds": {
+        "x": 462.5,
+        "y": 1011.52,
+        "width": 114.4,
+        "height": 12.48
+      },
+      "evidence": "Source escalator outside goods lift core"
+    }
+  ],
+  "warnings": [],
+  "sourceSha256": "bd06eeae2e68e15a0d622bfb47054c4bd352ea3793d3df582cee326c7218e10a"
+}

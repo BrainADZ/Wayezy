@@ -1,0 +1,295 @@
+.ground-floor-source [data-source-label],
+.ground-floor-source [data-source-annotations],
+.ground-floor-source [data-map-paint='annotation'] {
+  display: none !important;
+}
+.ground-floor-source [data-map-paint] {
+  pointer-events: none;
+}
+.ground-floor-source [data-replaced-amenity-symbol] {
+  display: none !important;
+}
+.ground-floor-source [data-map-paint='line'] {
+  stroke: #8e897e !important;
+  opacity: 0.23;
+}
+.ground-floor-source [data-map-paint='door'] {
+  fill: none !important;
+  stroke: #60796a !important;
+  stroke-width: 1.15px !important;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.85;
+}
+.ground-floor-source [data-map-paint='core'] {
+  fill: #cfe1d2 !important;
+  stroke: #638c74 !important;
+}
+.ground-floor-source [data-map-paint='structure'] {
+  opacity: 0.42;
+}
+.ground-floor-source [data-map-paint='retail'] {
+  fill: #e3d5c4 !important;
+  stroke: none !important;
+  transition:
+    fill 0.16s,
+    opacity 0.16s;
+}
+.ground-floor-source [data-module-id] {
+  pointer-events: visiblePainted;
+  cursor: pointer;
+  outline: none;
+}
+.ground-floor-source [data-category='dining'] {
+  fill: #dbcbb1 !important;
+}
+.ground-floor-source [data-category='beauty'] {
+  fill: #dec8c7 !important;
+}
+.ground-floor-source [data-category='home'] {
+  fill: #cdd8c7 !important;
+}
+.ground-floor-source [data-category='unoccupied'] {
+  fill: #ebe4d7 !important;
+}
+.ground-floor-source [data-module-id].is-hovered,
+.ground-floor-source [data-module-id]:focus-visible {
+  fill: #cfb684 !important;
+}
+.ground-floor-source [data-module-id].is-selected {
+  fill: #075b4b !important;
+}
+.ground-floor-source .is-muted {
+  opacity: 0.2 !important;
+}
+.directory-content {
+  font-family: 'Inter', sans-serif;
+}
+.directory-brand {
+  transition: opacity 0.16s;
+}
+.directory-store-name {
+  fill: #354137;
+  font-weight: 600;
+  letter-spacing: -0.15px;
+}
+.directory-store-name[data-brand='good-earth'],
+.directory-store-name[data-brand='forest-essentials'],
+.directory-store-name[data-brand='masaba'],
+.directory-store-name[data-brand='love-birds'],
+.directory-store-name[data-brand='nicobar'] {
+  font-family: Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+}
+.directory-store-name[data-brand='starbucks'] {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.directory-store-name[data-brand='cafe-dori'] {
+  font-weight: 500;
+  letter-spacing: 0.65px;
+}
+.directory-module-depth {
+  filter: url(#directory-depth);
+}
+.directory-module-depth.is-selected,
+.directory-module-depth.is-hovered {
+  filter: url(#directory-selected-depth);
+}
+.directory-module-depth > * {
+  fill: #b4a38b;
+  stroke: none;
+}
+.directory-has-selection [data-map-paint='retail']:not(.is-selected):not(.is-hovered) {
+  opacity: 0.86;
+}
+.directory-unit-name {
+  fill: #926d48;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.directory-brand.is-selected text {
+  fill: white;
+}
+.directory-area-label {
+  fill: #788b81;
+  font-weight: 500;
+}
+.directory-area-label text + text {
+  fill: #9aa69d;
+  font-weight: 500;
+}
+.directory-space-label rect {
+  fill: #f6faf4;
+  stroke: #89a795;
+  stroke-width: 1.2;
+  filter: drop-shadow(0 1px 2px #4d665b35);
+}
+.directory-space-label text {
+  fill: #1c5744;
+  font-weight: 800;
+  letter-spacing: 0.35px;
+}
+.directory-space-label.is-corridor rect {
+  fill: #f4f0e7;
+  stroke: #baa990;
+}
+.directory-space-label.is-corridor text {
+  fill: #725a3f;
+}
+.directory-amenity {
+  cursor: pointer;
+  outline: none;
+}
+.directory-amenity circle {
+  fill: #fffefa;
+  stroke: #c9d4ca;
+  stroke-width: 1.2;
+}
+.directory-amenity image {
+  opacity: 0.74;
+}
+.directory-amenity:hover circle,
+.directory-amenity:focus-visible circle {
+  stroke: #075b4b;
+  stroke-width: 2.5;
+}
+.directory-amenity.is-entry circle,
+.directory-amenity.is-selected circle {
+  fill: #075b4b;
+  stroke: #fff;
+  stroke-width: 2;
+}
+.directory-amenity.is-entry image,
+.directory-amenity.is-selected image {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+.directory-amenity text {
+  fill: #075b4b;
+  font-weight: 650;
+  paint-order: stroke;
+  stroke: #fffefa;
+  stroke-width: 3;
+}
+.directory-amenity-tile {
+  fill: #fcfaf4;
+  stroke: #a6b3a5;
+  stroke-width: 1.5;
+}
+.directory-amenity use {
+  fill: #3f5f50;
+}
+.directory-amenity.is-entry .directory-amenity-tile {
+  fill: #075b4b;
+  stroke: white;
+}
+.directory-amenity.is-entry use {
+  fill: white;
+}
+.directory-amenity.is-washroom .directory-amenity-tile {
+  fill: #075b4b;
+  stroke: #fffdf7;
+  stroke-width: 2;
+  filter: drop-shadow(0 2px 2px #1b564a40);
+}
+.directory-amenity.is-washroom use {
+  fill: white;
+}
+.directory-amenity.is-washroom.is-female .directory-amenity-tile {
+  fill: #775765;
+  filter: drop-shadow(0 2px 2px #5a3e4a40);
+}
+.directory-amenity.is-washroom .directory-amenity-caption rect {
+  fill: #075b4b;
+  stroke: #fffdf7;
+}
+.directory-amenity.is-washroom .directory-amenity-caption text {
+  fill: white;
+}
+.directory-here-pin {
+  fill: #075b4b;
+  stroke: #fffaf0;
+  stroke-width: 3;
+  filter: drop-shadow(0 3px 2px #52634f44);
+}
+.directory-origin-pin .directory-here-dot {
+  fill: #fffaf0;
+  stroke: none;
+}
+.directory-here-caption {
+  fill: #075b4b;
+}
+.explorer-map.is-ground .legend-route-line {
+  background: #207669;
+}
+.directory-origin-pin .directory-here-text {
+  fill: white;
+  stroke: none;
+  letter-spacing: 0.4px;
+  font-weight: 700;
+}
+.directory-amenity-caption rect {
+  fill: #fffdf7;
+  stroke: #aec3b3;
+  stroke-width: 1;
+}
+.directory-amenity .directory-amenity-caption text {
+  fill: #285d4b;
+  font-weight: 800;
+  stroke: none;
+  letter-spacing: 0.6px;
+}
+.explorer-map.is-ground .explorer-map-legend > div > span {
+  background: transparent;
+  box-shadow: none;
+}
+.explorer-map.is-ground .explorer-map-legend .directory-guide-icon {
+  overflow: visible;
+  flex: none;
+}
+.explorer-map.is-ground .explorer-compass i {
+  transform: rotate(-90deg);
+  margin-top: 0;
+  margin-left: 8px;
+}
+.explorer-map.is-ground .explorer-compass span {
+  top: 23px;
+  left: 8px;
+}
+.ground-floor-status[role='status'] {
+  top: 42%;
+  left: 56%;
+  border: none;
+  border-radius: 18px;
+  padding: 24px 32px;
+  background: #f8f5edef;
+  color: #677061;
+  box-shadow: 0 8px 40px #91857015;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+}
+.ground-floor-status[role='status']::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 14px;
+  border: 2px solid #ddd5c5;
+  border-top-color: #567662;
+  border-radius: 50%;
+  animation: directory-loading 0.9s linear infinite;
+}
+@keyframes directory-loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ground-floor-source * {
+    transition: none !important;
+  }
+  .ground-floor-status::before {
+    animation: none !important;
+  }
+}

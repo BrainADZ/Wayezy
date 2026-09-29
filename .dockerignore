@@ -1,0 +1,12 @@
+node_modules
+dist
+release
+.data
+.env
+test-results
+playwright-report
+docs/screenshots
+*.log
+.data-*-backup-*
+.tmp-*
+tmp

@@ -1,0 +1,384 @@
+{
+  "source": "ground-floor-master.svg — corrected in-unit brand labels",
+  "floor": "l0",
+  "tenants": [
+    {
+      "id": "starbucks",
+      "name": "Starbucks",
+      "category": "dining",
+      "moduleIds": [
+        "module-18"
+      ],
+      "logo": "/brand/logo/starbucks.webp",
+      "sourceTextIds": [
+        "text32028"
+      ]
+    },
+    {
+      "id": "parisian",
+      "name": "Parisian",
+      "category": "fashion",
+      "moduleIds": [
+        "module-18a"
+      ],
+      "logo": "",
+      "sourceTextIds": [
+        "text32058"
+      ]
+    },
+    {
+      "id": "love-birds",
+      "name": "Love Birds",
+      "category": "fashion",
+      "moduleIds": [
+        "module-14a",
+        "module-14b"
+      ],
+      "logo": "/brand/logo/lovebirds.png",
+      "sourceTextIds": [
+        "text32033",
+        "text32033-7"
+      ]
+    },
+    {
+      "id": "good-earth",
+      "name": "Good Earth",
+      "category": "home",
+      "moduleIds": [
+        "module-15a",
+        "module-15b",
+        "module-16a",
+        "module-16b"
+      ],
+      "logo": "/brand/logo/good%20earth.png",
+      "sourceTextIds": [
+        "text32064",
+        "text32064-2",
+        "text32128",
+        "text32128-8"
+      ]
+    },
+    {
+      "id": "suvasa",
+      "name": "Suvasa",
+      "category": "fashion",
+      "moduleIds": [
+        "module-10a",
+        "module-10b"
+      ],
+      "logo": "/brand/logo/suvasa.jpg",
+      "sourceTextIds": [
+        "text32038",
+        "text32038-7"
+      ]
+    },
+    {
+      "id": "forest-essentials",
+      "name": "Forest Essentials",
+      "category": "beauty",
+      "moduleIds": [
+        "module-11a"
+      ],
+      "logo": "",
+      "sourceTextIds": [
+        "text32158"
+      ]
+    },
+    {
+      "id": "pure-home",
+      "name": "Pure Home and Living",
+      "shortName": "Pure Home",
+      "category": "home",
+      "moduleIds": [
+        "module-11b"
+      ],
+      "logo": "/brand/logo/pure%20home%20living.png",
+      "sourceTextIds": [
+        "text32072"
+      ]
+    },
+    {
+      "id": "da-milano",
+      "name": "Da Milano",
+      "category": "fashion",
+      "moduleIds": [
+        "module-11c"
+      ],
+      "logo": "/brand/logo/de%20milano.png",
+      "sourceTextIds": [
+        "text32188"
+      ]
+    },
+    {
+      "id": "masaba",
+      "name": "Masaba",
+      "category": "fashion",
+      "moduleIds": [
+        "module-6b"
+      ],
+      "logo": "/brand/logo/masaba.png",
+      "sourceTextIds": [
+        "text32043"
+      ]
+    },
+    {
+      "id": "shantanu-nikhil",
+      "name": "Shantanu and Nikhil",
+      "shortName": "Shantanu & Nikhil",
+      "category": "fashion",
+      "moduleIds": [
+        "module-6a"
+      ],
+      "logo": "/brand/logo/shantnu-nikhil.png",
+      "sourceTextIds": [
+        "text32049"
+      ]
+    },
+    {
+      "id": "sundays",
+      "name": "Sundays",
+      "category": "home",
+      "moduleIds": [
+        "module-7d"
+      ],
+      "logo": "/brand/logo/sunday.jpeg",
+      "sourceTextIds": [
+        "text32100"
+      ]
+    },
+    {
+      "id": "nykaa-luxe",
+      "name": "Nykaa Luxe",
+      "category": "beauty",
+      "moduleIds": [
+        "module-7b",
+        "module-7c"
+      ],
+      "logo": "/brand/logo/nykaaa.jpg",
+      "sourceTextIds": [
+        "text32164",
+        "text32164-3"
+      ]
+    },
+    {
+      "id": "nappa-dori",
+      "name": "Nappa Dori",
+      "category": "fashion",
+      "moduleIds": [
+        "module-3b"
+      ],
+      "logo": "/brand/logo/nappa%20dori.webp",
+      "sourceTextIds": [
+        "text32208"
+      ]
+    },
+    {
+      "id": "cafe-dori",
+      "name": "Cafe Dori",
+      "category": "dining",
+      "moduleIds": [
+        "module-2a",
+        "module-2b"
+      ],
+      "logo": "/brand/logo/cafe-dori.png",
+      "sourceTextIds": [
+        "text32078",
+        "text32078-3"
+      ]
+    },
+    {
+      "id": "jj-vallaya",
+      "name": "JJ Vallaya",
+      "category": "fashion",
+      "moduleIds": [
+        "module-3a"
+      ],
+      "logo": "/brand/logo/jj-valaya.webp",
+      "sourceTextIds": [
+        "text32195"
+      ]
+    },
+    {
+      "id": "ensemble",
+      "name": "Ensemble",
+      "category": "fashion",
+      "moduleIds": [
+        "module-1"
+      ],
+      "logo": "/brand/logo/Ensemble.jpg",
+      "sourceTextIds": [
+        "text32085"
+      ]
+    },
+    {
+      "id": "ott",
+      "name": "OTT",
+      "category": "fashion",
+      "moduleIds": [
+        "module-1a"
+      ],
+      "logo": "/brand/logo/ott.png",
+      "sourceTextIds": [
+        "text32095"
+      ]
+    },
+    {
+      "id": "nicobar",
+      "name": "Nicobar",
+      "category": "home",
+      "moduleIds": [
+        "module-19"
+      ],
+      "logo": "/brand/logo/nicobar.jpg",
+      "sourceTextIds": [
+        "text32135"
+      ]
+    },
+    {
+      "id": "sobe-decor",
+      "name": "Sobe Decor",
+      "category": "home",
+      "moduleIds": [
+        "module-20"
+      ],
+      "logo": "/brand/logo/sobedecore.jpeg",
+      "sourceTextIds": [
+        "text32141"
+      ]
+    },
+    {
+      "id": "hatsu",
+      "name": "Hatsu",
+      "category": "home",
+      "moduleIds": [
+        "module-20a"
+      ],
+      "logo": "/brand/logo/hatsu.jpeg",
+      "sourceTextIds": [
+        "text32146"
+      ]
+    },
+    {
+      "id": "eka",
+      "name": "Eka",
+      "category": "fashion",
+      "moduleIds": [
+        "module-17a",
+        "module-17b"
+      ],
+      "logo": "/brand/logo/eka.jpeg",
+      "sourceTextIds": [
+        "text32171",
+        "text32171-9"
+      ]
+    },
+    {
+      "id": "pinklay",
+      "name": "Pinklay",
+      "category": "home",
+      "moduleIds": [
+        "module-12b"
+      ],
+      "logo": "/brand/logo/pinklay.png",
+      "sourceTextIds": [
+        "text32116"
+      ]
+    },
+    {
+      "id": "fat-lulus",
+      "name": "Fat Lulus",
+      "category": "dining",
+      "moduleIds": [
+        "module-12a"
+      ],
+      "logo": "/brand/logo/fatlulus.png",
+      "sourceTextIds": [
+        "text32111"
+      ]
+    },
+    {
+      "id": "kama-ayurveda",
+      "name": "Kama Ayurveda",
+      "category": "beauty",
+      "moduleIds": [
+        "module-12c"
+      ],
+      "logo": "/brand/logo/kama%20ayurveda.avif",
+      "sourceTextIds": [
+        "text32122"
+      ]
+    },
+    {
+      "id": "ruh",
+      "name": "RUH",
+      "category": "fashion",
+      "moduleIds": [
+        "module-12d"
+      ],
+      "logo": "/brand/logo/ruh.jpeg",
+      "sourceTextIds": [
+        "text32183"
+      ]
+    },
+    {
+      "id": "spin",
+      "name": "Spin",
+      "category": "home",
+      "moduleIds": [
+        "module-13"
+      ],
+      "logo": "/brand/logo/spin.webp",
+      "sourceTextIds": [
+        "text32201"
+      ]
+    },
+    {
+      "id": "veg-non-veg",
+      "name": "Veg Non Veg",
+      "category": "fashion",
+      "moduleIds": [
+        "module-8c"
+      ],
+      "logo": "",
+      "sourceTextIds": [
+        "text32106"
+      ]
+    },
+    {
+      "id": "perona",
+      "name": "Perona",
+      "category": "fashion",
+      "moduleIds": [
+        "module-9a1"
+      ],
+      "logo": "/brand/logo/perona.webp",
+      "sourceTextIds": [
+        "text32178"
+      ]
+    },
+    {
+      "id": "soulfoods",
+      "name": "Soulfoods",
+      "category": "dining",
+      "moduleIds": [
+        "module-9b"
+      ],
+      "logo": "/brand/logo/soul-food.jpeg",
+      "sourceTextIds": [
+        "text32090"
+      ]
+    },
+    {
+      "id": "coyu",
+      "name": "Coyu",
+      "category": "fashion",
+      "moduleIds": [
+        "module-21a"
+      ],
+      "logo": "/brand/logo/coyu.jpg",
+      "sourceTextIds": [
+        "text32152"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+import { Glyph } from './glyphs';
+
+/** Neutral icons for COMMAND. The stored keys still select the visitor-facing illustrations. */
+const names: Record<string, string> = {
+  fashion: 'store',
+  dining: 'store',
+  cinema: 'play',
+  beauty: 'star',
+  electronics: 'monitor',
+  services: 'settings',
+  offers: 'tag',
+  events: 'calendar',
+  search: 'search',
+  information: 'info',
+  parking: 'car',
+  washroom: 'users',
+  accessibleWashroom: 'accessibility',
+  atm: 'creditCard',
+  lift: 'lift',
+  escalator: 'escalator',
+  stairs: 'stairs',
+  accessibility: 'accessibility',
+  babyCare: 'heart',
+  prayerRoom: 'heart',
+  exit: 'arrowRight',
+  entrance: 'arrowLeft',
+  home: 'building',
+  directions: 'route',
+  qr: 'qr',
+  phone: 'phone',
+  map: 'map',
+  floor: 'layers',
+  currentLocation: 'locate',
+  destination: 'pin',
+  help: 'info',
+  language: 'globe',
+  notifications: 'alert',
+  sports: 'heart',
+  homeLifestyle: 'building',
+  kids: 'users',
+  entertainment: 'play',
+  grocery: 'store',
+  health: 'heart',
+  taxi: 'car',
+  firstAid: 'plus',
+  customerCare: 'info',
+  sparkle: 'star',
+};
+
+export function AdminIcon({ name, size = 24 }: { name: string; size?: number }) {
+  return <Glyph name={names[name] ?? 'tag'} size={size} strokeWidth={1.8} />;
+}

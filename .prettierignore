@@ -1,0 +1,8 @@
+node_modules/
+dist/
+release/
+test-results/
+.data/
+public/
+packages/domain/reference/*.json
+packages/domain/reference/ground-geometry.ts

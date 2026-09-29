@@ -1,0 +1,349 @@
+/* Map renderers (3D + SVG) and on-map controls. Sizes use em so kiosk (rem-scaled) and GO share them. */
+.map-renderer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #eef1f5;
+  /* Own stacking context: 3D label/marker overlays (z-index up to 30) must never paint over map controls. */
+  isolation: isolate;
+  z-index: 0;
+}
+.map-loading {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, #eef1f5 30%, #f7f9fb 50%, #eef1f5 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+.map3d,
+.map3d canvas {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none;
+}
+.map3d-html {
+  pointer-events: none;
+}
+.map3d-label {
+  font-weight: 600;
+  font-size: max(11px, 0.95em);
+  color: #1b2742;
+  white-space: nowrap;
+  text-shadow:
+    0 0 3px #fff,
+    0 0 3px #fff,
+    0 0 6px rgba(255, 255, 255, 0.9);
+  letter-spacing: -0.01em;
+  transition:
+    opacity 0.3s,
+    transform 0.3s var(--ease-out);
+  animation: labelIn 0.35s var(--ease-out);
+}
+.map3d-label.is-major {
+  font-weight: 700;
+  font-size: max(12px, 1.05em);
+}
+.map3d-label.is-selected {
+  font-size: max(14px, 1.25em);
+  font-weight: 800;
+  color: #0c3fd6;
+}
+.map3d-label.is-faded {
+  opacity: 0.35;
+}
+.map3d-label.is-culled {
+  opacity: 0;
+}
+@keyframes labelIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+.map3d-marker {
+  display: grid;
+  place-items: center;
+  width: 2.6em;
+  height: 2.6em;
+  min-width: 30px;
+  min-height: 30px;
+  padding: 0.3em;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(20, 33, 61, 0.2);
+  pointer-events: auto;
+  transition: transform 0.2s var(--ease-spring);
+}
+.map3d-marker:active {
+  transform: scale(0.92);
+}
+.map3d-marker.is-route {
+  box-shadow:
+    0 0 0 3px #1a5cff,
+    0 4px 12px rgba(26, 92, 255, 0.35);
+}
+.map3d-marker svg {
+  width: 100%;
+  height: 100%;
+}
+.map3d-pill {
+  padding: 0.45em 0.95em;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: max(12px, 1.05em);
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(20, 33, 61, 0.22);
+  animation: pillIn 0.45s var(--ease-spring);
+}
+.map3d-pill.is-here {
+  background: #1a5cff;
+  color: #fff;
+}
+.map3d-pill.is-destination {
+  background: #fff;
+  color: #14213d;
+  border: 2px solid #ff5a4e;
+}
+@keyframes pillIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.9);
+  }
+}
+.map3d-floor-tag {
+  display: grid;
+  gap: 2px;
+  padding: 0.5em 0.9em;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 4px 14px rgba(20, 33, 61, 0.14);
+  white-space: nowrap;
+  transition: opacity 0.3s;
+}
+.map3d-floor-tag strong {
+  font-size: 1.3em;
+  font-weight: 800;
+}
+.map3d-floor-tag span {
+  font-size: 0.85em;
+  color: var(--ink-3);
+}
+.map3d-floor-tag.is-faded {
+  opacity: 0.45;
+}
+
+/* SVG renderer */
+.svgmap {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+.svgmap:active {
+  cursor: grabbing;
+}
+.svgmap svg {
+  width: 100%;
+  height: 100%;
+}
+.svgmap-unit {
+  transition: opacity 0.3s;
+}
+.svgmap-unit.is-interactive {
+  cursor: pointer;
+}
+.svgmap-unit polygon {
+  transition: fill 0.35s;
+}
+.svgmap-label {
+  font-family: var(--font);
+  font-weight: 650;
+  fill: #1b2742;
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 0.35em;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.svgmap-unit.is-selected .svgmap-label {
+  fill: #0c3fd6;
+  font-weight: 800;
+}
+.svgmap-floor-label {
+  font-family: var(--font);
+  font-weight: 800;
+  fill: #14213d;
+}
+.svgmap-floor.is-dim {
+  opacity: 0.55;
+}
+.svgmap-marker {
+  cursor: pointer;
+}
+.svgmap-pill-text {
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 700;
+  fill: #fff;
+}
+.svgmap-pill-text.is-dark {
+  fill: #14213d;
+}
+.svgmap-here-pulse {
+  fill: rgba(26, 92, 255, 0.28);
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: pulse 1.8s ease-out infinite;
+}
+.svgmap-destination-pulse {
+  fill: rgba(255, 90, 78, 0.35);
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: pulse 1.6s ease-out infinite;
+}
+.svgmap-pin-bob {
+  animation: bob 2.4s ease-in-out infinite;
+}
+.svgmap-connector-pulse {
+  fill: none;
+  stroke: #ffb020;
+  stroke-width: 6px;
+  vector-effect: non-scaling-stroke;
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: pulse 1.2s ease-out infinite;
+}
+.svgmap-flow {
+  stroke-dasharray: 1 26;
+  animation: flow 1.4s linear infinite;
+}
+.svgmap-flow.is-static {
+  animation: none;
+}
+.svgmap-route-vertical {
+  stroke-dasharray: 10 10;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -27;
+  }
+}
+
+/* On-map controls */
+.floor-switcher {
+  display: grid;
+  gap: 0.4em;
+  padding: 0.4em;
+  border-radius: 1.1em;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(8px);
+}
+.floor-switcher button {
+  position: relative;
+  width: 3.4em;
+  height: 3.4em;
+  border: 0;
+  border-radius: 0.8em;
+  background: transparent;
+  font-weight: 800;
+  font-size: 1em;
+  color: var(--ink-2);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.15s;
+}
+.floor-switcher button:active {
+  transform: scale(0.94);
+}
+.floor-switcher button.is-active {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(26, 92, 255, 0.35);
+}
+.floor-switcher button i {
+  position: absolute;
+  right: 0.35em;
+  top: 0.35em;
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--coral);
+}
+.map-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.map-zoom,
+.map-segment {
+  display: flex;
+  gap: 0.3em;
+  padding: 0.3em;
+  border-radius: 1em;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-md);
+}
+.map-tool,
+.map-segment button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  min-width: 3.1em;
+  height: 3.1em;
+  padding: 0 0.7em;
+  border: 0;
+  border-radius: 0.75em;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 700;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+.map-tool:active,
+.map-segment button:active {
+  transform: scale(0.94);
+}
+.map-tool.is-wide {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-md);
+  border-radius: 1em;
+  height: 3.7em;
+  padding: 0 1.1em;
+}
+.map-tool.is-active,
+.map-segment button.is-active {
+  background: var(--ink);
+  color: #fff;
+}
