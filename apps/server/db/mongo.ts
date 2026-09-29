@@ -19,6 +19,13 @@ const dataTables = [
 
 type Row = Record<string, unknown>;
 type Change = { id: number; table_name: string; operation: string; row_data: Row | string };
+type StoredDocument = Document & { _id: string };
+type AppState = {
+  _id: string;
+  ready?: boolean;
+  source?: string;
+  initializedAt?: Date;
+};
 const trace = (step: string) => {
   if (process.env.MONGO_IMPORT_DEBUG === '1') console.error(`[mongo-import] ${step}`);
 };
@@ -30,10 +37,10 @@ function documentId(table: string, row: Row) {
 }
 
 function collection(database: Db, table: string) {
-  return database.collection<Document>(`rows_${table}`);
+  return database.collection<StoredDocument>(`rows_${table}`);
 }
 
-function storedDocument(table: string, row: Row): Document {
+function storedDocument(table: string, row: Row): StoredDocument {
   const _id = documentId(table, row);
   const json = JSON.stringify(row);
   // Published maps and import backups can be larger than MongoDB's document limit.
@@ -42,10 +49,10 @@ function storedDocument(table: string, row: Row): Document {
     : { _id, ...row };
 }
 
-function documentRow(record: Document): Row {
+function documentRow(record: StoredDocument): Row {
   if (record.compressed instanceof Binary)
     return JSON.parse(gunzipSync(record.compressed.buffer).toString('utf8')) as Row;
-  const row = { ...record };
+  const row: Row = { ...record };
   delete row._id;
   return row;
 }
@@ -72,7 +79,7 @@ async function importLegacyData(database: Db, dataDir: string) {
       if (!rows.length) continue;
       const target = collection(database, table);
       for (let offset = 0; offset < rows.length; offset += 500) {
-        const operations: AnyBulkWriteOperation<Document>[] = rows
+        const operations: AnyBulkWriteOperation<StoredDocument>[] = rows
           .slice(offset, offset + 500)
           .map((row) => ({
             replaceOne: {
@@ -159,7 +166,7 @@ async function installOutbox(sql: Database) {
 async function flushOutbox(sql: Database, database: Db) {
   const changes = await sql.query<Change>('select * from mongo_outbox order by id');
   if (!changes.length) return;
-  const byTable = new Map<string, AnyBulkWriteOperation<Document>[]>();
+  const byTable = new Map<string, AnyBulkWriteOperation<StoredDocument>[]>();
   for (const change of changes) {
     const row =
       typeof change.row_data === 'string' ? (JSON.parse(change.row_data) as Row) : change.row_data;
@@ -198,7 +205,7 @@ export async function createMongoDatabase(options: {
     trace('connecting to MongoDB');
     await client.connect();
     const database = client.db(options.databaseName);
-    const state = database.collection('app_state');
+    const state = database.collection<AppState>('app_state');
     const initialized = await state.findOne({ _id: 'database' });
     if (!initialized?.ready) {
       trace('importing legacy data');
@@ -255,7 +262,7 @@ export async function createMongoDatabase(options: {
       async reset() {
         await database.dropDatabase();
         await database
-          .collection('app_state')
+          .collection<AppState>('app_state')
           .updateOne(
             { _id: 'database' },
             { $set: { ready: true, source: 'reset', initializedAt: new Date() } },
