@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { Volume2, VolumeX } from 'lucide-react';
 import '../styles/go.css';
 import '../styles/explorer.css';
 import {
@@ -164,13 +165,7 @@ export default function GoApp() {
   );
 }
 
-function GoHeader({
-  onShare,
-  onMinimize,
-}: {
-  onShare?: () => void;
-  onMinimize?: () => void;
-}) {
+function GoHeader({ onShare, onMinimize }: { onShare?: () => void; onMinimize?: () => void }) {
   return (
     <header className="go-header">
       <a href="/go" className="go-brand" aria-label="IREO Boulevard directory home">
@@ -270,10 +265,7 @@ function GoBrowse({
         </label>
         <label className="go-start">
           <span>{t('go.chooseStart')}</span>
-          <select
-            value={start?.id ?? ''}
-            onChange={(e) => setStartId(e.target.value)}
-          >
+          <select value={start?.id ?? ''} onChange={(e) => setStartId(e.target.value)}>
             {starts.map((s) => (
               <option key={s.id} value={s.id}>
                 {s.label}
@@ -351,6 +343,8 @@ function GoRoute({
   const [showRouteOptions, setShowRouteOptions] = useState(false);
   const [mapExpanded, setMapExpanded] = useState(false);
   const [navigationStarted, setNavigationStarted] = useState(false);
+  const [guidancePaused, setGuidancePaused] = useState(false);
+  const [voiceEnabled, setVoiceEnabled] = useState(false);
   const [arrived, setArrived] = useState(false);
   const [mapMode, setMapMode] = useState<MapMode>('3d');
   const [mapView, setMapView] = useState<MapView>('floor');
@@ -432,6 +426,20 @@ function GoRoute({
     return () => window.removeEventListener('beforeinstallprompt', handler);
   }, []);
 
+  const step = route?.steps[Math.min(stepIndex, (route?.steps.length ?? 1) - 1)] ?? null;
+  const nextStep = route?.steps[stepIndex + 1] ?? null;
+  const guiding = mapExpanded && navigationStarted;
+  useEffect(() => {
+    if (!guiding || !voiceEnabled || guidancePaused || !step || !('speechSynthesis' in window))
+      return;
+    const announcement = new SpeechSynthesisUtterance(step.text);
+    announcement.lang = 'en-IN';
+    announcement.rate = 0.95;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(announcement);
+    return () => window.speechSynthesis.cancel();
+  }, [guiding, voiceEnabled, guidancePaused, step?.text]);
+
   if (!destination || !startNode) {
     return (
       <div className="go-shell">
@@ -449,7 +457,6 @@ function GoRoute({
     );
   }
 
-  const step = route?.steps[Math.min(stepIndex, (route?.steps.length ?? 1) - 1)] ?? null;
   const stepPiece = pieces[mapping[stepIndex] ?? 0];
   const autoFloor =
     playback.phase !== 'arrived' && playback.piece
@@ -516,30 +523,83 @@ function GoRoute({
   };
   const goToStep = (index: number) => {
     if (!route) return;
-    playback.skip();
+    if (navigationStarted && mapExpanded) playback.replay();
+    else playback.skip();
+    setGuidancePaused(false);
     setManualFloor(null);
     setStepIndex(Math.max(0, Math.min(route.steps.length - 1, index)));
     if (index < route.steps.length - 1) setArrived(false);
   };
   const startNavigation = () => {
-    if (navigationStarted) playback.skip();
-    else {
+    if (!navigationStarted) {
       setStepIndex(0);
       playback.replay();
+    } else if (playback.phase === 'paused') {
+      playback.resume();
     }
     setNavigationStarted(true);
+    setGuidancePaused(false);
     setMapExpanded(true);
     setShowRouteOptions(false);
   };
 
+  const togglePause = () => {
+    if (guidancePaused) {
+      if (playback.phase === 'paused') playback.resume();
+      else playback.replay();
+      setGuidancePaused(false);
+    } else {
+      playback.pause();
+      setGuidancePaused(true);
+    }
+  };
+
   return (
     <div
-      className={`go-shell is-route ${mapExpanded ? 'is-map-full' : 'is-map-minimized'}${online ? '' : ' is-offline'}`}
+      className={`go-shell is-route ${mapExpanded ? 'is-map-full' : 'is-map-minimized'}${guiding ? ' is-guiding' : ''}${guidancePaused ? ' is-paused' : ''}${online ? '' : ' is-offline'}`}
     >
       <GoHeader
         onShare={share}
         onMinimize={mapExpanded ? () => setMapExpanded(false) : undefined}
       />
+      {guiding && route && step ? (
+        <div className="go-guidance" aria-live="polite">
+          <div className="go-guidance-primary">
+            <span className="go-guidance-icon">
+              <Glyph name={stepGlyph[step.kind]} size={26} />
+            </span>
+            <div className="go-guidance-copy">
+              <small>
+                STEP {stepIndex + 1} OF {route.steps.length} |{' '}
+                {data.floors.find((item) => item.id === step.floorId)?.shortName ?? 'G'} FLOOR
+              </small>
+              <strong>{step.text}</strong>
+              <span>
+                {step.kind === 'arrive'
+                  ? 'Destination ahead'
+                  : `${Math.round(step.distance)} m to this turn`}
+              </span>
+            </div>
+            <button
+              type="button"
+              className="go-guidance-minimise"
+              onClick={() => setMapExpanded(false)}
+              aria-label="Minimise map and view brand details"
+            >
+              <Glyph name="compress" size={20} />
+            </button>
+          </div>
+          {nextStep ? (
+            <button
+              type="button"
+              className="go-guidance-next"
+              onClick={() => goToStep(stepIndex + 1)}
+            >
+              <span>THEN</span> {nextStep.text}
+            </button>
+          ) : null}
+        </div>
+      ) : null}
       {!online ? (
         <div className="go-offline">
           <Glyph name="wifiOff" size={16} /> {t('common.offline')}
@@ -658,7 +718,8 @@ function GoRoute({
             route={route}
             stepIndex={stepIndex}
             panelOpen={false}
-            focusNodeId={step?.nodeId}
+            focusNodeId={guiding ? step?.nodeId : undefined}
+            navigationMode={guiding}
             onFullscreen={() => {
               if (document.fullscreenElement) void document.exitFullscreen();
               else void mapElement.current?.requestFullscreen();
@@ -739,6 +800,79 @@ function GoRoute({
         ) : null}
       </section>
 
+      {guiding && route && step ? (
+        <section className="go-nav-dock" aria-label="Navigation controls">
+          <div className="go-nav-destination">
+            {tenant ? (
+              <LogoTile tenant={tenant} size={42} />
+            ) : (
+              <WayIcon name={poi ? poiIcon[poi.type] : 'destination'} size={42} />
+            )}
+            <span>
+              <strong>{destination.name}</strong>
+              <small>
+                {route.minutes} min | {route.distance} m | {floor?.shortName}
+              </small>
+            </span>
+            <button
+              type="button"
+              onClick={() => setShowProfile(true)}
+              aria-label="View brand details"
+            >
+              <Glyph name="chevronUp" size={19} />
+            </button>
+          </div>
+          <div
+            className="go-nav-progress"
+            role="progressbar"
+            aria-label="Route progress"
+            aria-valuenow={stepIndex + 1}
+            aria-valuemin={0}
+            aria-valuemax={route.steps.length}
+          >
+            <i style={{ width: String(((stepIndex + 1) / route.steps.length) * 100) + '%' }} />
+          </div>
+          <div className="go-nav-controls">
+            <button
+              type="button"
+              className="go-nav-control"
+              onClick={() => goToStep(stepIndex - 1)}
+              disabled={stepIndex === 0}
+              aria-label="Previous direction"
+            >
+              <Glyph name="chevronLeft" size={22} />
+            </button>
+            <button type="button" className="go-nav-control is-main" onClick={togglePause}>
+              <Glyph name={guidancePaused ? 'play' : 'pause'} size={17} />{' '}
+              {guidancePaused ? 'Resume' : 'Pause'}
+            </button>
+            <button
+              type="button"
+              className="go-nav-control"
+              onClick={() => (nextStep ? goToStep(stepIndex + 1) : onChangeDestination())}
+              aria-label={nextStep ? 'Next direction' : 'Done and return to brand search'}
+            >
+              {nextStep ? (
+                <Glyph name="chevronRight" size={22} />
+              ) : (
+                <Glyph name="check" size={22} />
+              )}
+            </button>
+            <button
+              type="button"
+              className="go-nav-control"
+              onClick={() => setVoiceEnabled((enabled) => !enabled)}
+              aria-label={voiceEnabled ? 'Mute spoken directions' : 'Enable spoken directions'}
+              aria-pressed={voiceEnabled}
+            >
+              {voiceEnabled ? <Volume2 size={20} /> : <VolumeX size={20} />}
+            </button>
+            <button type="button" className="go-nav-control is-end" onClick={onChangeDestination}>
+              End
+            </button>
+          </div>
+        </section>
+      ) : null}
       {route && step ? (
         <section className={`go-sheet${showRouteOptions ? ' is-expanded' : ''}`}>
           <button

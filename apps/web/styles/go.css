@@ -648,7 +648,10 @@ html.go-root body {
   border: 1px solid var(--line);
   background: var(--surface);
   text-align: left;
-  transition: border-color 0.18s, background-color 0.18s, transform 0.18s;
+  transition:
+    border-color 0.18s,
+    background-color 0.18s,
+    transform 0.18s;
 }
 .go-list-row:hover,
 .go-list-row:focus-visible {
@@ -1256,5 +1259,228 @@ html.go-root body {
   }
   .go-shell.is-route .go-brand {
     margin-right: auto;
+  }
+}
+
+/* Mobile navigation overlays sit above the interactive route map. */
+.go-guidance,
+.go-nav-dock {
+  display: none;
+}
+@keyframes goRouteFlow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+@media (max-width: 699px) {
+  .go-shell.is-guiding .go-header,
+  .go-shell.is-guiding .go-destination,
+  .go-shell.is-guiding .go-map-badge,
+  .go-shell.is-guiding .go-sheet {
+    display: none;
+  }
+  .go-shell.is-guiding .go-guidance {
+    position: absolute;
+    top: calc(12px + env(safe-area-inset-top));
+    right: 12px;
+    left: 12px;
+    z-index: 35;
+    display: grid;
+    gap: 7px;
+    pointer-events: none;
+  }
+  .go-guidance-primary {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-height: 86px;
+    padding: 12px;
+    border-radius: 19px;
+    background: #123e34;
+    color: #fff;
+    box-shadow: 0 12px 30px rgba(9, 38, 31, 0.27);
+    pointer-events: auto;
+  }
+  .go-guidance-icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background: #b18b50;
+    color: #fff;
+  }
+  .go-guidance-copy {
+    display: grid;
+    gap: 3px;
+    flex: 1;
+    min-width: 0;
+  }
+  .go-guidance-copy small {
+    color: #dbbd83;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+  }
+  .go-guidance-copy strong {
+    font-size: clamp(14px, 4vw, 17px);
+    line-height: 1.22;
+  }
+  .go-guidance-copy > span {
+    color: #d8e7de;
+    font-size: 11px;
+  }
+  .go-guidance-minimise {
+    display: grid;
+    place-items: center;
+    align-self: start;
+    flex: none;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+  }
+  .go-guidance-next {
+    justify-self: start;
+    max-width: calc(100% - 12px);
+    padding: 8px 13px;
+    border: 1px solid rgba(15, 57, 45, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 253, 248, 0.96);
+    color: #3b5047;
+    box-shadow: 0 4px 16px rgba(11, 46, 34, 0.13);
+    font-size: 11px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: auto;
+  }
+  .go-guidance-next span {
+    margin-right: 5px;
+    color: #7b8b81;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+  .go-shell.is-guiding .go-map.is-ground-route .explorer-map-controls,
+  .go-shell.is-guiding .go-map-tools {
+    top: calc(176px + env(safe-area-inset-top));
+    right: 12px;
+    bottom: auto;
+    z-index: 10;
+  }
+  .go-shell.is-guiding .go-map.is-ground-route .explorer-map-controls > button:first-child {
+    display: none;
+  }
+  .go-shell.is-guiding .go-nav-dock {
+    position: absolute;
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    left: 10px;
+    z-index: 35;
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid rgba(22, 68, 48, 0.14);
+    border-radius: 19px;
+    background: rgba(255, 253, 248, 0.97);
+    box-shadow: 0 12px 38px rgba(11, 38, 29, 0.24);
+    backdrop-filter: blur(12px);
+  }
+  .go-nav-destination {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+  }
+  .go-nav-destination > span {
+    display: grid;
+    gap: 3px;
+    flex: 1;
+    min-width: 0;
+  }
+  .go-nav-destination strong,
+  .go-nav-destination small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .go-nav-destination strong {
+    font-size: 13px;
+  }
+  .go-nav-destination small {
+    color: var(--ink-3);
+    font-size: 10px;
+  }
+  .go-nav-destination > button {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--brand-soft);
+    color: var(--brand-ink);
+  }
+  .go-nav-progress {
+    height: 4px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: var(--surface-3);
+  }
+  .go-nav-progress i {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: #b18b50;
+    transition: width 0.25s ease;
+  }
+  .go-nav-controls {
+    display: grid;
+    grid-template-columns: 42px minmax(80px, 1fr) 42px 42px 48px;
+    gap: 6px;
+  }
+  .go-nav-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-width: 0;
+    min-height: 43px;
+    padding: 0 5px;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: #f2f1e9;
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 800;
+  }
+  .go-nav-control.is-main {
+    border-color: #123e34;
+    background: #123e34;
+    color: #fff;
+  }
+  .go-nav-control.is-end {
+    color: #9c4c45;
+  }
+  .go-nav-control:disabled {
+    opacity: 0.42;
+  }
+  .go-shell.is-guiding .directory-route-line {
+    stroke-dasharray: 16 8;
+    animation: goRouteFlow 1.2s linear infinite;
+  }
+  .go-shell.is-guiding.is-paused .directory-route-line {
+    animation-play-state: paused;
+  }
+}
+@media (max-width: 360px) {
+  .go-nav-controls {
+    grid-template-columns: 38px minmax(72px, 1fr) 38px 38px 44px;
+    gap: 4px;
   }
 }

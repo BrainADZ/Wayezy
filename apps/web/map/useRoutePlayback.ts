@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { RoutePiece } from './model';
 
-export type PlaybackPhase = 'idle' | 'drawing' | 'transition' | 'arrived';
+export type PlaybackPhase = 'idle' | 'drawing' | 'transition' | 'paused' | 'arrived';
 
 /**
  * Drives progressive route drawing. `progressRef.current` runs from 0 to pieces.length:
@@ -18,6 +18,8 @@ export function useRoutePlayback(
   const [phase, setPhase] = useState<PlaybackPhase>('idle');
   const frame = useRef<number | null>(null);
   const run = useRef(0);
+  const pausedAt = useRef(0);
+  const resumeTick = useRef<(() => void) | null>(null);
 
   const stop = () => {
     if (frame.current !== null) cancelAnimationFrame(frame.current);
@@ -27,6 +29,7 @@ export function useRoutePlayback(
   const play = useCallback(() => {
     stop();
     run.current += 1;
+    resumeTick.current = null;
     const token = run.current;
     if (!pieces.length) {
       progressRef.current = 0;
@@ -82,12 +85,29 @@ export function useRoutePlayback(
       }
       frame.current = requestAnimationFrame(tick);
     };
+    resumeTick.current = () => {
+      started += performance.now() - pausedAt.current;
+      setPhase(pieces[index].kind === 'vertical' ? 'transition' : 'drawing');
+      frame.current = requestAnimationFrame(tick);
+    };
     frame.current = requestAnimationFrame(tick);
   }, [pieces, options.reducedMotion]);
+
+  const pause = useCallback(() => {
+    if (frame.current === null) return;
+    pausedAt.current = performance.now();
+    stop();
+    setPhase('paused');
+  }, []);
+
+  const resume = useCallback(() => {
+    if (phase === 'paused') resumeTick.current?.();
+  }, [phase]);
 
   const skip = useCallback(() => {
     stop();
     run.current += 1;
+    resumeTick.current = null;
     progressRef.current = pieces.length;
     setPieceIndex(Math.max(0, pieces.length - 1));
     setPhase(pieces.length ? 'arrived' : 'idle');
@@ -100,5 +120,14 @@ export function useRoutePlayback(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options.key, pieces.length]);
 
-  return { progressRef, pieceIndex, phase, replay: play, skip, piece: pieces[pieceIndex] ?? null };
+  return {
+    progressRef,
+    pieceIndex,
+    phase,
+    replay: play,
+    skip,
+    pause,
+    resume,
+    piece: pieces[pieceIndex] ?? null,
+  };
 }

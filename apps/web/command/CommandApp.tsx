@@ -381,7 +381,7 @@ function Shell() {
       ) : null}
       <aside className={`cmd-sidebar ${sidebarOpen ? 'is-open' : ''}`} id="command-navigation">
         <div className="cmd-sidebar-brand">
-          <CentreLogo />
+          <CentreLogo /> 
           <small>Powered by BrainADZ</small>
         </div>
         <nav aria-label="COMMAND sections">

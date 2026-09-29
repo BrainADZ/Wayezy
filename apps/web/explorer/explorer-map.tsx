@@ -43,6 +43,7 @@ export function ExplorerMap({
   performanceMode = false,
   matchingIds,
   searchFocusId,
+  navigationMode = false,
 }: {
   data: Snapshot;
   startNodeId?: string;
@@ -59,6 +60,7 @@ export function ExplorerMap({
   performanceMode?: boolean;
   matchingIds?: string[];
   searchFocusId?: string;
+  navigationMode?: boolean;
 }) {
   const svg = useRef<SVGSVGElement>(null);
   const groundCamera = useRef<SVGGElement>(null);
@@ -283,7 +285,7 @@ export function ExplorerMap({
       y: (minY + maxY) / 2 + ((groundInset.bottom - groundInset.top) * groundScale) / (2 * zoom),
       zoom,
     });
-  }, [route, isGround, groundStatus.state]);
+  }, [route, isGround, groundStatus.state, size.width, size.height]);
 
   useEffect(() => {
     if (!isGround || !focusNodeId || !route) return;
@@ -293,10 +295,10 @@ export function ExplorerMap({
       animateCamera({
         x: point.x + ((groundInset.right - groundInset.left) * groundScale) / 4,
         y: point.y + ((groundInset.bottom - groundInset.top) * groundScale) / 4,
-        zoom: 2,
+        zoom: navigationMode ? 2.8 : 2,
       });
     }
-  }, [focusNodeId, isGround, route]);
+  }, [focusNodeId, isGround, route, navigationMode, size.width, size.height]);
 
   function zoomBy(amount: number, cursor?: { x: number; y: number }) {
     cancelAnimationFrame(animationFrame.current);
