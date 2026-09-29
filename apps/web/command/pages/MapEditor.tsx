@@ -95,7 +95,7 @@ const rid = (prefix: string) => `${prefix}-${Math.random().toString(36).slice(2,
 const nodeColor: Record<RouteNode['type'], string> = {
   corridor: '#94a3b8',
   entrance: '#16a34a',
-  tenant: '#1a5cff',
+  tenant: '#005247',
   lift: '#7c5cff',
   escalator: '#0e9f8a',
   stairs: '#6b7489',
@@ -629,7 +629,7 @@ export default function MapEditor() {
                       <polygon
                         points={f.points.map((p) => p.join(',')).join(' ')}
                         fill={f.kind === 'void' ? '#dfe9f2' : f.color}
-                        stroke={selected ? '#1a5cff' : '#ffffff'}
+                        stroke={selected ? '#005247' : '#ffffff'}
                         strokeWidth={selected ? 5 : 2}
                         className="cmd-map-feature"
                       />
@@ -645,8 +645,8 @@ export default function MapEditor() {
             {draft.length ? (
               <polyline
                 points={draft.map((p) => p.join(',')).join(' ')}
-                fill="rgba(26,92,255,0.12)"
-                stroke="#1a5cff"
+                fill="rgba(0,82,71,0.12)"
+                stroke="#005247"
                 strokeWidth={3}
                 strokeDasharray="8 6"
               />
@@ -699,7 +699,7 @@ export default function MapEditor() {
               <polyline
                 points={routeOnFloor.map((n) => `${n.x},${n.y}`).join(' ')}
                 fill="none"
-                stroke="#1a5cff"
+                stroke="#005247"
                 strokeWidth={9}
                 strokeLinecap="round"
                 strokeLinejoin="round"

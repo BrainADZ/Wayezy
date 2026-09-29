@@ -200,7 +200,7 @@ export default function Analytics() {
       <div className="cmd-stats">
         <StatCard
           icon="phone"
-          tone="#1a5cff"
+          tone="#005247"
           label="Kiosk sessions"
           value={t?.sessions.toLocaleString('en-IN') ?? '—'}
           hint={t ? `${t.tenantViews.toLocaleString('en-IN')} profile views` : undefined}
@@ -246,7 +246,7 @@ export default function Analytics() {
               series={[
                 {
                   name: 'Sessions',
-                  color: '#1a5cff',
+                  color: '#005247',
                   values: summary.daily.map((d) => d.sessions),
                 },
                 {

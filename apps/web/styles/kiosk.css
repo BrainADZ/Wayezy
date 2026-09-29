@@ -516,7 +516,7 @@ html.kiosk-root body {
 .search-field.is-active {
   border-color: var(--brand);
   box-shadow:
-    0 0 0 0.35rem rgba(26, 92, 255, 0.15),
+    0 0 0 0.35rem rgba(0, 82, 71, 0.15),
     var(--shadow-md);
 }
 .search-field input {
@@ -741,7 +741,7 @@ html.kiosk-root body {
   font-size: 1.6rem;
   background: var(--brand);
   color: #fff;
-  box-shadow: 0 0.2rem 0 #0c3fd6;
+  box-shadow: 0 0.2rem 0 #003f37;
 }
 .keyboard-reopen {
   position: absolute;
@@ -1148,12 +1148,12 @@ html.kiosk-root body {
 @keyframes ctaPulse {
   0%,
   100% {
-    box-shadow: 0 0.4rem 1.2rem rgba(26, 92, 255, 0.28);
+    box-shadow: 0 0.4rem 1.2rem rgba(0, 82, 71, 0.28);
   }
   50% {
     box-shadow:
-      0 0 0 0.6rem rgba(26, 92, 255, 0.14),
-      0 0.4rem 1.2rem rgba(26, 92, 255, 0.28);
+      0 0 0 0.6rem rgba(0, 82, 71, 0.14),
+      0 0.4rem 1.2rem rgba(0, 82, 71, 0.28);
   }
 }
 .place-mini {
@@ -1951,12 +1951,12 @@ html.kiosk-root body {
   height: 1.1rem;
   border-radius: 50%;
   background: var(--brand);
-  box-shadow: 0 0 0 0 rgba(26, 92, 255, 0.5);
+  box-shadow: 0 0 0 0 rgba(0, 82, 71, 0.5);
   animation: touchPulse 1.6s ease-out infinite;
 }
 @keyframes touchPulse {
   to {
-    box-shadow: 0 0 0 1.2rem rgba(26, 92, 255, 0);
+    box-shadow: 0 0 0 1.2rem rgba(0, 82, 71, 0);
   }
 }
 .ad-progress {
@@ -2012,4 +2012,11 @@ html.kiosk-root body {
 .kiosk-stage.reduced-motion *::after {
   animation-duration: 0.001ms !important;
   transition-duration: 0.001ms !important;
+}
+
+.ad-centre-logo {
+  width: min(16rem, 70vw);
+  max-height: 8rem;
+  object-fit: contain;
+  object-position: left center;
 }

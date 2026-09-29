@@ -611,7 +611,7 @@ export function ExplorerMap({
                     />
                     <path
                       d={`M${a.x} ${a.y}L${b.x} ${b.y}`}
-                      stroke={stepIndex === index ? '#083aa8' : '#2864ff'}
+                      stroke={stepIndex === index ? '#003f37' : '#005247'}
                       strokeWidth="8"
                       strokeLinecap="round"
                       markerMid={`url(#${arrowId})`}
@@ -784,7 +784,7 @@ export function ExplorerMap({
                     cy={point.y}
                     r="9"
                     fill="#fff"
-                    stroke="#2864ff"
+                    stroke="#005247"
                     strokeWidth="4"
                   />
                 );

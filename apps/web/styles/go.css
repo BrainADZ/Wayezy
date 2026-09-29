@@ -41,8 +41,25 @@ html.go-root body {
 .go-brand {
   display: flex;
   align-items: center;
-  font-size: 13px;
+  gap: 8px;
+  min-width: 0;
   text-decoration: none;
+}
+.go-centre-logo {
+  display: block;
+  width: 112px;
+  height: 34px;
+  object-fit: contain;
+  object-position: left center;
+}
+.go-product {
+  padding: 5px 7px;
+  border-radius: 7px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
 .go-venue {
   flex: 1;
@@ -258,7 +275,7 @@ html.go-root body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #9fb4ff;
+  color: #bce0cd;
 }
 .go-transition strong {
   font-size: 16px;
@@ -521,10 +538,46 @@ html.go-root body {
   gap: 14px;
   padding: 16px 14px 24px;
 }
-.go-browse h1 {
-  font-size: 26px;
+.go-browse-intro {
+  display: grid;
+  gap: 9px;
+  padding: 24px 21px;
+  border: 1px solid rgba(0, 82, 71, 0.12);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #e8f2ea, #fff9ed 78%);
+  box-shadow: var(--shadow-sm);
+}
+.go-browse-intro > span {
+  color: var(--brand-ink);
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.17em;
+}
+.go-browse h1 {
+  font-size: clamp(25px, 7vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.go-browse-intro p {
+  max-width: 34ch;
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.go-list-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 3px 2px 0;
+}
+.go-list-heading strong {
+  color: var(--ink);
+  font-size: 15px;
+}
+.go-list-heading span {
+  color: var(--ink-3);
+  font-size: 12px;
 }
 .go-notice {
   display: flex;
@@ -595,6 +648,15 @@ html.go-root body {
   border: 1px solid var(--line);
   background: var(--surface);
   text-align: left;
+  transition: border-color 0.18s, background-color 0.18s, transform 0.18s;
+}
+.go-list-row:hover,
+.go-list-row:focus-visible {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+.go-list-row:active {
+  transform: scale(0.99);
 }
 .go-list-row > span {
   flex: 1;
@@ -1185,5 +1247,14 @@ html.go-root body {
     left: 0;
     max-width: 560px;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .go-shell.is-route .go-venue {
+    display: none;
+  }
+  .go-shell.is-route .go-brand {
+    margin-right: auto;
   }
 }

@@ -1005,7 +1005,7 @@ export function LineChart({
 
 export function BarList({
   items,
-  color = '#1a5cff',
+  color = '#005247',
   empty = 'No data yet.',
 }: {
   items: { label: string; value: number; hint?: string }[];

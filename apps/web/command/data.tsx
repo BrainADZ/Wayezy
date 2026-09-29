@@ -91,7 +91,7 @@ const emptyCopy = (): WorkingCopy =>
       timezone: 'Asia/Kolkata',
       address: '',
       description: '',
-      brandColor: '#1a5cff',
+      brandColor: '#005247',
       phone: '',
       email: '',
       website: '',

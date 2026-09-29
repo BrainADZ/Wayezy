@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { playlist } from '../../../packages/advertising';
+import { playlist, screenCampaigns } from '../../../packages/advertising';
 import type { Device, Snapshot } from '../../../packages/domain';
 import { Logo } from '../brand/Logo';
-import { WayIcon } from '../icons/illustrated';
+import { CentreLogo } from '../brand/CentreLogo';
 import { analytics } from '../shared/analytics';
 import { useI18n } from '../shared/i18n';
 import { HeroArt, LogoTile } from '../shared/ui';
@@ -31,7 +31,7 @@ type Slide =
 
 /**
  * Idle advertising (K09). Plays the device's scheduled playlist with soft cross-fades; falls
- * back to house content (offers, events, branding) if nothing is booked. Any touch exits —
+ * back to venue branding if nothing is booked. Any touch exits —
  * handled by the parent, which also resets the visitor session.
  */
 export function AdMode({
@@ -44,10 +44,15 @@ export function AdMode({
   onExit: () => void;
 }) {
   const { t } = useI18n();
+  const [playlistMinute, setPlaylistMinute] = useState(0);
+  useEffect(() => {
+    const timer = window.setInterval(() => setPlaylistMinute((minute) => minute + 1), 30_000);
+    return () => window.clearInterval(timer);
+  }, []);
   const slides = useMemo<Slide[]>(() => {
     const media = new Map(data.media.map((m) => [m.id, m]));
     const campaignSlides: Slide[] = playlist(
-      data.campaigns,
+      screenCampaigns(data.campaigns),
       device,
       new Date(),
       data.venue.timezone,
@@ -69,36 +74,16 @@ export function AdMode({
       })
       .filter((s): s is Slide => Boolean(s));
     if (campaignSlides.length) return campaignSlides;
-    const house: Slide[] = data.offers.slice(0, 3).map((o) => ({
-      kind: 'house',
-      key: o.id,
-      duration: 8,
-      tenantId: o.tenantId,
-      title: o.title,
-      highlight: o.highlight,
-      body: o.description,
-    }));
-    for (const e of data.events.slice(0, 2))
-      house.push({
+    return [
+      {
         kind: 'house',
-        key: e.id,
-        duration: 8,
-        title: e.title,
-        body: e.description,
-        eventLabel: `${e.timeLabel} · ${e.locationLabel}`,
-      });
-    return house.length
-      ? house
-      : [
-          {
-            kind: 'house',
-            key: 'brand',
-            duration: 10,
-            title: data.venue.name,
-            body: data.venue.description,
-          },
-        ];
-  }, [data, device]);
+        key: 'brand',
+        duration: 10,
+        title: 'IREO Boulevard',
+        body: 'Explore stores, offers and directions on the interactive map.',
+      },
+    ];
+  }, [data, device, playlistMinute]);
 
   const [index, setIndex] = useState(0);
   const slide = slides[index % slides.length];
@@ -179,7 +164,7 @@ export function AdMode({
               {tenant ? (
                 <LogoTile tenant={tenant} size={140} />
               ) : (
-                <WayIcon name="events" size={140} />
+                <CentreLogo className="ad-centre-logo" />
               )}
               {slide.highlight ? <span className="ad-highlight">{slide.highlight}</span> : null}
               <h1>{slide.title}</h1>

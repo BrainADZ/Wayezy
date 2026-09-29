@@ -53,7 +53,7 @@
 .map3d-label.is-selected {
   font-size: max(14px, 1.25em);
   font-weight: 800;
-  color: #0c3fd6;
+  color: #003f37;
 }
 .map3d-label.is-faded {
   opacity: 0.35;
@@ -87,8 +87,8 @@
 }
 .map3d-marker.is-route {
   box-shadow:
-    0 0 0 3px #1a5cff,
-    0 4px 12px rgba(26, 92, 255, 0.35);
+    0 0 0 3px #005247,
+    0 4px 12px rgba(0, 82, 71, 0.35);
 }
 .map3d-marker svg {
   width: 100%;
@@ -104,7 +104,7 @@
   animation: pillIn 0.45s var(--ease-spring);
 }
 .map3d-pill.is-here {
-  background: #1a5cff;
+  background: #005247;
   color: #fff;
 }
 .map3d-pill.is-destination {
@@ -175,7 +175,7 @@
   pointer-events: none;
 }
 .svgmap-unit.is-selected .svgmap-label {
-  fill: #0c3fd6;
+  fill: #003f37;
   font-weight: 800;
 }
 .svgmap-floor-label {
@@ -199,7 +199,7 @@
   fill: #14213d;
 }
 .svgmap-here-pulse {
-  fill: rgba(26, 92, 255, 0.28);
+  fill: rgba(0, 82, 71, 0.28);
   transform-origin: center;
   transform-box: fill-box;
   animation: pulse 1.8s ease-out infinite;
@@ -288,7 +288,7 @@
 .floor-switcher button.is-active {
   background: var(--brand);
   color: #fff;
-  box-shadow: 0 6px 16px rgba(26, 92, 255, 0.35);
+  box-shadow: 0 6px 16px rgba(0, 82, 71, 0.35);
 }
 .floor-switcher button i {
   position: absolute;

@@ -39,7 +39,7 @@ import { QrPanel, type QrRequest } from '../kiosk/QrPanel';
 import { mapPlaces, placeColor, type MapPlace } from './explorer-model';
 import { PlaceIcon } from './place-icon';
 import { ExplorerMap } from './explorer-map';
-import { withGroundFloorStructure } from '../../../packages/domain/reference/ground-floor-structure';
+import { groundPublicData } from './ground-public-data';
 import retailIcon from '@material-design-icons/svg/outlined/shopping_bag.svg';
 import diningIcon from '@material-design-icons/svg/outlined/restaurant.svg';
 import homeDecorIcon from '@material-design-icons/svg/outlined/chair.svg';
@@ -74,26 +74,7 @@ export function MapExplorer({
   online: boolean;
   onReturnToAd: () => void;
 }) {
-  const data = useMemo(() => {
-    const directory = withGroundFloorStructure(sourceData);
-    const groundNodes = directory.nodes.filter((node) => node.floorId === 'l0');
-    const groundNodeIds = new Set(groundNodes.map((node) => node.id));
-    const groundTenants = directory.tenants.filter((tenant) => tenant.floorId === 'l0');
-    const groundTenantIds = new Set(groundTenants.map((tenant) => tenant.id));
-    return {
-      ...directory,
-      floors: directory.floors.filter((floor) => floor.id === 'l0'),
-      features: directory.features.filter((feature) => feature.floorId === 'l0'),
-      nodes: groundNodes,
-      edges: directory.edges.filter(
-        (edge) => groundNodeIds.has(edge.fromNode) && groundNodeIds.has(edge.toNode),
-      ),
-      connectors: [],
-      tenants: groundTenants,
-      pois: directory.pois.filter((poi) => poi.floorId === 'l0'),
-      offers: directory.offers.filter((offer) => groundTenantIds.has(offer.tenantId)),
-    };
-  }, [sourceData]);
+  const data = useMemo(() => groundPublicData(sourceData), [sourceData]);
   const root = useRef<HTMLDivElement>(null);
   const searchTrigger = useRef<HTMLButtonElement>(null);
   const searchInput = useRef<HTMLInputElement>(null);
@@ -658,7 +639,11 @@ export function MapExplorer({
                   .map((place) => (
                     <button key={place.id} onClick={() => selectPlace(place)}>
                       <span>
-                        <PlaceIcon place={place} size={30} />
+                        {place.tenant?.logo ? (
+                          <img className="explorer-featured-logo" src={place.tenant.logo} alt="" />
+                        ) : (
+                          <PlaceIcon place={place} size={30} />
+                        )}
                       </span>
                       <b>{place.name}</b>
                       <small>{floorName(place.floorId)}</small>
@@ -679,9 +664,13 @@ export function MapExplorer({
                   className="explorer-search-result"
                   onClick={() => selectPlace(place)}
                 >
-                  <span className="explorer-place-icon" style={{ color: placeColor(place) }}>
-                    <PlaceIcon place={place} />
-                  </span>
+                  {place.tenant?.logo ? (
+                    <img className="explorer-search-logo" src={place.tenant.logo} alt="" />
+                  ) : (
+                    <span className="explorer-place-icon" style={{ color: placeColor(place) }}>
+                      <PlaceIcon place={place} />
+                    </span>
+                  )}
                   <span>
                     <b>{place.name}</b>
                     <small>

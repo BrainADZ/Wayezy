@@ -11,7 +11,7 @@ html.command-root .btn {
   font-size: 14px;
 }
 html.command-root .btn-primary {
-  box-shadow: 0 3px 10px rgba(26, 92, 255, 0.22);
+  box-shadow: 0 3px 10px rgba(0, 82, 71, 0.2);
 }
 html.command-root .notice {
   padding: 10px 12px;
@@ -1403,7 +1403,7 @@ code {
 .cmd-field textarea:focus {
   outline: none;
   border-color: var(--brand);
-  box-shadow: 0 0 0 3px rgba(26, 92, 255, 0.14);
+  box-shadow: 0 0 0 3px rgba(0, 82, 71, 0.14);
 }
 .cmd-field.has-error input,
 .cmd-field.has-error select,
@@ -2175,7 +2175,7 @@ fieldset:disabled .cmd-field textarea {
   stroke-dasharray: 10 8;
 }
 .cmd-map-edge.is-selected {
-  stroke: #1a5cff;
+  stroke: #005247;
   stroke-width: 9;
 }
 .cmd-map-node {

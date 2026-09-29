@@ -10,9 +10,10 @@ import {
 } from '../../../packages/domain';
 import { findRoute } from '../../../packages/routing';
 import { findGroundDirectoryRoute } from '../../../packages/routing/ground-directory';
-import { withGroundFloorStructure } from '../../../packages/domain/reference/ground-floor-structure';
+import { groundPublicData } from '../explorer/ground-public-data';
 import { search } from '../../../packages/search';
 import { Logo } from '../brand/Logo';
+import { CentreLogo } from '../brand/CentreLogo';
 import { Glyph } from '../icons/glyphs';
 import { poiIcon, WayIcon } from '../icons/illustrated';
 import { stepGlyph, stepPieceIndex } from '../kiosk/RoutePanel';
@@ -77,7 +78,11 @@ function useRouteRequest(data: Snapshot | null, allowUnsigned: boolean | undefin
         request: {
           destinationId: destination,
           startNodeId:
-            start && data.nodes.some((n) => n.id === start) ? start : device.routeStartNode,
+            start && (data.nodes.some((n) => n.id === start) || start.startsWith('ground-entry-'))
+              ? start
+              : destination.startsWith('ground-')
+                ? 'ground-entry-starbucks'
+                : device.routeStartNode,
           accessible: params.get('a') === '1',
           deviceId: device.id,
           signed: false,
@@ -95,7 +100,7 @@ export default function GoApp() {
   const { t } = useI18n();
   const resolution = useRouteRequest(data, config?.allowUnsignedDeepLinks);
   const [override, setOverride] = useState<RouteRequest | null>(null);
-  const groundData = useMemo(() => (data ? withGroundFloorStructure(data) : null), [data]);
+  const groundData = useMemo(() => (data ? groundPublicData(data) : null), [data]);
 
   useEffect(() => {
     document.documentElement.classList.add('go-root');
@@ -124,12 +129,7 @@ export default function GoApp() {
     );
   }
   const request = override ?? (resolution.status === 'ready' ? resolution.request : null);
-  const routeData =
-    request &&
-    (!data.nodes.some((node) => node.id === request.startNodeId) ||
-      ![...data.tenants, ...data.pois].some((place) => place.id === request.destinationId))
-      ? (groundData ?? data)
-      : data;
+  const routeData = groundData ?? data;
   if (request)
     return (
       <GoRoute
@@ -165,20 +165,19 @@ export default function GoApp() {
 }
 
 function GoHeader({
-  data,
   onShare,
   onMinimize,
 }: {
-  data: Snapshot;
   onShare?: () => void;
   onMinimize?: () => void;
 }) {
   return (
     <header className="go-header">
-      <a href="/go" className="go-brand" aria-label="WAY EZY GO home">
-        <Logo height={30} tagline={false} product="GO" />
+      <a href="/go" className="go-brand" aria-label="IREO Boulevard directory home">
+        <CentreLogo className="go-centre-logo" />
+        <span className="go-product">GO</span>
       </a>
-      <span className="go-venue">{data.venue.name}</span>
+      <span className="go-venue">WAY EZY</span>
       {onMinimize ? (
         <button
           type="button"
@@ -215,25 +214,28 @@ function GoBrowse({
 }) {
   const { t } = useI18n();
   const [query, setQuery] = useState('');
-  const starts = data.devices.map((d) => ({
-    id: d.routeStartNode,
-    label: d.locationDescription,
-    deviceId: d.id,
-  }));
-  const [start, setStart] = useState(starts[0]);
+  const groundDevice = data.devices.find((device) => device.floorId === 'l0');
+  const starts = data.nodes
+    .filter((node) => node.id.startsWith('ground-entry-'))
+    .map((node) => ({
+      id: node.id,
+      label: node.label,
+      deviceId: groundDevice?.id ?? data.devices[0]?.id ?? '',
+    }));
+  const [startId, setStartId] = useState(starts[0]?.id ?? '');
+  const start = starts.find((item) => item.id === startId) ?? starts[0];
   const results = useMemo(
     () => (query.trim() ? search(data, query).slice(0, 12) : []),
     [data, query],
   );
-  const popular = data.tenants.filter((x) => x.anchor).slice(0, 8);
+  const brands = data.tenants
+    .filter((tenant) => tenant.status !== 'HIDDEN')
+    .sort((a, b) => a.name.localeCompare(b.name));
   const pick = (destinationId: string) => {
-    const place =
-      data.tenants.find((item) => item.id === destinationId) ??
-      data.pois.find((item) => item.id === destinationId);
-    const groundEntry = data.nodes.find((node) => node.id === 'ground-entry-starbucks');
+    if (!start) return;
     onPick({
       destinationId,
-      startNodeId: place?.floorId === 'l0' && groundEntry ? groundEntry.id : start.id,
+      startNodeId: start.id,
       accessible: false,
       deviceId: start.deviceId,
       signed: false,
@@ -241,7 +243,7 @@ function GoBrowse({
   };
   return (
     <div className="go-shell">
-      <GoHeader data={data} />
+      <GoHeader />
       <main className="go-browse">
         {notice ? (
           <div className="go-notice" role="alert">
@@ -252,7 +254,11 @@ function GoBrowse({
             </div>
           </div>
         ) : null}
-        <h1>{t('home.greeting')}</h1>
+        <div className="go-browse-intro">
+          <span>IREO BOULEVARD DIRECTORY</span>
+          <h1>Find your way around</h1>
+          <p>Discover the brands on our map and get directions from an entrance.</p>
+        </div>
         <label className="go-search">
           <Glyph name="search" size={22} />
           <input
@@ -265,22 +271,24 @@ function GoBrowse({
         <label className="go-start">
           <span>{t('go.chooseStart')}</span>
           <select
-            value={start.deviceId}
-            onChange={(e) =>
-              setStart(starts.find((s) => s.deviceId === e.target.value) ?? starts[0])
-            }
+            value={start?.id ?? ''}
+            onChange={(e) => setStartId(e.target.value)}
           >
             {starts.map((s) => (
-              <option key={s.deviceId} value={s.deviceId}>
+              <option key={s.id} value={s.id}>
                 {s.label}
               </option>
             ))}
           </select>
         </label>
+        <div className="go-list-heading">
+          <strong>{query.trim() ? 'Search results' : 'Brands on the map'}</strong>
+          <span>{query.trim() ? results.length : brands.length} places</span>
+        </div>
         <div className="go-list">
           {(query.trim()
             ? results.map((r) => ({ id: r.id, kind: r.kind }))
-            : popular.map((p) => ({ id: p.id, kind: 'tenant' as const }))
+            : brands.map((p) => ({ id: p.id, kind: 'tenant' as const }))
           ).map(({ id, kind }) => {
             const tenant = kind === 'tenant' ? data.tenants.find((x) => x.id === id) : null;
             const poi = kind === 'poi' ? data.pois.find((x) => x.id === id) : null;
@@ -427,7 +435,7 @@ function GoRoute({
   if (!destination || !startNode) {
     return (
       <div className="go-shell">
-        <GoHeader data={data} />
+        <GoHeader />
         <EmptyState
           icon="destination"
           title="This destination is no longer listed"
@@ -529,7 +537,6 @@ function GoRoute({
       className={`go-shell is-route ${mapExpanded ? 'is-map-full' : 'is-map-minimized'}${online ? '' : ' is-offline'}`}
     >
       <GoHeader
-        data={data}
         onShare={share}
         onMinimize={mapExpanded ? () => setMapExpanded(false) : undefined}
       />

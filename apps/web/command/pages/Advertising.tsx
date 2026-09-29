@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { campaignLiveState, isOnAir, playlist } from '../../../../packages/advertising';
+import { campaignLiveState, isOnAir, playlist, screenCampaigns } from '../../../../packages/advertising';
 import { campaignStatuses, type Campaign } from '../../../../packages/domain';
 import { CentreLogo } from '../../brand/CentreLogo';
 import { Glyph } from '../../icons/glyphs';
@@ -58,7 +58,7 @@ export default function Advertising() {
       startTime: '10:00',
       endTime: '22:00',
       daysOfWeek: [0, 1, 2, 3, 4, 5, 6],
-      mediaId: data.media[0]?.id ?? '',
+      mediaId: '',
       duration: 10,
       priority: 'NORMAL',
       targetType: 'ALL',
@@ -102,7 +102,7 @@ export default function Advertising() {
         >
           <div className="cmd-onair">
             {data.devices.map((device) => {
-              const list = playlist(data.campaigns, device, now, tz);
+              const list = playlist(screenCampaigns(data.campaigns), device, now, tz);
               return (
                 <div key={device.id} className="cmd-onair-device">
                   <strong>{device.name}</strong>
@@ -119,7 +119,7 @@ export default function Advertising() {
                         </span>
                       ))
                     ) : (
-                      <span className="cmd-muted">House content (offers & events)</span>
+                      <span className="cmd-muted">Venue branding</span>
                     )}
                   </div>
                 </div>
@@ -129,7 +129,7 @@ export default function Advertising() {
         </Panel>
       </div>
       <DataTable
-        rows={data.campaigns}
+        rows={screenCampaigns(data.campaigns)}
         searchText={(c) => `${c.name} ${c.advertiser}`}
         onRowClick={(c) => setEditing({ campaign: structuredClone(c), isNew: false })}
         columns={[
@@ -253,16 +253,21 @@ function CampaignEditor({
     };
     try {
       await saveResource('campaigns', payload, isNew ? undefined : initial.id);
-      if (statusOverride && command.canPublish) {
+      const shouldPublish = command.canPublish && payload.status !== 'DRAFT' && payload.status !== 'PAUSED';
+      if (shouldPublish) {
         await api('/api/admin/publish', {
           method: 'POST',
           body: { note: `Campaign: ${campaign.name}` },
         });
         command.toast(
-          `${campaign.name} is ${statusOverride === 'ACTIVE' ? 'live' : 'scheduled'} on targeted screens.`,
+          statusOverride
+            ? `${campaign.name} is ${statusOverride === 'ACTIVE' ? 'live' : 'scheduled'} on targeted screens.`
+            : `${campaign.name} saved and published. It will play during its schedule.`,
         );
+      } else if (command.canPublish) {
+        command.toast(`${campaign.name || 'Campaign'} saved as a draft. Use Save & publish to show it on screens.`);
       } else {
-        command.toast(`${campaign.name || 'Campaign'} saved.`);
+        command.toast(`${campaign.name || 'Campaign'} saved. Ask a publisher to send it to screens.`);
       }
       await command.reload();
       onClose();
@@ -276,7 +281,13 @@ function CampaignEditor({
   const remove = async () => {
     try {
       await deleteResource('campaigns', initial.id);
-      command.toast('Campaign deleted.');
+      if (command.canPublish) {
+        await api('/api/admin/publish', {
+          method: 'POST',
+          body: { note: `Campaign deleted: ${initial.name}` },
+        });
+      }
+      command.toast(command.canPublish ? 'Campaign deleted from screens.' : 'Campaign deleted. Publish changes to update screens.');
       await command.reload();
       onClose();
     } catch (e) {
@@ -325,7 +336,7 @@ function CampaignEditor({
             onClick={() => void save()}
             disabled={busy || !canWrite}
           >
-            Save
+            {campaign.status === 'DRAFT' ? 'Save draft' : 'Save changes'}
           </button>
           {command.canPublish ? (
             <button
@@ -390,10 +401,10 @@ function CampaignEditor({
             label="Creative"
             value={campaign.mediaId}
             onChange={(v) => set('mediaId', v)}
-            options={data.media.map((m) => ({
+            options={[{ value: '', label: 'Select creative' }, ...data.media.map((m) => ({
               value: m.id,
               label: `${m.name} · ${m.kind}${m.duration ? ` · ${m.duration}s` : ''}`,
-            }))}
+            }))]}
             error={errors.mediaId}
             wide
           />

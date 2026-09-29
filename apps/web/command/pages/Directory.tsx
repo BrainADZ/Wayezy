@@ -79,7 +79,7 @@ export default function Directory({ kind }: { kind: Kind }) {
               id: '',
               name: '',
               icon: 'sparkle',
-              color: '#1a5cff',
+              color: '#005247',
               sortOrder: data.categories.length + 1,
               primary: false,
               synonyms: [],

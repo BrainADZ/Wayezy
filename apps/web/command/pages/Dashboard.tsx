@@ -119,7 +119,7 @@ export default function Dashboard({ navigate }: { navigate: (section: string) =>
         />
         <StatCard
           icon="search"
-          tone="#1a5cff"
+          tone="#005247"
           label="Searches today"
           value={data?.today?.searches ?? '—'}
           hint={
@@ -169,7 +169,7 @@ export default function Dashboard({ navigate }: { navigate: (section: string) =>
                 ),
               )}
               series={[
-                { name: 'Sessions', color: '#1a5cff', values: week.daily.map((d) => d.sessions) },
+                { name: 'Sessions', color: '#005247', values: week.daily.map((d) => d.sessions) },
                 { name: 'Searches', color: '#7c5cff', values: week.daily.map((d) => d.searches) },
                 { name: 'Routes', color: '#16c8ff', values: week.daily.map((d) => d.routes) },
                 { name: 'Ad plays', color: '#e8457a', values: week.daily.map((d) => d.adPlays) },

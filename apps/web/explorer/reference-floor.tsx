@@ -163,7 +163,7 @@ export function ReferenceFloor({
                 data-feature-id={feature.id}
                 points={feature.points.map((p) => p.join(',')).join(' ')}
                 fill={selected?.featureId === feature.id ? '#becfe7' : feature.color}
-                stroke={selected?.featureId === feature.id ? '#2864ff' : '#d4d8d6'}
+                stroke={selected?.featureId === feature.id ? '#005247' : '#d4d8d6'}
                 strokeWidth={selected?.featureId === feature.id ? 2 : 1}
               />
             ))}

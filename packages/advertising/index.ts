@@ -7,6 +7,18 @@ import { zonedParts } from '../domain';
 
 const priorityRank: Record<Campaign['priority'], number> = { HIGH: 3, NORMAL: 2, LOW: 1 };
 
+/** Bundled sample creatives never enter the visitor screen playlist. */
+const demoCreativeByCampaign = new Map([
+  ['camp-festive-fashion', 'media-festive-fashion'],
+  ['camp-olive-pasta', 'media-olive-pasta'],
+  ['camp-pvr-weekend', 'media-pvr-weekend'],
+  ['camp-tech-fest', 'media-croma-techfest'],
+]);
+
+export function screenCampaigns(campaigns: Campaign[]) {
+  return campaigns.filter((campaign) => demoCreativeByCampaign.get(campaign.id) !== campaign.mediaId);
+}
+
 function withinTime(campaign: Pick<Campaign, 'startTime' | 'endTime'>, time: string) {
   return campaign.startTime <= campaign.endTime
     ? time >= campaign.startTime && time <= campaign.endTime

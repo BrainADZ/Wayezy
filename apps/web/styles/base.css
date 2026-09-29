@@ -1,17 +1,17 @@
 /* WAY EZY — shared design tokens and primitives (kiosk, GO and COMMAND). */
 :root {
-  --bg: #f6f5f1;
-  --surface: #ffffff;
-  --surface-2: #f2f0ea;
-  --surface-3: #ebe8e0;
-  --ink: #14213d;
-  --ink-2: #44506a;
-  --ink-3: #6b7489;
-  --line: #e6e2d8;
-  --line-strong: #d6d0c3;
-  --brand: #1a5cff;
-  --brand-ink: #0c3fd6;
-  --brand-soft: #e9f0ff;
+  --bg: #f7f5ee;
+  --surface: #fffdf8;
+  --surface-2: #f1eee5;
+  --surface-3: #e8e2d5;
+  --ink: #17332d;
+  --ink-2: #496158;
+  --ink-3: #6d7c72;
+  --line: #e4dfd2;
+  --line-strong: #ccc4b2;
+  --brand: #005247;
+  --brand-ink: #003f37;
+  --brand-soft: #e4f1e9;
   --coral: #ff5a4e;
   --green: #15935c;
   --green-soft: #e3f6ec;
@@ -20,7 +20,7 @@
   --red: #d33c3c;
   --red-soft: #fde8e7;
   --violet: #6a5cff;
-  --gradient: linear-gradient(95deg, #16c8ff 0%, #6a5cff 34%, #ff4fd8 67%, #ffb020 100%);
+  --gradient: linear-gradient(105deg, #004c40 0%, #0d7562 62%, #c99b55 100%);
   --shadow-sm: 0 1px 2px rgba(20, 33, 61, 0.06), 0 1px 1px rgba(20, 33, 61, 0.03);
   --shadow-md: 0 4px 12px rgba(20, 33, 61, 0.05), 0 12px 30px rgba(20, 33, 61, 0.08);
   --shadow-lg: 0 20px 56px rgba(20, 33, 61, 0.18);
@@ -171,7 +171,7 @@ p {
 .btn-primary {
   background: var(--brand);
   color: #fff;
-  box-shadow: 0 6px 18px rgba(26, 92, 255, 0.28);
+  box-shadow: 0 6px 18px rgba(0, 82, 71, 0.22);
 }
 .btn-primary:hover {
   background: var(--brand-ink);

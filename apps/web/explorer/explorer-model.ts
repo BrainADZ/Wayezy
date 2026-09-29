@@ -52,6 +52,6 @@ export function placeColor(place: MapPlace) {
   return (
     ({ fashion: '#b45b8b', dining: '#ed781f', services: '#4a7095' } as Record<string, string>)[
       place.categoryId
-    ] ?? '#376ed4'
+    ] ?? '#005247'
   );
 }
