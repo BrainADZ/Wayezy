@@ -16,6 +16,10 @@ import { actor, requireAuth, requireCsrfHeader, requirePermission } from './auth
 import { permissionsFor } from './auth-routes';
 import { resolvePublicBaseUrl } from './public-routes';
 
+const groundTenantIds = new Set(
+  groundDirectory.tenants.map((tenant) => 'ground-tenant-' + tenant.id),
+);
+
 const asyncRoute =
   (fn: (req: Request, res: import('express').Response) => Promise<unknown>) =>
   (req: Request, res: import('express').Response, next: import('express').NextFunction) =>
@@ -59,6 +63,8 @@ export function adminRoutes(context: AppContext) {
     asyncRoute(async (req, res) => {
       const user = req.user!;
       const copy = await content.workingCopy();
+      if (copy.floors.some((floor) => floor.id === 'l0'))
+        copy.tenants = copy.tenants.filter((tenant) => groundTenantIds.has(tenant.id));
       const readable = (resource: Resource) => canDo(user.role, resource, 'read');
       const latest = await snapshots.latest();
       res.setHeader('Cache-Control', 'no-store');
@@ -110,6 +116,11 @@ export function adminRoutes(context: AppContext) {
         content.list<Parameters<typeof campaignLiveState>[0]>('campaigns'),
         canDo(user.role, 'audit', 'read') ? audit.list({ limit: 8 }) : [],
       ]);
+      const mapTenants = (await content.list<{ id: string }>('floors')).some(
+        (floor) => floor.id === 'l0',
+      )
+        ? tenants.filter((tenant) => groundTenantIds.has(tenant.id))
+        : tenants;
       const alerts = devices
         .filter((d) => d.health !== 'online')
         .map((d) => ({
@@ -121,8 +132,8 @@ export function adminRoutes(context: AppContext) {
         today: today?.totals ?? null,
         week,
         devices,
-        activeTenants: tenants.filter((t) => t.status === 'ACTIVE').length,
-        totalTenants: tenants.length,
+        activeTenants: mapTenants.filter((t) => t.status === 'ACTIVE').length,
+        totalTenants: mapTenants.length,
         campaigns: campaigns.map((c) => ({
           id: c.id,
           name: c.name,

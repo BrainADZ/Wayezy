@@ -15,6 +15,7 @@ import { SettingsRepository } from './repositories/settings';
 import { SnapshotRepository } from './repositories/snapshots';
 import { installReferenceMap } from './db/reference-map';
 import { installGroundRoutes } from './db/ground-routes';
+import { installGroundDirectory } from './db/ground-directory';
 import { UserRepository } from './repositories/users';
 import { generatePassword, verifyPassword } from './services/passwords';
 import { RealtimeHub } from './services/realtime';
@@ -222,6 +223,7 @@ export async function createContext(
     await context.snapshots.publish(context.content, 'system', 'Initial publish');
   await installReferenceMap(context);
   await installGroundRoutes(context);
+  await installGroundDirectory(context);
   await context.users.purgeExpiredSessions();
   return context;
 }

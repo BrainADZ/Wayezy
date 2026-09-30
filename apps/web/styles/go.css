@@ -993,6 +993,7 @@ html.go-root body {
 
 @media (max-width: 699px) {
   .go-shell.is-route {
+    touch-action: manipulation;
     position: fixed;
     inset: 0;
     width: 100%;
@@ -1267,11 +1268,6 @@ html.go-root body {
 .go-nav-dock {
   display: none;
 }
-@keyframes goRouteFlow {
-  to {
-    stroke-dashoffset: -24;
-  }
-}
 @media (max-width: 699px) {
   .go-shell.is-guiding .go-header,
   .go-shell.is-guiding .go-destination,
@@ -1386,9 +1382,8 @@ html.go-root body {
     padding: 10px;
     border: 1px solid rgba(22, 68, 48, 0.14);
     border-radius: 19px;
-    background: rgba(255, 253, 248, 0.97);
+    background: #fffdf8;
     box-shadow: 0 12px 38px rgba(11, 38, 29, 0.24);
-    backdrop-filter: blur(12px);
   }
   .go-nav-destination {
     display: flex;
@@ -1470,12 +1465,17 @@ html.go-root body {
   .go-nav-control:disabled {
     opacity: 0.42;
   }
-  .go-shell.is-guiding .directory-route-line {
-    stroke-dasharray: 16 8;
-    animation: goRouteFlow 1.2s linear infinite;
-  }
-  .go-shell.is-guiding.is-paused .directory-route-line {
-    animation-play-state: paused;
+  /* The route lives inside the architectural SVG, so it stays static: animating it would
+     repaint the whole plan every frame. The compass shows (and resets) the map's heading. */
+  .go-shell.is-guiding .go-map.is-ground-route .explorer-compass {
+    display: grid;
+    top: calc(318px + env(safe-area-inset-top));
+    right: 12px;
+    z-index: 10;
+    width: 42px;
+    height: 42px;
+    background: #fffdf8;
+    backdrop-filter: none;
   }
 }
 @media (max-width: 360px) {

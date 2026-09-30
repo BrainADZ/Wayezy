@@ -472,6 +472,30 @@ html.explorer-root body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.explorer-map.is-ground {
+  background: #f5f1e8;
+}
+/* Owns every pan / pinch / rotate touch so the browser never zooms the page instead. */
+.explorer-map-gestures {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.explorer-map-stage {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+}
+/* The architectural plan is its own GPU layer: gestures move the layer, not the vectors. */
+.explorer-map.is-ground .explorer-map-stage {
+  inset: auto;
+  will-change: transform;
+  contain: layout paint;
+}
 .explorer-map-svg {
   width: 100%;
   height: 100%;
@@ -674,6 +698,9 @@ html.explorer-root body {
   box-shadow: 0 6px 18px rgba(65, 49, 28, 0.08);
   backdrop-filter: blur(10px);
   color: #8a642f;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
 }
 .explorer-compass span {
   position: absolute;

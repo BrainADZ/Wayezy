@@ -38,9 +38,10 @@ export function withGroundFloorStructure(source: Snapshot): Snapshot {
     const module = model.modules.find((m) => m.id === binding.moduleIds[0]);
     if (!module) continue;
     const id = `ground-tenant-${binding.id}`;
-    const original =
-      source.tenants.find((t) => t.id === id) ??
-      source.tenants.find((t) => t.name.toLowerCase() === binding.name.toLowerCase());
+    const legacy = source.tenants.find(
+      (tenant) => tenant.id !== id && tenant.name.toLowerCase() === binding.name.toLowerCase(),
+    );
+    const original = source.tenants.find((tenant) => tenant.id === id) ?? legacy;
     if (!groundRouteNodeIds.has(id))
       data.nodes.push(
         schemas.nodes.parse({
@@ -77,14 +78,20 @@ export function withGroundFloorStructure(source: Snapshot): Snapshot {
         phone: original?.phone ?? '',
         website: original?.website ?? '',
         accessibilityNotes: original?.accessibilityNotes ?? '',
-        keywords: [binding.name.toLowerCase(), ...binding.moduleIds],
+        keywords: [
+          ...new Set([
+            binding.name.toLowerCase(),
+            ...binding.moduleIds,
+            ...(original?.keywords ?? []),
+          ]),
+        ].slice(0, 40),
         logo: binding.logo || original?.logo || '',
         hours: original?.hours ?? dailyHours('10:00', '22:00'),
         status: 'ACTIVE',
       }),
     );
-    if (original && original.id !== id) {
-      for (const offer of source.offers.filter((item) => item.tenantId === original.id)) {
+    if (legacy) {
+      for (const offer of source.offers.filter((item) => item.tenantId === legacy.id)) {
         data.offers.push({
           ...offer,
           id: `ground-${binding.id}-${offer.id}`,

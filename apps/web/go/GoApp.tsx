@@ -439,6 +439,25 @@ function GoRoute({
     window.speechSynthesis.speak(announcement);
     return () => window.speechSynthesis.cancel();
   }, [guiding, voiceEnabled, guidancePaused, step?.text]);
+  // While the full-screen map is open, pinches belong to the map, never to the page.
+  useEffect(() => {
+    if (!mapExpanded) return;
+    const viewport = document.querySelector<HTMLMetaElement>('meta[name="viewport"]');
+    const previous = viewport?.content;
+    if (viewport)
+      viewport.content = 'width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover';
+    const block = (event: Event) => event.preventDefault();
+    const blockPinch = (event: TouchEvent) => {
+      if (event.touches.length > 1) event.preventDefault();
+    };
+    document.addEventListener('gesturestart', block);
+    document.addEventListener('touchmove', blockPinch, { passive: false });
+    return () => {
+      if (viewport && previous) viewport.content = previous;
+      document.removeEventListener('gesturestart', block);
+      document.removeEventListener('touchmove', blockPinch);
+    };
+  }, [mapExpanded]);
 
   if (!destination || !startNode) {
     return (

@@ -125,6 +125,8 @@ export function GroundFloor({
           );
       }}
       onPointerOver={(event) => {
+        // Hover styling is for mice; on touch it would restyle the whole plan on every tap.
+        if (event.pointerType !== 'mouse') return;
         const next =
           (event.target as Element).closest('[data-module-id]')?.getAttribute('data-module-id') ??
           undefined;
@@ -139,6 +141,7 @@ export function GroundFloor({
           );
       }}
       onPointerLeave={() => {
+        if (!hovered.current) return;
         hovered.current = undefined;
         if (sourceRef.current)
           updateDirectoryState(
