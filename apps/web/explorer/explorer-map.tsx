@@ -7,8 +7,15 @@ import { placeColor, type MapPlace } from './explorer-model';
 import { PlaceIcon } from './place-icon';
 import { ReferenceFloor } from './reference-floor';
 import { GroundFloor, type GroundFloorStatus } from './ground-floor';
+import { FirstFloor } from './first-floor';
+import { FIRST_FLOOR_BOUNDS } from '../../../packages/domain/reference/first-floor-layout';
 import { GroundRoute } from './ground-route';
 import groundModel from '../../../packages/domain/reference/ground-floor-model.json';
+import firstModel from '../../../packages/domain/reference/first-floor-model.json';
+import {
+  directoryUnits,
+  tenantForDirectoryUnit,
+} from '../../../packages/domain/reference/architectural-directory';
 import { upperStores } from '../../../packages/domain/reference/upper-floor-layout';
 import { referenceStores } from '../../../packages/domain/reference/reference-layout';
 import elevatorIcon from '@material-design-icons/svg/outlined/elevator.svg';
@@ -33,6 +40,12 @@ function normalizeBearing(degrees: number) {
 }
 
 const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
+
+// A floor-change step names its arrival node; on the departure floor, focus the lift or escalator.
+function routeNodeOnFloor(route: Route, id: string, floorId: string) {
+  const change = route.transitions.find((t) => t.toNodeId === id && t.fromFloorId === floorId);
+  return route.nodes.find((n) => n.id === (change?.fromNodeId ?? id) && n.floorId === floorId);
+}
 
 // Apply the same site projection to geometry, markers, routes and camera targets.
 function originalProject(x: number, y: number) {
@@ -110,8 +123,13 @@ export function ExplorerMap({
   const arrowId = `route-arrow-${useId().replace(/:/g, '')}`;
   // Ground Floor always uses the architectural source, independent of legacy node IDs.
   const isGround = floorId === 'l0';
+  const isFirst = floorId === 'l1';
+  const isArchitectural = isGround || isFirst;
   const [groundBounds, setGroundBounds] = useState(groundModel.bounds);
   const [groundStatus, setGroundStatus] = useState<GroundFloorStatus>({ state: 'loading' });
+  const [firstStatus, setFirstStatus] = useState<GroundFloorStatus>({ state: 'loading' });
+  const mapStatus = isFirst ? firstStatus : groundStatus;
+  const architecturalBounds = isFirst ? FIRST_FLOOR_BOUNDS : groundBounds;
   const isReference = isGround || data.nodes.some((node) => node.id === `reference-${floorId}-c-0`);
   const [connectorId, setConnectorId] = useState<string>();
   useEffect(() => setConnectorId(undefined), [floorId]);
@@ -122,12 +140,12 @@ export function ExplorerMap({
     left: panelOpen && size.width > 720 ? 415 : 20,
     right: size.width > 720 ? 210 : 65,
     top: 14,
-    bottom: 85,
+    bottom: panelOpen && size.width <= 720 ? size.height * 0.54 + 26 : 85,
   };
-  const displayBounds = { width: groundBounds.height, height: groundBounds.width };
+  const displayBounds = { width: architecturalBounds.height, height: architecturalBounds.width };
   const sourceToDisplay = (point: { x: number; y: number }) => ({
-    x: point.y - groundBounds.y,
-    y: groundBounds.x + groundBounds.width - point.x,
+    x: point.y - architecturalBounds.y,
+    y: architecturalBounds.x + architecturalBounds.width - point.x,
   });
   const groundScale =
     Math.max(
@@ -138,27 +156,27 @@ export function ExplorerMap({
     x: displayBounds.width / 2 + ((groundInset.right - groundInset.left) / 2) * groundScale,
     y: displayBounds.height / 2 + ((groundInset.bottom - groundInset.top) / 2) * groundScale,
   };
-  const baseWidth = isGround
+  const baseWidth = isArchitectural
     ? groundScale * size.width
     : isReference
       ? Math.max(960, (1060 * size.width) / size.height)
       : 1500;
-  const maxZoom = isGround ? 6 : 3;
+  const maxZoom = isArchitectural ? 6 : 3;
   // Phones can turn the plan with two fingers and navigation turns it heading-up; the stage
   // is then a square covering the viewport diagonal so no blank corners show mid-rotation.
-  const rotatable = isGround && (navigationMode || size.width < 720);
-  const stageWidth = isGround
+  const rotatable = isArchitectural && (navigationMode || size.width < 720);
+  const stageWidth = isArchitectural
     ? rotatable
       ? Math.ceil(Math.hypot(size.width, size.height)) + 24
       : Math.ceil(size.width * 1.3)
     : size.width;
-  const stageHeight = isGround
+  const stageHeight = isArchitectural
     ? rotatable
       ? stageWidth
       : Math.ceil(size.height * 1.3)
     : size.height;
   // Map units per CSS pixel at zoom 1.
-  const unitsPerPixel = isGround ? groundScale : baseWidth / size.width;
+  const unitsPerPixel = isArchitectural ? groundScale : baseWidth / size.width;
   const groundTransform = (current: Camera) =>
     `translate(${groundCenter.x} ${groundCenter.y}) rotate(${-current.bearing}) scale(${current.zoom}) translate(${-current.x} ${-current.y})`;
   const viewBoxFor = (current: Camera) => {
@@ -186,16 +204,18 @@ export function ExplorerMap({
   };
   function constrainCamera(next: Camera): Camera {
     const zoom = clamp(next.zoom, 1, maxZoom);
-    const centerX = isGround
+    const centerX = isArchitectural
       ? groundCenter.x
       : isReference
         ? panelOpen && size.width > 720
           ? 310
           : 470
         : 750;
-    const centerY = isGround ? groundCenter.y : isReference ? 510 : 500;
-    const rangeX = (isGround ? displayBounds.width / 2 : isReference ? 480 : 750) * (1 - 1 / zoom);
-    const rangeY = (isGround ? displayBounds.height / 2 : isReference ? 510 : 500) * (1 - 1 / zoom);
+    const centerY = isArchitectural ? groundCenter.y : isReference ? 510 : 500;
+    const rangeX =
+      (isArchitectural ? displayBounds.width / 2 : isReference ? 480 : 750) * (1 - 1 / zoom);
+    const rangeY =
+      (isArchitectural ? displayBounds.height / 2 : isReference ? 510 : 500) * (1 - 1 / zoom);
     return {
       zoom,
       x: clamp(next.x, centerX - rangeX, centerX + rangeX),
@@ -204,7 +224,7 @@ export function ExplorerMap({
     };
   }
   function paint(current: Camera) {
-    if (isGround) {
+    if (isArchitectural) {
       // Express the live camera relative to the rendered one as a compositor-only transform.
       const base = committed.current,
         shift = rotatePoint({ x: base.x - current.x, y: base.y - current.y }, -current.bearing),
@@ -229,7 +249,7 @@ export function ExplorerMap({
     const current = cameraRef.current;
     committed.current = current;
     // Render the SVG at the final camera and drop the stage transform in the same frame.
-    if (isGround) {
+    if (isArchitectural) {
       groundCamera.current?.setAttribute('transform', groundTransform(current));
       if (stage.current) stage.current.style.transform = '';
     } else svg.current?.setAttribute('viewBox', viewBoxFor(current));
@@ -271,18 +291,23 @@ export function ExplorerMap({
     cancelAnimationFrame(paintFrame.current);
     paintFrame.current = 0;
     commitCamera({
-      x: isGround
+      x: isArchitectural
         ? groundCenter.x
         : isReference
           ? panelOpen && size.width > 720
             ? 310
             : 470
           : 750,
-      y: isGround ? groundCenter.y : isReference ? 510 : 500,
-      zoom: isGround ? 1.06 : 1,
+      y: isArchitectural ? groundCenter.y : isReference ? 510 : 500,
+      zoom: isArchitectural ? 1.06 : 1,
       bearing: 0,
     });
-  }, [isReference, floorId, isGround ? groundCenter.x : 0, isGround ? groundCenter.y : 0]);
+  }, [
+    isReference,
+    floorId,
+    isArchitectural ? groundCenter.x : 0,
+    isArchitectural ? groundCenter.y : 0,
+  ]);
   const floor = data.floors.find((item) => item.id === floorId) ?? data.floors[0];
   const features = data.features.filter((item) => item.floorId === floorId);
   const floorNodes = data.nodes.filter((node) => node.floorId === floorId);
@@ -323,7 +348,7 @@ export function ExplorerMap({
   }, []);
 
   useEffect(() => {
-    if (isGround) return; // Legacy tenant/route coordinates are not module mappings.
+    if (isArchitectural) return; // Legacy coordinates do not belong to the supplied drawings.
     const node = data.nodes.find(
       (item) => item.id === (focusNodeId ?? selected?.nodeId) && item.floorId === floorId,
     );
@@ -341,9 +366,14 @@ export function ExplorerMap({
   }, [focusNodeId, selected?.nodeId, floorId, data.nodes, panelOpen, size.width]);
 
   useEffect(() => {
-    if (!isGround || !searchFocusId || groundStatus.state !== 'ready') return;
-    const module = groundModel.modules.find((m) => m.tenantId === searchFocusId);
-    const amenity = groundModel.amenities.find((a) => a.id === searchFocusId);
+    if (!isArchitectural || !searchFocusId || mapStatus.state !== 'ready') return;
+    const model = isFirst ? firstModel : groundModel;
+    const module = directoryUnits.find(
+      (unit) =>
+        unit.floorId === floorId &&
+        tenantForDirectoryUnit(unit, data.tenants)?.id === searchFocusId,
+    )?.module;
+    const amenity = model.amenities.find((a) => a.id === searchFocusId);
     const point = module
       ? {
           x: module.labelBox.x + module.labelBox.width / 2,
@@ -361,12 +391,13 @@ export function ExplorerMap({
         bearing: 0,
       });
     }
-  }, [searchFocusId, isGround, groundStatus.state]);
+  }, [searchFocusId, floorId, mapStatus.state, data.tenants]);
 
   useEffect(() => {
-    if (!isGround || !route || navigationMode || groundStatus.state !== 'ready') return;
-    const points = route.nodes.map(sourceToDisplay),
-      xs = points.map((n) => n.x),
+    if (!isArchitectural || !route || navigationMode || mapStatus.state !== 'ready') return;
+    const points = route.nodes.filter((n) => n.floorId === floorId).map(sourceToDisplay);
+    if (!points.length) return;
+    const xs = points.map((n) => n.x),
       ys = points.map((n) => n.y);
     const minX = Math.min(...xs) - 40,
       maxX = Math.max(...xs) + 40,
@@ -383,11 +414,11 @@ export function ExplorerMap({
       zoom,
       bearing: 0,
     });
-  }, [route, isGround, navigationMode, groundStatus.state, size.width, size.height]);
+  }, [route, floorId, isArchitectural, navigationMode, mapStatus.state, size.width, size.height]);
 
   useEffect(() => {
-    if (!isGround || !focusNodeId || !route || navigationMode) return;
-    const node = route.nodes.find((n) => n.id === focusNodeId);
+    if (!isArchitectural || !focusNodeId || !route || navigationMode) return;
+    const node = routeNodeOnFloor(route, focusNodeId, floorId);
     if (node) {
       const point = sourceToDisplay(node);
       animateCamera({
@@ -397,16 +428,16 @@ export function ExplorerMap({
         bearing: 0,
       });
     }
-  }, [focusNodeId, isGround, route, navigationMode, size.width, size.height]);
+  }, [focusNodeId, floorId, isArchitectural, route, navigationMode, size.width, size.height]);
 
   // Turn-by-turn: zoom in on the current step and turn the plan so the walking direction
   // points up. Re-frames on every step change; a manual pan/pinch is kept until then.
   useEffect(() => {
-    if (!isGround || !navigationMode || !route || groundStatus.state !== 'ready') {
+    if (!isArchitectural || !navigationMode || !route || mapStatus.state !== 'ready') {
       navigationKey.current = '';
       return;
     }
-    const key = `${route.nodes.map((n) => n.id).join()}|${stepIndex}|${recenterNonce}`;
+    const key = `${route.nodes.map((n) => n.id).join()}|${stepIndex}|${floorId}|${recenterNonce}`;
     if (key !== navigationKey.current) {
       navigationKey.current = key;
       userAdjusted.current = false;
@@ -421,9 +452,11 @@ export function ExplorerMap({
       from + 1,
       route.nodes.findIndex((n) => n.id === route.steps[index]?.nodeId),
     );
-    let leg = route.nodes.slice(from, to + 1).map(sourceToDisplay);
+    const onFloor = (nodes: Route['nodes']) => nodes.filter((n) => n.floorId === floorId);
+    let leg = onFloor(route.nodes.slice(from, to + 1)).map(sourceToDisplay);
     if (leg.length < 2 && from > 0)
-      leg = route.nodes.slice(from - 1, from + 1).map(sourceToDisplay);
+      leg = onFloor(route.nodes.slice(from - 1, from + 1)).map(sourceToDisplay);
+    if (!leg.length) leg = onFloor(route.nodes).slice(-2).map(sourceToDisplay);
     const origin = leg[0];
     if (!origin) return;
     const total = leg
@@ -467,12 +500,13 @@ export function ExplorerMap({
     };
     animateCamera(cameraFor(origin, screen, zoom, bearing), 650);
   }, [
-    isGround,
+    isArchitectural,
+    floorId,
     navigationMode,
     route,
     stepIndex,
     recenterNonce,
-    groundStatus.state,
+    mapStatus.state,
     size.width,
     size.height,
   ]);
@@ -526,7 +560,7 @@ export function ExplorerMap({
   }
 
   return (
-    <div ref={root} className={`explorer-map${isGround ? ' is-ground' : ''}`}>
+    <div ref={root} className={`explorer-map${isArchitectural ? ' is-ground' : ''}`}>
       <div
         className="explorer-map-gestures"
         onClickCapture={(event) => {
@@ -539,7 +573,7 @@ export function ExplorerMap({
         onPointerDown={(event) => {
           if (event.pointerType === 'mouse' && event.button !== 0) return;
           if (
-            !isGround &&
+            !isArchitectural &&
             !pointers.current.size &&
             (event.target as Element).closest('[role="button"]')
           )
@@ -597,7 +631,7 @@ export function ExplorerMap({
           ref={stage}
           className="explorer-map-stage"
           style={
-            isGround
+            isArchitectural
               ? {
                   width: stageWidth,
                   height: stageHeight,
@@ -612,34 +646,55 @@ export function ExplorerMap({
             className="explorer-map-svg"
             style={{
               cursor: camera.zoom <= 1 ? 'default' : 'grab',
-              background: isGround ? '#f5f1e8' : undefined,
+              background: isArchitectural ? '#f5f1e8' : undefined,
             }}
             viewBox={
-              isGround
+              isArchitectural
                 ? `${groundCenter.x - (groundScale * stageWidth) / 2} ${groundCenter.y - (groundScale * stageHeight) / 2} ${groundScale * stageWidth} ${groundScale * stageHeight}`
                 : viewBoxFor(camera)
             }
             aria-label={`${floor?.name ?? 'Mall'} interactive map`}
             role="group"
           >
-            {isGround ? (
+            {isArchitectural ? (
               <g ref={groundCamera} className="ground-camera" transform={groundTransform(camera)}>
                 <g
-                  className="ground-orientation"
+                  className={isFirst ? 'first-floor-orientation' : 'ground-orientation'}
                   data-orientation="landscape"
-                  transform={`translate(${-groundBounds.y} ${groundBounds.x + groundBounds.width}) rotate(-90)`}
+                  transform={`translate(${-architecturalBounds.y} ${architecturalBounds.x + architecturalBounds.width}) rotate(-90)`}
                 >
-                  <GroundFloor
-                    onBounds={setGroundBounds}
-                    onStatus={setGroundStatus}
-                    places={places}
-                    selectedId={selectedId}
-                    matchingIds={matchingIds}
-                    originPoint={start ? { x: start.x, y: start.y } : undefined}
-                    onSelect={onSelect}
-                  />
-                  {route && groundStatus.state === 'ready' && (
-                    <GroundRoute route={route} stepIndex={stepIndex} />
+                  {isFirst ? (
+                    <FirstFloor
+                      onStatus={setFirstStatus}
+                      places={places}
+                      selectedId={selectedId}
+                      matchingIds={matchingIds}
+                      onSelect={onSelect}
+                    />
+                  ) : (
+                    <GroundFloor
+                      onBounds={setGroundBounds}
+                      onStatus={setGroundStatus}
+                      places={places}
+                      selectedId={selectedId}
+                      matchingIds={matchingIds}
+                      originPoint={
+                        !start
+                          ? undefined
+                          : start.floorId === 'l0'
+                            ? { x: start.x, y: start.y }
+                            : null
+                      }
+                      onSelect={onSelect}
+                    />
+                  )}
+                  {route && mapStatus.state === 'ready' && (
+                    <GroundRoute
+                      route={route}
+                      stepIndex={stepIndex}
+                      floorId={floorId}
+                      floors={data.floors}
+                    />
                   )}
                 </g>
               </g>
@@ -1032,12 +1087,16 @@ export function ExplorerMap({
           </svg>
         </div>
       </div>
-      {isGround && groundStatus.state !== 'ready' && (
+      {isArchitectural && mapStatus.state !== 'ready' && (
         <div
           className="ground-floor-status"
-          role={groundStatus.state === 'error' ? 'alert' : 'status'}
+          role={mapStatus.state === 'error' ? 'alert' : 'status'}
         >
-          {groundStatus.state === 'error' ? groundStatus.message : 'Preparing your mall directory…'}
+          {mapStatus.state === 'error'
+            ? mapStatus.message
+            : isFirst
+              ? 'Loading First Floor map…'
+              : 'Preparing your mall directory…'}
         </div>
       )}
       {connectorId && (
@@ -1074,14 +1133,43 @@ export function ExplorerMap({
             })}
         </div>
       )}
+      {isArchitectural && route && route.floorIds.length > 1 && (
+        <div className="explorer-route-floors" role="group" aria-label="Route floors">
+          {route.floorIds.map((id, index) => {
+            const item = data.floors.find((f) => f.id === id);
+            const change = route.transitions[index - 1];
+            return (
+              <button
+                key={id}
+                type="button"
+                aria-pressed={floorId === id}
+                aria-label={`Show route on ${item?.name ?? id}`}
+                onClick={() => onFloorChange(id)}
+              >
+                {change && (
+                  <i aria-hidden="true">
+                    {change.type === 'lift' ? 'Lift' : 'Escalator'}{' '}
+                    {(item?.level ?? 0) >
+                    (data.floors.find((f) => f.id === change.fromFloorId)?.level ?? 0)
+                      ? '↑'
+                      : '↓'}
+                  </i>
+                )}
+                <b>{item?.shortName ?? id}</b>
+                <span>{item?.name ?? id}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
       <aside className="explorer-map-legend" aria-label="Map legend">
         <h3>Map guide</h3>
         {[
-          ...(isGround ? [['Entry gate', locationIcon]] : []),
+          ...(isArchitectural ? [['Entry gate', locationIcon]] : []),
           ['Lift', elevatorIcon],
           ['Escalator', escalatorIcon],
           ['Stairs', stairsIcon],
-          ...(isGround
+          ...(isArchitectural
             ? [
                 ["Men's toilet", '/icons/way/washroom.svg'],
                 ["Women's toilet", '/icons/way/washroom.svg'],
@@ -1097,7 +1185,7 @@ export function ExplorerMap({
             <span>
               {label === 'Route' ? (
                 <i className="legend-route-line" />
-              ) : isGround ? (
+              ) : isArchitectural ? (
                 <GroundLegendIcon kind={label} />
               ) : (
                 <img src={icon} alt="" aria-hidden="true" />
@@ -1172,12 +1260,12 @@ export function ExplorerMap({
         </button>
         <button
           type="button"
-          aria-label={navigationMode && isGround ? 'Recentre on my route' : 'Fit map'}
+          aria-label={navigationMode && isArchitectural ? 'Recentre on my route' : 'Fit map'}
           onClick={() => {
-            if (navigationMode && isGround) return setRecenterNonce((n) => n + 1);
+            if (navigationMode && isArchitectural) return setRecenterNonce((n) => n + 1);
             animateCamera({
-              x: isGround ? groundCenter.x : isReference ? 470 : 750,
-              y: isGround ? groundCenter.y : isReference ? 510 : 500,
+              x: isArchitectural ? groundCenter.x : isReference ? 470 : 750,
+              y: isArchitectural ? groundCenter.y : isReference ? 510 : 500,
               zoom: 1,
               bearing: 0,
             });
@@ -1207,11 +1295,13 @@ export function ExplorerMap({
       <div className="explorer-map-brand">
         WAY<span>EZY</span>
         <small>
-          {isGround
-            ? 'Grand View High Street · Ground Floor'
-            : isReference
-              ? 'Reference layout · illustrative routes'
-              : 'Riverside indoor map'}
+          {isFirst
+            ? 'Grand View High Street · First Floor'
+            : isGround
+              ? 'Grand View High Street · Ground Floor'
+              : isReference
+                ? 'Reference layout · illustrative routes'
+                : 'Riverside indoor map'}
         </small>
       </div>
       <div className="explorer-floor-caption">{floor?.name}</div>

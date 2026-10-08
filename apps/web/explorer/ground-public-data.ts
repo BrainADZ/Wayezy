@@ -1,25 +1,38 @@
 import type { Snapshot } from '../../../packages/domain';
 import { withGroundFloorStructure } from '../../../packages/domain/reference/ground-floor-structure';
+import { withFirstFloorStructure } from '../../../packages/domain/reference/first-floor-structure';
+import { directoryFloors } from '../../../packages/domain/reference/directory-route-graph';
+import {
+  hasDirectoryLayout,
+  isDirectoryTenant,
+  isDirectoryPoi,
+  directoryOffers,
+} from '../../../packages/domain/reference/architectural-directory';
 
-/** The same published ground-floor places used by the kiosk map and WAY EZY GO. */
+/** Architectural floors and published ground-floor places shared by kiosk and GO. */
 export function groundPublicData(source: Snapshot): Snapshot {
-  const directory = withGroundFloorStructure(source);
-  const nodes = directory.nodes.filter((node) => node.floorId === 'l0');
+  const directory = withFirstFloorStructure(withGroundFloorStructure(source));
+  const publishedFloor = (floorId: string) => floorId === 'l0' || floorId === 'l1';
+  const nodes = directory.nodes.filter((node) => publishedFloor(node.floorId));
   const nodeIds = new Set(nodes.map((node) => node.id));
-  const tenants = directory.tenants.filter((tenant) => tenant.floorId === 'l0');
-  const tenantIds = new Set(tenants.map((tenant) => tenant.id));
+  const tenants = directory.tenants.filter(
+    (tenant) =>
+      publishedFloor(tenant.floorId) &&
+      (!hasDirectoryLayout(directory, tenant.floorId) || isDirectoryTenant(tenant)),
+  );
 
   return {
     ...directory,
-    floors: directory.floors.filter((floor) => floor.id === 'l0'),
-    features: directory.features.filter((feature) => feature.floorId === 'l0'),
+    floors: directoryFloors.map((floor) => ({
+      ...directory.floors.find((item) => item.id === floor.id),
+      ...floor,
+    })),
+    features: directory.features.filter((feature) => publishedFloor(feature.floorId)),
     nodes,
-    edges: directory.edges.filter(
-      (edge) => nodeIds.has(edge.fromNode) && nodeIds.has(edge.toNode),
-    ),
+    edges: directory.edges.filter((edge) => nodeIds.has(edge.fromNode) && nodeIds.has(edge.toNode)),
     connectors: [],
     tenants,
-    pois: directory.pois.filter((poi) => poi.floorId === 'l0'),
-    offers: directory.offers.filter((offer) => tenantIds.has(offer.tenantId)),
+    pois: directory.pois.filter(isDirectoryPoi),
+    offers: directoryOffers(directory, tenants),
   };
 }

@@ -427,7 +427,8 @@ export default function MapEditor() {
   const routeOnFloor = preview.route?.nodes.filter((n) => n.floorId === floorId) ?? [];
   const tenantByFeature = new Map(data.tenants.map((t) => [t.featureId, t]));
 
-  if (floorId === 'l0') return <GroundMapEditor />;
+  if (floorId === 'l0' || floorId === 'l1')
+    return <GroundMapEditor key={floorId} floorId={floorId} onFloorChange={setFloorId} />;
   if (!floor) return <PageHeader title="Floors & maps" subtitle="Add a floor to start mapping." />;
 
   return (

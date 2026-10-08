@@ -10,7 +10,8 @@ import {
   type Tenant,
 } from '../../../packages/domain';
 import { findRoute } from '../../../packages/routing';
-import { findGroundDirectoryRoute } from '../../../packages/routing/ground-directory';
+import { findDirectoryRoute } from '../../../packages/routing/ground-directory';
+import { directoryFloorIds } from '../../../packages/domain/reference/directory-route-graph';
 import { groundPublicData } from '../explorer/ground-public-data';
 import { search } from '../../../packages/search';
 import { Logo } from '../brand/Logo';
@@ -356,26 +357,23 @@ function GoRoute({
   >(null);
   const startNode = data.nodes.find((n) => n.id === request.startNodeId);
   const startDevice = data.devices.find((d) => d.routeStartNode === request.startNodeId);
-  const groundDirectoryRoute =
-    startNode?.floorId === 'l0' &&
-    destination?.floorId === 'l0' &&
-    (request.startNodeId.startsWith('ground-') || request.destinationId.startsWith('ground-'));
-  const groundPlaces = useMemo(
-    () => (groundDirectoryRoute ? mapPlaces(data).filter((place) => place.floorId === 'l0') : []),
-    [data, groundDirectoryRoute],
+  // Ground and First Floor share the surveyed walking graph, joined by lifts and escalators.
+  const directoryRoute =
+    !!startNode &&
+    !!destination &&
+    directoryFloorIds.has(startNode.floorId) &&
+    directoryFloorIds.has(destination.floorId);
+  const directoryPlaces = useMemo(
+    () =>
+      directoryRoute ? mapPlaces(data).filter((place) => directoryFloorIds.has(place.floorId)) : [],
+    [data, directoryRoute],
   );
 
   const routeOptions = useMemo(() => {
     const calculate = (stepFree: boolean) =>
       destination && startNode
-        ? groundDirectoryRoute
-          ? findGroundDirectoryRoute(
-              startNode.id,
-              destination.nodeId,
-              stepFree,
-              data.edges,
-              data.nodes,
-            )
+        ? directoryRoute
+          ? findDirectoryRoute(startNode.id, destination.nodeId, stepFree, data.edges, data.nodes)
           : findRoute(
               data.nodes,
               data.edges,
@@ -386,8 +384,11 @@ function GoRoute({
             )
         : null;
     return { standard: calculate(false), accessible: calculate(true) };
-  }, [data, destination, startNode, groundDirectoryRoute]);
+  }, [data, destination, startNode, directoryRoute]);
   const route = accessible ? routeOptions.accessible : routeOptions.standard;
+  const walkways = route
+    ? `${route.floorIds.map((id) => data.floors.find((f) => f.id === id)?.name ?? id).join(' → ')} walkways`
+    : '';
   const pieces = useMemo(() => routePieces(route, data.floors), [route, data.floors]);
   const signature = route ? `${accessible}:${route.edges.map((e) => e.id).join('|')}` : 'none';
   const playback = useRoutePlayback(pieces, { reducedMotion, key: signature });
@@ -488,6 +489,7 @@ function GoRoute({
           : step.floorId
         : startNode.floorId;
   const floorId = manualFloor ?? autoFloor;
+  const directoryFloor = manualFloor ?? step?.floorId ?? startNode.floorId;
   // Frame the segment being animated, then the segment for the step the visitor is reading.
   const framedPiece = manualFloor
     ? null
@@ -596,7 +598,11 @@ function GoRoute({
               <span>
                 {step.kind === 'arrive'
                   ? 'Destination ahead'
-                  : `${Math.round(step.distance)} m to this turn`}
+                  : directoryRoute
+                    ? step.connector
+                      ? `Change to ${data.floors.find((f) => f.id === step.toFloorId)?.name ?? 'the next floor'}`
+                      : 'Follow the marked route'
+                    : `${Math.round(step.distance)} m to this turn`}
               </span>
             </div>
             <button
@@ -646,11 +652,13 @@ function GoRoute({
         </button>
         {route ? (
           <div className="go-eta">
-            <strong>
-              {groundDirectoryRoute ? 'Walk' : t('route.minutes', { n: route.minutes })}
-            </strong>
+            <strong>{directoryRoute ? 'Walk' : t('route.minutes', { n: route.minutes })}</strong>
             <span>
-              {groundDirectoryRoute ? 'Ground floor' : t('route.metres', { n: route.distance })}
+              {directoryRoute
+                ? route.floorIds.length > 1
+                  ? `via ${route.transitions[0].type}`
+                  : (data.floors.find((f) => f.id === route.floorIds[0])?.name ?? '')
+                : t('route.metres', { n: route.distance })}
             </span>
           </div>
         ) : null}
@@ -697,8 +705,8 @@ function GoRoute({
                   <small>
                     {!option.result
                       ? 'Unavailable right now'
-                      : groundDirectoryRoute
-                        ? 'Ground Floor walkways'
+                      : directoryRoute
+                        ? walkways
                         : `${option.result.minutes} min · ${option.result.distance} m`}
                   </small>
                 </span>
@@ -711,7 +719,7 @@ function GoRoute({
 
       <section
         ref={mapElement}
-        className={`go-map${groundDirectoryRoute ? ' is-ground-route' : ''}`}
+        className={`go-map${directoryRoute ? ' is-ground-route' : ''}`}
         aria-label="Route map"
       >
         <div className="go-map-badge">
@@ -722,13 +730,13 @@ function GoRoute({
             <Glyph name="expand" size={17} /> Open full map
           </button>
         ) : null}
-        {groundDirectoryRoute ? (
+        {directoryRoute ? (
           <ExplorerMap
             data={data}
             startNodeId={startNode.id}
-            places={groundPlaces}
-            floorId="l0"
-            onFloorChange={() => undefined}
+            places={directoryPlaces}
+            floorId={directoryFloor}
+            onFloorChange={setManualFloor}
             selectedId={destination.id}
             onSelect={(place) => {
               if (place.id === destination.id) setShowProfile(true);
@@ -776,7 +784,7 @@ function GoRoute({
             onFallback={() => setMapMode('svg')}
           />
         )}
-        {!groundDirectoryRoute && mapView === 'floor' ? (
+        {!directoryRoute && mapView === 'floor' ? (
           <FloorSwitcher
             floors={data.floors}
             floorId={floorId}
@@ -785,7 +793,7 @@ function GoRoute({
             label={t('map.floor')}
           />
         ) : null}
-        {!groundDirectoryRoute ? (
+        {!directoryRoute ? (
           <div className="go-map-tools">
             <button
               type="button"
@@ -1080,7 +1088,7 @@ function GoRoute({
             tenant={tenant}
             poi={poi}
             walkMinutes={route?.minutes ?? null}
-            groundDirectoryRoute={groundDirectoryRoute}
+            walkways={directoryRoute ? walkways : null}
           />
           <div className="go-start-bar">
             <button
@@ -1174,13 +1182,13 @@ function GoBrandDetails({
   tenant,
   poi,
   walkMinutes,
-  groundDirectoryRoute,
+  walkways,
 }: {
   data: Snapshot;
   tenant: Tenant | null;
   poi: Poi | null;
   walkMinutes: number | null;
-  groundDirectoryRoute: boolean;
+  walkways: string | null;
 }) {
   const { t, tenantText } = useI18n();
   const destination = tenant ?? poi;
@@ -1228,8 +1236,8 @@ function GoBrandDetails({
           <strong>
             {walkMinutes === null
               ? 'Unavailable'
-              : groundDirectoryRoute
-                ? 'Ground Floor walkways'
+              : walkways
+                ? walkways
                 : walkMinutes === 0
                   ? 'Already here'
                   : `${walkMinutes} min`}

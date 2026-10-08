@@ -1,0 +1,26 @@
+{
+  "source": "First Floor Plan- Grand View High Street.svg",
+  "floor": "l1",
+  "tenants": [
+    { "id": "geetanjali", "name": "Geetanjali Salon", "category": "beauty", "sourceTextIds": ["text12763"], "logo": "" },
+    { "id": "khara-kapas", "name": "Khara Kapas", "category": "fashion", "sourceTextIds": ["text12769"], "logo": "" },
+    { "id": "vanilla-moon", "name": "Vanilla Moon", "category": "fashion", "sourceTextIds": ["text12775"], "logo": "" },
+    { "id": "chique", "name": "Chique", "category": "fashion", "sourceTextIds": ["text12780"], "logo": "" },
+    { "id": "mink", "name": "Mink", "category": "fashion", "sourceTextIds": ["text12785"], "logo": "" },
+    { "id": "ranna-gill", "name": "Ranna Gill", "category": "fashion", "sourceTextIds": ["text12790", "text12790-8"], "logo": "" },
+    { "id": "wasabi", "name": "Wasabi", "category": "fashion", "sourceTextIds": ["text12797"], "logo": "" },
+    { "id": "truefitt-hill", "name": "Truefitt & Hill", "category": "beauty", "sourceTextIds": ["text12803"], "logo": "" },
+    { "id": "greenr", "name": "Greenr", "category": "dining", "sourceTextIds": ["text12808"], "logo": "" },
+    { "id": "kaarigar", "name": "Kaarigar", "category": "fashion", "sourceTextIds": ["text12813"], "logo": "" },
+    { "id": "shades-of-india", "name": "Shades of India", "category": "fashion", "sourceTextIds": ["text12819"], "logo": "" },
+    { "id": "good-earth", "name": "Good Earth", "category": "home", "sourceTextIds": ["text12825", "text12825-1", "text12825-1-2", "text12825-1-9"], "logo": "/brand/logo/good%20earth.png" },
+    { "id": "blue-tokai", "name": "Blue Tokai", "category": "dining", "sourceTextIds": ["text12837"], "logo": "" },
+    { "id": "nykd", "name": "Nykd by Nykaa", "category": "fashion", "sourceTextIds": ["text12843"], "logo": "" },
+    { "id": "vivid", "name": "Vivid", "category": "fashion", "sourceTextIds": ["text12848"], "logo": "" },
+    { "id": "india-circus", "name": "India Circus", "category": "home", "sourceTextIds": ["text12854"], "logo": "" },
+    { "id": "amit", "name": "AM:IT", "category": "fashion", "sourceTextIds": ["text12859"], "logo": "" },
+    { "id": "cinepolis", "name": "Cinépolis", "category": "entertainment", "sourceTextIds": ["text12864"], "moduleIds": ["module-cinema"], "logo": "" },
+    { "id": "manam", "name": "Manam Chocolates", "category": "dining", "sourceTextIds": ["text12870"], "logo": "" },
+    { "id": "sko", "name": "SKO", "category": "fashion", "sourceTextIds": ["text12875"], "moduleIds": ["module-17b1", "module-17b2"], "logo": "" }
+  ]
+}

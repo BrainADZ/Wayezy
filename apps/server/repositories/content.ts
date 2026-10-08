@@ -3,6 +3,11 @@ import { schemas, type ContentResource, type Snapshot, type Venue } from '../../
 import type { Queryable } from '../db/database';
 import { fromRow, placeholders, tables, toRow, venueColumns, type TableDef } from '../db/tables';
 import { badRequest, notFound } from '../errors';
+import {
+  directoryUnits,
+  isDirectoryTenant,
+  tenantForDirectoryUnit,
+} from '../../../packages/domain/reference/architectural-directory';
 
 export type TableResource = Exclude<ContentResource, 'venue'>;
 export type WorkingCopy = Omit<Snapshot, 'version' | 'publishedAt'>;
@@ -237,6 +242,20 @@ export class ContentRepository {
             path: 'featureId',
             message: 'The map unit must be on the same floor as the tenant.',
           });
+        if (isDirectoryTenant(item as unknown as import('../../../packages/domain').Tenant)) {
+          const unit = directoryUnits.find(
+            (unit) => unit.featureId === item.featureId && unit.floorId === item.floorId,
+          )!;
+          const tenant = tenantForDirectoryUnit(
+            unit,
+            await this.list<import('../../../packages/domain').Tenant>('tenants'),
+          );
+          if (tenant && tenant.id !== item.id)
+            issues.push({
+              path: 'featureId',
+              message: `This map unit is already assigned to ${tenant.name}. Choose an available unit.`,
+            });
+        }
         break;
       }
       case 'pois': {

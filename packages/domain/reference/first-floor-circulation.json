@@ -1,0 +1,37 @@
+{
+  "notes": "Walkway centre-lines read from the tiled corridors of the First Floor drawing (source coordinates). Storefront points sit on the recessed openings or the open frontage of each brand; they are linked to the nearest walkway. Washrooms are omitted until their doorways are confirmed.",
+  "aisles": [
+    [[250, 717], [250, 890], [250, 1315], [250, 1489]],
+    [[250, 717], [394, 717], [394, 890]],
+    [[250, 890], [662, 890], [731, 890], [803, 890], [871, 890]],
+    [[324, 890], [324, 1315]],
+    [[250, 1315], [394, 1315], [605, 1315]],
+    [[394, 1315], [394, 1489]],
+    [[250, 1489], [394, 1489]],
+    [[662, 717], [662, 890]],
+    [[662, 717], [871, 717], [871, 890]],
+    [[731, 890], [731, 1168], [803, 1168], [803, 890]]
+  ],
+  "frontages": {
+    "geetanjali": [322, 703],
+    "khara-kapas": [237, 770],
+    "vanilla-moon": [237, 838],
+    "amit": [237, 942],
+    "chique": [237, 1195],
+    "mink": [237, 1264],
+    "ranna-gill": [237, 1367],
+    "good-earth": [408, 838],
+    "blue-tokai": [433, 904],
+    "greenr": [623, 904],
+    "truefitt-hill": [408, 1367],
+    "wasabi": [408, 1420],
+    "nykd": [408, 1465],
+    "india-circus": [437, 1291],
+    "manam": [700, 704],
+    "vivid": [830, 704],
+    "sko": [880, 760],
+    "shades-of-india": [880, 841],
+    "kaarigar": [816, 925],
+    "cinepolis": [767, 1180]
+  }
+}

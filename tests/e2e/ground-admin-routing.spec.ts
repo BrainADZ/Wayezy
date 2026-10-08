@@ -28,8 +28,12 @@ test('COMMAND shows the architectural map, network tools and live Ground Floor c
   const customId = await customNode.getAttribute('data-node-id');
   await tools.getByRole('button', { name: 'Connect' }).click();
   await page.locator('.cmd-ground-node[data-node-id="ground-walk-65"]').click();
+  await expect(page.locator('.cmd-ground-node[data-node-id="ground-walk-65"]')).toHaveAttribute(
+    'fill',
+    '#e67d20',
+  );
   await customNode.click();
-  await expect(page.locator('.cmd-toast')).toContainText('Walkway connected');
+  await expect(page.locator('.cmd-toast').filter({ hasText: 'Walkway connected' })).toBeVisible();
 
   await page.getByRole('link', { name: 'Routing', exact: true }).click();
   await expect(page.locator('.cmd-page-header h1')).toHaveText('Routing');
@@ -76,7 +80,9 @@ test('COMMAND shows the architectural map, network tools and live Ground Floor c
     .getByRole('dialog', { name: 'Close walkway' })
     .getByRole('button', { name: 'Close walkway' })
     .click();
-  await expect(page.locator('.cmd-toast')).toContainText('Walkway closed and published');
+  await expect(
+    page.locator('.cmd-toast').filter({ hasText: 'Walkway closed and published' }),
+  ).toBeVisible();
   const rerouted = await preview();
   expect(rerouted).not.toContain('master-walk-25');
   expect(rerouted).not.toEqual(before);

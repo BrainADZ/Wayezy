@@ -2295,6 +2295,9 @@ html.explorer-root body {
     bottom: 78px;
     gap: 6px;
   }
+  .explorer-workspace:has(.explorer-panel) .explorer-map-controls {
+    bottom: calc(54% + 26px);
+  }
   .explorer-map-controls button {
     width: 39px;
     height: 39px;
@@ -2361,5 +2364,64 @@ html.explorer-root body {
   .explorer-toast {
     bottom: 15px;
     width: max-content;
+  }
+}
+.explorer-route-floors {
+  position: absolute;
+  top: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: flex;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 9px 24px rgba(43, 37, 29, 0.16);
+  backdrop-filter: blur(12px);
+}
+.explorer-route-floors button {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  column-gap: 7px;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: transparent;
+  color: #303238;
+  font-size: 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+.explorer-route-floors button i {
+  grid-column: 1 / -1;
+  color: #8a6a3a;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+}
+.explorer-route-floors button b {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: #e4f1e9;
+  color: #005247;
+}
+.explorer-route-floors button[aria-pressed='true'] {
+  background: linear-gradient(145deg, #98713c, #c69e60);
+  color: white;
+}
+.explorer-route-floors button[aria-pressed='true'] i {
+  color: #fff4e0;
+}
+@media (max-width: 720px) {
+  .explorer-route-floors {
+    top: 60px;
+  }
+  .explorer-route-floors button {
+    padding: 6px 9px;
+    font-size: 11px;
   }
 }

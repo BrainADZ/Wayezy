@@ -23,7 +23,20 @@ function watchErrors(page: Page) {
   return errors;
 }
 
-export const test = base.extend<{ errors: string[] }>({
+export const test = base.extend<{ errors: string[]; isolatedDatabase: void }>({
+  isolatedDatabase: [
+    async ({ request }, use) => {
+      if (!process.env.E2E_EXTERNAL) {
+        const response = await request.get('/api/health');
+        const health = await response.json();
+        expect(health.driver, 'Browser tests must use the isolated embedded database').toBe(
+          'pglite',
+        );
+      }
+      await use();
+    },
+    { auto: true },
+  ],
   errors: async ({ page }, use) => {
     const errors = watchErrors(page);
     await use(errors);

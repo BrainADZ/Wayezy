@@ -4,9 +4,17 @@ import { z } from 'zod';
 import { campaignLiveState } from '../../../packages/advertising';
 import { canDo, roles, schemas, zonedDayStart, type Resource } from '../../../packages/domain';
 import { findRoute, validateGraph } from '../../../packages/routing';
-import { findGroundDirectoryRoute } from '../../../packages/routing/ground-directory';
-import { groundRouteGraph } from '../../../packages/domain/reference/ground-floor-route-graph';
-import groundDirectory from '../../../packages/domain/reference/ground-floor-tenants.json';
+import { findDirectoryRoute } from '../../../packages/routing/ground-directory';
+import {
+  directoryRouteGraph,
+  directoryFloorIds,
+  directoryFloors,
+} from '../../../packages/domain/reference/directory-route-graph';
+import {
+  isDirectoryTenant,
+  isDirectoryPoi,
+  directoryOffers,
+} from '../../../packages/domain/reference/architectural-directory';
 import type { AppContext } from '../context';
 import { badRequest, conflict, forbidden, notFound } from '../errors';
 import { isTableResource, slugId, type TableResource } from '../repositories/content';
@@ -15,10 +23,6 @@ import { mediaKey, processUpload } from '../services/media';
 import { actor, requireAuth, requireCsrfHeader, requirePermission } from './auth';
 import { permissionsFor } from './auth-routes';
 import { resolvePublicBaseUrl } from './public-routes';
-
-const groundTenantIds = new Set(
-  groundDirectory.tenants.map((tenant) => 'ground-tenant-' + tenant.id),
-);
 
 const asyncRoute =
   (fn: (req: Request, res: import('express').Response) => Promise<unknown>) =>
@@ -63,8 +67,14 @@ export function adminRoutes(context: AppContext) {
     asyncRoute(async (req, res) => {
       const user = req.user!;
       const copy = await content.workingCopy();
+      const sourceTenants = copy.tenants;
       if (copy.floors.some((floor) => floor.id === 'l0'))
-        copy.tenants = copy.tenants.filter((tenant) => groundTenantIds.has(tenant.id));
+        copy.tenants = copy.tenants.filter(isDirectoryTenant);
+      copy.offers = directoryOffers({ ...copy, tenants: sourceTenants }, copy.tenants);
+      copy.pois = copy.pois.filter(isDirectoryPoi);
+      copy.floors = copy.floors
+        .filter((floor) => directoryFloorIds.has(floor.id))
+        .map((floor) => ({ ...floor, ...directoryFloors.find((item) => item.id === floor.id) }));
       const readable = (resource: Resource) => canDo(user.role, resource, 'read');
       const latest = await snapshots.latest();
       res.setHeader('Cache-Control', 'no-store');
@@ -112,14 +122,14 @@ export function adminRoutes(context: AppContext) {
             })
           : null,
         context.devices.runtime(latest?.version ?? null),
-        content.list<{ id: string; status: string }>('tenants'),
+        content.list<import('../../../packages/domain').Tenant>('tenants'),
         content.list<Parameters<typeof campaignLiveState>[0]>('campaigns'),
         canDo(user.role, 'audit', 'read') ? audit.list({ limit: 8 }) : [],
       ]);
       const mapTenants = (await content.list<{ id: string }>('floors')).some(
         (floor) => floor.id === 'l0',
       )
-        ? tenants.filter((tenant) => groundTenantIds.has(tenant.id))
+        ? tenants.filter(isDirectoryTenant)
         : tenants;
       const alerts = devices
         .filter((d) => d.health !== 'online')
@@ -212,18 +222,17 @@ export function adminRoutes(context: AppContext) {
     '/routing/validate',
     requirePermission('edges', 'read'),
     asyncRoute(async (_req, res) => {
-      const [savedEdges, savedNodes] = await Promise.all([
-        content.list<import('../../../packages/domain').RouteEdge>('edges'),
-        content.list<import('../../../packages/domain').RouteNode>('nodes'),
-      ]);
-      const graph = groundRouteGraph(savedEdges, savedNodes);
+      const copy = await content.workingCopy();
+      const savedEdges = copy.edges,
+        savedNodes = copy.nodes;
+      const graph = directoryRouteGraph(savedEdges, savedNodes);
       const issues = validateGraph(graph.nodes, graph.edges);
-      for (const tenant of groundDirectory.tenants) {
-        if (tenant.id === 'soulfoods') continue; // Source doorway is still unverified.
+      for (const tenant of copy.tenants.filter(isDirectoryTenant)) {
+        if (tenant.id === 'ground-tenant-soulfoods' || tenant.status === 'HIDDEN') continue;
         if (
-          !findGroundDirectoryRoute(
+          !findDirectoryRoute(
             'ground-entry-starbucks',
-            `ground-tenant-${tenant.id}`,
+            tenant.nodeId,
             false,
             graph.edges,
             graph.nodes,
@@ -252,23 +261,24 @@ export function adminRoutes(context: AppContext) {
         })
         .parse(req.body);
       const copy = await content.workingCopy();
-      const route =
-        input.fromNodeId.startsWith('ground-') && input.toNodeId.startsWith('ground-')
-          ? findGroundDirectoryRoute(
-              input.fromNodeId,
-              input.toNodeId,
-              input.accessible,
-              copy.edges,
-              copy.nodes,
-            )
-          : findRoute(
-              copy.nodes,
-              copy.edges,
-              input.fromNodeId,
-              input.toNodeId,
-              input.accessible,
-              copy.floors,
-            );
+      const route = [input.fromNodeId, input.toNodeId].every((id) =>
+        directoryFloorIds.has(copy.nodes.find((node) => node.id === id)?.floorId ?? ''),
+      )
+        ? findDirectoryRoute(
+            input.fromNodeId,
+            input.toNodeId,
+            input.accessible,
+            copy.edges,
+            copy.nodes,
+          )
+        : findRoute(
+            copy.nodes,
+            copy.edges,
+            input.fromNodeId,
+            input.toNodeId,
+            input.accessible,
+            copy.floors,
+          );
       res.json({ route });
     }),
   );

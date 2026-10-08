@@ -5,6 +5,7 @@ import { rateLimit } from 'express-rate-limit';
 import { z } from 'zod';
 import { analyticsEventSchema, type AnalyticsEvent } from '../../../packages/domain';
 import { withGroundFloorStructure } from '../../../packages/domain/reference/ground-floor-structure';
+import { withFirstFloorStructure } from '../../../packages/domain/reference/first-floor-structure';
 import { projectRoot } from '../config';
 import type { AppContext } from '../context';
 import { AppError, badRequest, notFound, unauthorized } from '../errors';
@@ -155,10 +156,10 @@ export function publicRoutes(context: AppContext) {
       const input = tokenRequest.parse(req.body);
       const latest = await context.snapshots.latest();
       if (!latest) throw notFound('Directory not published.');
-      // The explorer adds surveyed Ground Floor places in the client. Include those IDs
-      // when validating a phone handoff so its QR works for Ground Floor routes too.
+      // The explorer adds the surveyed Ground and First Floor places in the client. Include
+      // those IDs when validating a phone handoff so its QR works for their routes too.
       const data = latest.data;
-      const groundData = withGroundFloorStructure(data);
+      const groundData = withFirstFloorStructure(withGroundFloorStructure(data));
       if (![...data.nodes, ...groundData.nodes].some((n) => n.id === input.startNodeId))
         throw badRequest('Unknown start point.');
       const tenant = [...data.tenants, ...groundData.tenants].find(

@@ -1,4 +1,4 @@
-import { rootBox, rootMatrix } from '../../../packages/svg-retail/ground-model';
+import { rootBox, rootMatrix, type FloorModel } from '../../../packages/svg-retail/ground-model';
 
 export const SVG_NS = 'http://www.w3.org/2000/svg';
 export function svgElement(tag: string, attrs: Record<string, string | number> = {}) {
@@ -8,12 +8,7 @@ export function svgElement(tag: string, attrs: Record<string, string | number> =
 }
 
 /** Build-time landscaping tied to source planter islands and their central median. */
-export function addEnvironment(
-  svg: SVGSVGElement,
-  defs: SVGDefsElement,
-  underlay: SVGGElement,
-  overlay: SVGGElement,
-) {
+export function addDirectoryDefinitions(defs: SVGDefsElement) {
   const definitions = new DOMParser().parseFromString(
     `<svg xmlns="${SVG_NS}">
     <filter id="directory-depth" x="-20%" y="-30%" width="140%" height="170%" color-interpolation-filters="sRGB">
@@ -58,40 +53,104 @@ export function addEnvironment(
   );
   for (const child of [...definitions.documentElement.children])
     defs.append(document.importNode(child, true));
+}
 
-  // Surface treatment follows the open circulation aisles visible in the master.
+export function addEnvironment(
+  svg: SVGSVGElement,
+  defs: SVGDefsElement,
+  underlay: SVGGElement,
+  overlay: SVGGElement,
+  model: FloorModel,
+) {
+  addDirectoryDefinitions(defs);
+
+  // Use the same source-confirmed aisles as routing; render all outlines first so
+  // crossing corridors read as a continuous surface rather than stacked stripes.
   const floor = svgElement('g', { class: 'directory-circulation', 'pointer-events': 'none' });
-  for (const d of [
-    'M345 480V1343',
-    'M440 165V1343',
-    'M164 610V1190',
-    'M620 505V923',
-    'M100 610H752',
-    'M105 775H750',
-    'M150 974H630',
-    'M150 1180H443',
-    'M105 1343H740',
-  ]) {
-    floor.append(
-      svgElement('path', {
-        d,
-        fill: 'none',
-        stroke: '#e6dfd2',
-        'stroke-width': 17,
-        'stroke-linecap': 'round',
-      }),
-    );
-    floor.append(
-      svgElement('path', {
-        d,
-        fill: 'none',
-        stroke: '#f1ece2',
-        'stroke-width': 14,
-        'stroke-linecap': 'round',
-      }),
-    );
+  for (const outline of [true, false]) {
+    for (const forecourt of model.circulation?.forecourts ?? [])
+      floor.append(
+        svgElement('rect', {
+          ...forecourt.bounds,
+          'data-ground-forecourt': forecourt.id,
+          fill: '#e3e9dc',
+          stroke: outline ? '#a3b39b' : 'none',
+          'stroke-width': 1.2,
+        }),
+      );
+    for (const walkway of model.circulation?.walkways ?? [])
+      floor.append(
+        svgElement('polyline', {
+          points: walkway.points.map((p) => `${p.x},${p.y}`).join(' '),
+          'data-ground-walkway': walkway.id,
+          'data-walkway-treatment': outline ? 'edge' : 'surface',
+          fill: 'none',
+          stroke: outline ? '#a3b39b' : '#e3e9dc',
+          'stroke-width': walkway.width + (outline ? 1.2 : 0),
+          'stroke-linecap': 'round',
+          'stroke-linejoin': 'round',
+        }),
+      );
   }
   underlay.append(floor);
+  const entrances = svgElement('g', {
+    class: 'directory-store-entrances',
+    'pointer-events': 'none',
+  });
+  for (const opening of model.circulation?.openings ?? []) {
+    const frame = svgElement('g', {
+      'data-store-opening': opening.id,
+      'data-opening-module': opening.moduleId,
+      'data-source-perimeter': opening.sourceId,
+    });
+    const points = opening.points.map((p) => `${p.x},${p.y}`).join(' ');
+    frame.append(svgElement('polyline', { points, class: 'directory-entrance-halo' }));
+    frame.append(svgElement('polyline', { points, class: 'directory-entrance-frame' }));
+    const [a, b, c, d] = opening.points;
+    const leafPoints = [
+      [
+        a,
+        {
+          x: a.x + (b.x - a.x) * 0.45 + (d.x - a.x) * 0.3,
+          y: a.y + (b.y - a.y) * 0.45 + (d.y - a.y) * 0.3,
+        },
+      ],
+      [
+        d,
+        {
+          x: d.x + (c.x - d.x) * 0.45 + (a.x - d.x) * 0.3,
+          y: d.y + (c.y - d.y) * 0.45 + (a.y - d.y) * 0.3,
+        },
+      ],
+    ];
+    for (const leaf of leafPoints)
+      frame.append(
+        svgElement('polyline', {
+          points: leaf.map((p) => `${p.x},${p.y}`).join(' '),
+          class: 'directory-door-leaf',
+        }),
+      );
+    entrances.append(frame);
+  }
+  overlay.append(entrances);
+  for (const [i, [x, y]] of [
+    [440, 555],
+    [345, 970],
+  ].entries()) {
+    const label = svgElement('text', {
+      class: 'directory-walkway-label',
+      'data-walkway-label': `ground-walkway-${i + 1}`,
+      x,
+      y,
+      transform: `rotate(90 ${x} ${y})`,
+      'font-size': 8,
+      'text-anchor': 'middle',
+      'dominant-baseline': 'central',
+      'pointer-events': 'none',
+    });
+    label.textContent = 'WALKWAY';
+    overlay.append(label);
+  }
   // The water belongs in the narrow landscaped median indicated by the plan,
   // between the two rows of source planter islands. Breaks preserve cross-aisles.
   const water = svgElement('g', {

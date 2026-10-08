@@ -2,10 +2,12 @@ import { schemas, dailyHours, type Snapshot } from '../index';
 import model from './ground-floor-model.json';
 import directory from './ground-floor-tenants.json';
 import { groundRouteGraph, groundRouteNodeIds } from './ground-floor-route-graph';
+import { hasDirectoryLayout } from './architectural-directory';
 
 /** Directory adapter uses module IDs and source-derived anchors, never generated shop geometry. */
 export function withGroundFloorStructure(source: Snapshot): Snapshot {
   if (!source.floors.some((f) => f.id === 'l0')) return source;
+  if (hasDirectoryLayout(source, 'l0')) return source;
   const data = structuredClone(source);
   const oldNodes = new Set(data.nodes.filter((n) => n.floorId === 'l0').map((n) => n.id));
   data.nodes = data.nodes.filter((n) => n.floorId !== 'l0');
@@ -56,10 +58,10 @@ export function withGroundFloorStructure(source: Snapshot): Snapshot {
       schemas.tenants.parse({
         ...original,
         id,
-        name: binding.name,
-        tradingName: binding.name,
+        name: original?.name ?? binding.name,
+        tradingName: original?.tradingName ?? binding.name,
         floorId: 'l0',
-        categoryId: binding.category,
+        categoryId: original?.categoryId ?? binding.category,
         nodeId: id,
         featureId: module.id,
         unitNumber: binding.moduleIds
@@ -85,9 +87,13 @@ export function withGroundFloorStructure(source: Snapshot): Snapshot {
             ...(original?.keywords ?? []),
           ]),
         ].slice(0, 40),
-        logo: binding.logo || original?.logo || '',
+        logo:
+          source.tenants.find((tenant) => tenant.id === id)?.logo ??
+          binding.logo ??
+          original?.logo ??
+          '',
         hours: original?.hours ?? dailyHours('10:00', '22:00'),
-        status: 'ACTIVE',
+        status: original?.status ?? 'ACTIVE',
       }),
     );
     if (legacy) {

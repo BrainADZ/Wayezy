@@ -1,6 +1,7 @@
 import { detectRetailModules, type Box } from './detect';
 import overrides from '../domain/reference/ground-floor-overrides.json';
 import bindings from '../domain/reference/ground-floor-tenants.json';
+import { buildGroundDirectoryCirculation } from './ground-directory-circulation';
 
 export type Point = { x: number; y: number };
 export type RetailModule = {
@@ -24,6 +25,17 @@ export type FloorModel = {
   source: string;
   bounds: Box;
   modules: RetailModule[];
+  displayModules?: RetailModule[];
+  doors?: { id: string; name: string; sourceIds: string[]; labelPoint: number[] }[];
+  circulation?: {
+    tileSourceIds: string[];
+    tileSpacing: number;
+    edgeSourceIds: string[];
+    voids: FloorArea[];
+    openings: { id: string; sourceId: string; points: Point[]; moduleId: string }[];
+    walkways?: { id: string; points: Point[]; width: number }[];
+    forecourts?: { id: string; bounds: Box }[];
+  };
   areas: FloorArea[];
   amenities: typeof overrides.amenities;
   warnings: string[];
@@ -75,7 +87,7 @@ function inPart(part: Part, p: Point) {
 }
 
 /** Largest interior label area, sampled against actual filled paths. This is never shop geometry. */
-function interiorLabelBox(parts: Part[], bounds: Box): Box {
+export function interiorLabelBox(parts: Part[], bounds: Box): Box {
   const columns = 28,
     rows = 28,
     dx = bounds.width / columns,
@@ -209,10 +221,78 @@ export function buildGroundFloorModel(svg: SVGSVGElement): FloorModel {
     });
   }
   const b = union(allBounds);
+  // Adjoining units of one tenant share a label, clip and selection footprint.
+  // Separate branches across a public aisle (Good Earth) remain separate outlets.
+  const remaining = new Set(modules);
+  const displayModules: RetailModule[] = [];
+  for (const module of modules) {
+    if (!remaining.delete(module)) continue;
+    const members = [module];
+    if (module.tenantId) {
+      for (let i = 0; i < members.length; i++) {
+        const a = members[i].bounds;
+        for (const candidate of remaining) {
+          if (candidate.tenantId !== module.tenantId) continue;
+          const c = candidate.bounds;
+          const gap = Math.hypot(
+            Math.max(a.x - c.x - c.width, c.x - a.x - a.width, 0),
+            Math.max(a.y - c.y - c.height, c.y - a.y - a.height, 0),
+          );
+          if (gap > 2) continue;
+          members.push(candidate);
+          remaining.delete(candidate);
+        }
+      }
+    }
+    if (members.length === 1) {
+      displayModules.push(module);
+      continue;
+    }
+    const memberParts = members.flatMap((member) => groups.get(member.id)!);
+    const bounds = union(memberParts.map((part) => part.box));
+    let labelBox = interiorLabelBox(memberParts, bounds);
+    // A shared logo may cross the internal unit separator, while each architectural
+    // footprint remains unchanged. Only aligned, adjoining bays use this wider area.
+    if (
+      members.every(
+        (member) =>
+          Math.abs(member.bounds.x - members[0].bounds.x) < 1 &&
+          Math.abs(member.bounds.width - members[0].bounds.width) < 1,
+      )
+    ) {
+      const labels = members.map((member) => member.labelBox);
+      const x = Math.max(...labels.map((box) => box.x));
+      const right = Math.min(...labels.map((box) => box.x + box.width));
+      const combined = union(labels);
+      labelBox = { x, y: combined.y, width: right - x, height: combined.height };
+    }
+    // Keep the established primary unit ID for keyboard focus and map selection.
+    const binding = bindings.tenants.find(
+      (tenant) => `ground-tenant-${tenant.id}` === module.tenantId,
+    )!;
+    const primary = members.find((member) => member.id === binding.moduleIds[0]) ?? module;
+    // Keep a confirmed brand label in its main storefront when a larger wing is
+    // included in the same outlet; circulation and service cores keep their own symbols.
+    if ('labelModuleId' in binding) {
+      const labelModule = members.find((member) => member.id === binding.labelModuleId);
+      if (!labelModule) throw new Error(`Missing label module for ${binding.name}.`);
+      labelBox = labelModule.labelBox;
+    }
+    displayModules.push({
+      ...primary,
+      sourceIds: memberParts.map((part) => part.el.id),
+      bounds,
+      labelBox,
+      anchor: center(labelBox),
+      method: 'connected-tenant-occupancy',
+    });
+  }
   return {
     source: '/maps/ground-floor-master.svg',
     bounds: { x: b.x - 16, y: b.y - 12, width: b.width + 32, height: b.height + 24 },
     modules: modules.sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true })),
+    displayModules,
+    circulation: buildGroundDirectoryCirculation(svg, displayModules, modules),
     areas,
     amenities: overrides.amenities,
     warnings,

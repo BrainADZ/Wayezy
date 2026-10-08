@@ -50,9 +50,62 @@ test('normal kiosk renders the authoritative inline SVG with metadata and existi
   expect(await page.evaluate(() => (window as any).__rawMapFlash)).toBe(false);
   await source.evaluate((el) => el.setAttribute('data-test-mounted-once', 'yes'));
   await expect(host).toHaveAttribute('data-detected-modules', '47');
-  await expect(host.locator('.directory-brand')).toHaveCount(47);
-  await expect(host.locator('[data-local-brand-logo]')).toHaveCount(35);
-  await expect(host.locator('.directory-unit-name')).toHaveCount(9);
+  await expect(host.locator('.directory-brand')).toHaveCount(model.displayModules.length);
+  await expect(host.locator('[data-local-brand-logo]')).toHaveCount(28);
+  await expect(host.locator('.directory-unit-name')).toHaveCount(3);
+  for (const brand of [
+    'soulfoods',
+    'coyu',
+    'perona',
+    'love-birds',
+    'eka',
+    'suvasa',
+    'nykaa-luxe',
+    'cafe-dori',
+  ])
+    await expect(host.locator(`[data-local-brand-logo="${brand}"]`)).toHaveCount(1);
+  await expect(host.locator('[data-local-brand-logo="good-earth"]')).toHaveCount(2);
+  for (const brand of ['soulfoods', 'coyu', 'perona']) {
+    const footprint = model.displayModules.find(
+      (module) => module.tenantId === `ground-tenant-${brand}`,
+    )!;
+    await expect(
+      host.locator(`[data-place-id="ground-tenant-${brand}"][data-map-paint="retail"]`),
+    ).toHaveCount(footprint.sourceIds.length);
+    await expect(
+      host.locator(`.directory-brand[data-place-id="ground-tenant-${brand}"]`),
+    ).not.toContainText('TO LET');
+  }
+  for (const [moduleId, brand] of [
+    ['module-21b', 'coyu'],
+    ['module-9a2', 'perona'],
+  ]) {
+    const original = model.modules.find((module) => module.id === moduleId)!;
+    const ownership = await source.evaluate(
+      (svg, sourceIds) =>
+        sourceIds.map((id) => svg.querySelector(`#${id}`)!.getAttribute('data-place-id')),
+      original.sourceIds,
+    );
+    expect(ownership.every((id) => id === `ground-tenant-${brand}`)).toBe(true);
+  }
+  await expect(host.locator('[data-walkway-treatment="surface"]')).toHaveCount(
+    model.circulation.walkways.length,
+  );
+  await expect(host.locator('[data-store-opening]')).toHaveCount(model.circulation.openings.length);
+  const entrancesStayOnSource = await source.evaluate((svg) => {
+    const root = (svg as SVGSVGElement).getScreenCTM()!;
+    return [...svg.querySelectorAll('[data-store-opening]')].every((opening) => {
+      const original = svg.querySelector<SVGGeometryElement>(
+        `#${opening.getAttribute('data-source-perimeter')}`,
+      )!;
+      const frame = opening.querySelector<SVGPolylineElement>('.directory-entrance-frame')!;
+      const matrix = original.getScreenCTM()!.inverse().multiply(root);
+      return Array.from({ length: frame.points.numberOfItems }, (_, i) =>
+        frame.points.getItem(i),
+      ).every((p) => original.isPointInStroke(new DOMPoint(p.x, p.y).matrixTransform(matrix)));
+    });
+  });
+  expect(entrancesStayOnSource).toBe(true);
   await expect(host.locator('.directory-amenity')).toHaveCount(model.amenities.length);
   const escalators = host.locator('.directory-amenity[aria-label="Escalator"] use');
   await expect(escalators).toHaveCount(4);
@@ -187,6 +240,28 @@ test('normal kiosk renders the authoritative inline SVG with metadata and existi
   await expect(viewport).not.toHaveAttribute('transform', fitted!);
   await page.screenshot({ path: 'test-results/architectural-kiosk.png' });
 
+  // The corrected wings select as one outlet, including the previously vacant parts.
+  for (const [brand, name] of [
+    ['coyu', 'Coyu'],
+    ['perona', 'Perona'],
+  ]) {
+    const tenantId = `ground-tenant-${brand}`;
+    const footprint = model.displayModules.find((module) => module.tenantId === tenantId)!;
+    await host.locator(`[data-place-id="${tenantId}"][role="button"]`).focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('.explorer-panel')).toHaveAttribute('aria-label', `${name} details`);
+    await expect(
+      host.locator(`[data-place-id="${tenantId}"][data-map-paint="retail"].is-selected`),
+    ).toHaveCount(footprint.sourceIds.length);
+    await expect(
+      host.locator(`[data-place-id="${tenantId}"][data-map-paint="retail"]`).first(),
+    ).toHaveCSS('fill', 'rgb(7, 91, 75)');
+    await page.screenshot({
+      path: `test-results/ground-brand-${brand}.png`,
+      animations: 'disabled',
+    });
+  }
+
   const women = host.locator('[data-place-id="women-toilet-north"][role="button"]');
   await women.focus();
   await page.keyboard.press('Enter');
@@ -196,7 +271,7 @@ test('normal kiosk renders the authoritative inline SVG with metadata and existi
   );
 
   // Select a real footprint, then filter and search through the existing shell.
-  const loveBirds = host.locator('[data-module-id="module-14b"][role="button"]');
+  const loveBirds = host.locator('[data-module-id="module-14a"][role="button"]');
   await loveBirds.focus();
   await page.keyboard.press('Enter');
   await expect(page.locator('.explorer-panel')).toContainText('Love Birds');
@@ -215,7 +290,7 @@ test('normal kiosk renders the authoritative inline SVG with metadata and existi
     .getByRole('navigation', { name: 'Browse categories' })
     .getByRole('button', { name: 'Dining', exact: true })
     .click();
-  await expect(host.locator('[data-module-id="module-14b"]').first()).toHaveClass(/is-muted/);
+  await expect(host.locator('[data-module-id="module-14a"]').first()).toHaveClass(/is-muted/);
   await expect(host.locator('[data-module-id="module-18"]').first()).not.toHaveClass(/is-muted/);
   await page.getByRole('textbox', { name: 'Search stores and amenities' }).fill('Starbucks');
   await expect(viewport).not.toHaveAttribute('transform', fitted!);
@@ -225,7 +300,7 @@ test('normal kiosk renders the authoritative inline SVG with metadata and existi
   expect(await page.evaluate(() => (window as any).__geometryCalls)).toBe(0);
 
   await page.getByRole('textbox', { name: 'Search stores and amenities' }).fill('');
-  const cafe = host.locator('[data-module-id="module-2b"][role="button"]');
+  const cafe = host.locator('[data-module-id="module-2a"][role="button"]');
   await cafe.focus();
   await page.keyboard.press('Enter');
   await page.getByRole('button', { name: 'Get Directions', exact: true }).click();
@@ -248,7 +323,8 @@ test('normal kiosk renders the authoritative inline SVG with metadata and existi
     .locator('option')
     .allTextContents();
   expect(destinationOptions.length).toBeGreaterThan(0);
-  expect(destinationOptions.every((option) => option.includes('Ground Floor'))).toBe(true);
+  expect(destinationOptions.some((option) => option.includes('Ground Floor'))).toBe(true);
+  expect(destinationOptions.every((option) => /Ground Floor|First Floor/.test(option))).toBe(true);
   await expect(page.locator('.directory-route')).toBeVisible();
   await expect(page.locator('.directory-route-line')).toHaveAttribute(
     'vector-effect',
@@ -257,6 +333,7 @@ test('normal kiosk renders the authoritative inline SVG with metadata and existi
   await expect(page.locator('.explorer-route-summary')).toContainText('Walking directions');
   await page.screenshot({ path: 'test-results/architectural-route.png' });
   await page.getByRole('button', { name: 'Start', exact: true }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Close', exact: true }).click();
   await expect(page.locator('.explorer-guidance-summary')).toContainText('Follow the marked route');
   await expect(page.locator('.directory-route-active-line')).toHaveAttribute('points', /\d+.*\d+/);
   await expect(page.locator('.directory-route-active-line')).toHaveAttribute('stroke', '#b48645');
@@ -264,14 +341,21 @@ test('normal kiosk renders the authoritative inline SVG with metadata and existi
   await page.getByRole('button', { name: 'Close directions', exact: true }).click();
 
   await page.getByRole('tab', { name: 'Popular' }).click();
+  await page.getByRole('button', { name: 'Search filters' }).click();
+  const floorFilter = page.getByRole('combobox', { name: 'Filter by floor' });
+  await expect(floorFilter).toBeVisible();
+  await floorFilter.selectOption('l0');
   await page.getByRole('textbox', { name: 'Search stores and amenities' }).fill('PVR Cinemas');
   await expect(page.locator('.explorer-search-results')).toContainText('No places found');
-  await page.getByRole('button', { name: 'Search filters' }).click();
-  await expect(page.getByRole('combobox', { name: 'Filter by floor' })).toHaveCount(0);
+  await expect(floorFilter.locator('option')).toHaveText([
+    'All floors',
+    'Ground Floor',
+    'First Floor',
+  ]);
   await expect(page.locator('.reference-floor')).toHaveCount(0);
   await expect(host).toHaveAttribute('data-detection-status', 'ready');
   await expect(source).toHaveCount(1);
-  await expect(host.locator('[data-module-id="module-14b"]').first()).toBeAttached();
+  await expect(host.locator('[data-module-id="module-14a"]').first()).toBeAttached();
   expect(errors).toEqual([]);
 });
 

@@ -12,7 +12,7 @@
     "model:ground": "tsx scripts/build-ground-floor-model.ts",
     "test:retail": "tsx --test tests/svg-retail/detection.test.ts",
     "dev": "tsx watch --clear-screen=false --exclude \"apps/web/**\" apps/server/index.ts",
-    "build": "npm run prepare:ground && npm run check && vite build && vite build --ssr apps/server/index.ts --outDir dist/server --emptyOutDir",
+    "build": "npm run prepare:ground && npm run prepare:first && npm run check && vite build && vite build --ssr apps/server/index.ts --outDir dist/server --emptyOutDir",
     "build:demo": "npm run build && tsx scripts/package-release.ts demo",
     "build:release": "npm run build && tsx scripts/package-release.ts production",
     "start": "node dist/server/index.js",
@@ -29,7 +29,8 @@
     "format": "prettier --write apps packages tests scripts vite.config.ts playwright.config.ts index.html package.json tsconfig.json docker-compose.yml .prettierrc.json",
     "format:check": "prettier --check apps packages tests scripts vite.config.ts playwright.config.ts index.html package.json tsconfig.json docker-compose.yml .prettierrc.json",
     "build:video": "tsx scripts/build-demo-video.ts",
-    "prepare:ground": "tsx scripts/prepare-ground-directory.ts"
+    "prepare:ground": "tsx scripts/prepare-ground-directory.ts",
+    "prepare:first": "tsx scripts/prepare-first-directory.ts"
   },
   "dependencies": {
     "@electric-sql/pglite": "0.5.8",

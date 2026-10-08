@@ -40,9 +40,11 @@ export async function uploadMedia(file: File) {
 
 export function UploadButton({
   label = 'Upload',
+  accept = ACCEPT,
   onUploaded,
 }: {
   label?: string;
+  accept?: string;
   onUploaded: (asset: Media) => void | Promise<void>;
 }) {
   const command = useCommand();
@@ -53,7 +55,7 @@ export function UploadButton({
       <input
         ref={input}
         type="file"
-        accept={ACCEPT}
+        accept={accept}
         hidden
         onChange={async (e) => {
           const file = e.target.files?.[0];

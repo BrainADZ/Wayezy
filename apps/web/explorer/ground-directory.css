@@ -1,64 +1,139 @@
-.ground-floor-source [data-source-label],
-.ground-floor-source [data-source-annotations],
-.ground-floor-source [data-map-paint='annotation'] {
+:is(.ground-floor-source, .first-floor-source) [data-source-label],
+:is(.ground-floor-source, .first-floor-source) [data-source-annotations],
+:is(.ground-floor-source, .first-floor-source) [data-map-paint='annotation'] {
   display: none !important;
 }
-.ground-floor-source [data-map-paint] {
+:is(.ground-floor-source, .first-floor-source) [data-map-paint] {
   pointer-events: none;
 }
-.ground-floor-source [data-replaced-amenity-symbol] {
+:is(.ground-floor-source, .first-floor-source) [data-replaced-amenity-symbol] {
   display: none !important;
 }
-.ground-floor-source [data-map-paint='line'] {
+:is(.ground-floor-source, .first-floor-source) [data-map-paint='line'] {
   stroke: #8e897e !important;
   opacity: 0.23;
 }
-.ground-floor-source [data-map-paint='door'] {
+:is(.ground-floor-source, .first-floor-source) [data-map-paint='door'] {
   fill: none !important;
   stroke: #60796a !important;
   stroke-width: 1.15px !important;
   vector-effect: non-scaling-stroke;
   opacity: 0.85;
 }
-.ground-floor-source [data-map-paint='core'] {
+:is(.ground-floor-source, .first-floor-source) [data-map-paint='core'] {
   fill: #cfe1d2 !important;
   stroke: #638c74 !important;
 }
-.ground-floor-source [data-map-paint='structure'] {
+:is(.ground-floor-source, .first-floor-source) [data-map-paint='door'] {
+  stroke: #2f594c !important;
+  stroke-width: 1.4px !important;
+  opacity: 1;
+}
+.first-floor-source [data-map-paint='walkway-edge'] {
+  fill: none !important;
+  stroke: #94a18d !important;
+  stroke-width: 1px !important;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.85;
+}
+.first-floor-source [data-map-paint='walkway-tile'] {
+  stroke: #a6b49d !important;
+  opacity: 0.24;
+}
+.first-floor-source [data-map-paint='void-edge'] {
+  fill: none !important;
+  stroke: #8b9d82 !important;
+  stroke-width: 1.35px !important;
+  vector-effect: non-scaling-stroke;
+  opacity: 1;
+}
+.first-floor-source [data-map-paint='void-annotation'] {
+  display: none !important;
+}
+.first-entrance-halo,
+.first-entrance-frame,
+.directory-entrance-halo,
+.directory-entrance-frame,
+.directory-door-leaf {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.first-entrance-halo,
+.directory-entrance-halo {
+  stroke: #fffdf5;
+  stroke-width: 3.5px;
+}
+.first-entrance-frame,
+.directory-entrance-frame,
+.directory-door-leaf {
+  stroke: #2f594c;
+  stroke-width: 1.4px;
+}
+.first-floor-source .directory-area-label.is-courtyard,
+.first-floor-source .directory-area-label.is-atrium {
+  fill: #526a4d;
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: #eef0e5;
+  stroke-width: 3;
+}
+.first-floor-source .directory-area-label.is-courtyard text + text {
+  fill: #72816a;
+}
+.first-walkway-label,
+.directory-walkway-label {
+  fill: #68805c;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  paint-order: stroke;
+  stroke: #e3e9dc;
+  stroke-width: 2;
+}
+.directory-door-label {
+  fill: #2f594c;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  paint-order: stroke;
+  stroke: #faf7ef;
+  stroke-width: 2px;
+}
+:is(.ground-floor-source, .first-floor-source) [data-map-paint='structure'] {
   opacity: 0.42;
 }
-.ground-floor-source [data-map-paint='retail'] {
+:is(.ground-floor-source, .first-floor-source) [data-map-paint='retail'] {
   fill: #e3d5c4 !important;
   stroke: none !important;
   transition:
     fill 0.16s,
     opacity 0.16s;
 }
-.ground-floor-source [data-module-id] {
+:is(.ground-floor-source, .first-floor-source) [data-module-id] {
   pointer-events: visiblePainted;
   cursor: pointer;
   outline: none;
 }
-.ground-floor-source [data-category='dining'] {
+:is(.ground-floor-source, .first-floor-source) [data-category='dining'] {
   fill: #dbcbb1 !important;
 }
-.ground-floor-source [data-category='beauty'] {
+:is(.ground-floor-source, .first-floor-source) [data-category='beauty'] {
   fill: #dec8c7 !important;
 }
-.ground-floor-source [data-category='home'] {
+:is(.ground-floor-source, .first-floor-source) [data-category='home'] {
   fill: #cdd8c7 !important;
 }
-.ground-floor-source [data-category='unoccupied'] {
+:is(.ground-floor-source, .first-floor-source) [data-category='unoccupied'] {
   fill: #ebe4d7 !important;
 }
-.ground-floor-source [data-module-id].is-hovered,
-.ground-floor-source [data-module-id]:focus-visible {
+:is(.ground-floor-source, .first-floor-source) [data-module-id].is-hovered,
+:is(.ground-floor-source, .first-floor-source) [data-module-id]:focus-visible {
   fill: #cfb684 !important;
 }
-.ground-floor-source [data-module-id].is-selected {
+:is(.ground-floor-source, .first-floor-source) [data-module-id].is-selected {
   fill: #075b4b !important;
 }
-.ground-floor-source .is-muted {
+:is(.ground-floor-source, .first-floor-source) .is-muted {
   opacity: 0.2 !important;
 }
 .directory-content {
@@ -292,4 +367,13 @@
   .ground-floor-status::before {
     animation: none !important;
   }
+}
+.directory-route-floor-label {
+  fill: #5c4422;
+  stroke: #fffdf6;
+  stroke-width: 3.5px;
+  paint-order: stroke;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
 }

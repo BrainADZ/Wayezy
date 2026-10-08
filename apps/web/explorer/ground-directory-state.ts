@@ -3,12 +3,20 @@ const rendered = new WeakMap<
   { selectedId?: string; matches?: string; hoveredModule?: string }
 >();
 
+export function invalidateDirectoryState(svg: SVGSVGElement) {
+  rendered.delete(svg);
+}
+
 export function updateDirectoryOriginPin(
   svg: SVGSVGElement,
-  originPoint?: { x: number; y: number },
+  originPoint?: { x: number; y: number } | null,
 ) {
   const pin = svg.querySelector<SVGGElement>('[data-directory-origin-pin]');
-  if (pin && originPoint)
+  if (!pin) return;
+  // `null`: the visitor starts on another floor, so this floor has no You Are Here.
+  if (originPoint === null) return pin.setAttribute('visibility', 'hidden');
+  pin.removeAttribute('visibility');
+  if (originPoint)
     pin.setAttribute('transform', `translate(${originPoint.x} ${originPoint.y}) rotate(90)`);
 }
 

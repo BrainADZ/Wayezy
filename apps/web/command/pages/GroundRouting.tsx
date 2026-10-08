@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import type { RouteEdge } from '../../../../packages/domain';
-import { groundRouteGraph } from '../../../../packages/domain/reference/ground-floor-route-graph';
-import { findGroundDirectoryRoute } from '../../../../packages/routing/ground-directory';
+import { directoryRouteGraph } from '../../../../packages/domain/reference/directory-route-graph';
+import { findDirectoryRoute } from '../../../../packages/routing/ground-directory';
 import { Glyph } from '../../icons/glyphs';
 import { api } from '../../shared/api';
 import { errorMessage, useCommand } from '../data';
@@ -19,16 +19,20 @@ import {
 export default function GroundRouting() {
   const command = useCommand();
   const graph = useMemo(
-    () => groundRouteGraph(command.data.edges, command.data.nodes),
+    () => directoryRouteGraph(command.data.edges, command.data.nodes),
     [command.data.edges, command.data.nodes],
   );
   const byId = useMemo(() => new Map(graph.nodes.map((node) => [node.id, node])), [graph.nodes]);
-  const destinations = graph.nodes
-    .filter((node) => node.type === 'tenant')
-    .map((node) => ({ value: node.id, label: node.label }));
+  const destinations = command.data.tenants.map((tenant) => ({
+    value: tenant.nodeId,
+    label: `${tenant.name} · ${tenant.floorId === 'l0' ? 'G' : '1'}`,
+  }));
+  const [floorFilter, setFloorFilter] = useState('');
   const [from, setFrom] = useState('ground-entry-starbucks');
   const [to, setTo] = useState(
-    destinations.find((item) => item.value !== 'ground-tenant-starbucks')?.value ??
+    command.data.tenants.find(
+      (tenant) => tenant.floorId === 'l0' && tenant.id !== 'ground-tenant-starbucks',
+    )?.nodeId ??
       destinations[0]?.value ??
       '',
   );
@@ -36,14 +40,15 @@ export default function GroundRouting() {
   const [closing, setClosing] = useState<RouteEdge | null>(null);
   const [issues, setIssues] = useState<string[] | null>(null);
   const route = useMemo(
-    () => (to ? findGroundDirectoryRoute(from, to, accessible, graph.edges, graph.nodes) : null),
+    () =>
+      to ? findDirectoryRoute(from, to, accessible, command.data.edges, command.data.nodes) : null,
     [from, to, accessible, graph.edges, graph.nodes],
   );
   const closedCount = graph.edges.filter((edge) => !edge.active).length;
   const edgeLabel = (edge: RouteEdge) => {
     const a = byId.get(edge.fromNode)!;
     const b = byId.get(edge.toNode)!;
-    return `${a.label} (${Math.round(a.x)}, ${Math.round(a.y)}) ↔ ${b.label} (${Math.round(b.x)}, ${Math.round(b.y)})`;
+    return `${a.floorId === 'l0' ? 'G' : '1'} · ${a.label} (${Math.round(a.x)}, ${Math.round(a.y)}) ↔ ${b.floorId === 'l0' ? 'G' : '1'} · ${b.label} (${Math.round(b.x)}, ${Math.round(b.y)})`;
   };
   const validate = async () => {
     try {
@@ -52,7 +57,7 @@ export default function GroundRouting() {
       command.toast(
         result.issues.length
           ? `${result.issues.length} route issue(s) found`
-          : 'All confirmed Ground Floor routes are connected.',
+          : 'All confirmed Ground and First Floor routes are connected.',
         result.issues.length ? 'error' : 'success',
       );
     } catch (error) {
@@ -81,7 +86,7 @@ export default function GroundRouting() {
     <>
       <PageHeader
         title="Routing"
-        subtitle="Ground Floor walking routes follow the architectural plan. Close a walkway here to reroute the kiosk after publishing."
+        subtitle="Ground and First Floor routes, including lifts and escalators. Publish walkway changes to update kiosk directions."
         actions={
           <>
             <button type="button" className="btn btn-outline" onClick={validate}>
@@ -125,7 +130,11 @@ export default function GroundRouting() {
           </div>
           {route ? (
             <div className="cmd-route-result">
-              <Badge tone="green">Ground Floor route available</Badge>
+              <Badge tone="green">
+                {route.floorIds.includes('l1')
+                  ? 'First Floor route available'
+                  : 'Ground Floor route available'}
+              </Badge>
               <ol className="cmd-steps">
                 {route.steps.map((step, index) => (
                   <li key={index}>{step.text}</li>
@@ -146,7 +155,7 @@ export default function GroundRouting() {
         </Panel>
         <Panel
           title="Network status"
-          subtitle="Only source-validated Ground Floor corridors are managed here."
+          subtitle="Both architectural walking networks and their floor connections."
         >
           <dl className="cmd-dl">
             <dt>Walking nodes</dt>
@@ -172,8 +181,23 @@ export default function GroundRouting() {
         title="Walkways & closures"
         subtitle="Segment IDs match the walking lines shown in Floors & Maps; admin connections are included."
       >
+        <SelectField
+          label="Show floor"
+          value={floorFilter}
+          onChange={setFloorFilter}
+          options={[
+            { value: '', label: 'All floors and connections' },
+            { value: 'l0', label: 'Ground Floor' },
+            { value: 'l1', label: 'First Floor' },
+          ]}
+        />
         <DataTable
-          rows={graph.edges}
+          rows={graph.edges.filter(
+            (edge) =>
+              !floorFilter ||
+              byId.get(edge.fromNode)?.floorId === floorFilter ||
+              byId.get(edge.toNode)?.floorId === floorFilter,
+          )}
           searchText={(edge) => `${edge.id} ${edgeLabel(edge)} ${edge.reason}`}
           columns={[
             {

@@ -1,0 +1,4576 @@
+{
+  "source": "/maps/First%20Floor%20Plan-%20Grand%20View%20High%20Street.svg",
+  "bounds": {
+    "x": 142.9866638183594,
+    "y": 65.4933368563652,
+    "width": 835.5200273394586,
+    "height": 1523.6800029873848
+  },
+  "modules": [
+    {
+      "id": "module-1",
+      "anchor": {
+        "x": 324.0411709547043,
+        "y": 1533.1878991127014
+      },
+      "sourceIds": [
+        "path342",
+        "path343",
+        "path344",
+        "path345",
+        "path346",
+        "path350",
+        "path351",
+        "path352",
+        "path353",
+        "path354",
+        "path355",
+        "path356",
+        "path359"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 1502.4532863795757,
+        "width": 326.07999271154404,
+        "height": 74.72005346417427
+      },
+      "labelBox": {
+        "x": 161.65523715636562,
+        "y": 1521.1332997456193,
+        "width": 320.7428460355316,
+        "height": 53.37146676012448
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-2a",
+      "anchor": {
+        "x": 197.87934756278992,
+        "y": 1429.1837487220764
+      },
+      "sourceIds": [
+        "path325",
+        "path327",
+        "path329",
+        "path330",
+        "path331",
+        "path332",
+        "path333",
+        "path335",
+        "path336",
+        "path337",
+        "path338",
+        "path339",
+        "path340",
+        "path341",
+        "path357",
+        "path358"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 1396.8532569110394,
+        "width": 80.48001098632812,
+        "height": 120.00001457333565
+      },
+      "labelBox": {
+        "x": 161.86094992501398,
+        "y": 1404.0132578238845,
+        "width": 71.8571526663644,
+        "height": 54.25143507335868
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-ranna-gill"
+    },
+    {
+      "id": "module-2b",
+      "anchor": {
+        "x": 198.1993625164032,
+        "y": 1361.021028995514
+      },
+      "sourceIds": [
+        "path334"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 1329.9732729792595,
+        "width": 77.43999826908112,
+        "height": 66.87999850511551
+      },
+      "labelBox": {
+        "x": 161.3752351935421,
+        "y": 1332.3618443544422,
+        "width": 72.66285551871572,
+        "height": 62.10285575475012
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-ranna-gill"
+    },
+    {
+      "id": "module-3a1",
+      "anchor": {
+        "x": 441.9797239303589,
+        "y": 1417.343294620514
+      },
+      "sourceIds": [
+        "path13",
+        "path15",
+        "path16",
+        "path17",
+        "path18",
+        "path19",
+        "path20",
+        "path21",
+        "path28",
+        "path29"
+      ],
+      "bounds": {
+        "x": 404.586669921875,
+        "y": 1396.8532569110394,
+        "width": 80.48001098632812,
+        "height": 39.52003410458565
+      },
+      "labelBox": {
+        "x": 408.872385817979,
+        "y": 1402.4989760688375,
+        "width": 74.78286530077457,
+        "height": 32.46288515733821
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-wasabi"
+    },
+    {
+      "id": "module-3a2",
+      "anchor": {
+        "x": 439.9892454147339,
+        "y": 1443.9732995033264
+      },
+      "sourceIds": [
+        "path25",
+        "path26",
+        "path347",
+        "path348",
+        "path349"
+      ],
+      "bounds": {
+        "x": 404.586669921875,
+        "y": 1436.373311251402,
+        "width": 80.48001211881638,
+        "height": 80.4799602329731
+      },
+      "labelBox": {
+        "x": 410.3352403630103,
+        "y": 1439.2475955454368,
+        "width": 71.85715738364628,
+        "height": 31.61712723438229
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-nykd"
+    },
+    {
+      "id": "module-3b",
+      "anchor": {
+        "x": 444.30452609062195,
+        "y": 1349.907503604889
+      },
+      "sourceIds": [
+        "path1",
+        "path23",
+        "path221",
+        "path222",
+        "path223",
+        "path224",
+        "path225",
+        "path226",
+        "path227"
+      ],
+      "bounds": {
+        "x": 384.26666259765625,
+        "y": 1288.853281289339,
+        "width": 100.80001607537275,
+        "height": 111.69518062472343
+      },
+      "labelBox": {
+        "x": 412.4666666164994,
+        "y": 1335.7335308204804,
+        "width": 69.60001205652956,
+        "height": 61.81493109358209
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-truefitt-hill"
+    },
+    {
+      "id": "module-6a",
+      "anchor": {
+        "x": 195.30072981551888,
+        "y": 1261.8732676406717
+      },
+      "sourceIds": [
+        "path229",
+        "path231",
+        "path233",
+        "path234",
+        "path235",
+        "path236",
+        "path237",
+        "path244",
+        "path245"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 1227.7332519888878,
+        "width": 80.48001098632812,
+        "height": 73.44008785486221
+      },
+      "labelBox": {
+        "x": 161.6095240988902,
+        "y": 1230.3561122694186,
+        "width": 72.36000431861196,
+        "height": 55.08006589114666
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-mink"
+    },
+    {
+      "id": "module-6b",
+      "anchor": {
+        "x": 195.62073227281957,
+        "y": 1193.7105475264439
+      },
+      "sourceIds": [
+        "path238",
+        "path239",
+        "path240",
+        "path241",
+        "path242",
+        "path243"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 1157.4932925105095,
+        "width": 77.44000899791718,
+        "height": 70.23998385667801
+      },
+      "labelBox": {
+        "x": 161.4952346703836,
+        "y": 1160.0018633625336,
+        "width": 72.42286729386875,
+        "height": 60.205700448581155
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-chique"
+    },
+    {
+      "id": "module-7",
+      "anchor": {
+        "x": 436.74105135090286,
+        "y": 1220.9948171977858
+      },
+      "sourceIds": [
+        "path191",
+        "path194",
+        "path195",
+        "path196",
+        "path197",
+        "path198",
+        "path199",
+        "path200",
+        "path201",
+        "path202",
+        "path203",
+        "path204",
+        "path205",
+        "path206",
+        "path207",
+        "path208",
+        "path209",
+        "path210",
+        "path211",
+        "path212",
+        "path213",
+        "path214",
+        "path215",
+        "path216",
+        "path217",
+        "path218",
+        "path219",
+        "path220"
+      ],
+      "bounds": {
+        "x": 385.0666809082032,
+        "y": 1157.4932769536972,
+        "width": 99.99999776482582,
+        "height": 131.3599945306778
+      },
+      "labelBox": {
+        "x": 413.06668034940964,
+        "y": 1188.641847210271,
+        "width": 68.99999832361937,
+        "height": 97.21142427410399
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-india-circus"
+    },
+    {
+      "id": "module-10a",
+      "anchor": {
+        "x": 196.89481644701044,
+        "y": 1008.9030634246415
+      },
+      "sourceIds": [
+        "path318",
+        "path319",
+        "path321",
+        "path322",
+        "path323"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 974.7733154296876,
+        "width": 80.47999820113182,
+        "height": 73.43994140624989
+      },
+      "labelBox": {
+        "x": 161.60951886858263,
+        "y": 977.3961704799108,
+        "width": 72.36000245064498,
+        "height": 68.19423130580347
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-10b",
+      "anchor": {
+        "x": 197.06167149414568,
+        "y": 940.7403274158428
+      },
+      "sourceIds": [
+        "path310",
+        "path311",
+        "path312",
+        "path313",
+        "path314",
+        "path315",
+        "path316",
+        "path317"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 904.5333327949048,
+        "width": 77.44000899791718,
+        "height": 70.23998263478279
+      },
+      "labelBox": {
+        "x": 161.4952346267445,
+        "y": 919.5847576452154,
+        "width": 72.42286738114697,
+        "height": 47.66284535931689
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-amit"
+    },
+    {
+      "id": "module-11",
+      "anchor": {
+        "x": 438.2398494561592,
+        "y": 941.2205113064924
+      },
+      "sourceIds": [
+        "path114",
+        "path115",
+        "path116",
+        "path117",
+        "path118",
+        "path119",
+        "path120",
+        "path121",
+        "path122",
+        "path123",
+        "path124",
+        "path125",
+        "path126",
+        "path127",
+        "path128",
+        "path129",
+        "path130",
+        "path131",
+        "path132",
+        "path133",
+        "path134",
+        "path135",
+        "path136",
+        "path137",
+        "path138",
+        "path139",
+        "path140",
+        "path141",
+        "path142",
+        "path143",
+        "path144",
+        "path145",
+        "path146",
+        "path147",
+        "path148",
+        "path150",
+        "path151"
+      ],
+      "bounds": {
+        "x": 384.26666259765625,
+        "y": 904.5333057641984,
+        "width": 100.80001831054688,
+        "height": 143.68002128601063
+      },
+      "labelBox": {
+        "x": 412.46666717529297,
+        "y": 907.5333057641984,
+        "width": 69.60001373291016,
+        "height": 106.89144529615122
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-blue-tokai"
+    },
+    {
+      "id": "module-12",
+      "anchor": {
+        "x": 617.5255850264064,
+        "y": 941.2205113064924
+      },
+      "sourceIds": [
+        "path152",
+        "path153",
+        "path154",
+        "path155",
+        "path156",
+        "path157",
+        "path158",
+        "path159",
+        "path160",
+        "path161",
+        "path162",
+        "path163",
+        "path164",
+        "path165",
+        "path166",
+        "path167",
+        "path168",
+        "path169",
+        "path170",
+        "path171",
+        "path172",
+        "path173",
+        "path174",
+        "path175",
+        "path176",
+        "path177",
+        "path178",
+        "path179",
+        "path180",
+        "path181",
+        "path182",
+        "path183",
+        "path184",
+        "path185",
+        "path186",
+        "path188",
+        "path189"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 904.5333057641984,
+        "width": 100.79999998211849,
+        "height": 143.68002128601063
+      },
+      "labelBox": {
+        "x": 574.3066406250001,
+        "y": 907.5333057641984,
+        "width": 69.59999998658887,
+        "height": 106.89144529615122
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-greenr"
+    },
+    {
+      "id": "module-13a",
+      "anchor": {
+        "x": 852.8811160347581,
+        "y": 957.5212870263274
+      },
+      "sourceIds": [
+        "path387",
+        "path388",
+        "path389",
+        "path390",
+        "path391",
+        "path392",
+        "path393",
+        "path394",
+        "path395",
+        "path397",
+        "path398",
+        "path399",
+        "path400",
+        "path401"
+      ],
+      "bounds": {
+        "x": 813.0666503906251,
+        "y": 904.5333327949048,
+        "width": 74.08004394173622,
+        "height": 79.20000460743915
+      },
+      "labelBox": {
+        "x": 821.0037979558111,
+        "y": 921.3219066155809,
+        "width": 63.49718052148819,
+        "height": 42.79428537296404
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-kaarigar"
+    },
+    {
+      "id": "module-13b",
+      "anchor": {
+        "x": 851.8269729615661,
+        "y": 1013.0012627840056
+      },
+      "sourceIds": [
+        "path403",
+        "path404",
+        "path405"
+      ],
+      "bounds": {
+        "x": 813.0666503906251,
+        "y": 983.7332483828068,
+        "width": 74.08003747463226,
+        "height": 64.48000845313072
+      },
+      "labelBox": {
+        "x": 820.6609390835678,
+        "y": 986.0361058275614,
+        "width": 64.1828913369349,
+        "height": 59.874293563621386
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-14a",
+      "anchor": {
+        "x": 196.57482034753818,
+        "y": 839.936174895593
+      },
+      "sourceIds": [
+        "path248",
+        "path249"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 806.7733290493491,
+        "width": 80.47999820113182,
+        "height": 68.9600083529948
+      },
+      "labelBox": {
+        "x": 161.4495212595378,
+        "y": 809.2361864905274,
+        "width": 72.67999766873463,
+        "height": 64.03429347063803
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-vanilla-moon"
+    },
+    {
+      "id": "module-14b",
+      "anchor": {
+        "x": 196.73482729823405,
+        "y": 771.7734592318452
+      },
+      "sourceIds": [
+        "path247",
+        "path253",
+        "path254",
+        "path255",
+        "path256",
+        "path257",
+        "path258",
+        "path259",
+        "path260",
+        "path261",
+        "path262",
+        "path266",
+        "path269",
+        "path270",
+        "path271",
+        "path272",
+        "path273"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 688.8533179461957,
+        "width": 80.47999820113182,
+        "height": 117.9199974834919
+      },
+      "labelBox": {
+        "x": 161.86094946839984,
+        "y": 750.6876023379821,
+        "width": 71.85714125101056,
+        "height": 44.78857047855854
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-khara-kapas"
+    },
+    {
+      "id": "module-15a",
+      "anchor": {
+        "x": 445.865035762883,
+        "y": 839.936337656
+      },
+      "sourceIds": [
+        "path291",
+        "path292"
+      ],
+      "bounds": {
+        "x": 404.586669921875,
+        "y": 806.7733290493491,
+        "width": 80.48000681400299,
+        "height": 68.9600083529948
+      },
+      "labelBox": {
+        "x": 409.92381332069635,
+        "y": 809.2361864905274,
+        "width": 72.68000597400325,
+        "height": 64.03429347063803
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-good-earth"
+    },
+    {
+      "id": "module-15b",
+      "anchor": {
+        "x": 446.0250394154554,
+        "y": 771.7735813021504
+      },
+      "sourceIds": [
+        "path274",
+        "path278",
+        "path279",
+        "path280",
+        "path282",
+        "path283",
+        "path284",
+        "path285",
+        "path286",
+        "path287",
+        "path288",
+        "path290"
+      ],
+      "bounds": {
+        "x": 404.586669921875,
+        "y": 677.4933575093747,
+        "width": 80.48001098632812,
+        "height": 129.27995792031288
+      },
+      "labelBox": {
+        "x": 410.3352421351841,
+        "y": 735.773339867592,
+        "width": 71.8571526663644,
+        "height": 58.89140674684729
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-good-earth"
+    },
+    {
+      "id": "module-16a",
+      "anchor": {
+        "x": 608.5986076061745,
+        "y": 839.936337656
+      },
+      "sourceIds": [
+        "path305",
+        "path306"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 806.7733290493491,
+        "width": 80.47999820113182,
+        "height": 68.9600083529948
+      },
+      "labelBox": {
+        "x": 573.7694980661785,
+        "y": 809.2361864905274,
+        "width": 72.67999766873463,
+        "height": 64.03429347063803
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-good-earth"
+    },
+    {
+      "id": "module-16b",
+      "anchor": {
+        "x": 608.7517244590272,
+        "y": 771.7735813021504
+      },
+      "sourceIds": [
+        "path295",
+        "path296",
+        "path297",
+        "path298",
+        "path299",
+        "path300",
+        "path301",
+        "path302",
+        "path304",
+        "path371"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 688.8533179461957,
+        "width": 80.47999820113182,
+        "height": 117.9199974834919
+      },
+      "labelBox": {
+        "x": 574.1809262750405,
+        "y": 738.0533168933222,
+        "width": 71.85714125101056,
+        "height": 57.422855923218385
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-good-earth"
+    },
+    {
+      "id": "module-17b2",
+      "anchor": {
+        "x": 917.8068578183509,
+        "y": 785.0540980886949
+      },
+      "sourceIds": [
+        "path32",
+        "path35",
+        "path36",
+        "path38",
+        "path39",
+        "path40",
+        "path41",
+        "path42",
+        "path43",
+        "path44"
+      ],
+      "bounds": {
+        "x": 882.0266546308995,
+        "y": 769.3333502709867,
+        "width": 80.48003652691841,
+        "height": 37.43996515870094
+      },
+      "labelBox": {
+        "x": 886.2380832625289,
+        "y": 770.6704918837975,
+        "width": 74.9314662824784,
+        "height": 26.74283225621496
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-sko"
+    },
+    {
+      "id": "module-17",
+      "anchor": {
+        "x": 923.2026325819525,
+        "y": 840.5932993789529
+      },
+      "sourceIds": [
+        "path33",
+        "path113"
+      ],
+      "bounds": {
+        "x": 882.0265502929689,
+        "y": 806.7733088135722,
+        "width": 80.48009836673737,
+        "height": 68.7318791747092
+      },
+      "labelBox": {
+        "x": 887.3555494908776,
+        "y": 809.2280187840975,
+        "width": 72.69638919830324,
+        "height": 63.82245923365855
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-shades-of-india"
+    },
+    {
+      "id": "module-17b1",
+      "anchor": {
+        "x": 918.2572590467962,
+        "y": 753.0733408828592
+      },
+      "sourceIds": [
+        "path47",
+        "path49",
+        "path50",
+        "path51",
+        "path378"
+      ],
+      "bounds": {
+        "x": 882.0266723632814,
+        "y": 688.8533179461957,
+        "width": 80.48001578450203,
+        "height": 80.47999504208576
+      },
+      "labelBox": {
+        "x": 910.76953440266,
+        "y": 734.8418865416733,
+        "width": 48.86286820790596,
+        "height": 31.617140909390837
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-sko"
+    },
+    {
+      "id": "module-18",
+      "anchor": {
+        "x": 316.989251417959,
+        "y": 659.7689899963739
+      },
+      "sourceIds": [
+        "path263",
+        "path264",
+        "path265",
+        "path267",
+        "path268",
+        "path275"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 628.5333482623101,
+        "width": 326.07999271154404,
+        "height": 74.72000867128372
+      },
+      "labelBox": {
+        "x": 161.65523555661954,
+        "y": 631.2019200005702,
+        "width": 320.74284923502375,
+        "height": 42.69714781216213
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-geetanjali"
+    },
+    {
+      "id": "module-19",
+      "anchor": {
+        "x": 679.537288343671,
+        "y": 652.7533335586404
+      },
+      "sourceIds": [
+        "path361",
+        "path362",
+        "path363",
+        "path364",
+        "path365",
+        "path366",
+        "path367",
+        "path368",
+        "path369",
+        "path370",
+        "path372",
+        "path373"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 628.5333338677884,
+        "width": 172.48004961013794,
+        "height": 74.72002306580544
+      },
+      "labelBox": {
+        "x": 573.9752128773503,
+        "y": 631.2019061201386,
+        "width": 167.14290510543756,
+        "height": 53.37144504700388
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-manam"
+    },
+    {
+      "id": "module-20",
+      "anchor": {
+        "x": 867.544947222176,
+        "y": 652.9133333965158
+      },
+      "sourceIds": [
+        "path374",
+        "path375",
+        "path376",
+        "path377",
+        "path379",
+        "path380",
+        "path381",
+        "path382",
+        "path383",
+        "path384",
+        "path385",
+        "path447",
+        "path450",
+        "path461",
+        "path462",
+        "path464",
+        "path465"
+      ],
+      "bounds": {
+        "x": 790.0266723632814,
+        "y": 457.3333332240582,
+        "width": 172.47999614477158,
+        "height": 245.92002370953566
+      },
+      "labelBox": {
+        "x": 793.0266723632814,
+        "y": 635.9904930165837,
+        "width": 166.47999614477158,
+        "height": 46.69714793775765
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-vivid"
+    },
+    {
+      "id": "module-21a",
+      "anchor": {
+        "x": 679.4546616879311,
+        "y": 514.6677355320631
+      },
+      "sourceIds": [
+        "path425",
+        "path428",
+        "path432",
+        "path434",
+        "path435",
+        "path436",
+        "path437",
+        "path438",
+        "path440",
+        "path444",
+        "path445",
+        "path448",
+        "path449",
+        "path453",
+        "path456",
+        "path457",
+        "path459",
+        "path463",
+        "path466",
+        "path468",
+        "path471",
+        "path472",
+        "path473",
+        "path474"
+      ],
+      "bounds": {
+        "x": 594.1866455078126,
+        "y": 401.6533191204071,
+        "width": 345.2799922823906,
+        "height": 162.08001828193676
+      },
+      "labelBox": {
+        "x": 609.5180738036123,
+        "y": 497.27047242437095,
+        "width": 314.61713569079126,
+        "height": 57.67429289647515
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-21b",
+      "anchor": {
+        "x": 679.6146508764439,
+        "y": 137.2123645568505
+      },
+      "sourceIds": [
+        "path477",
+        "path478",
+        "path479",
+        "path480",
+        "path481",
+        "path483",
+        "path484",
+        "path485",
+        "path486",
+        "path487",
+        "path488",
+        "path492",
+        "path495",
+        "path496",
+        "path498",
+        "path499",
+        "path501",
+        "path506",
+        "path507",
+        "path508",
+        "path513",
+        "path515",
+        "path516",
+        "path517",
+        "path518",
+        "path522",
+        "path525",
+        "path526",
+        "path527",
+        "path530",
+        "path532",
+        "path533"
+      ],
+      "bounds": {
+        "x": 594.1866455078126,
+        "y": 77.4933368563652,
+        "width": 345.2800436913967,
+        "height": 249.27997857332235
+      },
+      "labelBox": {
+        "x": 609.5180756396483,
+        "y": 89.39619323398387,
+        "width": 129.64573145019156,
+        "height": 145.34855841951716
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-22",
+      "anchor": {
+        "x": 586.1699349794828,
+        "y": 1243.873276368381
+      },
+      "sourceIds": [
+        "path3505",
+        "path3506"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 1157.4933990240097,
+        "width": 31.359999299049377,
+        "height": 143.6799408197403
+      },
+      "labelBox": {
+        "x": 572.4266405999662,
+        "y": 1158.6133989989758,
+        "width": 27.99999937415123,
+        "height": 141.4399408698082
+      },
+      "method": "confirmed-source-boundary"
+    },
+    {
+      "id": "module-23",
+      "anchor": {
+        "x": 586.1699349794828,
+        "y": 1408.7533257512266
+      },
+      "sourceIds": [
+        "path3524"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 1329.9733235239983,
+        "width": 31.359999299049377,
+        "height": 143.67999678850174
+      },
+      "labelBox": {
+        "x": 572.4266405999662,
+        "y": 1331.0933234989643,
+        "width": 29.11999934911728,
+        "height": 141.43999683856964
+      },
+      "method": "confirmed-source-boundary"
+    },
+    {
+      "id": "module-cinema",
+      "anchor": {
+        "x": 767.0777304875802,
+        "y": 1378.4256232380894
+      },
+      "sourceIds": [
+        "path3508",
+        "path3510",
+        "path3511",
+        "path3512",
+        "path3515",
+        "path3517",
+        "path3518",
+        "path3519",
+        "path3520"
+      ],
+      "bounds": {
+        "x": 602.5066528320314,
+        "y": 1157.4933989346027,
+        "width": 359.99999421834946,
+        "height": 316.1599501669407
+      },
+      "labelBox": {
+        "x": 618.3637954826867,
+        "y": 1194.3676793096322,
+        "width": 289.71428096507276,
+        "height": 253.70281620855843
+      },
+      "method": "confirmed-source-boundary",
+      "tenantId": "first-tenant-cinepolis"
+    }
+  ],
+  "displayModules": [
+    {
+      "id": "module-1",
+      "anchor": {
+        "x": 324.0411709547043,
+        "y": 1533.1878991127014
+      },
+      "sourceIds": [
+        "path342",
+        "path343",
+        "path344",
+        "path345",
+        "path346",
+        "path350",
+        "path351",
+        "path352",
+        "path353",
+        "path354",
+        "path355",
+        "path356",
+        "path359"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 1502.4532863795757,
+        "width": 326.07999271154404,
+        "height": 74.72005346417427
+      },
+      "labelBox": {
+        "x": 161.65523715636562,
+        "y": 1521.1332997456193,
+        "width": 320.7428460355316,
+        "height": 53.37146676012448
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-2a",
+      "anchor": {
+        "x": 197.87934756278992,
+        "y": 1429.1837487220764
+      },
+      "sourceIds": [
+        "path325",
+        "path327",
+        "path329",
+        "path330",
+        "path331",
+        "path332",
+        "path333",
+        "path335",
+        "path336",
+        "path337",
+        "path338",
+        "path339",
+        "path340",
+        "path341",
+        "path357",
+        "path358"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 1396.8532569110394,
+        "width": 80.48001098632812,
+        "height": 120.00001457333565
+      },
+      "labelBox": {
+        "x": 161.86094992501398,
+        "y": 1404.0132578238845,
+        "width": 71.8571526663644,
+        "height": 54.25143507335868
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-ranna-gill"
+    },
+    {
+      "id": "module-2b",
+      "anchor": {
+        "x": 198.1993625164032,
+        "y": 1361.021028995514
+      },
+      "sourceIds": [
+        "path334"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 1329.9732729792595,
+        "width": 77.43999826908112,
+        "height": 66.87999850511551
+      },
+      "labelBox": {
+        "x": 161.3752351935421,
+        "y": 1332.3618443544422,
+        "width": 72.66285551871572,
+        "height": 62.10285575475012
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-ranna-gill"
+    },
+    {
+      "id": "module-3a1",
+      "anchor": {
+        "x": 441.9797239303589,
+        "y": 1417.343294620514
+      },
+      "sourceIds": [
+        "path13",
+        "path15",
+        "path16",
+        "path17",
+        "path18",
+        "path19",
+        "path20",
+        "path21",
+        "path28",
+        "path29"
+      ],
+      "bounds": {
+        "x": 404.586669921875,
+        "y": 1396.8532569110394,
+        "width": 80.48001098632812,
+        "height": 39.52003410458565
+      },
+      "labelBox": {
+        "x": 408.872385817979,
+        "y": 1402.4989760688375,
+        "width": 74.78286530077457,
+        "height": 32.46288515733821
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-wasabi"
+    },
+    {
+      "id": "module-3a2",
+      "anchor": {
+        "x": 439.9892454147339,
+        "y": 1443.9732995033264
+      },
+      "sourceIds": [
+        "path25",
+        "path26",
+        "path347",
+        "path348",
+        "path349"
+      ],
+      "bounds": {
+        "x": 404.586669921875,
+        "y": 1436.373311251402,
+        "width": 80.48001211881638,
+        "height": 80.4799602329731
+      },
+      "labelBox": {
+        "x": 410.3352403630103,
+        "y": 1439.2475955454368,
+        "width": 71.85715738364628,
+        "height": 31.61712723438229
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-nykd"
+    },
+    {
+      "id": "module-3b",
+      "anchor": {
+        "x": 444.30452609062195,
+        "y": 1349.907503604889
+      },
+      "sourceIds": [
+        "path1",
+        "path23",
+        "path221",
+        "path222",
+        "path223",
+        "path224",
+        "path225",
+        "path226",
+        "path227"
+      ],
+      "bounds": {
+        "x": 384.26666259765625,
+        "y": 1288.853281289339,
+        "width": 100.80001607537275,
+        "height": 111.69518062472343
+      },
+      "labelBox": {
+        "x": 412.4666666164994,
+        "y": 1335.7335308204804,
+        "width": 69.60001205652956,
+        "height": 61.81493109358209
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-truefitt-hill"
+    },
+    {
+      "id": "module-6a",
+      "anchor": {
+        "x": 195.30072981551888,
+        "y": 1261.8732676406717
+      },
+      "sourceIds": [
+        "path229",
+        "path231",
+        "path233",
+        "path234",
+        "path235",
+        "path236",
+        "path237",
+        "path244",
+        "path245"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 1227.7332519888878,
+        "width": 80.48001098632812,
+        "height": 73.44008785486221
+      },
+      "labelBox": {
+        "x": 161.6095240988902,
+        "y": 1230.3561122694186,
+        "width": 72.36000431861196,
+        "height": 55.08006589114666
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-mink"
+    },
+    {
+      "id": "module-6b",
+      "anchor": {
+        "x": 195.62073227281957,
+        "y": 1193.7105475264439
+      },
+      "sourceIds": [
+        "path238",
+        "path239",
+        "path240",
+        "path241",
+        "path242",
+        "path243"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 1157.4932925105095,
+        "width": 77.44000899791718,
+        "height": 70.23998385667801
+      },
+      "labelBox": {
+        "x": 161.4952346703836,
+        "y": 1160.0018633625336,
+        "width": 72.42286729386875,
+        "height": 60.205700448581155
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-chique"
+    },
+    {
+      "id": "module-7",
+      "anchor": {
+        "x": 436.74105135090286,
+        "y": 1220.9948171977858
+      },
+      "sourceIds": [
+        "path191",
+        "path194",
+        "path195",
+        "path196",
+        "path197",
+        "path198",
+        "path199",
+        "path200",
+        "path201",
+        "path202",
+        "path203",
+        "path204",
+        "path205",
+        "path206",
+        "path207",
+        "path208",
+        "path209",
+        "path210",
+        "path211",
+        "path212",
+        "path213",
+        "path214",
+        "path215",
+        "path216",
+        "path217",
+        "path218",
+        "path219",
+        "path220"
+      ],
+      "bounds": {
+        "x": 385.0666809082032,
+        "y": 1157.4932769536972,
+        "width": 99.99999776482582,
+        "height": 131.3599945306778
+      },
+      "labelBox": {
+        "x": 413.06668034940964,
+        "y": 1188.641847210271,
+        "width": 68.99999832361937,
+        "height": 97.21142427410399
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-india-circus"
+    },
+    {
+      "id": "module-10a",
+      "anchor": {
+        "x": 196.89481644701044,
+        "y": 1008.9030634246415
+      },
+      "sourceIds": [
+        "path318",
+        "path319",
+        "path321",
+        "path322",
+        "path323"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 974.7733154296876,
+        "width": 80.47999820113182,
+        "height": 73.43994140624989
+      },
+      "labelBox": {
+        "x": 161.60951886858263,
+        "y": 977.3961704799108,
+        "width": 72.36000245064498,
+        "height": 68.19423130580347
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-10b",
+      "anchor": {
+        "x": 197.06167149414568,
+        "y": 940.7403274158428
+      },
+      "sourceIds": [
+        "path310",
+        "path311",
+        "path312",
+        "path313",
+        "path314",
+        "path315",
+        "path316",
+        "path317"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 904.5333327949048,
+        "width": 77.44000899791718,
+        "height": 70.23998263478279
+      },
+      "labelBox": {
+        "x": 161.4952346267445,
+        "y": 919.5847576452154,
+        "width": 72.42286738114697,
+        "height": 47.66284535931689
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-amit"
+    },
+    {
+      "id": "module-11",
+      "anchor": {
+        "x": 438.2398494561592,
+        "y": 941.2205113064924
+      },
+      "sourceIds": [
+        "path114",
+        "path115",
+        "path116",
+        "path117",
+        "path118",
+        "path119",
+        "path120",
+        "path121",
+        "path122",
+        "path123",
+        "path124",
+        "path125",
+        "path126",
+        "path127",
+        "path128",
+        "path129",
+        "path130",
+        "path131",
+        "path132",
+        "path133",
+        "path134",
+        "path135",
+        "path136",
+        "path137",
+        "path138",
+        "path139",
+        "path140",
+        "path141",
+        "path142",
+        "path143",
+        "path144",
+        "path145",
+        "path146",
+        "path147",
+        "path148",
+        "path150",
+        "path151"
+      ],
+      "bounds": {
+        "x": 384.26666259765625,
+        "y": 904.5333057641984,
+        "width": 100.80001831054688,
+        "height": 143.68002128601063
+      },
+      "labelBox": {
+        "x": 412.46666717529297,
+        "y": 907.5333057641984,
+        "width": 69.60001373291016,
+        "height": 106.89144529615122
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-blue-tokai"
+    },
+    {
+      "id": "module-12",
+      "anchor": {
+        "x": 617.5255850264064,
+        "y": 941.2205113064924
+      },
+      "sourceIds": [
+        "path152",
+        "path153",
+        "path154",
+        "path155",
+        "path156",
+        "path157",
+        "path158",
+        "path159",
+        "path160",
+        "path161",
+        "path162",
+        "path163",
+        "path164",
+        "path165",
+        "path166",
+        "path167",
+        "path168",
+        "path169",
+        "path170",
+        "path171",
+        "path172",
+        "path173",
+        "path174",
+        "path175",
+        "path176",
+        "path177",
+        "path178",
+        "path179",
+        "path180",
+        "path181",
+        "path182",
+        "path183",
+        "path184",
+        "path185",
+        "path186",
+        "path188",
+        "path189"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 904.5333057641984,
+        "width": 100.79999998211849,
+        "height": 143.68002128601063
+      },
+      "labelBox": {
+        "x": 574.3066406250001,
+        "y": 907.5333057641984,
+        "width": 69.59999998658887,
+        "height": 106.89144529615122
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-greenr"
+    },
+    {
+      "id": "module-13a",
+      "anchor": {
+        "x": 852.8811160347581,
+        "y": 957.5212870263274
+      },
+      "sourceIds": [
+        "path387",
+        "path388",
+        "path389",
+        "path390",
+        "path391",
+        "path392",
+        "path393",
+        "path394",
+        "path395",
+        "path397",
+        "path398",
+        "path399",
+        "path400",
+        "path401"
+      ],
+      "bounds": {
+        "x": 813.0666503906251,
+        "y": 904.5333327949048,
+        "width": 74.08004394173622,
+        "height": 79.20000460743915
+      },
+      "labelBox": {
+        "x": 821.0037979558111,
+        "y": 921.3219066155809,
+        "width": 63.49718052148819,
+        "height": 42.79428537296404
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-kaarigar"
+    },
+    {
+      "id": "module-13b",
+      "anchor": {
+        "x": 851.8269729615661,
+        "y": 1013.0012627840056
+      },
+      "sourceIds": [
+        "path403",
+        "path404",
+        "path405"
+      ],
+      "bounds": {
+        "x": 813.0666503906251,
+        "y": 983.7332483828068,
+        "width": 74.08003747463226,
+        "height": 64.48000845313072
+      },
+      "labelBox": {
+        "x": 820.6609390835678,
+        "y": 986.0361058275614,
+        "width": 64.1828913369349,
+        "height": 59.874293563621386
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-14a",
+      "anchor": {
+        "x": 196.57482034753818,
+        "y": 839.936174895593
+      },
+      "sourceIds": [
+        "path248",
+        "path249"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 806.7733290493491,
+        "width": 80.47999820113182,
+        "height": 68.9600083529948
+      },
+      "labelBox": {
+        "x": 161.4495212595378,
+        "y": 809.2361864905274,
+        "width": 72.67999766873463,
+        "height": 64.03429347063803
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-vanilla-moon"
+    },
+    {
+      "id": "module-14b",
+      "anchor": {
+        "x": 196.73482729823405,
+        "y": 771.7734592318452
+      },
+      "sourceIds": [
+        "path247",
+        "path253",
+        "path254",
+        "path255",
+        "path256",
+        "path257",
+        "path258",
+        "path259",
+        "path260",
+        "path261",
+        "path262",
+        "path266",
+        "path269",
+        "path270",
+        "path271",
+        "path272",
+        "path273"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 688.8533179461957,
+        "width": 80.47999820113182,
+        "height": 117.9199974834919
+      },
+      "labelBox": {
+        "x": 161.86094946839984,
+        "y": 750.6876023379821,
+        "width": 71.85714125101056,
+        "height": 44.78857047855854
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-khara-kapas"
+    },
+    {
+      "id": "module-15a",
+      "anchor": {
+        "x": 445.865035762883,
+        "y": 839.936337656
+      },
+      "sourceIds": [
+        "path291",
+        "path292"
+      ],
+      "bounds": {
+        "x": 404.586669921875,
+        "y": 806.7733290493491,
+        "width": 80.48000681400299,
+        "height": 68.9600083529948
+      },
+      "labelBox": {
+        "x": 409.92381332069635,
+        "y": 809.2361864905274,
+        "width": 72.68000597400325,
+        "height": 64.03429347063803
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-good-earth"
+    },
+    {
+      "id": "module-15b",
+      "anchor": {
+        "x": 446.0250394154554,
+        "y": 771.7735813021504
+      },
+      "sourceIds": [
+        "path274",
+        "path278",
+        "path279",
+        "path280",
+        "path282",
+        "path283",
+        "path284",
+        "path285",
+        "path286",
+        "path287",
+        "path288",
+        "path290"
+      ],
+      "bounds": {
+        "x": 404.586669921875,
+        "y": 677.4933575093747,
+        "width": 80.48001098632812,
+        "height": 129.27995792031288
+      },
+      "labelBox": {
+        "x": 410.3352421351841,
+        "y": 735.773339867592,
+        "width": 71.8571526663644,
+        "height": 58.89140674684729
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-good-earth"
+    },
+    {
+      "id": "module-16a",
+      "anchor": {
+        "x": 608.5986076061745,
+        "y": 839.936337656
+      },
+      "sourceIds": [
+        "path305",
+        "path306"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 806.7733290493491,
+        "width": 80.47999820113182,
+        "height": 68.9600083529948
+      },
+      "labelBox": {
+        "x": 573.7694980661785,
+        "y": 809.2361864905274,
+        "width": 72.67999766873463,
+        "height": 64.03429347063803
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-good-earth"
+    },
+    {
+      "id": "module-16b",
+      "anchor": {
+        "x": 608.7517244590272,
+        "y": 771.7735813021504
+      },
+      "sourceIds": [
+        "path295",
+        "path296",
+        "path297",
+        "path298",
+        "path299",
+        "path300",
+        "path301",
+        "path302",
+        "path304",
+        "path371"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 688.8533179461957,
+        "width": 80.47999820113182,
+        "height": 117.9199974834919
+      },
+      "labelBox": {
+        "x": 574.1809262750405,
+        "y": 738.0533168933222,
+        "width": 71.85714125101056,
+        "height": 57.422855923218385
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-good-earth"
+    },
+    {
+      "id": "module-17",
+      "anchor": {
+        "x": 923.2026325819525,
+        "y": 840.5932993789529
+      },
+      "sourceIds": [
+        "path33",
+        "path113"
+      ],
+      "bounds": {
+        "x": 882.0265502929689,
+        "y": 806.7733088135722,
+        "width": 80.48009836673737,
+        "height": 68.7318791747092
+      },
+      "labelBox": {
+        "x": 887.3555494908776,
+        "y": 809.2280187840975,
+        "width": 72.69638919830324,
+        "height": 63.82245923365855
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-shades-of-india"
+    },
+    {
+      "id": "module-18",
+      "anchor": {
+        "x": 316.989251417959,
+        "y": 659.7689899963739
+      },
+      "sourceIds": [
+        "path263",
+        "path264",
+        "path265",
+        "path267",
+        "path268",
+        "path275"
+      ],
+      "bounds": {
+        "x": 158.9866638183594,
+        "y": 628.5333482623101,
+        "width": 326.07999271154404,
+        "height": 74.72000867128372
+      },
+      "labelBox": {
+        "x": 161.65523555661954,
+        "y": 631.2019200005702,
+        "width": 320.74284923502375,
+        "height": 42.69714781216213
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-geetanjali"
+    },
+    {
+      "id": "module-19",
+      "anchor": {
+        "x": 679.537288343671,
+        "y": 652.7533335586404
+      },
+      "sourceIds": [
+        "path361",
+        "path362",
+        "path363",
+        "path364",
+        "path365",
+        "path366",
+        "path367",
+        "path368",
+        "path369",
+        "path370",
+        "path372",
+        "path373"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 628.5333338677884,
+        "width": 172.48004961013794,
+        "height": 74.72002306580544
+      },
+      "labelBox": {
+        "x": 573.9752128773503,
+        "y": 631.2019061201386,
+        "width": 167.14290510543756,
+        "height": 53.37144504700388
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-manam"
+    },
+    {
+      "id": "module-20",
+      "anchor": {
+        "x": 867.544947222176,
+        "y": 652.9133333965158
+      },
+      "sourceIds": [
+        "path374",
+        "path375",
+        "path376",
+        "path377",
+        "path379",
+        "path380",
+        "path381",
+        "path382",
+        "path383",
+        "path384",
+        "path385",
+        "path447",
+        "path450",
+        "path461",
+        "path462",
+        "path464",
+        "path465"
+      ],
+      "bounds": {
+        "x": 790.0266723632814,
+        "y": 457.3333332240582,
+        "width": 172.47999614477158,
+        "height": 245.92002370953566
+      },
+      "labelBox": {
+        "x": 793.0266723632814,
+        "y": 635.9904930165837,
+        "width": 166.47999614477158,
+        "height": 46.69714793775765
+      },
+      "method": "source-fill-and-label",
+      "tenantId": "first-tenant-vivid"
+    },
+    {
+      "id": "module-21a",
+      "anchor": {
+        "x": 679.4546616879311,
+        "y": 514.6677355320631
+      },
+      "sourceIds": [
+        "path425",
+        "path428",
+        "path432",
+        "path434",
+        "path435",
+        "path436",
+        "path437",
+        "path438",
+        "path440",
+        "path444",
+        "path445",
+        "path448",
+        "path449",
+        "path453",
+        "path456",
+        "path457",
+        "path459",
+        "path463",
+        "path466",
+        "path468",
+        "path471",
+        "path472",
+        "path473",
+        "path474"
+      ],
+      "bounds": {
+        "x": 594.1866455078126,
+        "y": 401.6533191204071,
+        "width": 345.2799922823906,
+        "height": 162.08001828193676
+      },
+      "labelBox": {
+        "x": 609.5180738036123,
+        "y": 497.27047242437095,
+        "width": 314.61713569079126,
+        "height": 57.67429289647515
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-21b",
+      "anchor": {
+        "x": 679.6146508764439,
+        "y": 137.2123645568505
+      },
+      "sourceIds": [
+        "path477",
+        "path478",
+        "path479",
+        "path480",
+        "path481",
+        "path483",
+        "path484",
+        "path485",
+        "path486",
+        "path487",
+        "path488",
+        "path492",
+        "path495",
+        "path496",
+        "path498",
+        "path499",
+        "path501",
+        "path506",
+        "path507",
+        "path508",
+        "path513",
+        "path515",
+        "path516",
+        "path517",
+        "path518",
+        "path522",
+        "path525",
+        "path526",
+        "path527",
+        "path530",
+        "path532",
+        "path533"
+      ],
+      "bounds": {
+        "x": 594.1866455078126,
+        "y": 77.4933368563652,
+        "width": 345.2800436913967,
+        "height": 249.27997857332235
+      },
+      "labelBox": {
+        "x": 609.5180756396483,
+        "y": 89.39619323398387,
+        "width": 129.64573145019156,
+        "height": 145.34855841951716
+      },
+      "method": "source-fill-and-label"
+    },
+    {
+      "id": "module-22",
+      "anchor": {
+        "x": 586.1699349794828,
+        "y": 1243.873276368381
+      },
+      "sourceIds": [
+        "path3505",
+        "path3506"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 1157.4933990240097,
+        "width": 31.359999299049377,
+        "height": 143.6799408197403
+      },
+      "labelBox": {
+        "x": 572.4266405999662,
+        "y": 1158.6133989989758,
+        "width": 27.99999937415123,
+        "height": 141.4399408698082
+      },
+      "method": "confirmed-source-boundary"
+    },
+    {
+      "id": "module-23",
+      "anchor": {
+        "x": 586.1699349794828,
+        "y": 1408.7533257512266
+      },
+      "sourceIds": [
+        "path3524"
+      ],
+      "bounds": {
+        "x": 571.3066406250001,
+        "y": 1329.9733235239983,
+        "width": 31.359999299049377,
+        "height": 143.67999678850174
+      },
+      "labelBox": {
+        "x": 572.4266405999662,
+        "y": 1331.0933234989643,
+        "width": 29.11999934911728,
+        "height": 141.43999683856964
+      },
+      "method": "confirmed-source-boundary"
+    },
+    {
+      "id": "module-cinema",
+      "anchor": {
+        "x": 767.0777304875802,
+        "y": 1378.4256232380894
+      },
+      "sourceIds": [
+        "path3508",
+        "path3510",
+        "path3511",
+        "path3512",
+        "path3515",
+        "path3517",
+        "path3518",
+        "path3519",
+        "path3520"
+      ],
+      "bounds": {
+        "x": 602.5066528320314,
+        "y": 1157.4933989346027,
+        "width": 359.99999421834946,
+        "height": 316.1599501669407
+      },
+      "labelBox": {
+        "x": 618.3637954826867,
+        "y": 1194.3676793096322,
+        "width": 289.71428096507276,
+        "height": 253.70281620855843
+      },
+      "method": "confirmed-source-boundary",
+      "tenantId": "first-tenant-cinepolis"
+    },
+    {
+      "id": "module-17b2",
+      "anchor": {
+        "x": 923.7038164037681,
+        "y": 773.0818875772615
+      },
+      "sourceIds": [
+        "path32",
+        "path35",
+        "path36",
+        "path38",
+        "path39",
+        "path40",
+        "path41",
+        "path42",
+        "path43",
+        "path44",
+        "path47",
+        "path49",
+        "path50",
+        "path51",
+        "path378"
+      ],
+      "bounds": {
+        "x": 882.0266546308995,
+        "y": 688.8533179461957,
+        "width": 80.48003652691841,
+        "height": 117.9199974834919
+      },
+      "labelBox": {
+        "x": 887.7752286685367,
+        "y": 750.6876037067602,
+        "width": 71.85717547046286,
+        "height": 44.78856774100236
+      },
+      "method": "confirmed-combined-occupancy",
+      "tenantId": "first-tenant-sko"
+    }
+  ],
+  "circulation": {
+    "tileSourceIds": [
+      "path7496",
+      "path7497",
+      "path7498",
+      "path7499",
+      "path7500",
+      "path7501",
+      "path7502",
+      "path7503",
+      "path7504",
+      "path7505",
+      "path7506",
+      "path11443",
+      "path11444",
+      "path11445",
+      "path11446",
+      "path11447",
+      "path11448",
+      "path11449",
+      "path11450",
+      "path11451",
+      "path11452",
+      "path11453",
+      "path11454",
+      "path11455",
+      "path11456",
+      "path11457",
+      "path11458",
+      "path11459",
+      "path11460",
+      "path11461",
+      "path11462",
+      "path11463",
+      "path11464",
+      "path11465",
+      "path11466",
+      "path11467",
+      "path11468",
+      "path11469",
+      "path11470",
+      "path11471",
+      "path11472",
+      "path11473",
+      "path11474",
+      "path11475",
+      "path11476",
+      "path11477",
+      "path11478",
+      "path11479",
+      "path11480",
+      "path11481",
+      "path11482",
+      "path11483",
+      "path11484",
+      "path11485",
+      "path11486",
+      "path11487",
+      "path11488",
+      "path11489",
+      "path11490",
+      "path11491",
+      "path11492",
+      "path11493",
+      "path11494",
+      "path11495",
+      "path11496",
+      "path11497",
+      "path11498",
+      "path11499",
+      "path11500",
+      "path11501",
+      "path11502",
+      "path11503",
+      "path11504",
+      "path11505",
+      "path11506",
+      "path11507",
+      "path11508",
+      "path11509",
+      "path11510",
+      "path11511",
+      "path11512",
+      "path11513",
+      "path11514",
+      "path11515",
+      "path11516",
+      "path11517",
+      "path11518",
+      "path11519",
+      "path11520",
+      "path11521",
+      "path11522",
+      "path11523",
+      "path11524",
+      "path11525",
+      "path11526",
+      "path11527",
+      "path11528",
+      "path11529",
+      "path11530",
+      "path11531",
+      "path11532",
+      "path11533",
+      "path11534",
+      "path11535",
+      "path11536",
+      "path11537",
+      "path11538",
+      "path11539",
+      "path11540",
+      "path11541",
+      "path11542",
+      "path11543",
+      "path11544",
+      "path11545",
+      "path11546",
+      "path11547",
+      "path11548",
+      "path11549",
+      "path11550",
+      "path11551",
+      "path11552",
+      "path11553",
+      "path11554",
+      "path11555",
+      "path11556",
+      "path11557",
+      "path11558",
+      "path11559",
+      "path11560",
+      "path11561",
+      "path11562",
+      "path11563",
+      "path11564",
+      "path11565",
+      "path11566",
+      "path11567",
+      "path11568",
+      "path11569",
+      "path11570",
+      "path11571",
+      "path11572",
+      "path11573",
+      "path11574",
+      "path11575",
+      "path11576",
+      "path11577",
+      "path11578",
+      "path11579",
+      "path11580",
+      "path11581",
+      "path11582",
+      "path11583",
+      "path11584",
+      "path11585",
+      "path11586",
+      "path11587",
+      "path11588",
+      "path11589",
+      "path11590",
+      "path11591",
+      "path11592",
+      "path11593",
+      "path11594",
+      "path11595",
+      "path11596",
+      "path11597",
+      "path11598",
+      "path11599",
+      "path11600",
+      "path11601",
+      "path11602",
+      "path11603",
+      "path11604",
+      "path11605",
+      "path11606",
+      "path11607",
+      "path11608",
+      "path11609",
+      "path11610",
+      "path11611",
+      "path11612",
+      "path11613",
+      "path11614",
+      "path11615",
+      "path11616",
+      "path11617",
+      "path11618",
+      "path11619",
+      "path11620",
+      "path11621",
+      "path11622",
+      "path11623",
+      "path11624",
+      "path11625",
+      "path11626",
+      "path11627",
+      "path11628",
+      "path11629",
+      "path11630",
+      "path11631",
+      "path11632",
+      "path11633",
+      "path11634",
+      "path11635",
+      "path11636",
+      "path11637",
+      "path11638",
+      "path11639",
+      "path11640",
+      "path11641",
+      "path11642",
+      "path11643",
+      "path11644",
+      "path11645",
+      "path11646",
+      "path11647",
+      "path11648",
+      "path11649",
+      "path11650",
+      "path11651",
+      "path11652",
+      "path11653",
+      "path11654",
+      "path11655",
+      "path11656",
+      "path11657",
+      "path11658",
+      "path11659",
+      "path11660",
+      "path11661",
+      "path11662",
+      "path11663",
+      "path11664",
+      "path11665",
+      "path11666",
+      "path11667",
+      "path11668",
+      "path11669",
+      "path11670",
+      "path11671",
+      "path11672",
+      "path11673",
+      "path11674",
+      "path11675",
+      "path11676",
+      "path11677",
+      "path11678",
+      "path11679",
+      "path11680",
+      "path11681",
+      "path11682",
+      "path11683",
+      "path11684",
+      "path11685",
+      "path11686",
+      "path11687",
+      "path11688",
+      "path11689",
+      "path11690",
+      "path11691",
+      "path11692",
+      "path11693",
+      "path11694",
+      "path11695",
+      "path11696",
+      "path11697",
+      "path11698",
+      "path11699",
+      "path11700",
+      "path11701",
+      "path11702",
+      "path11703",
+      "path11704",
+      "path11705",
+      "path11706",
+      "path11707",
+      "path11708",
+      "path11709",
+      "path11710",
+      "path11711",
+      "path11712",
+      "path11713",
+      "path11714",
+      "path11715",
+      "path11716",
+      "path11717",
+      "path11718",
+      "path11719",
+      "path11720",
+      "path11721",
+      "path11722",
+      "path11723",
+      "path11724",
+      "path11725",
+      "path11726",
+      "path11727",
+      "path11728",
+      "path11729",
+      "path11730",
+      "path11731",
+      "path11732",
+      "path11733",
+      "path11734",
+      "path11735",
+      "path11736",
+      "path11737",
+      "path11738",
+      "path11739",
+      "path11740",
+      "path11741",
+      "path11742",
+      "path11743",
+      "path11744",
+      "path11745",
+      "path11746",
+      "path11747",
+      "path11748",
+      "path11749",
+      "path11750",
+      "path11751",
+      "path11752",
+      "path11753",
+      "path11754",
+      "path11755",
+      "path11756",
+      "path11757",
+      "path11758",
+      "path11759",
+      "path11760",
+      "path11761",
+      "path11762",
+      "path11763",
+      "path11764",
+      "path11765",
+      "path11766",
+      "path11767",
+      "path11768",
+      "path11769",
+      "path11770",
+      "path11771",
+      "path11772",
+      "path11773",
+      "path11774",
+      "path11775",
+      "path11776",
+      "path11777",
+      "path11778",
+      "path11779",
+      "path11780",
+      "path11781",
+      "path11782",
+      "path11783",
+      "path11784",
+      "path11785",
+      "path11786",
+      "path11787",
+      "path11788",
+      "path11789",
+      "path11790",
+      "path11791",
+      "path11792",
+      "path11793",
+      "path11794",
+      "path11795",
+      "path11796",
+      "path11797",
+      "path11798",
+      "path11799",
+      "path11800",
+      "path11801",
+      "path11802",
+      "path11803",
+      "path11804",
+      "path11805",
+      "path11806",
+      "path11807",
+      "path11808",
+      "path11809",
+      "path11810",
+      "path11811",
+      "path11812",
+      "path11813",
+      "path11814",
+      "path11815",
+      "path11816",
+      "path11817",
+      "path11818",
+      "path11819",
+      "path11820",
+      "path11821",
+      "path11822",
+      "path11823",
+      "path11824",
+      "path11825",
+      "path11826",
+      "path11827",
+      "path11828",
+      "path11829",
+      "path11830",
+      "path11831",
+      "path11832",
+      "path11833",
+      "path11834",
+      "path11835",
+      "path11836",
+      "path11837",
+      "path11838",
+      "path11839",
+      "path11840",
+      "path11841",
+      "path11842",
+      "path11843",
+      "path11844",
+      "path11845",
+      "path11846",
+      "path11847",
+      "path11848",
+      "path11849",
+      "path11850",
+      "path11851",
+      "path11852",
+      "path11853",
+      "path11854",
+      "path11855",
+      "path11856",
+      "path11857",
+      "path11858",
+      "path11859",
+      "path11860",
+      "path11861",
+      "path11862",
+      "path11863",
+      "path11864",
+      "path11865",
+      "path11866",
+      "path11867",
+      "path11868",
+      "path11869",
+      "path11870",
+      "path11871",
+      "path11872",
+      "path11873",
+      "path11874",
+      "path11875",
+      "path11876",
+      "path11877",
+      "path11878",
+      "path11879",
+      "path11880",
+      "path11881",
+      "path11882",
+      "path11883",
+      "path11884",
+      "path11885",
+      "path11886",
+      "path11887",
+      "path11888",
+      "path11889",
+      "path11893",
+      "path11895",
+      "path11896",
+      "path11897",
+      "path11898",
+      "path11899",
+      "path11900",
+      "path11901",
+      "path11902",
+      "path11903",
+      "path11904",
+      "path11905",
+      "path11906",
+      "path11907",
+      "path11908",
+      "path11909",
+      "path11910",
+      "path11911",
+      "path11912",
+      "path11913",
+      "path11914",
+      "path11915",
+      "path11916",
+      "path11917",
+      "path11918",
+      "path11919",
+      "path11920",
+      "path11921",
+      "path11922",
+      "path11923",
+      "path11924",
+      "path11925",
+      "path11926",
+      "path11927",
+      "path11928",
+      "path11929",
+      "path11930",
+      "path11931",
+      "path11932",
+      "path11933",
+      "path11934",
+      "path11935",
+      "path11936",
+      "path11937",
+      "path11938",
+      "path11939",
+      "path11940",
+      "path11941",
+      "path11942",
+      "path11943",
+      "path11944",
+      "path11945",
+      "path11946",
+      "path11947",
+      "path11948",
+      "path11949",
+      "path11950",
+      "path11951",
+      "path11952",
+      "path11953",
+      "path11954",
+      "path11955",
+      "path11956",
+      "path11957",
+      "path11958",
+      "path11959",
+      "path11960",
+      "path11961",
+      "path11962",
+      "path11963",
+      "path11964",
+      "path11965",
+      "path11966",
+      "path11967",
+      "path11968",
+      "path11969",
+      "path11970",
+      "path11971",
+      "path11972",
+      "path11973",
+      "path11974",
+      "path11975",
+      "path11976",
+      "path11977",
+      "path11978",
+      "path11979",
+      "path11980",
+      "path11981",
+      "path11982",
+      "path11983",
+      "path11984",
+      "path11985",
+      "path11986",
+      "path11987",
+      "path11988",
+      "path11989",
+      "path11990",
+      "path11991",
+      "path11992",
+      "path11993",
+      "path11994",
+      "path11995",
+      "path11996",
+      "path11997",
+      "path11998",
+      "path11999",
+      "path12000",
+      "path12001",
+      "path12002",
+      "path12003",
+      "path12004",
+      "path12005",
+      "path12006",
+      "path12007",
+      "path12008",
+      "path12009",
+      "path12010",
+      "path12011",
+      "path12012",
+      "path12013",
+      "path12014",
+      "path12015",
+      "path12016",
+      "path12017",
+      "path12018",
+      "path12019",
+      "path12020",
+      "path12021",
+      "path12022",
+      "path12023",
+      "path12024",
+      "path12025",
+      "path12026",
+      "path12027",
+      "path12028",
+      "path12029",
+      "path12030",
+      "path12031",
+      "path12032",
+      "path12033",
+      "path12034",
+      "path12035",
+      "path12036",
+      "path12037",
+      "path12038",
+      "path12039",
+      "path12040",
+      "path12041",
+      "path12042",
+      "path12043",
+      "path12044",
+      "path12045",
+      "path12046",
+      "path12047",
+      "path12048",
+      "path12049",
+      "path12050",
+      "path12051",
+      "path12052",
+      "path12053",
+      "path12054",
+      "path12055",
+      "path12056",
+      "path12057",
+      "path12058",
+      "path12059",
+      "path12060",
+      "path12061",
+      "path12062",
+      "path12063",
+      "path12064",
+      "path12065",
+      "path12066",
+      "path12067",
+      "path12068",
+      "path12069",
+      "path12070",
+      "path12071",
+      "path12072",
+      "path12073",
+      "path12074",
+      "path12075",
+      "path12076",
+      "path12077",
+      "path12078",
+      "path12079",
+      "path12080",
+      "path12081",
+      "path12082",
+      "path12083",
+      "path12084",
+      "path12085",
+      "path12086",
+      "path12087",
+      "path12088",
+      "path12089",
+      "path12090",
+      "path12091",
+      "path12092",
+      "path12093",
+      "path12094",
+      "path12095",
+      "path12096",
+      "path12097",
+      "path12098",
+      "path12099",
+      "path12100",
+      "path12101",
+      "path12102",
+      "path12103",
+      "path12104",
+      "path12105",
+      "path12106",
+      "path12107",
+      "path12108",
+      "path12109",
+      "path12110",
+      "path12111",
+      "path12112",
+      "path12113",
+      "path12114",
+      "path12115",
+      "path12116",
+      "path12117",
+      "path12118",
+      "path12119",
+      "path12120",
+      "path12121",
+      "path12122",
+      "path12123",
+      "path12124",
+      "path12125",
+      "path12126",
+      "path12127",
+      "path12128",
+      "path12129",
+      "path12130",
+      "path12131",
+      "path12132",
+      "path12133",
+      "path12134",
+      "path12135",
+      "path12136",
+      "path12137",
+      "path12138",
+      "path12139",
+      "path12140",
+      "path12141",
+      "path12142",
+      "path12143",
+      "path12144",
+      "path12145",
+      "path12146",
+      "path12147",
+      "path12148",
+      "path12632",
+      "path12633",
+      "path12634",
+      "path12635",
+      "path12636",
+      "path12637",
+      "path12638",
+      "path12639",
+      "path12640",
+      "path12641",
+      "path12642",
+      "path12643",
+      "path12644",
+      "path12645",
+      "path12646",
+      "path12647",
+      "path12648",
+      "path12649",
+      "path12650",
+      "path12651",
+      "path12652",
+      "path12653",
+      "path12654",
+      "path12655",
+      "path12656",
+      "path12657",
+      "path12658",
+      "path12659",
+      "path12660",
+      "path12661",
+      "path12662",
+      "path12663",
+      "path12664",
+      "path12665",
+      "path12666",
+      "path12667",
+      "path12668",
+      "path12669",
+      "path12670"
+    ],
+    "tileSpacing": 5.76,
+    "edgeSourceIds": [
+      "path12",
+      "path11441",
+      "path11442",
+      "path7517",
+      "path12750",
+      "path12752"
+    ],
+    "voids": [
+      {
+        "id": "first-north-courtyard",
+        "kind": "courtyard",
+        "sourceId": "path11438",
+        "name": "Courtyard",
+        "sourceIds": [
+          "path11438"
+        ],
+        "bounds": {
+          "x": 673.7066040039062,
+          "y": 730.9333496093752,
+          "width": 186.39999583363533,
+          "height": 145.91999673843384
+        },
+        "anchor": {
+          "x": 766.9066019207239,
+          "y": 803.8933479785921
+        }
+      },
+      {
+        "id": "first-west-courtyard",
+        "kind": "courtyard",
+        "sourceId": "path11439",
+        "name": "Courtyard",
+        "sourceIds": [
+          "path11439"
+        ],
+        "bounds": {
+          "x": 261.38665771484375,
+          "y": 730.9333496093752,
+          "width": 121.11999729275703,
+          "height": 145.91999673843384
+        },
+        "anchor": {
+          "x": 321.94665636122227,
+          "y": 803.8933479785921
+        }
+      },
+      {
+        "id": "first-east-courtyard",
+        "kind": "courtyard",
+        "sourceId": "path11430",
+        "name": "Courtyard",
+        "sourceIds": [
+          "path11430"
+        ],
+        "bounds": {
+          "x": 261.38665771484375,
+          "y": 1328.853271484375,
+          "width": 121.11999729275703,
+          "height": 145.91999673843384
+        },
+        "anchor": {
+          "x": 321.94665636122227,
+          "y": 1401.813269853592
+        }
+      },
+      {
+        "id": "first-north-atrium",
+        "kind": "atrium",
+        "sourceId": "path11432",
+        "name": "Open to below",
+        "sourceIds": [
+          "path11432"
+        ],
+        "bounds": {
+          "x": 742.666607528925,
+          "y": 903.4134138822556,
+          "width": 48.47999891638756,
+          "height": 254.07999432086945
+        },
+        "anchor": {
+          "x": 766.9066069871188,
+          "y": 1030.4534110426903
+        }
+      },
+      {
+        "id": "first-south-atrium",
+        "kind": "atrium",
+        "sourceId": "path11436",
+        "name": "Open to below",
+        "sourceIds": [
+          "path11436"
+        ],
+        "bounds": {
+          "x": 261.38665771484375,
+          "y": 903.4133911132815,
+          "width": 52.15999883413315,
+          "height": 398.87999108433723
+        },
+        "anchor": {
+          "x": 287.4666571319103,
+          "y": 1102.85338665545
+        }
+      }
+    ],
+    "openings": [
+      {
+        "id": "first-opening-1",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 646.8266709148885,
+            "y": 758.2933441400529
+          },
+          {
+            "x": 644.9066709578038,
+            "y": 758.2933441400529
+          },
+          {
+            "x": 644.9066709578038,
+            "y": 780.5333436429502
+          },
+          {
+            "x": 646.8266709148885,
+            "y": 780.5333436429502
+          }
+        ],
+        "moduleId": "module-16b"
+      },
+      {
+        "id": "first-opening-2",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 646.8266709148885,
+            "y": 827.2533425986768
+          },
+          {
+            "x": 644.9066709578038,
+            "y": 827.2533425986768
+          },
+          {
+            "x": 644.9066709578038,
+            "y": 849.4933421015741
+          },
+          {
+            "x": 646.8266709148885,
+            "y": 849.4933421015741
+          }
+        ],
+        "moduleId": "module-16a"
+      },
+      {
+        "id": "first-opening-3",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 409.5466762185098,
+            "y": 849.4933421015741
+          },
+          {
+            "x": 411.3066761791707,
+            "y": 849.4933421015741
+          },
+          {
+            "x": 411.3066761791707,
+            "y": 827.2533425986768
+          },
+          {
+            "x": 409.5466762185098,
+            "y": 827.2533425986768
+          }
+        ],
+        "moduleId": "module-15a"
+      },
+      {
+        "id": "first-opening-4",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 409.5466762185098,
+            "y": 780.5333436429502
+          },
+          {
+            "x": 411.3066761791707,
+            "y": 780.5333436429502
+          },
+          {
+            "x": 411.3066761791707,
+            "y": 758.2933441400529
+          },
+          {
+            "x": 409.5466762185098,
+            "y": 758.2933441400529
+          }
+        ],
+        "moduleId": "module-15b"
+      },
+      {
+        "id": "first-opening-5",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 333.066677927971,
+            "y": 701.3333454132081
+          },
+          {
+            "x": 333.066677927971,
+            "y": 699.5733454525472
+          },
+          {
+            "x": 310.82667842507374,
+            "y": 699.5733454525472
+          },
+          {
+            "x": 310.82667842507374,
+            "y": 701.3333454132081
+          }
+        ],
+        "moduleId": "module-18"
+      },
+      {
+        "id": "first-opening-6",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 234.50668013095867,
+            "y": 758.2933441400529
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 758.2933441400529
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 780.5333436429502
+          },
+          {
+            "x": 234.50668013095867,
+            "y": 780.5333436429502
+          }
+        ],
+        "moduleId": "module-14b"
+      },
+      {
+        "id": "first-opening-7",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 234.50668013095867,
+            "y": 827.2533425986768
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 827.2533425986768
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 849.4933421015741
+          },
+          {
+            "x": 234.50668013095867,
+            "y": 849.4933421015741
+          }
+        ],
+        "moduleId": "module-14a"
+      },
+      {
+        "id": "first-opening-8",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 234.50668013095867,
+            "y": 930.7733402848245
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 930.7733402848245
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 953.0133397877217
+          },
+          {
+            "x": 234.50668013095867,
+            "y": 953.0133397877217
+          }
+        ],
+        "moduleId": "module-10b"
+      },
+      {
+        "id": "first-opening-9",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 234.50668013095867,
+            "y": 999.7333387434484
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 999.7333387434484
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 1021.9733382463456
+          },
+          {
+            "x": 234.50668013095867,
+            "y": 1021.9733382463456
+          }
+        ],
+        "moduleId": "module-10a"
+      },
+      {
+        "id": "first-opening-10",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 234.50668013095867,
+            "y": 1183.7333346307278
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 1183.7333346307278
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 1205.973334133625
+          },
+          {
+            "x": 234.50668013095867,
+            "y": 1205.973334133625
+          }
+        ],
+        "moduleId": "module-6b"
+      },
+      {
+        "id": "first-opening-11",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 234.50668013095867,
+            "y": 1252.6933330893517
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 1252.6933330893517
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 1274.933332592249
+          },
+          {
+            "x": 234.50668013095867,
+            "y": 1274.933332592249
+          }
+        ],
+        "moduleId": "module-6a"
+      },
+      {
+        "id": "first-opening-12",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 234.50668013095867,
+            "y": 1356.2133307754993
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 1356.2133307754993
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 1378.4533302783966
+          },
+          {
+            "x": 234.50668013095867,
+            "y": 1378.4533302783966
+          }
+        ],
+        "moduleId": "module-2b"
+      },
+      {
+        "id": "first-opening-13",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 234.50668013095867,
+            "y": 1425.1733292341232
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 1425.1733292341232
+          },
+          {
+            "x": 232.58668017387402,
+            "y": 1447.4133287370205
+          },
+          {
+            "x": 234.50668013095867,
+            "y": 1447.4133287370205
+          }
+        ],
+        "moduleId": "module-2a"
+      },
+      {
+        "id": "first-opening-14",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 409.5466762185098,
+            "y": 1447.4133287370205
+          },
+          {
+            "x": 411.3066761791707,
+            "y": 1447.4133287370205
+          },
+          {
+            "x": 411.3066761791707,
+            "y": 1425.1733292341232
+          },
+          {
+            "x": 409.5466762185098,
+            "y": 1425.1733292341232
+          }
+        ],
+        "moduleId": "module-3a1"
+      },
+      {
+        "id": "first-opening-15",
+        "sourceId": "path12",
+        "points": [
+          {
+            "x": 409.5466762185098,
+            "y": 1378.4533302783966
+          },
+          {
+            "x": 411.3066761791707,
+            "y": 1378.4533302783966
+          },
+          {
+            "x": 411.3066761791707,
+            "y": 1356.2133307754993
+          },
+          {
+            "x": 409.5466762185098,
+            "y": 1356.2133307754993
+          }
+        ],
+        "moduleId": "module-3b"
+      },
+      {
+        "id": "first-opening-16",
+        "sourceId": "path11441",
+        "points": [
+          {
+            "x": 818.0266063809396,
+            "y": 1021.9733527600763
+          },
+          {
+            "x": 819.9466063380243,
+            "y": 1021.9733527600763
+          },
+          {
+            "x": 819.9466063380243,
+            "y": 999.733353257179
+          },
+          {
+            "x": 818.0266063809396,
+            "y": 999.733353257179
+          }
+        ],
+        "moduleId": "module-13b"
+      },
+      {
+        "id": "first-opening-17",
+        "sourceId": "path11441",
+        "points": [
+          {
+            "x": 818.0266063809396,
+            "y": 929.9733548164365
+          },
+          {
+            "x": 819.9466063380243,
+            "y": 929.9733548164365
+          },
+          {
+            "x": 819.9466063380243,
+            "y": 919.2533550560472
+          },
+          {
+            "x": 818.0266063809396,
+            "y": 919.2533550560472
+          }
+        ],
+        "moduleId": "module-13a"
+      },
+      {
+        "id": "first-opening-18",
+        "sourceId": "path11442",
+        "points": [
+          {
+            "x": 634.026627868414,
+            "y": 906.4533553421495
+          },
+          {
+            "x": 634.026627868414,
+            "y": 908.2133553028104
+          },
+          {
+            "x": 611.9466283619405,
+            "y": 908.2133553028104
+          },
+          {
+            "x": 611.9466283619405,
+            "y": 906.4533553421495
+          }
+        ],
+        "moduleId": "module-12"
+      },
+      {
+        "id": "first-opening-19",
+        "sourceId": "path11442",
+        "points": [
+          {
+            "x": 444.4266321063043,
+            "y": 906.4533553421495
+          },
+          {
+            "x": 444.4266321063043,
+            "y": 908.2133553028104
+          },
+          {
+            "x": 422.186632603407,
+            "y": 908.2133553028104
+          },
+          {
+            "x": 422.186632603407,
+            "y": 906.4533553421495
+          }
+        ],
+        "moduleId": "module-11"
+      }
+    ]
+  },
+  "doors": [
+    {
+      "id": "first-cinema-entrance",
+      "name": "Cinema entrance",
+      "sourceIds": [
+        "path11431",
+        "path4614",
+        "path4615",
+        "path4621",
+        "path4622",
+        "path4623",
+        "path4624",
+        "path4627",
+        "path4629",
+        "path4632",
+        "path4633",
+        "path4634",
+        "path4635",
+        "path4639",
+        "path4641",
+        "path4642",
+        "path4644",
+        "path4645",
+        "path4646",
+        "path4648",
+        "path4651",
+        "path4653",
+        "path4655",
+        "path4656",
+        "path4662",
+        "path4664",
+        "path4669",
+        "path4731",
+        "path4733",
+        "path4736",
+        "path4742",
+        "path4743",
+        "path4744",
+        "path4745",
+        "path4748",
+        "path4752",
+        "path4754",
+        "path4756",
+        "path4757",
+        "path4765",
+        "path4767",
+        "path4778",
+        "path5076",
+        "path5077",
+        "path5079",
+        "path5081",
+        "path5083",
+        "path5084",
+        "path5085",
+        "path5086",
+        "path5087",
+        "path5088",
+        "path5090",
+        "path5091",
+        "path5093",
+        "path5094",
+        "path5095",
+        "path5096",
+        "path5097",
+        "path5098",
+        "path5099",
+        "path5104",
+        "path5106",
+        "path5115",
+        "path5122",
+        "path5124",
+        "path3895",
+        "path4171",
+        "path4409",
+        "path4613",
+        "path4707",
+        "path4724",
+        "path4858",
+        "path5054",
+        "path3831",
+        "path3832",
+        "path3835",
+        "path3836",
+        "path3906",
+        "path3907",
+        "path3908",
+        "path3910",
+        "path3916",
+        "path3921",
+        "path3924",
+        "path3925",
+        "path3927",
+        "path3931",
+        "path3933",
+        "path3937",
+        "path3938",
+        "path3939",
+        "path3942",
+        "path3943",
+        "path3944",
+        "path3945",
+        "path3946",
+        "path3947",
+        "path3948",
+        "path3949",
+        "path3951",
+        "path3953",
+        "path3954",
+        "path4050",
+        "path4052",
+        "path4053",
+        "path4054",
+        "path4055",
+        "path4056",
+        "path4057",
+        "path4071",
+        "path4073",
+        "path4074",
+        "path4075",
+        "path4076",
+        "path4077",
+        "path4078",
+        "path4079",
+        "path4080",
+        "path4093",
+        "path4094",
+        "path4097",
+        "path4098",
+        "path4182",
+        "path4183",
+        "path4184",
+        "path4192",
+        "path4193",
+        "path4194",
+        "path4196",
+        "path4198",
+        "path4199",
+        "path4200",
+        "path4203",
+        "path4204",
+        "path4205",
+        "path4206",
+        "path4207",
+        "path4208",
+        "path4215",
+        "path4216",
+        "path4217",
+        "path4218",
+        "path4219",
+        "path4310",
+        "path4312",
+        "path4313",
+        "path4314",
+        "path4315",
+        "path4316",
+        "path4317",
+        "path4331",
+        "path4333",
+        "path4334",
+        "path4335",
+        "path4336",
+        "path4337",
+        "path4338",
+        "path4339",
+        "path4340",
+        "path4341",
+        "path4342",
+        "path4345",
+        "path4346",
+        "path4419",
+        "path4421",
+        "path4427",
+        "path4428",
+        "path4430",
+        "path4432",
+        "path4433",
+        "path4435",
+        "path4436",
+        "path4437",
+        "path4440",
+        "path4441",
+        "path4442",
+        "path4443",
+        "path4444",
+        "path4445",
+        "path4446",
+        "path4450",
+        "path4452",
+        "path4453",
+        "path4544",
+        "path4545",
+        "path4546",
+        "path4547",
+        "path4548",
+        "path4549",
+        "path4563",
+        "path4565",
+        "path4566",
+        "path4567",
+        "path4568",
+        "path4569",
+        "path4570",
+        "path4571",
+        "path4572",
+        "path4789",
+        "path4790",
+        "path4793",
+        "path4794",
+        "path4868",
+        "path4869",
+        "path4870",
+        "path4872",
+        "path4879",
+        "path4880",
+        "path4882",
+        "path4884",
+        "path4886",
+        "path4887",
+        "path4888",
+        "path4893",
+        "path4894",
+        "path4895",
+        "path4896",
+        "path4897",
+        "path4898",
+        "path4899",
+        "path4905",
+        "path4906",
+        "path4907",
+        "path5000",
+        "path5001",
+        "path5002",
+        "path5003",
+        "path5004",
+        "path5005",
+        "path5019",
+        "path5021",
+        "path5022",
+        "path5023",
+        "path5024",
+        "path5025",
+        "path5026",
+        "path5027",
+        "path5028",
+        "path3833",
+        "path3834",
+        "path4095",
+        "path4096",
+        "path4343",
+        "path4344",
+        "path4791",
+        "path4792",
+        "path3838",
+        "path3840",
+        "path3841",
+        "path3843",
+        "path3845",
+        "path3848",
+        "path4099",
+        "path4100",
+        "path4101",
+        "path4102",
+        "path4104",
+        "path4105",
+        "path4108",
+        "path4111",
+        "path4112",
+        "path4113",
+        "path4114",
+        "path4116",
+        "path4117",
+        "path4118",
+        "path4121",
+        "path4348",
+        "path4352",
+        "path4353",
+        "path4354",
+        "path4355",
+        "path4357",
+        "path4359",
+        "path4361",
+        "path4362",
+        "path4795",
+        "path4797",
+        "path4798",
+        "path4801",
+        "path4802",
+        "path4803",
+        "path4804",
+        "path4806",
+        "path4807",
+        "path4808",
+        "path4810",
+        "path3850",
+        "path3851",
+        "path3940",
+        "path3941",
+        "path4123",
+        "path4124",
+        "path4201",
+        "path4202",
+        "path4363",
+        "path4364",
+        "path4438",
+        "path4439",
+        "path4812",
+        "path4813",
+        "path4889",
+        "path4890",
+        "path4891",
+        "path4892",
+        "path3882",
+        "path3883",
+        "path3885",
+        "path3886",
+        "path3888",
+        "path3889",
+        "path3890",
+        "path3893",
+        "path3992",
+        "path3993",
+        "path3994",
+        "path3995",
+        "path3996",
+        "path4000",
+        "path4004",
+        "path4006",
+        "path4037",
+        "path4038",
+        "path4039",
+        "path4040",
+        "path4041",
+        "path4042",
+        "path4044",
+        "path4047",
+        "path4049",
+        "path4155",
+        "path4156",
+        "path4158",
+        "path4162",
+        "path4165",
+        "path4166",
+        "path4169",
+        "path4254",
+        "path4255",
+        "path4256",
+        "path4257",
+        "path4258",
+        "path4259",
+        "path4261",
+        "path4264",
+        "path4266",
+        "path4297",
+        "path4298",
+        "path4299",
+        "path4300",
+        "path4301",
+        "path4302",
+        "path4304",
+        "path4307",
+        "path4309",
+        "path4395",
+        "path4396",
+        "path4398",
+        "path4399",
+        "path4401",
+        "path4402",
+        "path4403",
+        "path4406",
+        "path4488",
+        "path4489",
+        "path4490",
+        "path4492",
+        "path4493",
+        "path4495",
+        "path4498",
+        "path4500",
+        "path4531",
+        "path4532",
+        "path4533",
+        "path4535",
+        "path4536",
+        "path4538",
+        "path4541",
+        "path4543",
+        "path4844",
+        "path4845",
+        "path4847",
+        "path4848",
+        "path4850",
+        "path4851",
+        "path4852",
+        "path4855",
+        "path4944",
+        "path4945",
+        "path4946",
+        "path4947",
+        "path4948",
+        "path4949",
+        "path4951",
+        "path4954",
+        "path4956",
+        "path4987",
+        "path4988",
+        "path4989",
+        "path4990",
+        "path4991",
+        "path4992",
+        "path4994",
+        "path4997",
+        "path4999",
+        "path3894",
+        "path3936",
+        "path4058",
+        "path4170",
+        "path4197",
+        "path4318",
+        "path4408",
+        "path4434",
+        "path4550",
+        "path4603",
+        "path4604",
+        "path4609",
+        "path4610",
+        "path4611",
+        "path4708",
+        "path4714",
+        "path4715",
+        "path4720",
+        "path4721",
+        "path4722",
+        "path4857",
+        "path4885",
+        "path5006",
+        "path5055",
+        "path5061",
+        "path5062",
+        "path5067",
+        "path5068",
+        "path5070",
+        "path3898",
+        "path3899",
+        "path3900",
+        "path3901",
+        "path3902",
+        "path4174",
+        "path4175",
+        "path4176",
+        "path4177",
+        "path4178",
+        "path4412",
+        "path4413",
+        "path4414",
+        "path4415",
+        "path4416",
+        "path4861",
+        "path4862",
+        "path4863",
+        "path4864",
+        "path4865",
+        "path4573",
+        "path4574",
+        "path4577",
+        "path4578",
+        "path4579",
+        "path4580",
+        "path4581",
+        "path4583",
+        "path4584",
+        "path4585",
+        "path4586",
+        "path4587",
+        "path4588",
+        "path4589",
+        "path4593",
+        "path4594",
+        "path4595",
+        "path4612",
+        "path4676",
+        "path4677",
+        "path4680",
+        "path4684",
+        "path4686",
+        "path4687",
+        "path4689",
+        "path4690",
+        "path4692",
+        "path4693",
+        "path4694",
+        "path4697",
+        "path4699",
+        "path4700",
+        "path4702",
+        "path4704",
+        "path4706",
+        "path4785",
+        "path4787",
+        "path4788",
+        "path5037",
+        "path5038",
+        "path5040",
+        "path5046",
+        "path5048",
+        "path5049",
+        "path5050",
+        "path5051",
+        "path5053",
+        "path5130",
+        "path5131",
+        "path5132",
+        "path5133",
+        "path4672",
+        "path7914"
+      ],
+      "labelPoint": [
+        766.9,
+        1201
+      ]
+    }
+  ],
+  "areas": [
+    {
+      "id": "first-office",
+      "kind": "office",
+      "name": "Offices",
+      "sourceIds": [
+        "text12314"
+      ],
+      "bounds": {
+        "x": 311.3066711425781,
+        "y": 303.81329826514263,
+        "width": 25.606837971597542,
+        "height": 7.000065704182816
+      },
+      "anchor": {
+        "x": 324.1100901283769,
+        "y": 307.31333111723404
+      }
+    },
+    {
+      "id": "first-north-courtyard",
+      "kind": "courtyard",
+      "sourceId": "path11438",
+      "name": "Courtyard",
+      "sourceIds": [
+        "path11438"
+      ],
+      "bounds": {
+        "x": 673.7066040039062,
+        "y": 730.9333496093752,
+        "width": 186.39999583363533,
+        "height": 145.91999673843384
+      },
+      "anchor": {
+        "x": 766.9066019207239,
+        "y": 803.8933479785921
+      }
+    },
+    {
+      "id": "first-west-courtyard",
+      "kind": "courtyard",
+      "sourceId": "path11439",
+      "name": "Courtyard",
+      "sourceIds": [
+        "path11439"
+      ],
+      "bounds": {
+        "x": 261.38665771484375,
+        "y": 730.9333496093752,
+        "width": 121.11999729275703,
+        "height": 145.91999673843384
+      },
+      "anchor": {
+        "x": 321.94665636122227,
+        "y": 803.8933479785921
+      }
+    },
+    {
+      "id": "first-east-courtyard",
+      "kind": "courtyard",
+      "sourceId": "path11430",
+      "name": "Courtyard",
+      "sourceIds": [
+        "path11430"
+      ],
+      "bounds": {
+        "x": 261.38665771484375,
+        "y": 1328.853271484375,
+        "width": 121.11999729275703,
+        "height": 145.91999673843384
+      },
+      "anchor": {
+        "x": 321.94665636122227,
+        "y": 1401.813269853592
+      }
+    },
+    {
+      "id": "first-north-atrium",
+      "kind": "atrium",
+      "sourceId": "path11432",
+      "name": "Open to below",
+      "sourceIds": [
+        "path11432"
+      ],
+      "bounds": {
+        "x": 742.666607528925,
+        "y": 903.4134138822556,
+        "width": 48.47999891638756,
+        "height": 254.07999432086945
+      },
+      "anchor": {
+        "x": 766.9066069871188,
+        "y": 1030.4534110426903
+      }
+    },
+    {
+      "id": "first-south-atrium",
+      "kind": "atrium",
+      "sourceId": "path11436",
+      "name": "Open to below",
+      "sourceIds": [
+        "path11436"
+      ],
+      "bounds": {
+        "x": 261.38665771484375,
+        "y": 903.4133911132815,
+        "width": 52.15999883413315,
+        "height": 398.87999108433723
+      },
+      "anchor": {
+        "x": 287.4666571319103,
+        "y": 1102.85338665545
+      }
+    }
+  ],
+  "amenities": [
+    {
+      "id": "first-lift-c",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        365,
+        995
+      ],
+      "evidence": "Core C lift bank above its lobby"
+    },
+    {
+      "id": "first-lift-d",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        690,
+        995
+      ],
+      "evidence": "Core D lift bank above its lobby"
+    },
+    {
+      "id": "first-lift-e",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        364,
+        1216
+      ],
+      "evidence": "Core E lift bank below its lobby"
+    },
+    {
+      "id": "first-service-lift",
+      "kind": "lift",
+      "name": "Lift",
+      "point": [
+        833,
+        336
+      ],
+      "evidence": "Northern anchor service lift bank"
+    },
+    {
+      "id": "first-stairs-c",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        362,
+        945
+      ],
+      "evidence": "Core C staircase"
+    },
+    {
+      "id": "first-stairs-d",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        695,
+        945
+      ],
+      "evidence": "Core D staircase"
+    },
+    {
+      "id": "first-stairs-e",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        362,
+        1260
+      ],
+      "evidence": "Core E staircase"
+    },
+    {
+      "id": "first-stairs-north",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        768,
+        205
+      ],
+      "evidence": "ST-01 anchor staircase"
+    },
+    {
+      "id": "first-stairs-central",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        768,
+        466
+      ],
+      "evidence": "ST-02 anchor staircase"
+    },
+    {
+      "id": "first-stairs-service",
+      "kind": "stairs",
+      "name": "Stairs",
+      "point": [
+        897,
+        352
+      ],
+      "evidence": "Northern service staircase"
+    },
+    {
+      "id": "first-escalator-c",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        400,
+        1048
+      ],
+      "symbolBounds": {
+        "x": 332,
+        "y": 1020,
+        "width": 135,
+        "height": 60
+      },
+      "evidence": "Core C escalator pair"
+    },
+    {
+      "id": "first-escalator-d",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        662,
+        1048
+      ],
+      "symbolBounds": {
+        "x": 596,
+        "y": 1020,
+        "width": 135,
+        "height": 60
+      },
+      "evidence": "Core D escalator pair"
+    },
+    {
+      "id": "first-escalator-e",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        400,
+        1163
+      ],
+      "symbolBounds": {
+        "x": 332,
+        "y": 1138,
+        "width": 135,
+        "height": 60
+      },
+      "evidence": "Core E escalator pair"
+    },
+    {
+      "id": "first-escalator-cinema",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        662,
+        1163
+      ],
+      "symbolBounds": {
+        "x": 596,
+        "y": 1138,
+        "width": 135,
+        "height": 60
+      },
+      "evidence": "Escalator pair beside the cinema approach, confirmed by the user's third marked circle"
+    },
+    {
+      "id": "first-escalator-north",
+      "kind": "escalator",
+      "name": "Escalator",
+      "point": [
+        894,
+        206
+      ],
+      "symbolBounds": {
+        "x": 875,
+        "y": 144,
+        "width": 42,
+        "height": 130
+      },
+      "evidence": "Northern anchor escalator pair",
+      "rotation": 90
+    },
+    {
+      "id": "first-women-toilet",
+      "kind": "washroom",
+      "gender": "female",
+      "name": "Women's toilet",
+      "point": [
+        925,
+        939
+      ],
+      "sourceFillId": "path109",
+      "evidence": "FEMALE TOILET room"
+    },
+    {
+      "id": "first-men-toilet",
+      "kind": "washroom",
+      "gender": "male",
+      "name": "Men's toilet",
+      "point": [
+        925,
+        1017
+      ],
+      "sourceFillId": "path112",
+      "evidence": "MALE TOILET room"
+    }
+  ],
+  "warnings": [],
+  "sourceSha256": "a414a40e83f4e72b9a9f0fdbb594061c1e3b5c637e5fc875bc33fc06b757179e",
+  "tenants": [
+    {
+      "id": "geetanjali",
+      "name": "Geetanjali Salon",
+      "category": "beauty",
+      "sourceTextIds": [
+        "text12763"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-18"
+      ]
+    },
+    {
+      "id": "khara-kapas",
+      "name": "Khara Kapas",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12769"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-14b"
+      ]
+    },
+    {
+      "id": "vanilla-moon",
+      "name": "Vanilla Moon",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12775"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-14a"
+      ]
+    },
+    {
+      "id": "chique",
+      "name": "Chique",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12780"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-6b"
+      ]
+    },
+    {
+      "id": "mink",
+      "name": "Mink",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12785"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-6a"
+      ]
+    },
+    {
+      "id": "ranna-gill",
+      "name": "Ranna Gill",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12790",
+        "text12790-8"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-2b",
+        "module-2a"
+      ]
+    },
+    {
+      "id": "wasabi",
+      "name": "Wasabi",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12797"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-3a1"
+      ]
+    },
+    {
+      "id": "truefitt-hill",
+      "name": "Truefitt & Hill",
+      "category": "beauty",
+      "sourceTextIds": [
+        "text12803"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-3b"
+      ]
+    },
+    {
+      "id": "greenr",
+      "name": "Greenr",
+      "category": "dining",
+      "sourceTextIds": [
+        "text12808"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-12"
+      ]
+    },
+    {
+      "id": "kaarigar",
+      "name": "Kaarigar",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12813"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-13a"
+      ]
+    },
+    {
+      "id": "shades-of-india",
+      "name": "Shades of India",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12819"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-17"
+      ]
+    },
+    {
+      "id": "good-earth",
+      "name": "Good Earth",
+      "category": "home",
+      "sourceTextIds": [
+        "text12825",
+        "text12825-1",
+        "text12825-1-2",
+        "text12825-1-9"
+      ],
+      "logo": "/brand/logo/good%20earth.png",
+      "moduleIds": [
+        "module-15a",
+        "module-16b",
+        "module-15b",
+        "module-16a"
+      ]
+    },
+    {
+      "id": "blue-tokai",
+      "name": "Blue Tokai",
+      "category": "dining",
+      "sourceTextIds": [
+        "text12837"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-11"
+      ]
+    },
+    {
+      "id": "nykd",
+      "name": "Nykd by Nykaa",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12843"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-3a2"
+      ]
+    },
+    {
+      "id": "vivid",
+      "name": "Vivid",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12848"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-20"
+      ]
+    },
+    {
+      "id": "india-circus",
+      "name": "India Circus",
+      "category": "home",
+      "sourceTextIds": [
+        "text12854"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-7"
+      ]
+    },
+    {
+      "id": "amit",
+      "name": "AM:IT",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12859"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-10b"
+      ]
+    },
+    {
+      "id": "cinepolis",
+      "name": "Cinépolis",
+      "category": "entertainment",
+      "sourceTextIds": [
+        "text12864"
+      ],
+      "moduleIds": [
+        "module-cinema"
+      ],
+      "logo": ""
+    },
+    {
+      "id": "manam",
+      "name": "Manam Chocolates",
+      "category": "dining",
+      "sourceTextIds": [
+        "text12870"
+      ],
+      "logo": "",
+      "moduleIds": [
+        "module-19"
+      ]
+    },
+    {
+      "id": "sko",
+      "name": "SKO",
+      "category": "fashion",
+      "sourceTextIds": [
+        "text12875"
+      ],
+      "moduleIds": [
+        "module-17b2",
+        "module-17b1"
+      ],
+      "logo": ""
+    }
+  ]
+}

@@ -30,7 +30,8 @@ import {
 } from 'lucide-react';
 import { isOpen, type Snapshot } from '../../../packages/domain';
 import { findRoute } from '../../../packages/routing';
-import { findGroundDirectoryRoute } from '../../../packages/routing/ground-directory';
+import { findDirectoryRoute } from '../../../packages/routing/ground-directory';
+import { directoryFloorIds } from '../../../packages/domain/reference/directory-route-graph';
 import { search } from '../../../packages/search';
 import type { Device } from '../../../packages/domain';
 import type { PublicConfig } from '../shared/content';
@@ -75,6 +76,7 @@ export function MapExplorer({
   onReturnToAd: () => void;
 }) {
   const data = useMemo(() => groundPublicData(sourceData), [sourceData]);
+  const floorNameOf = (id: string) => data.floors.find((floor) => floor.id === id)?.name ?? id;
   const root = useRef<HTMLDivElement>(null);
   const searchTrigger = useRef<HTMLButtonElement>(null);
   const searchInput = useRef<HTMLInputElement>(null);
@@ -107,17 +109,16 @@ export function MapExplorer({
   const origin = originId === 'start' ? undefined : places.find((place) => place.id === originId);
   const originNodeId = origin?.nodeId ?? startNode;
   const routing = panel === 'plan' || panel === 'steps';
+  // Both supplied drawings share one surveyed walking graph, joined by lifts and escalators.
+  const directoryRoute =
+    !!selected &&
+    directoryFloorIds.has(selected.floorId) &&
+    directoryFloorIds.has(origin?.floorId ?? 'l0');
   const route = useMemo(
     () =>
       routing && selected
-        ? selected.floorId === 'l0' && (origin?.floorId ?? 'l0') === 'l0'
-          ? findGroundDirectoryRoute(
-              originNodeId,
-              selected.nodeId,
-              accessible,
-              data.edges,
-              data.nodes,
-            )
+        ? directoryRoute
+          ? findDirectoryRoute(originNodeId, selected.nodeId, accessible, data.edges, data.nodes)
           : findRoute(
               data.nodes,
               data.edges,
@@ -127,8 +128,9 @@ export function MapExplorer({
               data.floors,
             )
         : null,
-    [routing, selected, data, originNodeId, accessible],
+    [routing, selected, directoryRoute, data, originNodeId, accessible],
   );
+  const routeFloors = route?.floorIds.map(floorNameOf).join(' → ');
   const qrRequest = useMemo<QrRequest | null>(
     () =>
       selected && route
@@ -139,18 +141,20 @@ export function MapExplorer({
             destinationId: selected.id,
             accessible,
             title: selected.name,
-            subtitle:
-              selected.floorId === 'l0'
-                ? 'Ground Floor walking route'
-                : `${route.minutes} min · ${route.distance} m`,
+            subtitle: directoryRoute
+              ? `${routeFloors} walking route`
+              : `${route.minutes} min · ${route.distance} m`,
           }
         : null,
-    [selected, route, device.id, originNodeId, accessible],
+    [selected, route, directoryRoute, routeFloors, device.id, originNodeId, accessible],
   );
   useEffect(() => {
     setStep(0);
     setShowRouteQR(false);
   }, [selectedId, originNodeId, accessible, data.version]);
+  useEffect(() => {
+    if (panel === 'plan' && route) setFloorId(route.nodes[0].floorId);
+  }, [panel, route]);
   useEffect(() => {
     if (panel === 'details' && selectedId) {
       detailsPanel.current?.scrollTo({ top: 0, behavior: 'smooth' });
@@ -177,7 +181,7 @@ export function MapExplorer({
     if (!data.floors.some((f) => f.id === floorId)) setFloorId('l0');
   }, [data, selectedId, selected, floorId]);
   const activeStep = panel === 'steps' ? route?.steps[step] : undefined;
-  const floorName = (id: string) => data.floors.find((floor) => floor.id === id)?.name ?? id;
+  const floorName = floorNameOf;
   const matches = useMemo(() => {
     if (!query.trim())
       return places.filter(
@@ -319,7 +323,12 @@ export function MapExplorer({
   const visibleBrands = Array.from(
     new Map(
       places
-        .filter((place) => place.kind === 'tenant' && place.categoryId === browseCategory)
+        .filter(
+          (place) =>
+            place.kind === 'tenant' &&
+            place.categoryId === browseCategory &&
+            place.floorId === (selected?.floorId ?? floorId),
+        )
         .sort(
           (a, b) =>
             Number(Boolean(brandImage(b))) - Number(Boolean(brandImage(a))) ||
@@ -997,7 +1006,7 @@ export function MapExplorer({
                 <div>
                   <strong>
                     <Navigation size={18} />
-                    {selected.floorId === 'l0'
+                    {directoryRoute
                       ? 'Walking directions'
                       : `${route.minutes} ${route.minutes === 1 ? 'minute' : 'minutes'}`}
                   </strong>
@@ -1015,10 +1024,12 @@ export function MapExplorer({
                 </div>
                 <p>
                   To {selected.name}
-                  {selected.floorId !== 'l0' && ` · ${route.distance} m`}
-                  {selected.floorId === 'l0' && (
+                  {!directoryRoute && ` · ${route.distance} m`}
+                  {directoryRoute && (
                     <small style={{ display: 'block', marginTop: 6 }}>
-                      Follow the marked walkways to the store frontage.
+                      {route.floorIds.length > 1
+                        ? `Follow the marked walkways and take the ${route.transitions[0].type} to ${floorName(route.transitions[0].toFloorId)}.`
+                        : 'Follow the marked walkways to the store frontage.'}
                     </small>
                   )}
                 </p>
@@ -1026,8 +1037,8 @@ export function MapExplorer({
                   <Accessibility size={14} />
                   {accessible
                     ? 'Use lifts · Step-free route'
-                    : selected.floorId === 'l0'
-                      ? 'Ground Floor walkways'
+                    : directoryRoute
+                      ? `${routeFloors} walkways`
                       : 'Fastest available route'}
                 </span>
               </div>
@@ -1035,12 +1046,12 @@ export function MapExplorer({
               <div className="explorer-empty" role="status">
                 <Navigation size={26} />
                 <b>
-                  {accessible && selected.floorId === 'l0'
+                  {accessible && directoryRoute
                     ? 'Step-free route not verified yet'
                     : 'No route available'}
                 </b>
                 <p>
-                  {selected.floorId === 'l0'
+                  {directoryRoute
                     ? accessible
                       ? 'Step-free access needs confirmation. Standard walking directions may be available.'
                       : 'An entrance connection for this destination is not confirmed yet.'
@@ -1162,7 +1173,7 @@ export function MapExplorer({
             <div className="explorer-guidance-summary">
               <span>Directions to {selected.name}</span>
               <h2>
-                {selected.floorId === 'l0'
+                {directoryRoute
                   ? 'Follow the marked route'
                   : `${route.minutes} ${route.minutes === 1 ? 'minute' : 'minutes'} total`}
               </h2>
@@ -1196,10 +1207,12 @@ export function MapExplorer({
                   <span>
                     <b>{item.text}</b>
                     <small>
-                      {selected.floorId === 'l0'
+                      {directoryRoute
                         ? item.kind === 'arrive'
                           ? 'Store frontage'
-                          : 'Ground Floor'
+                          : item.toFloorId
+                            ? `${floorName(item.floorId)} → ${floorName(item.toFloorId)}`
+                            : floorName(item.floorId)
                         : item.distance
                           ? `${Math.round(item.distance)} m · ${floorName(item.floorId)}`
                           : 'Destination reached'}

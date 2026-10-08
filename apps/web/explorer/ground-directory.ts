@@ -13,7 +13,8 @@ import stairsIcon from '@material-design-icons/svg/outlined/stairs.svg?raw';
 import escalatorIcon from '@material-design-icons/svg/outlined/escalator.svg?raw';
 import maleWashroomIcon from '@material-design-icons/svg/outlined/man.svg?raw';
 import femaleWashroomIcon from '@material-design-icons/svg/outlined/woman.svg?raw';
-import { addEnvironment } from './ground-environment';
+import { addEnvironment, addDirectoryDefinitions } from './ground-environment';
+import { addFirstFloorEnvironment } from './first-floor-environment';
 import { GATE_ICON_PATH, HERE_PIN_PATH } from './ground-symbols';
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -33,7 +34,29 @@ function text(parent: Element, value: string, attrs: Record<string, string | num
 }
 
 /** Restyle source vectors and add clipped content. No retail geometry is generated. */
-export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, places: MapPlace[]) {
+export type DirectoryOptions = {
+  tenants: {
+    id: string;
+    moduleIds: string[];
+    category: string;
+    shortName?: string;
+    logo?: string;
+  }[];
+  spaces: { id: string; kind: string; name: string; sourceTextId: string }[];
+  groundEnvironment?: boolean;
+  balancedLabels?: boolean;
+};
+
+export function presentGroundDirectory(
+  svg: SVGSVGElement,
+  model: FloorModel,
+  places: MapPlace[],
+  options: DirectoryOptions = {
+    tenants: bindings.tenants,
+    spaces: overrides.spaces,
+    groundEnvironment: true,
+  },
+) {
   svg.querySelectorAll('[data-directory-layer]').forEach((el) => el.remove());
   svg.setAttribute('data-directory-plan', '');
   const ids = new Map(
@@ -51,7 +74,7 @@ export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, pl
         ] as const;
       }),
   );
-  const spaces = overrides.spaces.map((space) => {
+  const spaces = options.spaces.map((space) => {
     const source = ids.get(space.sourceTextId);
     if (!source) throw new Error(`Missing architectural space label ${space.sourceTextId}`);
     return { ...space, anchor: center(rootBox(source, svg)) };
@@ -95,6 +118,14 @@ export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, pl
       };
     });
   for (const { el, paint } of paints) el.setAttribute('data-map-paint', paint);
+  for (const door of model.doors ?? []) {
+    for (const id of door.sourceIds) {
+      const source = ids.get(id);
+      if (!source) throw new Error(`Missing architectural door path ${id}`);
+      source.setAttribute('data-map-paint', 'door');
+      source.setAttribute('data-directory-door', door.id);
+    }
+  }
   // Hide only the old escalator symbol strokes covered by the replacement icon.
   // Keep the original vectors, surrounding walls and corridor outlines intact.
   const escalatorBoxes = model.amenities
@@ -126,12 +157,16 @@ export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, pl
   svg.append(layer);
   const underlay = element('g', { 'data-directory-layer': '', 'pointer-events': 'none' });
   svg.insertBefore(underlay, svg.firstChild);
-  addEnvironment(svg, defs, underlay, layer);
+  if (options.groundEnvironment) addEnvironment(svg, defs, underlay, layer, model);
+  else {
+    addDirectoryDefinitions(defs);
+    if (model.circulation) addFirstFloorEnvironment(svg, model, defs, underlay, layer);
+  }
   const labelMeasures: { nodes: SVGTextElement[]; width: number; fontSize: number }[] = [];
 
-  for (const module of model.modules) {
+  for (const module of model.displayModules ?? model.modules) {
     const place = places.find((p) => p.id === module.tenantId);
-    const binding = bindings.tenants.find((t) => t.moduleIds.includes(module.id));
+    const binding = options.tenants.find((t) => t.moduleIds.includes(module.id));
     const parts = module.sourceIds
       .map((id) => ids.get(id))
       .filter((el): el is SVGGraphicsElement => !!el);
@@ -169,6 +204,15 @@ export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, pl
       clip.append(copy);
     }
     defs.append(clip);
+    let brandClipId = clipId;
+    if (module.method === 'connected-tenant-occupancy') {
+      // Typography can span a same-outlet bay divider without changing its source
+      // retail geometry, shadows or interaction footprint.
+      brandClipId = `directory-label-clip-${module.id}`;
+      const labelClip = element('clipPath', { id: brandClipId, clipPathUnits: 'userSpaceOnUse' });
+      labelClip.append(element('rect', module.labelBox));
+      defs.append(labelClip);
+    }
     const shadow = element('g', {
       class: 'directory-module-depth',
       'data-place-id': module.tenantId ?? '',
@@ -181,7 +225,7 @@ export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, pl
       class: 'directory-brand',
       'data-brand-module': module.id,
       'data-place-id': module.tenantId ?? '',
-      'clip-path': `url(#${clipId})`,
+      'clip-path': `url(#${brandClipId})`,
       'pointer-events': 'none',
     });
     layer.append(brand);
@@ -218,8 +262,16 @@ export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, pl
       (name.length > 7 && height > 42 && width < name.length * 10);
     if (wrap) {
       let first = '';
-      while (words.length && (first.length < name.length / 2 || !first))
+      while (words.length && (first.length < name.length / 2 || !first)) {
+        const next = `${first ? `${first} ` : ''}${words[0]}`;
+        if (
+          options.balancedLabels &&
+          first &&
+          Math.abs(next.length - name.length / 2) > Math.abs(first.length - name.length / 2)
+        )
+          break;
         first += `${first ? ' ' : ''}${words.shift()}`;
+      }
       lines.push(first);
       if (words.length) lines.push(words.join(' '));
     } else lines.push(name);
@@ -249,9 +301,30 @@ export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, pl
   }));
   for (const { nodes, fontSize } of sizes)
     nodes.forEach((node) => node.setAttribute('font-size', String(fontSize)));
-  for (const area of model.areas.filter((a) => ['office', 'special-store'].includes(a.kind))) {
+  for (const door of model.doors ?? []) {
+    const [x, y] = door.labelPoint;
+    const label = element('g', {
+      class: 'directory-door-label',
+      'data-door-label': door.id,
+      'aria-label': door.name,
+      'pointer-events': 'none',
+      transform: `translate(${x} ${y}) rotate(90)`,
+    });
+    text(label, 'ENTRY', {
+      x: 0,
+      y: 0,
+      'text-anchor': 'middle',
+      'dominant-baseline': 'central',
+      'font-size': 9,
+    });
+    layer.append(label);
+  }
+  for (const area of model.areas.filter((a) =>
+    ['office', 'special-store', 'courtyard', 'atrium'].includes(a.kind),
+  )) {
     const g = element('g', {
-      class: 'directory-area-label',
+      class: `directory-area-label is-${area.kind}`,
+      'data-area-id': area.id,
       'pointer-events': 'none',
       transform: `rotate(90 ${area.anchor.x} ${area.anchor.y})`,
     });
@@ -260,7 +333,8 @@ export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, pl
       x: area.anchor.x,
       y: area.anchor.y,
       'text-anchor': 'middle',
-      'font-size': area.kind === 'office' ? 24 : 10,
+      'font-size':
+        area.kind === 'office' ? 24 : area.kind === 'courtyard' && model.circulation ? 13 : 10,
     });
     if (area.kind === 'office')
       text(g, 'OFFICE WING', {
@@ -269,6 +343,14 @@ export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, pl
         'text-anchor': 'middle',
         'font-size': 8,
         'letter-spacing': 2,
+      });
+    if (area.kind === 'courtyard' && model.circulation)
+      text(g, 'OPEN TO BELOW', {
+        x: area.anchor.x,
+        y: area.anchor.y + 15,
+        'text-anchor': 'middle',
+        'font-size': 7.5,
+        'letter-spacing': 0.8,
       });
   }
   for (const space of spaces) {
@@ -316,7 +398,7 @@ export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, pl
     const alignsWithArchitecture = amenity.kind === 'stairs' || amenity.kind === 'escalator';
     const g = element('g', {
       class: `directory-amenity${entry ? ' is-entry' : ''}${washroom ? ` is-washroom${female ? ' is-female' : ' is-male'}${compactWashroom ? ' is-compact' : ''}` : ''}`,
-      transform: `translate(${x} ${y})${alignsWithArchitecture ? '' : ' rotate(90)'}`,
+      transform: `translate(${x} ${y})${alignsWithArchitecture ? ('rotation' in amenity ? ` rotate(${amenity.rotation})` : '') : ' rotate(90)'}`,
       'data-place-id': amenity.id,
       tabindex: 0,
       role: 'button',
@@ -383,6 +465,7 @@ export function presentGroundDirectory(svg: SVGSVGElement, model: FloorModel, pl
     layer.append(g);
   }
   const entryOne = model.amenities.find((a) => a.id === 'ground-entry-starbucks')!;
+  if (!entryOne) return;
   const [originX, originY] = entryOne.point;
   const pin = element('g', {
     class: 'directory-origin-pin',

@@ -100,22 +100,25 @@ export async function createApp(context: AppContext, options: { serveClient?: bo
   if (options.serveClient !== false) {
     // The exact architectural vectors compress well. Prepare once at build time,
     // then stream the negotiated asset without compressing it on every kiosk request.
-    app.get('/maps/ground-floor-directory.svg', (req, res, next) => {
-      const encoding = req.acceptsEncodings('br', 'gzip', 'identity');
-      if (encoding !== 'br' && encoding !== 'gzip') return next();
-      const file = path.join(
-        projectRoot,
-        isDev ? 'public' : 'dist/client',
-        'maps',
-        `ground-floor-directory.svg.${encoding === 'br' ? 'br' : 'gz'}`,
-      );
-      if (!fs.existsSync(file)) return next();
-      res.vary('Accept-Encoding');
-      res.type('image/svg+xml');
-      res.setHeader('Content-Encoding', encoding);
-      res.setHeader('Cache-Control', 'no-cache');
-      res.sendFile(file);
-    });
+    app.get(
+      ['/maps/ground-floor-directory.svg', '/maps/first-floor-directory.svg'],
+      (req, res, next) => {
+        const encoding = req.acceptsEncodings('br', 'gzip', 'identity');
+        if (encoding !== 'br' && encoding !== 'gzip') return next();
+        const file = path.join(
+          projectRoot,
+          isDev ? 'public' : 'dist/client',
+          'maps',
+          `${path.basename(req.path)}.${encoding === 'br' ? 'br' : 'gz'}`,
+        );
+        if (!fs.existsSync(file)) return next();
+        res.vary('Accept-Encoding');
+        res.type('image/svg+xml');
+        res.setHeader('Content-Encoding', encoding);
+        res.setHeader('Cache-Control', 'no-cache');
+        res.sendFile(file);
+      },
+    );
     if (isDev) {
       const { createServer } = await import('vite');
       // HMR socket port follows the app port so several dev servers (e.g. dev + e2e) can run side by side.

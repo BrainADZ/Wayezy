@@ -1,0 +1,30 @@
+{
+  "notes": "Amenity anchors follow the actual First Floor core rooms and escalator banks. Cinema and the separate vacant Units 22 / 23 use their original source fill paths, confirmed by the user's marked drawing.",
+  "modules": [
+    { "id": "module-22", "sourceIds": ["path3505", "path3506"], "evidence": "Separate vacant store below the left half of the cinema" },
+    { "id": "module-23", "sourceIds": ["path3524"], "evidence": "Separate vacant store below the right half of the cinema" },
+    { "id": "module-cinema", "sourceTextId": "text12864", "sourceIds": ["path3508", "path3510", "path3511", "path3512", "path3515", "path3517", "path3518", "path3519", "path3520"], "evidence": "Complete multiplex footprint including its left strip; excludes the two vacant stores" }
+  ],
+  "doors": [
+    { "id": "first-cinema-entrance", "name": "Cinema entrance", "symbolBounds": { "x": 743.4, "y": 1179.4, "width": 47, "height": 10 }, "labelPoint": [766.9, 1201], "evidence": "Original double-door banks opening from the cinema approach" }
+  ],
+  "amenities": [
+    { "id": "first-lift-c", "kind": "lift", "name": "Lift", "point": [365, 995], "evidence": "Core C lift bank above its lobby" },
+    { "id": "first-lift-d", "kind": "lift", "name": "Lift", "point": [690, 995], "evidence": "Core D lift bank above its lobby" },
+    { "id": "first-lift-e", "kind": "lift", "name": "Lift", "point": [364, 1216], "evidence": "Core E lift bank below its lobby" },
+    { "id": "first-service-lift", "kind": "lift", "name": "Lift", "point": [833, 336], "evidence": "Northern anchor service lift bank" },
+    { "id": "first-stairs-c", "kind": "stairs", "name": "Stairs", "point": [362, 945], "evidence": "Core C staircase" },
+    { "id": "first-stairs-d", "kind": "stairs", "name": "Stairs", "point": [695, 945], "evidence": "Core D staircase" },
+    { "id": "first-stairs-e", "kind": "stairs", "name": "Stairs", "point": [362, 1260], "evidence": "Core E staircase" },
+    { "id": "first-stairs-north", "kind": "stairs", "name": "Stairs", "point": [768, 205], "evidence": "ST-01 anchor staircase" },
+    { "id": "first-stairs-central", "kind": "stairs", "name": "Stairs", "point": [768, 466], "evidence": "ST-02 anchor staircase" },
+    { "id": "first-stairs-service", "kind": "stairs", "name": "Stairs", "point": [897, 352], "evidence": "Northern service staircase" },
+    { "id": "first-escalator-c", "kind": "escalator", "name": "Escalator", "point": [400, 1048], "symbolBounds": { "x": 332, "y": 1020, "width": 135, "height": 60 }, "evidence": "Core C escalator pair" },
+    { "id": "first-escalator-d", "kind": "escalator", "name": "Escalator", "point": [662, 1048], "symbolBounds": { "x": 596, "y": 1020, "width": 135, "height": 60 }, "evidence": "Core D escalator pair" },
+    { "id": "first-escalator-e", "kind": "escalator", "name": "Escalator", "point": [400, 1163], "symbolBounds": { "x": 332, "y": 1138, "width": 135, "height": 60 }, "evidence": "Core E escalator pair" },
+    { "id": "first-escalator-cinema", "kind": "escalator", "name": "Escalator", "point": [662, 1163], "symbolBounds": { "x": 596, "y": 1138, "width": 135, "height": 60 }, "evidence": "Escalator pair beside the cinema approach, confirmed by the user's third marked circle" },
+    { "id": "first-escalator-north", "kind": "escalator", "name": "Escalator", "point": [894, 206], "symbolBounds": { "x": 875, "y": 144, "width": 42, "height": 130 }, "evidence": "Northern anchor escalator pair", "rotation": 90 },
+    { "id": "first-women-toilet", "kind": "washroom", "gender": "female", "name": "Women's toilet", "point": [925, 939], "sourceFillId": "path109", "evidence": "FEMALE TOILET room" },
+    { "id": "first-men-toilet", "kind": "washroom", "gender": "male", "name": "Men's toilet", "point": [925, 1017], "sourceFillId": "path112", "evidence": "MALE TOILET room" }
+  ]
+}

@@ -1,32 +1,56 @@
 import { useMemo, useRef, useState } from 'react';
 import type { RouteEdge, RouteNode } from '../../../../packages/domain';
-import { groundRouteGraph } from '../../../../packages/domain/reference/ground-floor-route-graph';
-import { findGroundDirectoryRoute } from '../../../../packages/routing/ground-directory';
+import {
+  directoryRouteGraph,
+  directoryFloors,
+} from '../../../../packages/domain/reference/directory-route-graph';
+import {
+  directoryModels,
+  type DirectoryFloorId,
+} from '../../../../packages/domain/reference/architectural-directory';
+import { findDirectoryRoute } from '../../../../packages/routing/ground-directory';
 import { GroundFloor } from '../../explorer/ground-floor';
+import { FirstFloor } from '../../explorer/first-floor';
+import { GroundRoute } from '../../explorer/ground-route';
+import { mapPlaces } from '../../explorer/explorer-model';
 import { Glyph } from '../../icons/glyphs';
 import { api } from '../../shared/api';
 import { errorMessage, saveResource, useCommand } from '../data';
 import { PageHeader, Panel, SelectField, ToggleField } from '../ui';
 
-const sourceWidth = 914.89046;
-const sourceHeight = 1455.8265;
-const fitted = { x: 0, y: 0, w: sourceHeight, h: sourceWidth };
 const ignore = () => {};
 
 /** Ground Floor admin uses the same SVG and walking graph as the customer kiosk. */
-export default function GroundMapEditor() {
+export default function GroundMapEditor({
+  floorId = 'l0',
+  onFloorChange,
+}: {
+  floorId?: string;
+  onFloorChange?: (id: string) => void;
+}) {
   const command = useCommand();
+  const bounds = directoryModels[floorId as DirectoryFloorId].bounds;
+  const fitted = { x: 0, y: 0, w: bounds.height, h: bounds.width };
+  const floorName = floorId === 'l0' ? 'Ground Floor' : 'First Floor';
+  const prefix = floorId === 'l0' ? 'ground' : 'first';
+  const places = useMemo(
+    () => mapPlaces({ ...command.data, version: '', publishedAt: '' }),
+    [command.data],
+  );
   const graph = useMemo(
-    () => groundRouteGraph(command.data.edges, command.data.nodes),
+    () => directoryRouteGraph(command.data.edges, command.data.nodes),
     [command.data.edges, command.data.nodes],
   );
   const byId = useMemo(() => new Map(graph.nodes.map((node) => [node.id, node])), [graph.nodes]);
-  const destinations = graph.nodes
-    .filter((node) => node.type === 'tenant')
-    .map((node) => ({ value: node.id, label: node.label }));
+  const destinations = command.data.tenants.map((tenant) => ({
+    value: tenant.nodeId,
+    label: `${tenant.name} · ${tenant.floorId === 'l0' ? 'G' : '1'}`,
+  }));
   const [from, setFrom] = useState('ground-entry-starbucks');
   const [to, setTo] = useState(
-    destinations.find((item) => item.value !== 'ground-tenant-starbucks')?.value ??
+    command.data.tenants.find(
+      (tenant) => tenant.floorId === floorId && tenant.id !== 'ground-tenant-starbucks',
+    )?.nodeId ??
       destinations[0]?.value ??
       '',
   );
@@ -39,7 +63,8 @@ export default function GroundMapEditor() {
   const [issues, setIssues] = useState<string[] | null>(null);
   const drag = useRef<{ x: number; y: number; vx: number; vy: number } | null>(null);
   const route = useMemo(
-    () => (to ? findGroundDirectoryRoute(from, to, accessible, graph.edges, graph.nodes) : null),
+    () =>
+      to ? findDirectoryRoute(from, to, accessible, command.data.edges, command.data.nodes) : null,
     [from, to, accessible, graph.edges, graph.nodes],
   );
   const edge = graph.edges.find((item) => item.id === selectedEdge);
@@ -53,13 +78,17 @@ export default function GroundMapEditor() {
     }));
 
   const addNode = async (svg: SVGSVGElement, clientX: number, clientY: number) => {
-    const point = new DOMPoint(clientX, clientY).matrixTransform(svg.getScreenCTM()!.inverse());
-    const x = Math.round(point.y * 10) / 10;
-    const y = Math.round((sourceHeight - point.x) * 10) / 10;
-    if (x < 0 || x > sourceWidth || y < 0 || y > sourceHeight) return;
+    const orientation = svg.querySelector<SVGGElement>(':scope > g')!;
+    const point = new DOMPoint(clientX, clientY).matrixTransform(
+      orientation.getScreenCTM()!.inverse(),
+    );
+    const x = Math.round(point.x * 10) / 10;
+    const y = Math.round(point.y * 10) / 10;
+    if (x < bounds.x || x > bounds.x + bounds.width || y < bounds.y || y > bounds.y + bounds.height)
+      return;
     const node: RouteNode = {
-      id: `ground-custom-node-${crypto.randomUUID()}`,
-      floorId: 'l0',
+      id: `${prefix}-custom-node-${crypto.randomUUID()}`,
+      floorId,
       x,
       y,
       label: 'Walkway',
@@ -99,7 +128,7 @@ export default function GroundMapEditor() {
     }
     const length = Math.hypot(fromNode.x - toNode.x, fromNode.y - toNode.y);
     const edge: RouteEdge = {
-      id: `ground-custom-edge-${crypto.randomUUID()}`,
+      id: `${prefix}-custom-edge-${crypto.randomUUID()}`,
       fromNode: fromNode.id,
       toNode: toNode.id,
       distance: Math.max(0.01, length),
@@ -149,7 +178,7 @@ export default function GroundMapEditor() {
       command.toast(
         result.issues.length
           ? `${result.issues.length} route issue(s) found`
-          : `Ground route healthy · ${result.nodes} nodes · ${result.edges} links`,
+          : `Directory routes healthy · ${result.nodes} nodes · ${result.edges} links`,
         result.issues.length ? 'error' : 'success',
       );
     } catch (error) {
@@ -161,11 +190,27 @@ export default function GroundMapEditor() {
     <>
       <PageHeader
         title="Floors & maps"
-        subtitle="Ground Floor architecture and walking routes. The source SVG remains the map; closed walkways update kiosk directions after publishing."
+        subtitle={`${floorName} architecture and walking routes. Save edits, then publish to update the kiosk.`}
         actions={
-          <button type="button" className="btn btn-outline" onClick={validate}>
-            <Glyph name="check" size={16} /> Validate routes
-          </button>
+          <>
+            <div className="segmented" role="tablist" aria-label="Floor">
+              {directoryFloors.map((floor) => (
+                <button
+                  type="button"
+                  key={floor.id}
+                  role="tab"
+                  className={floor.id === floorId ? 'is-active' : ''}
+                  aria-selected={floor.id === floorId}
+                  onClick={() => onFloorChange?.(floor.id)}
+                >
+                  {floor.name}
+                </button>
+              ))}
+            </div>
+            <button type="button" className="btn btn-outline" onClick={validate}>
+              <Glyph name="check" size={16} /> Validate routes
+            </button>
+          </>
         }
       />
       <div className="cmd-ground-editor">
@@ -200,7 +245,7 @@ export default function GroundMapEditor() {
             className="cmd-map-svg"
             viewBox={`${view.x} ${view.y} ${view.w} ${view.h}`}
             role="img"
-            aria-label="Ground Floor architectural map and walking routes"
+            aria-label={`${floorName} architectural map and walking routes`}
             onClick={(event) => {
               if (tool === 'node' && command.can('nodes', 'write'))
                 void addNode(event.currentTarget, event.clientX, event.clientY);
@@ -225,91 +270,87 @@ export default function GroundMapEditor() {
             }}
             onWheel={(event) => zoom(event.deltaY > 0 ? 1.08 : 0.92)}
           >
-            <g transform={`translate(${sourceHeight} 0) rotate(90)`}>
-              <GroundFloor onBounds={ignore} onStatus={ignore} places={[]} onSelect={ignore} />
+            <g transform={`translate(${-bounds.y} ${bounds.x + bounds.width}) rotate(-90)`}>
+              {floorId === 'l0' ? (
+                <GroundFloor
+                  onBounds={ignore}
+                  onStatus={ignore}
+                  places={places}
+                  onSelect={(place) => setTo(place.nodeId)}
+                />
+              ) : (
+                <FirstFloor
+                  onStatus={ignore}
+                  places={places}
+                  onSelect={(place) => setTo(place.nodeId)}
+                />
+              )}
               {showNetwork &&
-                graph.edges.map((walk) => {
-                  const a = byId.get(walk.fromNode)!;
-                  const b = byId.get(walk.toNode)!;
-                  return (
-                    <line
-                      key={walk.id}
-                      x1={a.x}
-                      y1={a.y}
-                      x2={b.x}
-                      y2={b.y}
-                      stroke={walk.active ? '#3976b5' : '#d33c3c'}
-                      strokeWidth={selectedEdge === walk.id ? 5 : 2.5}
-                      strokeDasharray={walk.active ? undefined : '5 4'}
-                      opacity={0.9}
-                      className="cmd-ground-edge"
-                      pointerEvents={tool === 'select' ? 'auto' : 'none'}
+                graph.edges
+                  .filter(
+                    (walk) =>
+                      byId.get(walk.fromNode)?.floorId === floorId &&
+                      byId.get(walk.toNode)?.floorId === floorId,
+                  )
+                  .map((walk) => {
+                    const a = byId.get(walk.fromNode)!;
+                    const b = byId.get(walk.toNode)!;
+                    return (
+                      <line
+                        key={walk.id}
+                        x1={a.x}
+                        y1={a.y}
+                        x2={b.x}
+                        y2={b.y}
+                        stroke={walk.active ? '#3976b5' : '#d33c3c'}
+                        strokeWidth={selectedEdge === walk.id ? 5 : 2.5}
+                        strokeDasharray={walk.active ? undefined : '5 4'}
+                        opacity={0.9}
+                        className="cmd-ground-edge"
+                        pointerEvents={tool === 'select' ? 'auto' : 'none'}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          setSelectedEdge(walk.id);
+                        }}
+                      >
+                        <title>{`${walk.id} · ${walk.active ? 'open' : 'closed'}`}</title>
+                      </line>
+                    );
+                  })}
+              {showNetwork &&
+                graph.nodes
+                  .filter((node) => node.floorId === floorId)
+                  .map((node) => (
+                    <circle
+                      key={node.id}
+                      data-node-id={node.id}
+                      cx={node.x}
+                      cy={node.y}
+                      r={pendingNode === node.id ? 6 : node.id.includes('-custom-') ? 4.5 : 3}
+                      fill={
+                        pendingNode === node.id
+                          ? '#e67d20'
+                          : node.id.includes('-custom-')
+                            ? '#005ba8'
+                            : '#224866'
+                      }
+                      stroke="white"
+                      strokeWidth="1.5"
+                      className="cmd-ground-node"
                       onClick={(event) => {
                         event.stopPropagation();
-                        setSelectedEdge(walk.id);
+                        if (tool === 'connect') void connectNode(node.id);
                       }}
                     >
-                      <title>{`${walk.id} · ${walk.active ? 'open' : 'closed'}`}</title>
-                    </line>
-                  );
-                })}
-              {showNetwork &&
-                graph.nodes.map((node) => (
-                  <circle
-                    key={node.id}
-                    data-node-id={node.id}
-                    cx={node.x}
-                    cy={node.y}
-                    r={pendingNode === node.id ? 6 : node.id.startsWith('ground-custom-') ? 4.5 : 3}
-                    fill={
-                      pendingNode === node.id
-                        ? '#e67d20'
-                        : node.id.startsWith('ground-custom-')
-                          ? '#005ba8'
-                          : '#224866'
-                    }
-                    stroke="white"
-                    strokeWidth="1.5"
-                    className="cmd-ground-node"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      if (tool === 'connect') void connectNode(node.id);
-                    }}
-                  >
-                    <title>{`${node.label} · ${node.id}`}</title>
-                  </circle>
-                ))}
+                      <title>{`${node.label} · ${node.id}`}</title>
+                    </circle>
+                  ))}
               {route && (
-                <polyline
-                  points={route.nodes.map((node) => `${node.x},${node.y}`).join(' ')}
-                  fill="none"
-                  stroke="#fff"
-                  strokeWidth="10"
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                  pointerEvents="none"
-                />
-              )}
-              {route && (
-                <polyline
-                  points={route.nodes.map((node) => `${node.x},${node.y}`).join(' ')}
-                  fill="none"
-                  stroke="#087869"
-                  strokeWidth="5"
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                  pointerEvents="none"
-                />
-              )}
-              {route && (
-                <circle
-                  cx={route.nodes.at(-1)!.x}
-                  cy={route.nodes.at(-1)!.y}
-                  r="8"
-                  fill="#087869"
-                  stroke="white"
-                  strokeWidth="3"
-                  pointerEvents="none"
+                <GroundRoute
+                  route={route}
+                  stepIndex={null}
+                  floorId={floorId}
+                  floors={directoryFloors}
                 />
               )}
             </g>
@@ -403,9 +444,7 @@ export default function GroundMapEditor() {
                 <strong>{edge.id}</strong>
                 <span>
                   {edge.active ? 'Open' : 'Closed'} ·{' '}
-                  {edge.id.startsWith('ground-custom-')
-                    ? 'admin connection'
-                    : 'source-validated corridor'}
+                  {edge.id.includes('-custom-') ? 'admin connection' : 'source-validated corridor'}
                 </span>
                 <button
                   type="button"

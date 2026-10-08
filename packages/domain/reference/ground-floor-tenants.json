@@ -349,7 +349,8 @@
       "name": "Perona",
       "category": "fashion",
       "moduleIds": [
-        "module-9a1"
+        "module-9a1",
+        "module-9a2"
       ],
       "logo": "/brand/logo/perona.webp",
       "sourceTextIds": [
@@ -361,7 +362,10 @@
       "name": "Soulfoods",
       "category": "dining",
       "moduleIds": [
-        "module-9b"
+        "module-9b",
+        "module-9c",
+        "module-9d",
+        "module-9e"
       ],
       "logo": "/brand/logo/soul-food.jpeg",
       "sourceTextIds": [
@@ -373,8 +377,11 @@
       "name": "Coyu",
       "category": "fashion",
       "moduleIds": [
-        "module-21a"
+        "module-21a",
+        "module-21b",
+        "module-21d"
       ],
+      "labelModuleId": "module-21a",
       "logo": "/brand/logo/coyu.jpg",
       "sourceTextIds": [
         "text32152"

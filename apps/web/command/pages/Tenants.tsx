@@ -4,6 +4,11 @@ import { Glyph } from '../../icons/glyphs';
 import { HeroArt, LogoTile } from '../../shared/ui';
 import { deleteResource, errorMessage, fieldErrors, saveResource, useCommand } from '../data';
 import {
+  directoryUnits,
+  tenantForDirectoryUnit,
+} from '../../../../packages/domain/reference/architectural-directory';
+import { UploadButton } from './MediaLibrary';
+import {
   Badge,
   ColorField,
   ConfirmButton,
@@ -38,10 +43,12 @@ const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 
 
 export function blankTenant(data: ReturnType<typeof useCommand>['data']): Tenant {
   const floor = data.floors[0];
-  const node =
-    data.nodes.find((n) => n.floorId === floor?.id && n.type === 'tenant') ??
-    data.nodes.find((n) => n.floorId === floor?.id);
-  const feature = data.features.find((f) => f.floorId === floor?.id && f.kind === 'unit');
+  const available = directoryUnits.find(
+    (unit) => unit.floorId === floor?.id && !tenantForDirectoryUnit(unit, data.tenants),
+  );
+  const feature = available
+    ? data.features.find((feature) => feature.id === available.featureId)
+    : undefined;
   return {
     id: '',
     name: '',
@@ -49,8 +56,8 @@ export function blankTenant(data: ReturnType<typeof useCommand>['data']): Tenant
     categoryId: data.categories[0]?.id ?? '',
     subcategory: '',
     floorId: floor?.id ?? '',
-    unitNumber: '',
-    nodeId: node?.id ?? '',
+    unitNumber: available?.unitNumber ?? '',
+    nodeId: '',
     featureId: feature?.id ?? '',
     shortSummary: '',
     description: '',
@@ -112,11 +119,11 @@ export default function Tenants() {
         title="Tenants"
         subtitle={
           mapDirectory
-            ? `${data.tenants.length} stores on the Ground Floor map. Edit details, then publish.`
+            ? `${data.tenants.length} stores across Ground and First Floor. Assign a map unit and logo, then publish.`
             : `${data.tenants.length} stores, restaurants and services. Changes go live when you publish.`
         }
         actions={
-          canWrite && !mapDirectory ? (
+          canWrite ? (
             <button
               type="button"
               className="btn btn-primary"
@@ -262,7 +269,6 @@ function TenantEditor({
   const command = useCommand();
   const { data } = command;
   const canWrite = command.can('tenants', 'write');
-  const mapTenant = initial.id.startsWith('ground-tenant-');
   const [tenant, setTenant] = useState<Tenant>(initial);
   const [tab, setTab] = useState('basics');
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -271,15 +277,55 @@ function TenantEditor({
     setTenant((t) => ({ ...t, [key]: value }));
 
   const floorUnits = data.features.filter(
-    (f) => f.floorId === tenant.floorId && (f.kind === 'unit' || f.kind === 'amenity'),
+    (f) =>
+      f.floorId === tenant.floorId &&
+      f.kind === 'unit' &&
+      directoryUnits.some((unit) => unit.floorId === f.floorId && unit.featureId === f.id),
   );
   const floorNodes = data.nodes.filter(
     (n) =>
       n.floorId === tenant.floorId &&
       (n.type === 'tenant' || n.type === 'poi' || n.type === 'corridor'),
   );
-  const occupiedBy = (featureId: string) =>
-    data.tenants.find((t) => t.featureId === featureId && t.id !== tenant.id)?.name;
+  const occupiedBy = (featureId: string) => {
+    const unit = directoryUnits.find(
+      (unit) => unit.floorId === tenant.floorId && unit.featureId === featureId,
+    );
+    const occupant = unit && tenantForDirectoryUnit(unit, data.tenants);
+    return occupant?.id !== tenant.id ? occupant?.name : undefined;
+  };
+  const selectUnit = (featureId: string, floorId = tenant.floorId) => {
+    const unit = directoryUnits.find(
+      (unit) => unit.floorId === floorId && unit.featureId === featureId,
+    );
+    const existing = unit && tenantForDirectoryUnit(unit, data.tenants);
+    setTenant((tenant) => ({
+      ...tenant,
+      floorId,
+      featureId,
+      unitNumber: unit?.unitNumber ?? '',
+      nodeId: existing?.id === tenant.id ? existing.nodeId : '',
+    }));
+  };
+  const logoFields = (
+    <div className="is-wide">
+      <MediaPicker
+        label="Logo"
+        value={tenant.logo}
+        onChange={(value) => set('logo', value)}
+        media={data.media}
+        hint="Publish to show this logo on the selected map unit. Clear it to show the tenant name."
+      />
+      <UploadButton
+        label="Upload logo"
+        accept="image/jpeg,image/png,image/webp,image/avif"
+        onUploaded={async (asset) => {
+          set('logo', asset.url);
+          await command.reload();
+        }}
+      />
+    </div>
+  );
 
   const save = async () => {
     setBusy(true);
@@ -337,7 +383,7 @@ function TenantEditor({
       onClose={onClose}
       footer={
         <>
-          {!isNew && canWrite && !mapTenant ? (
+          {!isNew && canWrite ? (
             <ConfirmButton
               label={
                 <>
@@ -385,67 +431,61 @@ function TenantEditor({
       ) : null}
       <fieldset className="cmd-form" disabled={!canWrite}>
         {tab === 'basics' ? (
-          mapTenant ? (
-            <div className="notice is-wide">
-              <strong>{tenant.name}</strong> is linked to map unit {tenant.unitNumber}. The name,
-              category and map position follow the Ground Floor plan.
-            </div>
-          ) : (
-            <>
+          <>
+            <TextField
+              label="Tenant name"
+              value={tenant.name}
+              onChange={(v) => set('name', v)}
+              error={errors.name}
+            />
+            <TextField
+              label="Trading name"
+              value={tenant.tradingName}
+              onChange={(v) => set('tradingName', v)}
+              hint="Shown if different from the name"
+            />
+            {isNew ? (
               <TextField
-                label="Tenant name"
-                value={tenant.name}
-                onChange={(v) => set('name', v)}
-                error={errors.name}
+                label="ID (optional)"
+                value={tenant.id}
+                onChange={(v) => set('id', v)}
+                hint="Leave blank to generate from the name"
+                error={errors.id}
               />
-              <TextField
-                label="Trading name"
-                value={tenant.tradingName}
-                onChange={(v) => set('tradingName', v)}
-                hint="Shown if different from the name"
-              />
-              {isNew ? (
-                <TextField
-                  label="ID (optional)"
-                  value={tenant.id}
-                  onChange={(v) => set('id', v)}
-                  hint="Leave blank to generate from the name"
-                  error={errors.id}
-                />
-              ) : null}
-              <SelectField
-                label="Category"
-                value={tenant.categoryId}
-                onChange={(v) => set('categoryId', v)}
-                options={data.categories.map((c) => ({ value: c.id, label: c.name }))}
-                error={errors.categoryId}
-              />
-              <TextField
-                label="Subcategory"
-                value={tenant.subcategory}
-                onChange={(v) => set('subcategory', v)}
-                hint="e.g. Italian restaurant, Sportswear & footwear"
-              />
-              <SelectField
-                label="Status"
-                value={tenant.status}
-                onChange={(v) => set('status', v as Tenant['status'])}
-                options={tenantStatuses.map((s) => ({ value: s, label: statusLabel[s] }))}
-              />
-              <ColorField
-                label="Brand colour"
-                value={tenant.brandColor}
-                onChange={(v) => set('brandColor', v)}
-                error={errors.brandColor}
-              />
-              <ToggleField
-                label="Anchor store"
-                checked={tenant.anchor}
-                onChange={(v) => set('anchor', v)}
-                hint="Anchors get larger map labels and appear first in results"
-              />
-            </>
-          )
+            ) : null}
+            <SelectField
+              label="Category"
+              value={tenant.categoryId}
+              onChange={(v) => set('categoryId', v)}
+              options={data.categories.map((c) => ({ value: c.id, label: c.name }))}
+              error={errors.categoryId}
+            />
+            <TextField
+              label="Subcategory"
+              value={tenant.subcategory}
+              onChange={(v) => set('subcategory', v)}
+              hint="e.g. Italian restaurant, Sportswear & footwear"
+            />
+            <SelectField
+              label="Status"
+              value={tenant.status}
+              onChange={(v) => set('status', v as Tenant['status'])}
+              options={tenantStatuses.map((s) => ({ value: s, label: statusLabel[s] }))}
+            />
+            <ColorField
+              label="Brand colour"
+              value={tenant.brandColor}
+              onChange={(v) => set('brandColor', v)}
+              error={errors.brandColor}
+            />
+            <ToggleField
+              label="Anchor store"
+              checked={tenant.anchor}
+              onChange={(v) => set('anchor', v)}
+              hint="Anchors get larger map labels and appear first in results"
+            />
+            {logoFields}
+          </>
         ) : null}
         {tab === 'profile' ? (
           <>
@@ -771,21 +811,7 @@ function TenantEditor({
         ) : null}
         {tab === 'media' ? (
           <>
-            {mapTenant ? (
-              <div className="cmd-field">
-                <label>Brand logo</label>
-                <LogoTile tenant={tenant} size={72} />
-                <small>Loaded from the Ground Floor brand assets.</small>
-              </div>
-            ) : (
-              <MediaPicker
-                label="Logo"
-                value={tenant.logo}
-                onChange={(v) => set('logo', v)}
-                media={data.media}
-                hint="Square artwork works best. Without a logo, a brand-colour tile is generated."
-              />
-            )}
+            {logoFields}
             <MediaPicker
               label="Hero image"
               value={tenant.heroImage}
@@ -837,65 +863,56 @@ function TenantEditor({
           </>
         ) : null}
         {tab === 'location' ? (
-          mapTenant ? (
-            <div className="notice is-wide">
-              {tenant.name} is assigned to map unit {tenant.unitNumber} on the Ground Floor. Its
-              position is set by the floor plan.
-            </div>
-          ) : (
-            <>
-              <SelectField
-                label="Floor"
-                value={tenant.floorId}
-                onChange={(v) => {
-                  const unit = data.features.find((f) => f.floorId === v && f.kind === 'unit');
-                  const node = data.nodes.find((n) => n.floorId === v && n.type === 'tenant');
-                  setTenant((t) => ({
-                    ...t,
-                    floorId: v,
-                    featureId: unit?.id ?? '',
-                    nodeId: node?.id ?? '',
-                  }));
-                }}
-                options={data.floors.map((f) => ({
-                  value: f.id,
-                  label: `${f.shortName} · ${f.theme}`,
-                }))}
-                error={errors.floorId}
-              />
-              <TextField
-                label="Unit number"
-                value={tenant.unitNumber}
-                onChange={(v) => set('unitNumber', v)}
-                error={errors.unitNumber}
-              />
-              <SelectField
-                label="Map unit"
-                value={tenant.featureId}
-                onChange={(v) => set('featureId', v)}
-                options={[
-                  { value: '', label: 'Choose a unit…' },
-                  ...floorUnits.map((f) => ({
+          <>
+            <SelectField
+              label="Floor"
+              value={tenant.floorId}
+              onChange={(v) => {
+                const unit = directoryUnits.find(
+                  (unit) => unit.floorId === v && !tenantForDirectoryUnit(unit, data.tenants),
+                );
+                selectUnit(unit?.featureId ?? '', v);
+              }}
+              options={data.floors.map((f) => ({
+                value: f.id,
+                label: f.id === 'l0' ? 'Ground Floor' : f.id === 'l1' ? 'First Floor' : f.name,
+              }))}
+              error={errors.floorId}
+            />
+            <TextField
+              label="Unit number"
+              value={tenant.unitNumber}
+              onChange={(v) => set('unitNumber', v)}
+              error={errors.unitNumber}
+            />
+            <SelectField
+              label="Map unit"
+              value={tenant.featureId}
+              onChange={(v) => selectUnit(v)}
+              options={[
+                { value: '', label: 'Choose a unit…' },
+                ...floorUnits
+                  .filter((f) => !occupiedBy(f.id))
+                  .map((f) => ({
                     value: f.id,
-                    label: `${f.label}${occupiedBy(f.id) ? ` (currently ${occupiedBy(f.id)})` : ''}`,
+                    label: directoryUnits.find((unit) => unit.featureId === f.id)?.label ?? f.label,
                   })),
-                ]}
-                error={errors.featureId}
-                hint="Draw or edit unit shapes in Floors & Maps"
-              />
-              <SelectField
-                label="Entrance node (route destination)"
-                value={tenant.nodeId}
-                onChange={(v) => set('nodeId', v)}
-                options={[
-                  { value: '', label: 'Choose a node…' },
-                  ...floorNodes.map((n) => ({ value: n.id, label: `${n.label} · ${n.id}` })),
-                ]}
-                error={errors.nodeId}
-                hint="Visitors are routed to this node"
-              />
-            </>
-          )
+              ]}
+              error={errors.featureId}
+              hint="Choose an available unit. Its name or logo appears inside that unit after publishing."
+            />
+            <SelectField
+              label="Entrance node (route destination)"
+              value={tenant.nodeId}
+              onChange={(v) => set('nodeId', v)}
+              options={[
+                { value: '', label: 'Choose a node…' },
+                ...floorNodes.map((n) => ({ value: n.id, label: `${n.label} · ${n.id}` })),
+              ]}
+              error={errors.nodeId}
+              hint="Choose the confirmed entrance. Add and connect a node in Floors & Maps if needed."
+            />
+          </>
         ) : null}
         {tab === 'translations' ? (
           <>

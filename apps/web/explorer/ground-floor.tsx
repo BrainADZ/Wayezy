@@ -5,6 +5,7 @@ import type { MapPlace } from './explorer-model';
 import './ground-directory.css';
 import compiledModel from '../../../packages/domain/reference/ground-floor-model.json';
 import prepared from '../../../packages/domain/reference/ground-floor-prepared.json';
+import { updateDirectoryContent } from './directory-live-content';
 
 export const GROUND_FLOOR_SOURCE = '/maps/ground-floor-master.svg';
 export type GroundFloorStatus = { state: 'loading' | 'ready' | 'error'; message?: string };
@@ -24,7 +25,7 @@ export function GroundFloor({
   places: MapPlace[];
   selectedId?: string;
   matchingIds?: string[];
-  originPoint?: { x: number; y: number };
+  originPoint?: { x: number; y: number } | null;
   onSelect: (place: MapPlace) => void;
 }) {
   const host = useRef<SVGGElement>(null);
@@ -58,6 +59,7 @@ export function GroundFloor({
         if (disposed) return;
         const registry = compiledModel;
         sourceRef.current = source;
+        updateDirectoryContent(source, 'l0', live.current.places);
         updateDirectoryState(source, live.current.selectedId, live.current.matchingIds);
         updateDirectoryOriginPin(source, live.current.originPoint);
         onBounds(registry.bounds);
@@ -91,12 +93,17 @@ export function GroundFloor({
     };
   }, [onBounds, onStatus]);
   useEffect(() => {
+    if (!sourceRef.current) return;
+    updateDirectoryContent(sourceRef.current, 'l0', places);
+    updateDirectoryState(sourceRef.current, selectedId, matchingIds, hovered.current);
+  }, [places]);
+  useEffect(() => {
     if (sourceRef.current)
       updateDirectoryState(sourceRef.current, selectedId, matchingIds, hovered.current);
   }, [selectedId, matchingIds]);
   useEffect(() => {
     if (sourceRef.current) updateDirectoryOriginPin(sourceRef.current, originPoint);
-  }, [originPoint?.x, originPoint?.y]);
+  }, [originPoint === null, originPoint?.x, originPoint?.y]);
   function select(target: EventTarget) {
     const id = (target as Element).closest('[data-place-id]')?.getAttribute('data-place-id');
     const place = live.current.places.find((p) => p.id === id);
